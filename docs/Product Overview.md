@@ -11,13 +11,13 @@
 		Dynamic
 			Home
 			Problem Statements
-			Products
+			Products (List, Detail)
 			Leaderboard
 		Static
 			Student Signup			
 			Mentor Signup
 
-	Student/Mentor Pages 
+	Student/Mentor Pages
 		Profile Edit
 		Interest Areas Update
 		
@@ -35,8 +35,7 @@
 	Problem Statement Creation Flow
 		  
 ### Domain Entities
-	* Problem Statement *
-
+	Problem Statement
 	Product / Solution
 	Partner, Partner Organisation
 	Collaborator (Student, Mentor)
