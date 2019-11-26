@@ -4,30 +4,30 @@ Goals
 What we don't want to do
 
 # Product Overview
-	# Information Architecture
-		## Personas
-			 Collaborator(Student, Mentor)
-			 Partner
-	  ## Information Flow
+	Information Architecture
+		Personas
+			Collaborator(Student, Mentor)
+			Partner
+		Information Flow
 		  Signup Flow
 		  Problem Statement Creation Flow
 		  
-	  ## Application Interface
-		  List of Pages
+	Application Interface
+		List of Pages
 
-		  Public
-			  Dynamic
-			  Static
-			User Pages
-		  Admin Pages
+		Public
+			Dynamic
+			Static
+		User Pages
+		Admin Pages
 		  
-	# Domain Entities
+	Domain Entities
 		Problem Statement		
 		Product / Solution
 		Partner, Partner Organisation
 		Collaborator (Student, Mentor)
 		
-	# Business Model Canvas
+	Business Model Canvas
 		
 # Roadmap
 Groundwork
@@ -44,18 +44,18 @@ Version 2
 Version 3
 
 # Maintainer Guidelines
-	# 	Branching
-	# Pull Requests
+	Branching
+	Pull Requests
 		Accepting
 	
 
 # Contributor Guidelines
-	# Git Workflow
-		# Pull Requests
-			# Unit Test
-	# Code Style
-	# Technical Guidelines
-		# Unit Tests
+	Git Workflow
+		Pull Requests
+			Unit Test
+	Code Style
+	Technical Guidelines
+		Unit Tests
 	
 
 	
