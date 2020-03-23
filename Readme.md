@@ -12,6 +12,6 @@ If you are a developer or designer please refer to the documentation outlined be
 4. Contributor Guidelines
 5. Maintainer Guidelines
 
-Supported & Maintained by 
-Center For Technology And Social Change
+Supported & Maintained by   
+Center For Technology And Social Change  
 contact@ctsc-india.org
