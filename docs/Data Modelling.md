@@ -30,9 +30,35 @@
 
 
 # Member
+    |attribute| type | db column name 
+    
     id 
     *project |||project_id|
     *Member Type | String ||Ex: Contributor, Mentor|
+    Name | String
+    Email 
+    Mobile
+    Github link
+    LinkedIn Link
+    HFC Center/Chapter Name
+# HFC Center
+    |attribute| type | db column name 
+    
+    id |integer
+    Center Name |String
+    Website Link |
+    Contact Person Name |
+    Contact Person Email
+    Contact Person Mobile
+    Project |project_name
+# HFC Chapter
+    |attribute| type | db column name 
+    
+    id |integer
+    Chapter Name |String
+    Project |project_name
+    
+    
 
 # Project    
     |attribute| type | db column name | context, examples, possible values, assumptions
