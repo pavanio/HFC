@@ -3,7 +3,9 @@ Note(s):
 * items are still under debate
 Any "text" field is assumed to be styleable using markup/plugins
 
-# Problem Statement | problem_statements
+# HFC Core
+    
+    ## Problem Statement | problem_statements
 
     Attribute | Type | DB Name
     ---|---|---
@@ -16,7 +18,7 @@ Any "text" field is assumed to be styleable using markup/plugins
     Submitted By Which Partner | id | partner_id
     Status | String | status| Possible Values: "New / Open", "Work In Progress", "Resolved"
 
-# Partner Information | partners
+    ## Partner Information | partners    
     |attribute| type | db column name | context, examples, possible values, assumptions
     
     Name | String | name | factly
@@ -30,7 +32,7 @@ Any "text" field is assumed to be styleable using markup/plugins
     Primary Contact Number||| +91 8888, We should be able to accept international numbers as well
     Primary Contact Email
 
-# Member | members
+    ## Member | members**
     |attribute| type | db column name | examples, possible values, assumptions | required / optional
         
     Name | String
@@ -41,13 +43,10 @@ Any "text" field is assumed to be styleable using markup/plugins
     LinkedIn Profile
     HFC Organization | integer | organization_id | Ex: 2 
     HFC Organization Type | String | organination_type | "Chapter"
-    Level Of Expertise |String| level_of_expertise | Possible Values: "Entry Level, Intermediate, 
-    Advanced, Expert" | required
-    Areas Of Expertise | String | areas_of_expertise | Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management, " | required
-    *Screening Status | String | status | Possible Values: "Passed, On Hold, Open"
-    *Assigned Project |integer| project_id| Ex: 1 | optional
+    *Assigned Project | integer | project_id| Ex: 1 | optional
+    *Screening Status | integer | 
 
-# HFC Organization (Chapter or a Center) | organizations
+    ## HFC Organization (Chapter or a Center) | organizations
     |attribute| type | db column name | examples, possible values, assumptions | required / optional
     
     Organization Name | String | 
@@ -57,7 +56,7 @@ Any "text" field is assumed to be styleable using markup/plugins
     Co-ordinator Mobile
     Organization Type | String| type | Possible Values: "Center, Chapter"
 
-# Project | projects
+    ## Project | projects
     |attribute| type | db column name | context, examples, possible values, assumptions
     
     Name | 
@@ -66,3 +65,29 @@ Any "text" field is assumed to be styleable using markup/plugins
     Website Link | 
     Goal | Text | goal | 
     *Funded By | String | funded_by | Ex: "Facebook, Github, Microsoft"
+
+# Screening App
+    Our Screening app is intented to screen any technical, non-technical individual based on his own level of expertise. 
+        - Randomized so that not everyone is seeing the same test
+        - every screening can be given a passing criteria
+
+    ## Candidates | candidates
+    Level Of Expertise |String| level_of_expertise | Possible Values: "Entry Level, Intermediate, 
+    Advanced, Expert" | required
+    Areas Of Expertise | String | areas_of_expertise | Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management, " | required
+    *Screening Points | integer | status | Possible Values: "Passed, On Hold, Open"
+
+    # Screening
+        - A series of questions randomly chosen for a particular candidate based on his level and areas of expertise
+        - Once completed we should able to evaluate and store how he is scoring on the screening
+        - Also mark if someone passed or not
+
+    ## Screeing Questions
+    
+    - Mutliple question types
+        - yes or no
+        - long answer
+        - mutiple choice
+    
+    ## Options
+
