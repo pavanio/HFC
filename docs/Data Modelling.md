@@ -1,26 +1,28 @@
+Note(s):
+
 * items are still under debate
+Any "text" field is assumed to be styleable using markup/plugins
 
 # Problem Statement | problem_statements
 
     Attribute | Type | DB Name
     ---|---|---
 
-    id | integer | id
     Title | String | title
     Summary | Text | summary
     Background Information
     Related Links
     Proposed Solution
-    Partner Information | id | partner_id
+    Submitted By Which Partner | id | partner_id
     Status | String | status| Possible Values: "New / Open", "Work In Progress", "Resolved"
 
-# Partner Information | partner
+# Partner Information | partners
     |attribute| type | db column name | context, examples, possible values, assumptions
     
-    id | integer | id | 
     Name | String | name | factly
     Website | | | http://www.factly.in/
     Partner Brief ||| Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
+    Partner Type |String| type| Possible Values: "Non Governmental Organization, Governmental Organization, Private Organization"
     Contact Phone Number
     Contact Email
     Logo
@@ -28,47 +30,39 @@
     Primary Contact Number||| +91 8888, We should be able to accept international numbers as well
     Primary Contact Email
 
-
-# Member
-    |attribute| type | db column name 
-    
-    id 
-    *project |||project_id|
-    *Member Type | String ||Ex: Contributor, Mentor|
+# Member | members
+    |attribute| type | db column name | examples, possible values, assumptions | required / optional
+        
     Name | String
     Email 
     Mobile
-    Github link
-    LinkedIn Link
-    HFC Center/Chapter Name
-    Level Of Expertise
-# HFC Center
-    |attribute| type | db column name 
+    Member Type | String |type | Ex: Contributor, Mentor| required    
+    Github Profile
+    LinkedIn Profile
+    HFC Organization | integer | organization_id | Ex: 2 
+    HFC Organization Type | String | organination_type | "Chapter"
+    Level Of Expertise |String| level_of_expertise | Possible Values: "Entry Level, Intermediate, 
+    Advanced, Expert" | required
+    Areas Of Expertise | String | areas_of_expertise | Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management, " | required
+    *Screening Status | String | status | Possible Values: "Passed, On Hold, Open"
+    *Assigned Project |integer| project_id| Ex: 1 | optional
+
+# HFC Organization (Chapter or a Center) | organizations
+    |attribute| type | db column name | examples, possible values, assumptions | required / optional
     
-    id |integer
-    Center Name |String
-    Website Link |
-    Center Co-ordinator Name |
+    Organization Name | String | 
+    Website Link | String | website ||
+    Co-ordinator Name | String | coordinator_name
     Co-ordinator Email
     Co-ordinator Mobile
-    Project |project_name
-# HFC Chapter
-    |attribute| type | db column name 
-    
-    id |integer
-    Chapter Name |String
-    Project |project_name
-    
-    
+    Organization Type | String| type | Possible Values: "Center, Chapter"
 
-# Project    
+# Project | projects
     |attribute| type | db column name | context, examples, possible values, assumptions
     
-    id | integer | id | 
-    Name |    
+    Name | 
     Project Link | Github link
-    Website Link |
-
-
-
-
+    Project Description |
+    Website Link | 
+    Goal | Text | goal | 
+    *Funded By | String | funded_by | Ex: "Facebook, Github, Microsoft"
