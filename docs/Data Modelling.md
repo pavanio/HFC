@@ -10,60 +10,60 @@ Any "text" field is assumed to be styleable using markup/plugins
     Attribute | Type | DB Name
     ---|---|---
 
-    Title | String | title
-    Summary | Text | summary
-    Background Information
-    Related Links
-    Proposed Solution
-    Submitted By Which Partner | id | partner_id
-    Status | String | status| Possible Values: "New / Open", "Work In Progress", "Resolved"
+    Title | String | title | required
+    Summary | Text | summary | required
+    Background Information |Text | background_info | required
+    Related Links |String |related_link | required
+    Proposed Solution | Text | proposed_solution | required
+    Submitted By Which Partner | id | partner_id | required
+    Status | String | status|  required | Possible Values: "New / Open", "Work In Progress", "Resolved"
 
     ## Partner Information | partners    
     |attribute| type | db column name | context, examples, possible values, assumptions
     
-    Name | String | name | factly
-    Website | | | http://www.factly.in/
-    Partner Brief ||| Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
-    Partner Type |String| type| Possible Values: "Non Governmental Organization, Governmental Organization, Private Organization"
-    Contact Phone Number
-    Contact Email
-    Logo
-    Primary Contact Name ||| Rakesh Dubbudu
-    Primary Contact Number||| +91 8888, We should be able to accept international numbers as well
-    Primary Contact Email
+    Name | String | name | required | Ex:factly
+    Website |String  | website | required |  Ex: http://www.factly.in/
+    Partner Brief | Text| partner_desc| required |  Ex: Factly is a Hyderabad based fact checking organization focused on fake news         detection and educaition
+    Partner Type |String| type| required | Possible Values: "Non Governmental Organization, Governmental Organization, Private               Organization"
+    Contact Phone Number | String |phone_number | optional 
+    Contact Email | String | email | required
+    Logo | Image | logo | optional
+    Primary Contact Name | String | primary_contact_name | required | Ex: Rakesh Dubbudu
+    Primary Contact Number| String | primary_contact_number| required |Ex: +91 8888, We should be able to accept international numbers       as well
+    Primary Contact Email | String | primary_contact_email | required 
 
     ## Member | members**
     |attribute| type | db column name | examples, possible values, assumptions | required / optional
         
-    Name | String
-    Email 
-    Mobile
+    Name | String | name | required
+    Email | String | email | required  
+    Mobile | String | mobile |  required 
     Member Type | String |type | Ex: Contributor, Mentor| required    
-    Github Profile
-    LinkedIn Profile
-    HFC Organization | integer | organization_id | Ex: 2 
-    HFC Organization Type | String | organination_type | "Chapter"
+    Github Profile | String |github_profile | required
+    LinkedIn Profile String | linkedin_profile | required
+    HFC Organization | integer | organization_id |required |  Ex: 2 
+    HFC Organization Type | String | organination_type | required | "Chapter"
     *Assigned Project | integer | project_id| Ex: 1 | optional
-    *Screening Status | integer | 
+    *Screening Status | integer | screening_score
 
     ## HFC Organization (Chapter or a Center) | organizations
     |attribute| type | db column name | examples, possible values, assumptions | required / optional
     
-    Organization Name | String | 
-    Website Link | String | website ||
-    Co-ordinator Name | String | coordinator_name
-    Co-ordinator Email
-    Co-ordinator Mobile
-    Organization Type | String| type | Possible Values: "Center, Chapter"
+    Organization Name | String |organization_name |  required | Ex:JNTU, GRIET 
+    Website Link | String | website | Ex:JNTU Website link| optional
+    Co-ordinator Name | String | coordinator_name | required
+    Co-ordinator Email | String |coordinator_email | required
+    Co-ordinator Mobile | String | coordinator_mobile | required
+    Organization Type | String| type | Possible Values: "Center, Chapter" | required
 
     ## Project | projects
     |attribute| type | db column name | context, examples, possible values, assumptions
     
-    Name | 
-    Project Link | Github link
-    Project Description |
-    Website Link | 
-    Goal | Text | goal | 
+    Name | String | name | required 
+    Project Link | String | project_link| required | Ex: Github link
+    Project Description | Text | project_desc | required
+    Website Link | String | website_link | required
+    Goal | Text | goal | required 
     *Funded By | String | funded_by | Ex: "Facebook, Github, Microsoft"
 
 # Screening App
