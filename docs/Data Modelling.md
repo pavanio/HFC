@@ -41,15 +41,16 @@
     Github link
     LinkedIn Link
     HFC Center/Chapter Name
+    Level Of Expertise
 # HFC Center
     |attribute| type | db column name 
     
     id |integer
     Center Name |String
     Website Link |
-    Contact Person Name |
-    Contact Person Email
-    Contact Person Mobile
+    Center Co-ordinator Name |
+    Co-ordinator Email
+    Co-ordinator Mobile
     Project |project_name
 # HFC Chapter
     |attribute| type | db column name 
