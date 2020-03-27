@@ -39,7 +39,7 @@ Any "text" field is assumed to be styleable using markup/plugins
     Email | String | email | required  
     Mobile | String | mobile |  required 
     Member Type | String |type | Ex: Contributor, Mentor| required    
-    Github Profile | String |github_profile | required
+    Github Profile | String | coder_profile | required
     LinkedIn Profile String | linkedin_profile | required
     HFC Organization | integer | organization_id |required |  Ex: 2 
     HFC Organization Type | String | organination_type | required | "Chapter"
@@ -49,12 +49,13 @@ Any "text" field is assumed to be styleable using markup/plugins
     ## HFC Organization (Chapter or a Center) | organizations
     |attribute| type | db column name | examples, possible values, assumptions | required / optional
     
-    Organization Name | String |organization_name |  required | Ex:JNTU, GRIET 
+    Organization Name | String | organization_name |  required | Ex:JNTU, GRIET 
+    Organization Type | String| type | Possible Values: "Center, Chapter" | required
     Website Link | String | website | Ex:JNTU Website link| optional
     Co-ordinator Name | String | coordinator_name | required
-    Co-ordinator Email | String |coordinator_email | required
+    Co-ordinator Email | String | coordinator_email | required
     Co-ordinator Mobile | String | coordinator_mobile | required
-    Organization Type | String| type | Possible Values: "Center, Chapter" | required
+    
 
     ## Project | projects
     |attribute| type | db column name | context, examples, possible values, assumptions
@@ -63,7 +64,7 @@ Any "text" field is assumed to be styleable using markup/plugins
     Project Link | String | project_link| required | Ex: Github link
     Project Description | Text | project_desc | required
     Website Link | String | website_link | required
-    Goal | Text | goal | required 
+    Goal | Text | goal | required
     *Funded By | String | funded_by | Ex: "Facebook, Github, Microsoft"
 
 # Screening App
