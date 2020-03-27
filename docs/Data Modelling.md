@@ -92,4 +92,31 @@ Any "text" field is assumed to be styleable using markup/plugins
         - mutiple choice
     
     ## Options
+    
+    ## Candidate | candidate
+    |attribute| type | db column name | examples, possible values, assumptions | required / optional
+    
+    Name | String | name | required
+    Email | String | email | required
+    Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required
+    Area of Expertise | String | area_of_expertse |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management
+    | required
+    
+    ## Question | question
+    |attribute| type | db column name | examples, possible values, assumptions | required / optional
+    
+    Question | String | question | required
+    Option 1 | String | option_1 | required
+    Option 2 | String | option_2 | required
+    Option 3 | String | option_3 | required
+    Option 4 | String | option_4 | required
+    Answer | String | answer | required
+    Category | Integer | category_id | required
+    
+    ## Category | category
+     |attribute| type | db column name | examples, possible values, assumptions | required / optional
+     
+     Categoer Id | Integer | category_id
+     Ctaegory Name | String | category_name | required | Ex:Python, HTML,CSS etc
+    
 
