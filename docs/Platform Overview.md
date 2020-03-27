@@ -104,7 +104,3 @@ A platform where we can curate and highlight problem statements shared by other 
 	   
 		   		-> Member is assigned to a particular project (Only project that already have a mentor assigned and ready can be assigned to new members)
 		   		-> Send a welcome email to the member with the links to the project connecting the mentor and the project members as well.
-
-
-
-
