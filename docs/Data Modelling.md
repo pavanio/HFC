@@ -16,7 +16,7 @@ Any "text" field is assumed to be styleable using markup/plugins
     Related Links |String |related_link | required
     Proposed Solution | Text | proposed_solution | required
     Submitted By Which Partner | id | partner_id | required
-    Status | String | status|  required | Possible Values: "New / Open", "Work In Progress", "Resolved"
+    Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"
 
     ## Partner Information | partners    
     |attribute| type | db column name | context, examples, possible values, assumptions
@@ -62,6 +62,7 @@ Any "text" field is assumed to be styleable using markup/plugins
     
     Name | String | name | required 
     Project Link | String | project_link| required | Ex: Github link
+    Project Icon | String | project_icon
     Project Description | Text | project_desc | required
     Website Link | String | website_link | required
     Goal | Text | goal | required
