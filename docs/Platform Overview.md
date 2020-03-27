@@ -3,12 +3,13 @@ A platform where we can curate and highlight problem statements shared by other 
 
 # Goals
 - Show all problem statements and their detail
-- Engage developer, desinger community in the best way possible
+- Engage developer, designer community in the best way possible
 - Highlight the solutions that the community has built under this collaboration
 
 - Problem Statement List Page, Problem Statement Detail Page
 	- Admin Panel to Create Partners
 	- Admin Panel to create problem statements on partners behalf
+	- Add a way for us to accept problem statements submitted by people
 
 - Builing Online Communities
 	- Leaderboard
@@ -20,16 +21,20 @@ A platform where we can curate and highlight problem statements shared by other 
 	- Signup
 		- Contributor
 		- Mentor
+		- *Project Co-Ordinator
 
 # Domain Overview
 
 - Partner Organization
-	Partner is typically an organization who have been active in the social change (posittive change) space for more than 10+ years. 
-	Ex: Factly, Foundation For Democratic Reform, Center For Policy Research, Center For Developing Societies
+	Partner is typically an organization who has been active in the social change (posittive change) space for more than 10+ years. Or, a govermental organization / department which is keen to engage the developer community through their problem statements.
+
+	Ex: Non-Governmental Organization (Factly, Foundation For Democratic Reform, Center For Policy Research, Center For Developing Societies),
+
+	Ex: Governmental Organization (GHMC, Meity, Nasscom Foundation)
 
 - Member
-	Members can signup to either join a particular chapter or a centre to contributue their coding time or even mentor a whole team of contributors.
-	- Contributor (With different level of expertise, entry level, intermediate, expert)
+	Members can signup to either join a particular chapter or a centre to contribute their coding time or even mentor a whole team of contributors.
+	- Contributor (With a different level of expertise, entry-level, intermediate, expert)
 	- Mentor (Intermediate, Expert)
 
 - HFC Centre
@@ -37,7 +42,7 @@ A platform where we can curate and highlight problem statements shared by other 
 	Ex: JNTU HFC Center, GRIET Center
 
 - HFC Chapter
-	Chapter is a loosely coupled group of contributors who are involved only part-time
+	The chapter is a loosely coupled group of contributors who are involved only part-time
 	Ex: City Chapters (Hyderabad Chapter)
 
 - Problem Statement(s)
@@ -50,7 +55,7 @@ A platform where we can curate and highlight problem statements shared by other 
 
 	## Features
 
-		- Admin Panel / CMS
+		- Admin Panel / CMS (Private)
 			- Manage Partner (s)
 			- Manage Problem Statement(s)
 			- Manage Member(s)
@@ -58,23 +63,24 @@ A platform where we can curate and highlight problem statements shared by other 
 			- Manage HFC Center(s)
 			- Manage Projects(Solutions)
 
-		- Static Pages
+		- Static Pages (Public)
 			- Home
 
-		- Dynamic Pages
+		- Dynamic Pages (Public)
 			- List of Problem Statements
-			- Problem Statement Detail
+				- Problem Statement Detail
+				- Submit A Problem Statement
 			- Leaderboard Page
 				- HFC Centers
 				- HFC Chapters
-				
-				- Contributor Wise
 
-		- Sigup Forms
+				- *Contributor Wise
+
+		- Sigup Forms (Public)
 			- Contributor
 			- Mentor
 
-		- Screening Form
+		- Screening Form (Public)
 			- Screening should change based on level of expertise a person has
 				- Entry level is for college students
 				- Intermediate is for 2+ of experience people
