@@ -1,6 +1,6 @@
 Note(s):
 
-* items are still under debate
+* items are still under debate  
 Any "text" field is assumed to be styleable using markup/plugins
 
 # HFC Core
