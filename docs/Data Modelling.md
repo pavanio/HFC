@@ -1,6 +1,6 @@
 Note(s):
 
-* items are still under debate
+* items are still under debate  
 Any "text" field is assumed to be styleable using markup/plugins
 
 ------------------------------------------------------------------------------------------------------
@@ -82,8 +82,73 @@ TFC App (See this as something that applies for any organization)
     User Name | String | user_name | required
     Password | String | password | required
 
+<<<<<<< HEAD
 ## Volunteer Information | volunteer
  |attribute| type | db column name | context, examples, possible values, assumptions
+=======
+    ## Project | projects
+    |attribute| type | db column name | context, examples, possible values, assumptions
+    
+    Name | String | name | required 
+    Project Link | String | project_link| required | Ex: Github link
+    Project Icon | String | project_icon
+    Project Description | Text | project_desc | required
+    Website Link | String | website_link | required
+    Goal | Text | goal | required
+    *Funded By | String | funded_by | Ex: "Facebook, Github, Microsoft"
+
+# Screening App
+    Our Screening app is intented to screen any technical, non-technical individual based on his own level of expertise. 
+        - Randomized so that not everyone is seeing the same test
+        - every screening can be given a passing criteria
+
+    ## Candidates | candidates
+    Level Of Expertise |String| level_of_expertise | Possible Values: "Entry Level, Intermediate, 
+    Advanced, Expert" | required
+    Areas Of Expertise | String | areas_of_expertise | Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management, " | required
+    *Screening Points | integer | status | Possible Values: "Passed, On Hold, Open"
+
+    # Screening
+        - A series of questions randomly chosen for a particular candidate based on his level and areas of expertise
+        - Once completed we should able to evaluate and store how he is scoring on the screening
+        - Also mark if someone passed or not
+
+    ## Screeing Questions
+    
+    - Mutliple question types
+        - yes or no
+        - long answer
+        - mutiple choice
+    
+    ## Options
+    
+    ## Candidate | candidate
+    |attribute| type | db column name | examples, possible values, assumptions | required / optional
+    
+    Name | String | name | required
+    Email | String | email | required
+    Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required
+    Area of Expertise | String | area_of_expertse |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management
+    | required
+    
+    ## Question | question
+    |attribute| type | db column name | examples, possible values, assumptions | required / optional
+    
+    Question | String | question | required
+    Option 1 | String | option_1 | required
+    Option 2 | String | option_2 | required
+    Option 3 | String | option_3 | required
+    Option 4 | String | option_4 | required
+    Answer | String | answer | required
+    Category | Integer | category_id | required
+    
+    ## Category | category
+     |attribute| type | db column name | examples, possible values, assumptions | required / optional
+     
+     Categoer Id | Integer | category_id
+     Ctaegory Name | String | category_name | required | Ex:Python, HTML,CSS etc
+    
+>>>>>>> 768876be21587971d69d1b770d60a4524c3e6e1d
 
 ------------------------------------------------------------------------------------------------------
 Screening App
