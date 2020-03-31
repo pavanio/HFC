@@ -1,3 +1,33 @@
+# User Stories
+
+# User Flows
+    ## Signup Flow
+        Need: Flow Charts
+
+        - Mentor Signup
+            -> Signup Form Completed
+            -> Application creates a member in the system and Sends a Welcome Email with Screening link 
+            -> Based on the level of expertise mentioned during the signup, we generate a link for screening and include that in the email	   		
+            -> On Screening Completion we mark a particular member as mentor and verified/selected or on hold and send a confirmation / intimation email to the mentor (also asking them to review few links)
+
+            # Mentor To be Assigned to a project	(Admin Panel)
+    
+            -> Mentor is assigned to a particular project (Only one project per mentor)
+            -> Send a welcome email to the mentor with the links to the project
+
+        - Contributor Signup
+            -> Signup Form Completed
+            -> Application creates a member in the system and Sends a Welcome Email with Screening link 
+            -> Based on the level of expertise mentioned during the signup, we generate a link for screening and include that in the email	   		
+            -> On Screening Completion we mark a particular member as verified/selected or on hold and send a confirmation / intimation email to the member (also asking them to cotribute to hackforchange project itself)
+
+            # Contributor To be Assigned to a project	(Admin Panel)
+    
+                -> Member is assigned to a particular project (Only project that already have a mentor assigned and ready can be assigned to new members)
+                -> Send a welcome email to the member with the links to the project connecting the mentor and the project members as well.
+# Architecture
+
+
 * Do not depend on this file. Too many conflicting and undecided opinions
 
 HFC Community App
