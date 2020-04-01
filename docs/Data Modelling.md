@@ -62,7 +62,10 @@ TFC Modelling
     Contact Phone Number | String |phone_number | required 
     Contact Email | String | email | required
     Logo | Image | logo | required
-    *Address | Text | address | required
+    Address | Text | address | required  
+    City | String | city | required  
+    State | String | state | required  
+    Zip | String | zip | required  
     subdomain | String | subdomain | Automatically generated based on organization abbreviation, which can changed by the admin later.
 
     * Payment Gateway Modelling
@@ -77,12 +80,19 @@ TFC Modelling
 
 ## Volunteer Information | volunteers (This is a subclass of the candidate model)    
     Name | String | name | required 
-    Project Link | String | project_link| required | Ex: Github link
-    Project Icon | String | project_icon
-    Project Description | Text | project_desc | required
-    Website Link | String | website_link | required
-    Goal | Text | goal | required
-    *Funded By | String | funded_by | Ex: "Facebook, Github, Microsoft"
+    Mobile | String | mobile| required 
+    Email | String | email Required    
+    Gender | String | gender | required
+    Address | Text | address | required  
+    City | String | city | required
+    State | String | state | required  
+    Zip | String | zip | required  
+    Highest Education | String | highest_education | required   
+    Availability | String | availability | required | Ex:Immidiate , within 24 hour etc.  
+    Profession | String | profession | required | Ex:Engineer, Doctor etc  
+    
+    
+    
 
 ## Donation(*)  
 
