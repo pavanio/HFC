@@ -1,6 +1,6 @@
-Gotcha(s)
-  Word signup is to say that the registration form is public. 
-  Word creation means we are creating them either programmtically during runtime or through admin panel
+Gotcha(s)  
+  Word signup is to say that the registration form is public.   
+  Word creation means we are creating them either programmtically during runtime or through admin panel  
 ------------------------------------------------------------------------------------------------------
 HFC Flows
 ------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Ex: www.hackforchange.in/contributer/signup
 # HFC Mentor Public Signup (Mentors should be able to mentor any project, we will assign them projects)
 Ex: www.hackforchange.in/mentor/signup
 
-# Sumbit A Problem Statement (Public Flow)
+# Submit A Problem Statement (Public Flow)
 
 # Project Creation (Admin Panel)
 
@@ -38,14 +38,16 @@ TFC Flows
 ------------------------------------------------------------------------------------------------------
 
 ## Organization Signup Flow
-    -
+    -Organization Registration Form
 
 ## Organization Login Flow
 
     - Login Screen
     - Dashboard
 
-## Organization Settings Flow
+## Organization Settings Flow  
+    - Dasboard to Manage their profile
+
 
 
 ## Member Creation / Invitation (This one is only on member invitation)
@@ -57,9 +59,10 @@ TFC Flows
     https://factly.hackforchange.in/member/activate/{auth_token}
 
 ## Member Signup Flow (Through Invitation Link)
-    - 
+    - Forms to register Member
 
-## Volunteer Requirement Management
+## Volunteer Requirement Management  
+    -Dashboard to manage volunteer requirement 
 
 ## Volunteer Signup (This is a public signup)
    Note: Send a thankyou note based on the template in the organization.
