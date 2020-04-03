@@ -100,24 +100,41 @@ TFC in a generic application, which can be used by any organization (for-profit 
 	- That means organiztion(s) should be able to specify their needs, and people can select a need and select a comfortable amount that they can donate	
 	- We end our process by taking them to a page, where we are sending a request to the user for the donatoin amount on their upi app.
 
-# Applcation Overview
-	## Static Pages
-		- Home Page
+# Application Overview
+	## Global Static Pages
+		- Home Page 
+			https://www.forchange.in/
 
-	## Dynamic Pages
+	## Gloabal Dynamic Pages
 		- Org List
-			- By cause etc. (Somethign like a Filter or a tag or a label)
-		- Org Home/Detail Page
-		- Volunteering Opportunites Page
-
-	## Registration / Submission Forms(s)
-		- Organization Volunteer
+			https://www.forchange.in/orginizations
+			
+			- By cause etc. (Somethign like a Filter or a tag or a label) 
+				https://www.forchange.in/orginizations/{label}
+		
 		- Organization Registration
-		- Organization Donation Page
+			https://www.forchange.in/organizations/signup
 
-	## Organization Dashboard
+	# Organization Pages (Subdomain level)
+		- Org Home Page
+			https://factly.forchange.in
+
+		- Org Donation Request Page
+			https://factly.forchange.in/donation_request
+
 		- Organization Login
+			https://factly.forchange.in/login
+
+		- Organization Volunteer Signup
+			https://factly.forchange.in/volunteer
+
+		- Volunteer Screning
+			https://factly.forchange.in/volunteer/screening/:screning_id
+
+	## Organization Dashboard (Private, Only when somebody is logged in)
 		- Org Dashboard
+			https://factly.forchangein/dashboard
+
 		- Org profile management
 			- Basic Profile
 			- UPI Details
@@ -132,9 +149,12 @@ TFC in a generic application, which can be used by any organization (for-profit 
 			- List / Detail / Metrics etc
 
 	## Admin Panel
+		https://www.forchange.in/admin
+
 		- Organization Management
 			- Create an organization manually
 			- Metrics
+		
 		- Volunteer Management
 			- Metrics
 		- Donation Management
