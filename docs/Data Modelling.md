@@ -70,6 +70,7 @@ TFC Modelling
     * Not asked during signup
     subdomain | String | subdomain | Automatically generated based on organization abbreviation, which can changed by the admin later.
     thankyou_template | String | thankyou_template | Automatically generated the first time, the organization will have option to edit it later.
+    UPI Identifier | String | upi_id | Ex: factly@okhdfcbank
     
 ## Member (Team Members) | team_members
     Name | String | member_name | required | Ex: Rakesh Dubbudu
@@ -101,8 +102,12 @@ TFC Modelling
 
 ## Volunteer Sub Categories | volunteer_sub_category  
     Sub Category Id | Integer | sub_category_id  | required
-    Sub Category Name | String | Sub_category_name  | required          
+    Sub Category Name | String | Sub_category_name  | required  
 
+## Donation Request Raised | donation_requests
+    Ogranization Association | integer| organization_id | 
+    Donation Request | float | donation_request | Ex: 100.00, 500.00, 1000.00
+    
 ------------------------------------------------------------------------------------------------------
 Screening App Models
 ------------------------------------------------------------------------------------------------------
