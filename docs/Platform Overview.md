@@ -1,3 +1,6 @@
+Note(s):
+--- Underlying stuff is for future reference
+
 ------------------------------------------------------------------------------------------------------
 Hack For Change
 ------------------------------------------------------------------------------------------------------
@@ -41,7 +44,7 @@ A platform where we can curate and highlight problem statements shared by other 
 	- Project
 		This is a project planned as a solution for one or more of the problem statements on the platform.
 
-# Feature Overveiw
+# Feature Overview
 	- Show all problem statements and their detail
 	- List Of HFC Centres, HFC Chapters, Individual contributor leaderboard
 	- Highlight the solutions that the community has built under this collaboration (projects)
@@ -74,11 +77,11 @@ Tools For Change (TFC)
 ------------------------------------------------------------------------------------------------------
 
 # Summary
-TFC in a generic application, which can be used by any organization (for-profit or non-profit) to engage the community and also raise money for their cause
+TFC in a generic application, which can be used by any organization (for-profit or non-profit) to engage the community and also raise money for their cause. This becomes a placeholder for adding any common tools that can be used by organizations like CTSC.
 
 # Goal(s)
 	- A way for orgnizations to seek volunteers and screen them
-	- Accept donations based on specific needs
+	- Raise donation requests on organizations behalf
 
 # Domain Overview
 	# Organization
@@ -93,7 +96,9 @@ TFC in a generic application, which can be used by any organization (for-profit 
 # Feature Overview
 	- Organizations should be able to signup and login
 	- Organizations should be able to manage their own volunteer requrirements and volunteer registrations
-	- Organizations should be able to accept donations and review the same across their own needs 
+	- Organizations should be able to accept donations and review the same across their own specific needs
+	- That means organiztion(s) should be able to specify their needs, and people can select a need and select a comfortable amount that they can donate	
+	- We end our process by taking them to a page, where we are sending a request to the user for the donatoin amount on their upi app.
 
 # Applcation Overview
 	## Static Pages
@@ -101,29 +106,30 @@ TFC in a generic application, which can be used by any organization (for-profit 
 
 	## Dynamic Pages
 		- Org List
-			- By cause etc.
+			- By cause etc. (Somethign like a Filter or a tag or a label)
 		- Org Home/Detail Page
 		- Volunteering Opportunites Page
 
 	## Registration / Submission Forms(s)
-		- Volunteer
+		- Organization Volunteer
 		- Organization Registration
-		- Donation Page
+		- Organization Donation Page
 
 	## Organization Dashboard
 		- Organization Login
 		- Org Dashboard
 		- Org profile management
 			- Basic Profile
-			- Payment gateway setup
+			- UPI Details
 
 		- Team Management
 			- Organization Member Magement
 		
 		- Volunteer Management
 			- List / Detail
-		- Donation Management
-			- List / Detail / Metics etc
+		
+		- Donation Request Management
+			- List / Detail / Metrics etc
 
 	## Admin Panel
 		- Organization Management
@@ -169,8 +175,18 @@ Screening App
 
 	- Randomized so that not everyone is seeing the same test
 	- every screening can be given a passing criteria
+	- Admin Panel to manage the questions and the question bank
+	- Admin Panel to mange the screenings
 
 # Application Overview
 	## Screening 		
 		- Screening Page
 		- Thank you Page
+
+	## Admin Pages
+		- Screenings List
+		- Question Types List
+		- Question Bank
+		- Question Categories
+			- Areas
+		- Question Sub Categories

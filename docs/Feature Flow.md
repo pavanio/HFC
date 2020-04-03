@@ -47,8 +47,7 @@ TFC Flows
 
 ## Organization Settings Flow  
     - Dasboard to Manage their profile
-
-
+    - Organization Should be able to setup their UPI ID
 
 ## Member Creation / Invitation (This one is only on member invitation)
 
@@ -67,6 +66,8 @@ TFC Flows
 ## Volunteer Signup (This is a public signup)
    Note: Send a thankyou note based on the template in the organization.
 
+## Donation Flow
+
 ------------------------------------------------------------------------------------------------------
 Screening Flows
 ------------------------------------------------------------------------------------------------------
@@ -79,5 +80,6 @@ Screening Flows
 
 Stage 1: Answer & Hit Proceed Button
     - Now save all the answers in the database, This will still keep the screen as open
+    
 STage 2: Review their answers and hit submit,
     - This will mark the screening as closed.
