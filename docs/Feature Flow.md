@@ -45,7 +45,7 @@ TFC Flows
     - Login Screen
     - Dashboard
 
-## Organization Settings Flow  
+## Organization Settings Flow
     - Dasboard to Manage their profile
     - Organization Should be able to setup their UPI ID
 

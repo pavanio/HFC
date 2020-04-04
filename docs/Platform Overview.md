@@ -55,15 +55,15 @@ A platform where we can curate and highlight problem statements shared by other 
 
 	## Dynamic Pages
 		- Problem Statement List
+		- Project List
 		- HFC Centers
 		- HFC Chapters
 		- Leaderboard (Individual Contribution Leaderboard)
 
 	## Registration / Submission Forms(s)
 		- Contributor
-		- Mentor
-		- *Project Co-Ordinator
-		- Submit A Problem Statement
+		- Mentor		
+		- Suggest A Problem Statement
 
 	## Admin Panel
 		- Partner Management
