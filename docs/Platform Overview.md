@@ -47,7 +47,7 @@ A platform where we can curate and highlight problem statements shared by other 
 # Feature Overview
 	- Show all problem statements and their detail
 	- List Of HFC Centres, HFC Chapters, Individual contributor leaderboard
-	- Highlight the solutions that the community has built under this collaboration (projects)
+	- Highlight the solutions that the community has built under this collaboration (projects)  
 
 # Application Overview
 	## Static Pages
