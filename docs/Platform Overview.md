@@ -52,20 +52,32 @@ A platform where we can curate and highlight problem statements shared by other 
 # Application Overview
 	## Static Pages
 		- Home Page
+			https://www.Hack.forchange.in/
 
 	## Dynamic Pages
 		- Problem Statement List
-		- Project List
-		- HFC Centers
-		- HFC Chapters
+			https://www.Hack.forchange.in/problem_statement_list
+		-Problem Statement Details
+			https://www.Hack.forchange.in/{problem_statement}
+		- Project List  
+			https://www.Hack.forchange.in/project_list
+		- HFC Centers  
+			https://www.Hack.forchange.in/{hfc_center}
+		- HFC Chapters  
+			https://www.Hack.forchange.in/{hfc_chapter}
 		- Leaderboard (Individual Contribution Leaderboard)
 
 	## Registration / Submission Forms(s)
-		- Contributor
-		- Mentor		
-		- Suggest A Problem Statement
+		- Contributor 
+			https://www.Hack.forchange.in/contributor/signup
+			
+		- Mentor  
+			https://www.Hack.forchange.in/mentor/signup
+		- Suggest A Problem Statement  
+			https://www.Hack.forchange.in/problem_statement_submission
 
-	## Admin Panel
+	## Admin Panel  
+			https://www.Hack.forchange.in/admin
 		- Partner Management
 		- Problem Statement Management
 		- HFC Chapter Management
