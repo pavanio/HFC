@@ -36,7 +36,7 @@ class Sub_categorie(models.Model):
 class Question(models.Model):
 	question_id=models.AutoField(primary_key=True)
 	question=models.CharField(max_length=500)
-	qtype=models.CharField(choices=QUESTION_TYPE, max_length=10)
+	qtype=models.CharField(choices=QUESTION_TYPE, max_length=30)
 	option_1=models.CharField(max_length=50)
 	option_2=models.CharField(max_length=50)
 	option_3=models.CharField(max_length=50)
