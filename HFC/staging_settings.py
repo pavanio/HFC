@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'partners.apps.PartnersConfig'
+   # 'partners.apps.PartnersConfig',
+    'HFCApp',
+    'TFCApp',
+    'screeningapp',
+    
 ]
 
 MIDDLEWARE = [
