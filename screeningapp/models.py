@@ -56,3 +56,6 @@ class Candidate(models.Model):
 	email=models.EmailField()
 	level_of_expertise=models.CharField(choices=LEVEL_OF_EXPERTISE, max_length=30)
 	area_of_expertise=models.CharField(max_length=200)
+
+	def __str__(self):
+		return self.name
