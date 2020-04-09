@@ -128,13 +128,13 @@ Screening App Models
     Sub Category Id | Integer | category_id
     Sub Category Name | String | category_name | required | Ex: ORM, DOM Model, CSS Animations etc.
     
-## Question Bank | questions    
-    Question | String | question | required
+## Question Bank | questions
+    Question | Text | question | required
     type | String | type | Possible Values: "Multiple Choice, Yes/No"
-    Option 1 | String | option_1 | required when type is multiple choice
-    Option 2 | String | option_2 | required when type is multiple choice
-    Option 3 | String | option_3 | required when type is multiple choice
-    Option 4 | String | option_4 | required when type is multiple choice
+    Option 1 | Text | option_1 | required when type is multiple choice
+    Option 2 | Text | option_2 | required when type is multiple choice
+    Option 3 | Text | option_3 | required when type is multiple choice
+    Option 4 | Text | option_4 | required when type is multiple choice
     yes / no | String | yes_no | Possiblie Valaues: "YES, NO"
     Answer | String | answer | required
     Category Mapping | integer | category_id | required
