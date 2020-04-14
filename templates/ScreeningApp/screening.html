@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Screen Test</title>
+</head>
+<body>
+
+{% block body %}
+<div>
+<form method="post">
+{%csrf_token%}
+
+{% for question in question %}
+
+
+<h3>{{question.question}}</h3><br>
+<input type="radio" id={{question.question_id}} name={{question.question_id}} value="option_1">
+  <label for="option_1">{{question.option_1}}</label><br>
+
+<input type="radio" id={{question.question_id}} name={{question.question_id}} value="option_2">
+  <label for="option_2">{{question.option_2}}</label><br>
+
+
+  <input type="radio" id={{question.question_id}} name={{question.question_id}} value="option_3">
+  <label for="option_1">{{question.option_3}}</label><br>
+
+
+  <input type="radio" id={{question.question_id}} name={{question.question_id}} value="option_4">
+  <label for="option_4">{{question.option_4}}</label><br>
+
+<input type="submit" value="Save">
+{%endfor%}
+</form>
+</div>
+
+
+
+{%endblock%}
+
+
+
+</body>
+</html>

@@ -73,4 +73,28 @@ class Candidate(models.Model):
 	def __str__(self):
 		return self.name
 
-# Create your models here.
+
+class Screening_Question(models.Model):
+	screening_id=models.AutoField(primary_key=True)
+	question_id=models.ManyToManyField(Question,blank=True)
+	candidate_ans=models.CharField(max_length=50,blank=True)
+	correct_ans=models.CharField(max_length=50,blank=True)
+	answer_correctness=models.CharField(max_length=10,blank=True)
+
+
+
+	
+
+
+
+
+
+class Candidate_Screening(models.Model):
+	id=models.AutoField(primary_key=True)
+	screening_id=models.ForeignKey(Screening_Question,on_delete=models.CASCADE)
+	candidate_id=models.ForeignKey(Candidate,on_delete=models.CASCADE)
+	screening_uuid=models.CharField(max_length=200)
+
+	def __str__(self):
+		return self.screening_uuid
+		
