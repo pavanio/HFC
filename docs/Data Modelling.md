@@ -139,15 +139,16 @@ Screening App Models
     Answer | String | answer | required
     Category Mapping | integer | category_id | required
     Sub Category Mapping | integer | sub_category_id | required
-    
+
 ## Screening with lots of questions | screenings_questions
     Screening Association | integer | screening_id
     Question Association | integer | question_id
     Candidates Answer | String | candidates_answer
     Answers Correctness | Boolean | answer_correctness | Ex: True, False
 
-## Many to Many Screening | candidates_screenings
+## Many to Many Screening | screenings
+    Screeing id
+    Screening UUID | String | screening_uuid | Ex: SCRNGSMTY01, SCRNGSMTY02 so on which is auto generated whenever you create the record
     Candidate association | integer | candidate_id
     Screening association | id | screening_id
-    Screening UUID | String | screening_uuid | Ex: SCRNGSMTY01, SCRNGSMTY02 so on
     *Status | String | Possible Values: "New, Closed, Passed, Failed"
