@@ -175,7 +175,7 @@
     option_2: Hello bin and foo
     option_3: " Error"
     option_4: " None of the mentioned"
-    answer: Hello foo and bin
+    answer: option_1
     category_name: 1
     sub_category_name: 2
 - model: ScreeningApp.Question
@@ -188,7 +188,7 @@
     option_2: Error
     option_3: " The sum of 0 and 1 is 2"
     option_4: " None of the mentioned"
-    answer: The sum of 2 and 10 is 12
+    answer: option_1
     category_name: 1
     sub_category_name: 2
 - model: ScreeningApp.Question
@@ -200,7 +200,7 @@
     option_2: "[]"
     option_3: set()
     option_4: " ()"
-    answer: "()"
+    answer: option_4
     category_name: 1
     sub_category_name: 4
 - model: ScreeningApp.Question
@@ -212,7 +212,7 @@
     option_2: s={4, ‘abc’, (1,2)}
     option_3: s={2, 2.2, 3, ‘xyz’}
     option_4: " s={san}"
-    answer: s={san}
+    answer: option_4
     category_name: 1
     sub_category_name: 4
 - model: ScreeningApp.Question
@@ -225,7 +225,7 @@
     option_2: Error
     option_3: No output
     option_4: " False"
-    answer: 'True'
+    answer: option_1
     category_name: 1
     sub_category_name: 4
 - model: ScreeningApp.Question
@@ -237,7 +237,7 @@
     option_2: import
     option_3: raise
     option_4: " All of these"
-    answer: All of these
+    answer: option_4
     category_name: 1
     sub_category_name: 4
 - model: ScreeningApp.Question
@@ -249,7 +249,7 @@
     option_2: def
     option_3: function
     option_4: " method"
-    answer: def
+    answer: option_2
     category_name: 1
     sub_category_name: 2
 - model: ScreeningApp.Question
@@ -261,7 +261,7 @@
     option_2: To set an attribute
     option_3: " To check if an attribute exists or not"
     option_4: " To delete an attribute"
-    answer: To set an attribute
+    answer: option_2
     category_name: 1
     sub_category_name: 6
 - model: ScreeningApp.Question
@@ -274,7 +274,7 @@
     option_2: In-built methods
     option_3: " User-defined methods"
     option_4: Additional methods
-    answer: To set an attribute
+    answer: option_1
     category_name: 1
     sub_category_name: 6
 - model: ScreeningApp.Question
@@ -286,6 +286,6 @@
     option_2: int
     option_3: " dict"
     option_4: bool
-    answer: int
+    answer: option_2
     category_name: 1
     sub_category_name: 2

@@ -3,7 +3,7 @@ from ScreeningApp  import views
 
 
 urlpatterns = [
-	path('screening/<screening_uuid>',views.screening,name='screening'),
+	path('screenings/<screening_uuid>',views.screening,name='screening'),
 
 
 
