@@ -9,7 +9,12 @@ class Sub_CategoryInline(admin.TabularInline):
 
 class ScreeningInline(admin.TabularInline):
 	model=Screenings
-
+	extra=0
+	readonly_fields=('screening_uuid',)
+class Screenings_Questions_Inline(admin.TabularInline):
+	model=Screenings_Questions
+	extra=0
+	readonly_fields=('question','candidate_ans','correct_ans','answer_correctness')
 class CategoryAdmin(admin.ModelAdmin):
 	list_display = ('category_id','area','category_name')
 	inlines =[Sub_CategoryInline]
@@ -31,7 +36,7 @@ admin.site.register(Question,QuestionAdmin)
 
 
 """class ScreeningQuestionAdmin(admin.ModelAdmin):
-	list_display=('screening_id',)
+	list_display=('id','screening_id',)
 	class meta:
 		model=Screenings_Questions
 admin.site.register(Screenings_Questions,ScreeningQuestionAdmin)"""
@@ -39,7 +44,9 @@ admin.site.register(Screenings_Questions,ScreeningQuestionAdmin)"""
 
 
 class ScreeningAdmin(admin.ModelAdmin):
-	list_display=('id','screening_id','screening_uuid','candidate_id')
+	list_display=('screening_uuid','candidate_id')
+	readonly_fields=('screening_uuid',)
+	inlines=[Screenings_Questions_Inline]
 	class meta:
 		model=Screenings
 admin.site.register(Screenings,ScreeningAdmin)
