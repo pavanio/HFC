@@ -24,40 +24,41 @@
           <h3>{{i.question}}</h3><br>
 
 
-          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_1">
+          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_1" {% if question.candidate_ans=="option_1"
+            %}checked{%endif%}>
           <label for="option_1">{{i.option_1}}</label><br>
 
-          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_2">
+          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_2" {% if question.candidate_ans=="option_2"
+            %}checked{%endif%}>
           <label for="option_2">{{i.option_2}}</label><br>
 
 
-          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_3">
+          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_3" {% if question.candidate_ans=="option_3"
+            %}checked{%endif%}>
           <label for="option_1">{{i.option_3}}</label><br>
 
 
-          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_4">
+          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_4" {% if question.candidate_ans=="option_4"
+            %}checked{%endif%}>
           <label for="option_4">{{i.option_4}}</label><br>
 
 
           {%endfor%}
           {%endfor%}
 
-
-
-          <!----<button formaction="screening_preview/{{screening_uuid}}">Preview&Save</button>-->
-          <input type="submit" class="btn btn-success" value="Preview&Save">
+          <input type="submit" class="btn btn-success" value="Preview">
         </form>
       </div>
-
-
-
-      {%endblock%}
       <div class="col-lg-6"></div>
+
     </div>
   </div>
 
 
+  {%endblock%}
+
   {% include 'footer.html'%}
+
 </body>
 
 </html>

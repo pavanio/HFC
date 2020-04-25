@@ -11,10 +11,34 @@ class ScreeningInline(admin.TabularInline):
 	model=Screenings
 	extra=0
 	readonly_fields=('screening_uuid',)
+	show_change_link=True
+	def has_add_permission(self, request):
+		return False
+	def has_delete_permission(self, request, obj=None):
+		return False
 class Screenings_Questions_Inline(admin.TabularInline):
 	model=Screenings_Questions
+	verbose_name ='Question'
+	verbose_name_plural='Questions'
 	extra=0
-	readonly_fields=('question','candidate_ans','correct_ans','answer_correctness')
+	readonly_fields=('question','correct_ans','candidate_ans','answer_correctness')
+	def get_questions(self, obj):
+		return "\n".join([p.question for p in obj.Screenings_Questions.all()])
+	get_questions.short_description='question'
+	
+	def get_correct_ans(self,obj):
+		pass
+
+		
+	 
+	def has_add_permission(self, request):
+		return False
+	def has_delete_permission(self, request, obj=None):
+		return False
+
+
+
+
 class CategoryAdmin(admin.ModelAdmin):
 	list_display = ('category_id','area','category_name')
 	inlines =[Sub_CategoryInline]
@@ -35,11 +59,14 @@ admin.site.register(Question,QuestionAdmin)
 
 
 
-"""class ScreeningQuestionAdmin(admin.ModelAdmin):
-	list_display=('id','screening_id',)
+class ScreeningQuestionAdmin(admin.ModelAdmin):
+	list_display=('id','screening_id')
+	def has_add_permission(self, request):
+		return False
+	
 	class meta:
 		model=Screenings_Questions
-admin.site.register(Screenings_Questions,ScreeningQuestionAdmin)"""
+admin.site.register(Screenings_Questions,ScreeningQuestionAdmin)
 
 
 

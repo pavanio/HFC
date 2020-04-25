@@ -64,8 +64,9 @@ class Question(models.Model):
         verbose_name_plural = "Questions"
 
     def __str__(self):
-        temp='{0.question} ,{0.answer},{0.option_1},{0.option_2},{0.option_3},{0.option_4}'
-        return temp.format(self)
+        #temp='{0.question} ,{0.answer},{0.option_1},{0.option_2},{0.option_3},{0.option_4}'
+        #return temp.format(self)
+        return self.question
 
 
 class Candidate(models.Model):
@@ -102,16 +103,9 @@ def generateUuid(self):
     uuid_name = "SCRNG"+"".join(uuid_list)
     uuid = uuid_name+str('%02d' % screen_count)
     return uuid
-def setQuestion():
-    questions=Question.objects.order_by('?')[:5]
-    #candidate_id=self.candidate_id
-    #screen = Screenings.objects.get(candidate_id=candidate_id)
-    question_list=[]
-    ans_list=[]
-    for question in questions:
-        question_list.append(question.question)
-        ans_list.append(question.answer)
-    return question_list,ans_list
+
+
+
 
 
 class Screenings(models.Model):
@@ -121,24 +115,36 @@ class Screenings(models.Model):
     candidate_id = models.ForeignKey(Candidate, on_delete=models.CASCADE)
     @classmethod
     def create(cls):
-        question_list,ans_list=setQuestion()
+
+        questions = Question.objects.order_by('?')[:5]
+        print(questions)
+
         screen = Screenings.objects.last()
-        for question,ans in zip(question_list,ans_list):
-            #print(question,ans)
-            screening_question = Screenings_Questions(screening_id=
-	 		screen, question =question,
-	  		correct_ans =ans )
+        #print(screen)
+        for question in questions:
+            screening_question = Screenings_Questions.objects.create(
+                screening_id=screen)
+            screening_question.question.add(question)
+            screening_question.correct_ans = question.answer
             screening_question.save()
 
+        """for ques in questions:
+            screening_question.question.add(ques)"""
+        #screening_question.question.set(question)
+
+    def get_questions(self, screening_id):
+        questions = Screenings_Questions.objects.filter(
+            screening_id=self.screening_id)
+        for question in questions:
+            for item in question:
+                item.option_1
+        return self.questions
 
     def save(self, *args, **kwargs):
         self.screening_uuid = generateUuid(self.candidate_id)
         print(self.screening_uuid)
         super(Screenings, self).save(*args, **kwargs)
         self.create()
-    
-
-        
 
     class Meta:
         verbose_name = "Screening"
@@ -149,15 +155,11 @@ class Screenings(models.Model):
         return self.screening_uuid
 
 
-
-    
-
-
-
 class Screenings_Questions(models.Model):
-    screening_id = models.ForeignKey(Screenings, on_delete=models.CASCADE)
+    screening_id = models.ForeignKey(
+        Screenings, on_delete=models.CASCADE, verbose_name='candidate_name')
     #screening_uuid = models.ForeignKey(Screenings, on_delete=models.CASCADE)
-    question = models.TextField(blank=True)
+    question = models.ManyToManyField('Question', related_name='questions')
     candidate_ans = models.CharField(max_length=50, blank=True)
     correct_ans = models.CharField(max_length=50, blank=True)
     answer_correctness = models.CharField(max_length=10, blank=True)
@@ -165,11 +167,5 @@ class Screenings_Questions(models.Model):
     class Meta:
         verbose_name = "Screening_Question"
         verbose_name_plural = "Screenings_Questions"
-    def __str__(self):
-        return self.question
-
-
-
-		
-
-	
+    """def __str__(self):
+        return self.question"""
