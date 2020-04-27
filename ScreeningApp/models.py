@@ -67,9 +67,9 @@ class Expertise(models.Model):
 
 
 class Question(models.Model):
-    category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE,default='1')
+    category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
     expertise = models.ForeignKey(
-        Expertise, on_delete=models.CASCADE,default='1')
+        Expertise, on_delete=models.CASCADE)
     question_id = models.AutoField(primary_key=True)
     question = models.TextField()
     qtype = models.CharField(choices=QUESTION_TYPE, max_length=100)
