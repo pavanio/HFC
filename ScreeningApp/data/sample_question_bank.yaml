@@ -1,44 +1,45 @@
 ---
-- model: ScreeningApp.Category
+- model: ScreeningApp.Expertise_Area
   pk: 1
   fields:
-    category_name: Python
-    area: Engineering
-- model: ScreeningApp.Sub_category
+    area_of_expertise: Engineering
+    category_of_expertise: Python
+    
+- model: ScreeningApp.Expertise
   pk: 1
   fields:
-    sub_category_name: ORM
-    category: 1
-- model: ScreeningApp.Sub_category
+    expertise: ORM
+    category_of_expertise: 1
+- model: ScreeningApp.Expertise
   pk: 2
   fields:
-    sub_category_name: Basic
-    category: 1
-- model: ScreeningApp.Sub_category
+    expertise: Basic
+    category_of_expertise: 1
+- model: ScreeningApp.Expertise
   pk: 3
   fields:
-    sub_category_name: Exception
-    category: 1
-- model: ScreeningApp.Sub_category
+    expertise: Exception
+    category_of_expertise: 1
+- model: ScreeningApp.Expertise
   pk: 4
   fields:
-    sub_category_name: Data Structure
-    category: 1
-- model: ScreeningApp.Sub_category
+    expertise: Data Structure
+    category_of_expertise: 1
+- model: ScreeningApp.Expertise
   pk: 5
   fields:
-    sub_category_name: Function
-    category: 1
-- model: ScreeningApp.Sub_category
+    expertise: Function
+    category_of_expertise: 1
+- model: ScreeningApp.Expertise
   pk: 6
   fields:
-    sub_category_name: OOPS
-    category: 1
-- model: ScreeningApp.Sub_category
+    expertise: OOPS
+    category_of_expertise: 1
+- model: ScreeningApp.Expertise
   pk: 7
   fields:
-    sub_category_name: String
-    category: 1
+    expertise: String
+    category_of_expertise: 1
 - model: ScreeningApp.Question
   pk: 1
   fields:
@@ -49,8 +50,8 @@
     option_3: Object Relation Management
     option_4: Object Relation Mapper
     answer: option_4
-    category_name: 1
-    sub_category_name: 1
+    category_of_expertise: 1
+    expertise: 1
 - model: ScreeningApp.Question
   pk: 2
   fields:
@@ -61,8 +62,8 @@
     option_3: Primary Key
     option_4: Personal Key
     answer: option_3
-    category_name: 1
-    sub_category_name: 1
+    category_of_expertise: 1
+    expertise: 1
 - model: ScreeningApp.Question
   pk: 3
   fields:
@@ -74,8 +75,8 @@
     option_3: isinstance(O,B)
     option_4: isinstance(B,O)
     answer: option_3
-    category_name: 1
-    sub_category_name: 6
+    category_of_expertise: 1
+    expertise: 6
 - model: ScreeningApp.Question
   pk: 4
   fields:
@@ -87,8 +88,8 @@
     option_3: x actually contains an object of type Circle
     option_4: x contains an int value.
     answer: option_2
-    category_name: 1
-    sub_category_name: 6
+    category_of_expertise: 1
+    expertise: 6
 - model: ScreeningApp.Question
   pk: 5
   fields:
@@ -100,8 +101,8 @@
     option_4: Using recursive functions however also gives a natural and straight
       forward simple solution for the program.
     answer: option_1
-    category_name: 1
-    sub_category_name: 5
+    category_of_expertise: 1
+    expertise: 5
 - model: ScreeningApp.Question
   pk: 6
   fields:
@@ -113,8 +114,8 @@
     option_3: " Fielname = asksaveasfilename()"
     option_4: No such option in python.
     answer: option_3
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2
 - model: ScreeningApp.Question
   pk: 7
   fields:
@@ -125,8 +126,8 @@
     option_3: "//"
     option_4: "/* */"
     answer: option_2
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2
 - model: ScreeningApp.Question
   pk: 8
   fields:
@@ -137,8 +138,8 @@
     option_3: open('file.txt', w’)
     option_4: open('file.txt', 'b’)
     answer: option_1
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2
 - model: ScreeningApp.Question
   pk: 9
   fields:
@@ -150,8 +151,8 @@
     option_3: s1.union([3, 4, 5])
     option_4: s1 | [3, 4, 5]
     answer: option_1
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2
 - model: ScreeningApp.Question
   pk: 10
   fields:
@@ -163,8 +164,8 @@
     option_3: "*abcdef *"
     option_4: "* abcdef*"
     answer: option_1
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2
 - model: ScreeningApp.Question
   pk: 11
   fields:
@@ -176,8 +177,8 @@
     option_3: " Error"
     option_4: " None of the mentioned"
     answer: option_1
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2
 - model: ScreeningApp.Question
   pk: 12
   fields:
@@ -189,8 +190,8 @@
     option_3: " The sum of 0 and 1 is 2"
     option_4: " None of the mentioned"
     answer: option_1
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2
 - model: ScreeningApp.Question
   pk: 13
   fields:
@@ -201,8 +202,8 @@
     option_3: set()
     option_4: " ()"
     answer: option_4
-    category_name: 1
-    sub_category_name: 4
+    category_of_expertise: 1
+    expertise: 4
 - model: ScreeningApp.Question
   pk: 14
   fields:
@@ -213,8 +214,8 @@
     option_3: s={2, 2.2, 3, ‘xyz’}
     option_4: " s={san}"
     answer: option_4
-    category_name: 1
-    sub_category_name: 4
+    category_of_expertise: 1
+    expertise: 4
 - model: ScreeningApp.Question
   pk: 15
   fields:
@@ -226,8 +227,8 @@
     option_3: No output
     option_4: " False"
     answer: option_1
-    category_name: 1
-    sub_category_name: 4
+    category_of_expertise: 1
+    expertise: 4
 - model: ScreeningApp.Question
   pk: 16
   fields:
@@ -238,8 +239,8 @@
     option_3: raise
     option_4: " All of these"
     answer: option_4
-    category_name: 1
-    sub_category_name: 4
+    category_of_expertise: 1
+    expertise: 4
 - model: ScreeningApp.Question
   pk: 17
   fields:
@@ -250,8 +251,8 @@
     option_3: function
     option_4: " method"
     answer: option_2
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2
 - model: ScreeningApp.Question
   pk: 18
   fields:
@@ -262,8 +263,8 @@
     option_3: " To check if an attribute exists or not"
     option_4: " To delete an attribute"
     answer: option_2
-    category_name: 1
-    sub_category_name: 6
+    category_of_expertise: 1
+    expertise: 6
 - model: ScreeningApp.Question
   pk: 19
   fields:
@@ -275,8 +276,8 @@
     option_3: " User-defined methods"
     option_4: Additional methods
     answer: option_1
-    category_name: 1
-    sub_category_name: 6
+    category_of_expertise: 1
+    expertise: 6
 - model: ScreeningApp.Question
   pk: 20
   fields:
@@ -287,5 +288,5 @@
     option_3: " dict"
     option_4: bool
     answer: option_2
-    category_name: 1
-    sub_category_name: 2
+    category_of_expertise: 1
+    expertise: 2

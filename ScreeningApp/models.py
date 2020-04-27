@@ -18,9 +18,19 @@ LEVEL_OF_EXPERTISE = (
 
 
 )
+class Expertise_Area(models.Model):
+    expertise_area_id = models.AutoField(primary_key=True)
+    area_of_expertise = models.CharField(max_length=300, unique=True)#eng
+    category_of_expertise = models.CharField(max_length=300)#py
 
+    class Meta:
+        verbose_name = "Expertise_Area"
+        verbose_name_plural = "Expertise_Areas"
 
-class Category(models.Model):
+    def __str__(self):
+        return self.category_of_expertise
+
+"""class Category(models.Model):
     category_id = models.AutoField(primary_key=True)
     category_name = models.CharField(max_length=300, unique=True)
     area = models.CharField(max_length=300)
@@ -30,10 +40,8 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
     def __str__(self):
-        return self.category_name
-
-
-class Sub_category(models.Model):
+        return self.category_name"""
+"""class Sub_category(models.Model):
     sub_category_id = models.AutoField(primary_key=True)
     sub_category_name = models.CharField(max_length=300, unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -43,13 +51,25 @@ class Sub_category(models.Model):
         verbose_name_plural = "Sub_Categories"
 
     def __str__(self):
-        return self.sub_category_name
+        return self.sub_category_name"""
+
+class Expertise(models.Model):
+    expertise_id = models.AutoField(primary_key=True)
+    expertise = models.CharField(max_length=300, unique=True)
+    category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Expertise"
+        verbose_name_plural = "Expertises"
+
+    def __str__(self):
+        return self.expertise
 
 
 class Question(models.Model):
-    category_name = models.ForeignKey(Category, on_delete=models.CASCADE)
-    sub_category_name = models.ForeignKey(
-        Sub_category, on_delete=models.CASCADE)
+    category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE,default='1')
+    expertise = models.ForeignKey(
+        Expertise, on_delete=models.CASCADE,default='1')
     question_id = models.AutoField(primary_key=True)
     question = models.TextField()
     qtype = models.CharField(choices=QUESTION_TYPE, max_length=100)

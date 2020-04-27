@@ -17,21 +17,31 @@ def screening(request, screening_uuid):
 		ques_list.append(question)
 	if request.method == "POST":
 		data = request.POST.dict()
+
 		
 
 		if 'csrfmiddlewaretoken' in data:
 			del data['csrfmiddlewaretoken']
+		print(data)
+		#answerss=request.POST.get(question.id)
+		#print(answerss)
+		
+		for qid,ans in data.items():
+			obj=Screenings_Questions.objects.get(pk=qid)
+			print(obj)
+			obj.candidate_ans=ans
+			obj.save()
+			print(obj.candidate_ans)
+			if (obj.correct_ans == obj.candidate_ans):
+				obj.answer_correctness=True
+				obj.save()
+				#print(ques.answer_correctness)
+			else:
+				obj.answer_correctness=False
+				obj.save()
 
-		for key, value in data.items():
-			user_ans_list.append(value)
-		#print(user_ans_list)
 
-		screening_question_obj = Screenings_Questions.objects.filter(
-            screening_id=screening_id)
-		#print(screening_question_obj)
-		for ans, ques in zip(user_ans_list, ques_list):
-			ques.candidate_ans = ans
-			ques.save()
+		
 		return redirect('screening_preview', screening_uuid)
 
 	return render(request, 'ScreeningApp/screening.html', {'questions': questions, 'screening_uuid': screening_uuid})
@@ -55,48 +65,24 @@ def screening_preview(request, screening_uuid):
 		if 'csrfmiddlewaretoken' in data:
 			del data['csrfmiddlewaretoken']
 
-		for key, value in data.items():
-			user_ans_list.append(value)
-		#print(user_ans_list)
-
-		
-		for ans, ques in zip(user_ans_list, ques_list):
-			ques.candidate_ans = ans
-			ques.save()
-			if (ques.correct_ans == ques.candidate_ans):
-				ques.answer_correctness=True
-				ques.save()
+		for qid,ans in data.items():
+			obj=Screenings_Questions.objects.get(pk=qid)
+			print(obj)
+			obj.candidate_ans=ans
+			obj.save()
+			print(obj.candidate_ans)
+			if (obj.correct_ans == obj.candidate_ans):
+				obj.answer_correctness=True
+				obj.save()
 				#print(ques.answer_correctness)
 			else:
-				ques.answer_correctness=False
-				ques.save()
+				obj.answer_correctness=False
+				obj.save()
 				
 				#print(ques.answer_correctness)
-		return redirect('screening_preview_submit', screening_uuid)
-
-	return render(request, 'ScreeningApp/screening_preview.html', {'questions': questions})
-
-
-def screening_preview_submit(request, screening_uuid):
-	screening_uuid = screening_uuid
-	screen = Screenings.objects.get(screening_uuid=screening_uuid)
-	screening_id = screen.screening_id
-	questions = Screenings_Questions.objects.filter(screening_id=screening_id)
-	ques_list = []
-	user_ans_list = []
-	for question in questions:
-		ques_list.append(question)
-
-	if request.method == "POST":
-		data = request.POST.dict()
-
-		if 'csrfmiddlewaretoken' in data:
-			del data['csrfmiddlewaretoken']
-		for key, value in data.items():
-			user_ans_list.append(value)
-		
-		for ans, ques in zip(user_ans_list, ques_list):
-			ques.candidate_ans = ans
-			ques.save()
 		return render(request, 'ScreeningApp/thanks.html')
+
 	return render(request, 'ScreeningApp/screening_submission.html', {'questions': questions})
+
+
+

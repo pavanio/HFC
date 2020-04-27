@@ -4,8 +4,8 @@
 from django.contrib import admin
 from .models import *
 # Register your models here.
-class Sub_CategoryInline(admin.TabularInline):
-	model=Sub_category
+class ExpertiseInline(admin.TabularInline):
+	model=Expertise
 
 class ScreeningInline(admin.TabularInline):
 	model=Screenings
@@ -39,20 +39,27 @@ class Screenings_Questions_Inline(admin.TabularInline):
 
 
 
-class CategoryAdmin(admin.ModelAdmin):
+"""class CategoryAdmin(admin.ModelAdmin):
 	list_display = ('category_id','area','category_name')
 	inlines =[Sub_CategoryInline]
 	class meta:
 		model=Category
-admin.site.register(Category,CategoryAdmin)
+admin.site.register(Category,CategoryAdmin)"""
 
+
+class Expertise_AreaAdmin(admin.ModelAdmin):
+	list_display = ('category_of_expertise','area_of_expertise')
+	inlines =[ExpertiseInline]
+	class meta:
+		model=Expertise_Area
+admin.site.register(Expertise_Area,Expertise_AreaAdmin)
 
 
 
 
 
 class QuestionAdmin(admin.ModelAdmin):
-	list_display=('category_name','sub_category_name','qtype','question','option_1','option_2','option_3','option_4','answer')
+	list_display=('category_of_expertise','expertise','qtype','question','option_1','option_2','option_3','option_4','answer')
 	class meta:
 		model=Question
 admin.site.register(Question,QuestionAdmin)

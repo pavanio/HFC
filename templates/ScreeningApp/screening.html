@@ -22,20 +22,20 @@
 
 
           <h3>{{i.question}}</h3><br>
+        
 
-
-          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_1">
+         <input type="radio" id={{i.question_id}} name={{question.id}} value="option_1">
           <label for="option_1">{{i.option_1}}</label><br>
 
-          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_2">
+          <input type="radio" id={{i.question_id}} name={{question.id}} value="option_2">
           <label for="option_2">{{i.option_2}}</label><br>
 
 
-          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_3">
+          <input type="radio" id={{i.question_id}} name={{question.id}} value="option_3">
           <label for="option_1">{{i.option_3}}</label><br>
 
 
-          <input type="radio" id={{i.question_id}} name={{i.question_id}} value="option_4">
+          <input type="radio" id={{i.question_id}} name={{question.id}} value="option_4">
           <label for="option_4">{{i.option_4}}</label><br>
 
 
@@ -45,7 +45,7 @@
 
 
           <!----<button formaction="screening_preview/{{screening_uuid}}">Preview&Save</button>-->
-          <input type="submit" class="btn btn-success" value="Preview&Save">
+          <input type="submit" class="btn btn-success" value="Save & Preview">
         </form>
       </div>
 

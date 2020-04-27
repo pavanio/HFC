@@ -116,20 +116,20 @@ Screening App Models
     Name | String | name | required
     Email | String | email | required
     Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required
-    Area of Expertise (Skills) | String | area_of_expertse |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management
+    Area of Expertise (Skills) | String | area_of_expertise |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management
     | required
     
-## Category | categories
-    Categoer Id | Integer | category_id
-    Area Category | String | area | Ex: Design, Engineering
-    Category Name | String | category_name | required | Ex: Python, HTML, CSS etc
+## Expertise Areas | expertise_areas
+    Expertise Area Id | Integer | expertise_area_id
+    Area Of Expertise | String | area_of_expertise | Ex: Design, Engineering
+    Category Of Expertise | String | category_of_expertise | required | Ex: Python, HTML, CSS etc
     
-## Sub Category | sub_categories     
-    Sub Category Id | Integer | category_id
-    Sub Category Name | String | category_name | required | Ex: ORM, DOM Model, CSS Animations etc.
+## Expertise | expertise     
+    Expertise Id | Integer | expertise_id
+    Expertise Name | String | expertise | required | Ex: ORM, DOM Model, CSS Animations etc.
     
 ## Question Bank | questions
-    Question | Text | question | required
+    Question | Text | question | required 
     type | String | type | Possible Values: "Multiple Choice, Yes/No"
     Option 1 | Text | option_1 | required when type is multiple choice
     Option 2 | Text | option_2 | required when type is multiple choice
@@ -137,8 +137,8 @@ Screening App Models
     Option 4 | Text | option_4 | required when type is multiple choice
     yes / no | String | yes_no | Possiblie Valaues: "YES, NO"
     Answer | String | answer | required
-    Category Mapping | integer | category_id | required
-    Sub Category Mapping | integer | sub_category_id | required
+    Area Of Expertise Mapping | integer | expertise_area_id | required
+    Expertise Mapping | integer | expertise_id | required
 
 ## Screening with lots of questions | screenings_questions
     Screening Association | integer | screening_id
