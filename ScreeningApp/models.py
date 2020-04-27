@@ -168,4 +168,4 @@ class Screenings_Questions(models.Model):
         verbose_name = "Screening_Question"
         verbose_name_plural = "Screenings_Questions"
     """def __str__(self):
-        return self.question"""
+        return self.screening_uuid """

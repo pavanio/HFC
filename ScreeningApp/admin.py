@@ -59,14 +59,14 @@ admin.site.register(Question,QuestionAdmin)
 
 
 
-class ScreeningQuestionAdmin(admin.ModelAdmin):
+"""class ScreeningQuestionAdmin(admin.ModelAdmin):
 	list_display=('id','screening_id')
 	def has_add_permission(self, request):
 		return False
 	
 	class meta:
 		model=Screenings_Questions
-admin.site.register(Screenings_Questions,ScreeningQuestionAdmin)
+admin.site.register(Screenings_Questions,ScreeningQuestionAdmin)"""
 
 
 
