@@ -94,8 +94,7 @@ TFC Modelling
     
     Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week
     Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
-    Years Of Experience | String | years_of_experience | required | "No Experience, 1+ years, 2+ years, 3+ years, 5+ years, 
-    10+years, 15+years, 20+ years"
+    Years Of Experience | String | years_of_experience | required | "No Experience, 1+ years, 2+ years, 3+ years, 5+ years, 10+years, 15+years, 20+ years"
     Profession | String | profession | Ex: Design, Engineering, Management etc.
 
 ## Volunter Screening

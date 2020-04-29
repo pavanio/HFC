@@ -25,18 +25,18 @@ A platform where we can curate and highlight problem statements shared by other 
 
 		Ex: Governmental Organization (GHMC, Meity, Nasscom Foundation)
 
-	- Member
-		Members can signup to either join a particular chapter or a centre to contribute their coding time or even mentor a whole team of contributors.
-		- Contributor (With a different level of expertise, entry-level, intermediate, expert)
-		- Mentor (Intermediate, Expert)
-
 	- HFC Centre
 		Centre a physically fixed group of contributors who are actively contributing full-time on behalf of their institution
-		Ex: JNTU HFC Center, GRIET Center
+		Ex: JNTU HFC Center, GRIET HFC Center
 
 	- HFC Chapter
 		The chapter is a loosely coupled group of contributors who are involved only part-time
 		Ex: City Chapters (Hyderabad Chapter)
+
+	- Member
+		Members can signup to either join a particular chapter or a centre to contribute their coding time or even mentor a whole team of contributors.
+		- Contributor (With a different level of expertise, entry-level, intermediate, expert)
+		- Mentor (Intermediate, Expert)
 
 	- Problem Statement(s)
 		This is a list of problem statement(s) shared with HFC Core team. And HFC Core team will add these problem statements to the platform
@@ -120,7 +120,7 @@ TFC in a generic application, which can be used by any organization (for-profit 
 			https://factly.forchange.in
 
 		- Org Donation Request Page
-			https://factly.forchange.in/donation_request
+			https://factly.forchange.in/donate
 
 		- Organization Login
 			https://factly.forchange.in/login
@@ -140,13 +140,29 @@ TFC in a generic application, which can be used by any organization (for-profit 
 			- UPI Details
 
 		- Team Management
+			- Member List page
+				https://factly.forchange.in/members
+			
 			- Organization Member Magement
-		
-		- Volunteer Management
+				https://factly.forchange.in/members/new
+				https://factly.forchange.in/members/:member_id/edit
+				
+				- Activate a member
+				https://factly.forchange.in/members/activate/:invitation_token
+					After activation we clear the invitation_token
+				
+				- Set password first time after activation, secon	
+				https://factly.forchange.in/members/:member_id/set_password
+
+		- Volunteer Management (Applications)
 			- List / Detail
 		
-		- Donation Request Management
+		- Donation Request Management (Donations)
 			- List / Detail / Metrics etc
+
+		- Volunteer Requrements
+		
+		- Donation Requirements
 
 	## Admin Panel
 		https://www.forchange.in/admin
@@ -154,9 +170,14 @@ TFC in a generic application, which can be used by any organization (for-profit 
 		- Organization Management
 			- Create an organization manually
 			- Metrics
+
+		- Member Management at orginzation level
+			List members
+				Members, activation status
 		
 		- Volunteer Management
 			- Metrics
+
 		- Donation Management
 			- Metrics
 
