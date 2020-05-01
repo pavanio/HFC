@@ -1,0 +1,25 @@
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Organization Signup</title>
+    </head>
+
+    <body>
+        {% block body %}
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+                    <form method="post" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            {{form.as_p}}
+                            <input type="submit" class="btn btn-success" value="Create">
+                    </form>
+                </div>
+            </div>
+        </div>
+            {% include 'footer.html'%}
+            {%endblock%}
+    </body>
+</html>

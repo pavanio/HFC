@@ -20,7 +20,7 @@ LEVEL_OF_EXPERTISE = (
 )
 class Expertise_Area(models.Model):
     expertise_area_id = models.AutoField(primary_key=True)
-    area_of_expertise = models.CharField(max_length=300, unique=True)#eng
+    area_of_expertise = models.CharField(max_length=300)#eng
     category_of_expertise = models.CharField(max_length=300)#py
 
     class Meta:
@@ -55,7 +55,7 @@ class Expertise_Area(models.Model):
 
 class Expertise(models.Model):
     expertise_id = models.AutoField(primary_key=True)
-    expertise = models.CharField(max_length=300, unique=True)
+    expertise = models.CharField(max_length=300)
     category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
 
     class Meta:
@@ -132,7 +132,7 @@ class Screenings(models.Model):
     screening_id = models.AutoField(primary_key=True)
     #screening_id = models.IntegerField(null=True,blank=True)
     screening_uuid = models.CharField(max_length=50, blank=True)
-    candidate_id = models.ForeignKey(Candidate, on_delete=models.CASCADE)
+    candidate_id = models.ForeignKey(Candidate, on_delete=models.CASCADE,verbose_name='Candidate Name')
     @classmethod
     def create(cls):
 

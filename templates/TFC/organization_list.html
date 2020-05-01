@@ -1,0 +1,22 @@
+
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Organizations List</title>
+    </head>
+
+    <body>
+            {% block body %}
+            {% for org in organization %}
+            <div>
+                <h3>{{org.name}}</h3>
+                <h4>{{org.website}}</h4>
+                <br>
+
+            </div>
+            {% endfor%}
+            {%endblock%}
+    </body>
+    </html>
