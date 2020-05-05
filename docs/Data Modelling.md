@@ -9,7 +9,9 @@ attribute | type | db column name | examples, possible values, assumptions | req
 HFC Modelling
 ------------------------------------------------------------------------------------------------------
 
-## HFC Organization (Chapter or a Center) | organizations
+## HFC Community Organization (Chapter or a Centre) | community_organizations
+    Note: Our community organizations are not TFC Orgnizations, these are just loosely/tightly coupled group of developers. So we dont want to give our tfc features to these groups
+    
     Organization Name | String | organization_name |  required | Ex:JNTU, GRIET
     Organization Type | String| type | Possible Values: "Center, Chapter" | required
     Website Link | String | website | Ex:JNTU Website link| optional
@@ -18,7 +20,7 @@ HFC Modelling
     Co-ordinator Email | String | coordinator_email | required  
     Co-ordinator Mobile | String | coordinator_mobile | required  
 
-## HFC Member | members** (*This can be a subclass of volunteers from TFC)
+## HFC Community Organization Member | community_members** (*This is a subclass of volunteers from TFC)
     Name | String | name | required  
     Email | String | email | required    
     Mobile | String | mobile |  required   
@@ -46,20 +48,21 @@ HFC Modelling
     Related Links |String |related_link | required  
     Proposed Solution | Text | proposed_solution | required  
     Submitted By Which Partner | id | partner_id | required  
-    Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"  
+    Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"
+    Partner Association | id | partner_id | required |   
 
 ## Partner Information | partners (TFC Orgs are submodels or TFC Orgs)
-This is a subclass of TFC Organizations 
+This is a subclass of TFC Organizations Ex: Factly / Foundation For Democratic Reforms
 
 ------------------------------------------------------------------------------------------------------
 TFC Modelling
 ------------------------------------------------------------------------------------------------------
 
-## Organization | organization (Governmental/ Non-Governmental organization)
+## Organization | organizations (Governmental/ Non-Governmental organization)
     Name | String | name | required | Ex:factly
     Website |String  | website | required |  Ex: http://www.factly.in/
-    Organization Brief | Text| partner_desc| required |  Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
-    Contact Phone Number | String |phone_number | required 
+    Organization Brief | Text| organization_brief| required |  Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
+    Contact Phone Number | String | phone_number | required 
     Contact Email | String | email | required
     Logo | Image | logo | required
     Address | Text | address | required  
@@ -75,7 +78,7 @@ TFC Modelling
 ## Member (Team Members) | team_members
     Name | String | member_name | required | Ex: Rakesh Dubbudu
     Email | String | member_email | required
-    Phone Number | String | member_phone_number| required |Ex: +91 8888, We should be able to accept international numbers as well    
+    Phone Number | String | member_phone_number| required |Ex: +91 8888, We should be able to accept international numbers as well
     Password | String | password | required
     Invitation Auth Token | String | auth token | Created and sent in the email link, On password setup, auth token is cleared, if the auth token is nil, the email link will expire.
     *role | String | role | Possible: "Primary Contact(Admin) / Member"
@@ -90,14 +93,14 @@ TFC Modelling
     City | String | city | required
     State | String | state | required
     Zip | String | zip | required
-    Highest Education | String | highest_education | required
     
+    Education | String | education | required    
     Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week
     Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
     Years Of Experience | String | years_of_experience | required | "No Experience, 1+ years, 2+ years, 3+ years, 5+ years, 10+years, 15+years, 20+ years"
     Profession | String | profession | Ex: Design, Engineering, Management etc.
 
-## Volunter Screening
+## Volunteer Screening
     Subclass of ScreeningApp screening
     Organizations should be able to choose the size of a screening
 
