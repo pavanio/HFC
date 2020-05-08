@@ -51,7 +51,7 @@ TYPE_CHOICES = [
     ("Chapter", "Chapter")
 ]
 
-class Organization(models.Model):
+class Community_Organization(models.Model):
     organization_name = models.CharField(max_length=500)
     type = models.CharField(max_length=100, choices=TYPE_CHOICES)
     website = models.URLField(blank=True,null=True)
@@ -64,8 +64,8 @@ class Organization(models.Model):
         return self.organization_name
 
     class Meta:
-        verbose_name = "Organization"
-        verbose_name_plural = "Organizations"
+        verbose_name = "Community_Organization"
+        verbose_name_plural = "Community_Organizations"
 
 
 
