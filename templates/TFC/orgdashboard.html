@@ -8,15 +8,27 @@
     </head>
 
     <body>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <!-- Brand/logo -->
+                    {% load static %}
+                    <a  href="#" class="navbar-brand">
+
+                            <img src="/uploads/{{organization.logo}}" width="50", height="50">
+                    </a>
+            </nav>
             {% block body %}
             
             <div>
                 <h3>{{organization.name}}</h3>
                 <h3>{{organization.website}}</h3>
+
+               
                 
                 <br>
                 
-                <a href="members/{{organization}}" class="btn btn-primary">Members</a>
+                <a href="members/{{organization}}" class="btn btn-primary">Members</a><br><br>
+                <a href="" class="btn btn-primary">Volunteers</a><br><br>
+                <a href="" class="btn btn-primary">Donations</a><br><br>
                 <a href="logout" class="btn btn-primary">Logout</a>
 
             </div>

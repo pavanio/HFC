@@ -8,6 +8,14 @@
     </head>
 
     <body>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <!-- Brand/logo -->
+                    {% load static %}
+                    <a  href="#" class="navbar-brand">
+
+                            <img src="/uploads/{{org.logo}}" width="50", height="50">
+                    </a>
+                    </nav>
             {% block body %}
             
             {% for member in org.team_member_set.all %}
