@@ -1,0 +1,26 @@
+
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Organization Dashboard</title>
+    </head>
+
+    <body>
+            {% block body %}
+            
+            <div>
+                <h3>{{organization.name}}</h3>
+                <h3>{{organization.website}}</h3>
+                
+                <br>
+                
+                <a href="members/{{organization}}" class="btn btn-primary">Members</a>
+                <a href="logout" class="btn btn-primary">Logout</a>
+
+            </div>
+            
+            {%endblock%}
+    </body>
+    </html>

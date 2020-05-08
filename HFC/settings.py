@@ -26,7 +26,7 @@ SECRET_KEY = '%q9#g6m-+#uj78gxwghng(l&2#xhf04y@jmh^7#t#77dox5*xm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['forchange.in']
 
 
 # Application definition
@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'HFCCore',
     'TFC',
     'ScreeningApp',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'HFC.urls'

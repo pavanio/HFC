@@ -1,0 +1,36 @@
+
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title></title>
+        
+    </head>
+
+    <body>
+            
+            {% block body %}
+            
+            <div>
+                <h3>{{org.name}}</h3>
+                <h4>{{org.website}}</h4>
+                <h4>{{org.partner_desc}}</h4>
+                <h4>{{org.phone_number}}</h4>
+                <h4>{{org.email}}</h4>
+                <h4>{{org.address}}</h4>
+                <h4>{{org.city}}</h4>
+                <h4>{{org.state}}</h4>
+                <h4>{{org.zip_code}}</h4>
+
+                
+               
+                
+               
+                <br>
+
+            </div>
+            
+            {%endblock%}
+    </body>
+    </html>

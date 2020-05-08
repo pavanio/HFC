@@ -1,14 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404
 from django.views import View
 from django.views.generic import CreateView,ListView
 from TFC.models import *
 from django.urls import reverse_lazy,reverse
+from .forms import *
+from django.http import Http404
+from django.contrib.auth.hashers import make_password
+from django.contrib.sites.models import Site
+from django.views.decorators.cache import cache_control
+from django.contrib.auth import authenticate
+import django.contrib.auth
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth import logout as auth_logout
+
+
 
 
 class Home(View):
     def get(self, request):
-        return render(request,'TFC/home.html')
-
+        request.subdomain = None
+        host = request.META.get('HTTP_HOST', '')
+        host_s = host.replace('www.', '').split('.')
+        if len(host_s) > 2:
+            request.subdomain = ''.join(host_s[:-2])
+        print(request.subdomain)
+        if request.subdomain == None:
+            return render(request,'TFC/home.html')
+        else:
+            subdomain=request.subdomain
+            org=Organization.objects.get(subdomain=subdomain)
+            return render(request,'TFC/orghome.html',{'org':org})
+        
+            
+            
 class OrganizationCreateView(CreateView):
     model=Organization
     template_name='TFC/organization_signup.html'
@@ -22,3 +46,93 @@ class OrganizationListView(ListView):
     model=Organization
     template_name = 'TFC/organization_list.html'
     context_object_name = 'organization'
+
+
+class PasswordResetView(View):
+    form_class = TeamMemberSignupForm()
+    
+    def get(self,request,auth_token):
+        fields=['password',]
+        form=TeamMemberSignupForm()
+        return render(request,"TFC/password_set.html",{'form':form})
+    
+    def post(self,request,auth_token):
+        form = TeamMemberSignupForm(request.POST)
+        if form.is_valid():
+            password=form.cleaned_data['password']
+        try:
+            member=Team_Member.objects.get(auth_token=auth_token)
+            member.password=make_password(password)
+            member.auth_token=None
+            member.save()
+            return redirect('login')
+        except Team_Member.DoesNotExist:
+            raise Http404("No  matches the given query.")
+        
+class LoginView(View):
+    def get(self,request):
+        request.subdomain = None
+        host = request.META.get('HTTP_HOST', '')
+        host_s = host.replace('www.', '').split('.')
+        if len(host_s) > 2:
+            request.subdomain = ''.join(host_s[:-2])
+            subdomain=request.subdomain
+            org=Organization.objects.get(subdomain=subdomain)
+            form=LoginForm()
+            fields=['member_email','password']
+            return render(request,"TFC/login.html",{'form':form})
+    def post(self,request):
+        form=LoginForm(request.POST)
+        if form.is_valid():
+            member_email=form.cleaned_data['member_email']
+            password=form.cleaned_data['password']
+            member=Team_Member.objects.get(member_email=member_email)
+            member_password=member.password
+            
+            match=check_password(password,member_password)
+            if match:
+                request.session['member']=member.member_id
+                print(request.session['member'])
+                return redirect('dashboard')
+            else:
+                return redirect('login')
+                
+
+    
+class MemberListView(View):
+    def get(self,request,organization):
+        request.subdomain = None
+        host = request.META.get('HTTP_HOST', '')
+        host_s = host.replace('www.', '').split('.')
+        if len(host_s) > 2:
+            request.subdomain = ''.join(host_s[:-2])
+            subdomain=request.subdomain
+            org=Organization.objects.get(subdomain=subdomain)
+            member_id=request.session['member']
+            if member_id == None:
+                return redirect('login')
+            else:
+                return render(request,'TFC/members.html',{'organization':organization,'org':org})
+
+class OrgDashboard(View):
+    def get(self,request,):
+        request.subdomain = None
+        host = request.META.get('HTTP_HOST', '')
+        host_s = host.replace('www.', '').split('.')
+        if len(host_s) > 2:
+            request.subdomain = ''.join(host_s[:-2])
+            subdomain=request.subdomain
+            org=Organization.objects.get(subdomain=subdomain)
+            member_id=request.session['member']
+            print(member_id)
+            member=Team_Member.objects.get(member_id=member_id)
+            organization=member.organization
+            if member_id == None:
+                return redirect('login')
+            else:
+                return render(request,'TFC/orgdashboard.html',{'organization':organization})
+
+def logout(request):
+    auth_logout(request)
+    return redirect('login')
+

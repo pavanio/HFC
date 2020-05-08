@@ -1,0 +1,35 @@
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title></title>
+        
+    </head>
+
+    <body>
+        <div>
+            <br>
+            <form  method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                
+                
+                <button type="submit" class="btn btn-success">Login</button>
+                </form>
+         </div>     
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </body>
+        </html>

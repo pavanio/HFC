@@ -5,6 +5,7 @@ class Team_MemberInline(admin.TabularInline):
 	model = Team_Member
 	exclude=['password']
 	extra=0
+	readonly_fields=('auth_token',)
 	
 
 class OrganizationAdmin(admin.ModelAdmin):
@@ -13,4 +14,6 @@ class OrganizationAdmin(admin.ModelAdmin):
 	class meta:
 		model=Organization
 admin.site.register(Organization,OrganizationAdmin)
+
+admin.site.register(Team_Member)
 

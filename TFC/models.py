@@ -1,5 +1,14 @@
 from django.db import models
 import uuid 
+import re
+
+
+
+ROLE = (
+    ('Admin', 'Admin'),
+    ('Member', 'Member')
+
+)
 
 class Organization(models.Model):
     org_id = models.AutoField(primary_key = True)
@@ -19,6 +28,11 @@ class Organization(models.Model):
 
     def __str__(self):
         return self.name
+    def save(self, *args, **kwargs):
+        org_name=self.website
+        sub_domain=re.findall(r'[\.](.*?)[\.]',org_name)
+        self.subdomain="".join(sub_domain)
+        super(Organization, self).save(*args, **kwargs) 
     class Meta:
         verbose_name = "Organization"
         verbose_name_plural = "Organizations"
@@ -32,8 +46,8 @@ class Team_Member(models.Model):
     member_email = models.EmailField() 
     member_phone_number = models.CharField(max_length = 20)
     password = models.CharField(max_length=20)
-    auth_token = models.UUIDField(default = uuid.uuid4, editable = False)
-    role = models.CharField(max_length=50)
+    auth_token = models.UUIDField(default = uuid.uuid4, editable = False,null=True, blank=True)
+    role = models.CharField(choices=ROLE,max_length=50)
 
     def __str__(self):
         return self.member_name

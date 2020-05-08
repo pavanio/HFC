@@ -1,0 +1,26 @@
+
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Member List</title>
+    </head>
+
+    <body>
+            {% block body %}
+            
+            {% for member in org.team_member_set.all %}
+            <div>
+                <h3>{{member.member_name}}</h3>
+                <a href="" class="btn btn-primary">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
+                
+                <br>
+
+            </div>
+            {% endfor%}
+            
+            {%endblock%}
+    </body>
+    </html>
