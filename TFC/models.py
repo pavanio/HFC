@@ -45,7 +45,7 @@ class Team_Member(models.Model):
     member_name = models.CharField(max_length = 500)
     member_email = models.EmailField() 
     member_phone_number = models.CharField(max_length = 20)
-    password = models.CharField(max_length=20)
+    password = models.CharField(max_length=200)
     auth_token = models.UUIDField(default = uuid.uuid4, editable = False,null=True, blank=True)
     role = models.CharField(choices=ROLE,max_length=50)
 
