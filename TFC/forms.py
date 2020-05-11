@@ -32,3 +32,8 @@ class LoginForm(ModelForm):
          widgets = {
             'password': forms.PasswordInput(),
         }
+class VolunteerForm(ModelForm):
+    class Meta:
+        model=Volunteer
+        fields=('__all__')
+        exclude=('level_of_expertise',)

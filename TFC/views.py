@@ -67,16 +67,6 @@ class OrganizationCreateView(View):
                 messages.success(request,"Organization Created Successfully")
                 return redirect('organization_list')
 
-            
-
-
-
-
-
-    
-    """fields=['name','','','','','' ,'','','',
-        '','']
-    #reverse_lazy('organization_list')"""
     def get_success_url(self):
         return reverse('organization_list')
 
@@ -183,4 +173,22 @@ def logout(request):
     auth_logout(request)
     messages.success(request,"Successfully Log out From your dashboard")
     return redirect('login')
+
+class VolunteerCreateView(View):
+    def get(self,request):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
+        form=VolunteerForm()
+        return render(request,'TFC/volunteer_signup.html',{'form':form,'org':org})
+    def post(self,request):
+        form=VolunteerForm(request.POST)
+        if form.is_valid():
+            subdomain=subdomaincheck(request)
+            org=Organization.objects.get(subdomain=subdomain)
+            form.save()
+            messages.success(request,"Volunteer Registration Form Submitted Successfully")
+            return render(request,'TFC/orghome.html',{'org':org})
+
+
+            
 
