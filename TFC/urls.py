@@ -7,7 +7,7 @@ urlpatterns = [
     path('organizations/signup',views.OrganizationCreateView.as_view(),name='organization signup'),
     path('setpassword/<auth_token>',views.PasswordResetView.as_view(),name="setpassword"),
     path('login',views.LoginView.as_view(),name="login"),
-    path('members/<organization>',views.MemberListView.as_view(),name='team_member'),
+    path('members',views.MemberListView.as_view(),name='team_member'),
     path('dashboard',views.OrgDashboard.as_view(),name='dashboard'),
     path('logout',views.logout,name='logout'),
     

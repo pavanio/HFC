@@ -8,28 +8,57 @@
     </head>
 
     <body>
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-white">
                     <!-- Brand/logo -->
                     {% load static %}
                     <a  href="#" class="navbar-brand">
 
-                            <img src="/uploads/{{organization.logo}}" width="50", height="50">
+                            <img src="/uploads/{{org.logo}}" width="50", height="50">
                     </a>
+                    <ul class="navbar-nav ml-auto">
+                                <li class="nav-item ">
+                                  <a class="nav-link" href="dashboard" >Home</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="members" >Members</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#">Volunteers</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#">Donations</a>
+                                </li>
+                                <a href="logout" class="btn btn-primary">Logout</a>
+                              </ul>
             </nav>
             {% block body %}
             
             <div>
-                <h3>{{organization.name}}</h3>
-                <h3>{{organization.website}}</h3>
+                        {% if messages %}
+                        {% for msg in messages %}
+                             <div class="alert alert-info alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        {{msg.message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                <h3>{{org.name}}</h3>
+                <h3>{{org.website}}</h3>
+                <h3>{{org.partner_desc}}</h3>
+                <h3>{{org.phone_number}}</h3>
+                <h3>{{org.email}}</h3>
+                <h3>{{org.address}}</h3>
+                <h3>{{org.city}}</h3>
+                <h3>{{org.state}}</h3>
+                <h3>{{org.zip_code}}</h3>
+                <h3>{{org.upi_id}}</h3>
 
                
                 
                 <br>
                 
-                <a href="members/{{organization}}" class="btn btn-primary">Members</a><br><br>
-                <a href="" class="btn btn-primary">Volunteers</a><br><br>
-                <a href="" class="btn btn-primary">Donations</a><br><br>
-                <a href="logout" class="btn btn-primary">Logout</a>
+                
+                
 
             </div>
             

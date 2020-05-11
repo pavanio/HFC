@@ -9,6 +9,14 @@
 
     <body>
             {% block body %}
+            {% if messages %}
+                        {% for msg in messages %}
+                             <div class="alert alert-info alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        {{msg.message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
             {% for org in organization %}
             <div>
                 <h3>{{org.name}}</h3>

@@ -1,7 +1,7 @@
 from django.db import models
 import uuid 
 import re
-
+from ScreeningApp.models import Candidate
 
 
 ROLE = (
