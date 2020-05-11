@@ -8,9 +8,18 @@
 
     <body>
         {% block body %}
+        {% if messages %}
+                    {% for msg in messages %}
+                         <div class="alert alert-info alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    {{msg.message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
         <div class="container">
           <div class="row">
             <div class="col-lg-8">
+                    
                     <form method="post" enctype="multipart/form-data">
                             {%csrf_token%}
                             {{form.as_p}}

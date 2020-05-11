@@ -20,7 +20,7 @@ HFC Modelling
     Co-ordinator Email | String | coordinator_email | required  
     Co-ordinator Mobile | String | coordinator_mobile | required  
 
-## HFC Community Organization Member | community_members** (*This is a subclass of volunteers from TFC)
+## HFC Community Organization Member | community_members** (*This is a subclass of candidate in ScreeningApp)
     Name | String | name | required  
     Email | String | email | required    
     Mobile | String | mobile |  required   
