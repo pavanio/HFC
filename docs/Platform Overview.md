@@ -67,9 +67,10 @@ A platform where we can curate and highlight problem statements shared by other 
 
 	## Admin Panel
 		- Partner Management
+			- Partner Team Members (Members)
 		- Problem Statement Management
-		- HFC Chapter Management
-		- HFC Centre Management
+		- HFC Chapter/Centre Management
+			- Community Members Management (Candidates)
 		- Manage Projects
 
 ------------------------------------------------------------------------------------------------------
@@ -113,7 +114,7 @@ TFC in a generic application, which can be used by any organization (for-profit 
 				https://www.forchange.in/orginizations/{label}
 		
 		- Organization Registration
-			https://www.forchange.in/organizations/signup
+			https://www.forchange.in/organizations/signup (Admin Member Details as well here)
 
 	# Organization Pages (Subdomain level)
 		- Org Home Page
