@@ -59,15 +59,13 @@ TFC Modelling
     Name | String | name | required | Ex:factly
     Website |String  | website | required |  Ex: http://www.factly.in/
     Organization Brief | Text| partner_desc| required |  Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
-    Contact Phone Number | String |phone_number | required 
+    Contact Phone Number | String | phone_number | required 
     Contact Email | String | email | required
     Logo | Image | logo | required
-    Address | Text | address | required  
-    City | String | city | required  
-    State | String | state | required  
-    Zip | String | zip | required  
+    City | String | city | required
     
     * Not asked during signup
+    State | String | state | required
     subdomain | String | subdomain | Automatically generated based on organization abbreviation, which can changed by the admin later.
     thankyou_template | String | thankyou_template | Automatically generated the first time, the organization will have option to edit it later.
     UPI Identifier | String | upi_id | Ex: factly@okhdfcbank
@@ -81,20 +79,11 @@ TFC Modelling
     *role | String | role | Possible: "Primary Contact(Admin) / Member"
 
 ## Volunteer Information | volunteers (This is a subclass of the candidate model)
-    Name | String | name | required 
-    *Mobile | String | mobile| required
-    Email | String | email | Required
-    Gender | String | gender | required
-    Age | integer | age | required
-    Address | Text | address | required  
-    City | String | city | required
-    State | String | state | required
-    Zip | String | zip | required
-    Highest Education | String | highest_education | required
-    
-    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week
+    This can be any kind of profession (other than tech, desing, project mangament)
     Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
-    Profession | String | profession | Ex: Design, Engineering, Management etc.
+    Profession | String | profession | Ex: Design, Engineering, Management, Operations, HR,  etc. (This should be populated form area of category from category table)
+    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week
+    Year Of Experience | String | years_of_experience | Possible Values "No Experience, 1+, 2+" | Based on this we are populating the level of expertise.
 
 ## Volunteer Categories | volunteer_category
     Category Id | Integer | category_id  | required
@@ -109,24 +98,30 @@ TFC Modelling
     Donation Request | float | donation_request | Ex: 100.00, 500.00, 1000.00
     
 ------------------------------------------------------------------------------------------------------
-Screening App Models
+Screening App Models (Should be usable by volunteers/non-volunteers as well)
 ------------------------------------------------------------------------------------------------------
 
 ## Candidate | candidates
     Name | String | name | required
     Email | String | email | required
+    Contact Number | String | contact_number | required
+    Gender | String | gender | required
+    D.0.B | 
+    
+    Highest Education | String | highest_education | Possible Values: "Intermediate, Bachelors, Masters" |required  
+
+    Area of Expertise (Skills) | String | area_of_expertse | Ex: For Contributer "Python, CSS, HTML, Databases",  For Mentor "Project Management| required * Category Name of category
+
     Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required
-    Area of Expertise (Skills) | String | area_of_expertse |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management
-    | required
     
 ## Category | categories
     Categoer Id | Integer | category_id
-    Area Category | String | area | Ex: Design, Engineering
-    Category Name | String | category_name | required | Ex: Python, HTML, CSS etc
+    Category Name | String | name | Ex: Design, Engineering, HR, P
     
-## Sub Category | sub_categories     
-    Sub Category Id | Integer | category_id
-    Sub Category Name | String | category_name | required | Ex: ORM, DOM Model, CSS Animations etc.
+## Sub Category | sub_categories
+    Sub Category Id | Integer | category_id    
+    Sub Category Name | String | sub_category_name | required | Ex: Python, HTML, CSS etc
+    Category Mapping | integer | category_id | required
     
 ## Question Bank | questions
     Question | Text | question | required
@@ -137,8 +132,10 @@ Screening App Models
     Option 4 | Text | option_4 | required when type is multiple choice
     yes / no | String | yes_no | Possiblie Valaues: "YES, NO"
     Answer | String | answer | required
-    Category Mapping | integer | category_id | required
-    Sub Category Mapping | integer | sub_category_id | required
+    Category Mapping | integer | category_id | required (Is mapped with candidate/volunteers profession)
+    Sub Category Mapping | integer | sub_category_id | required (Is mapped with candidate/volunteers area of expertise)
+    Question Level Mapping | integer | level | entry, intermediate, advanced, expert | required (Is mapped with candidate/volunteers level_of_expertise)
+    * Topic | String | topic | required | Ex: ORM, DOM Model, CSS Animations etc.
     
 ## Screening with lots of questions | screenings
     Screening Association | integer | screening_d
