@@ -30,28 +30,7 @@ class Expertise_Area(models.Model):
     def __str__(self):
         return self.category_of_expertise
 
-"""class Category(models.Model):
-    category_id = models.AutoField(primary_key=True)
-    category_name = models.CharField(max_length=300, unique=True)
-    area = models.CharField(max_length=300)
 
-    class Meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
-
-    def __str__(self):
-        return self.category_name"""
-"""class Sub_category(models.Model):
-    sub_category_id = models.AutoField(primary_key=True)
-    sub_category_name = models.CharField(max_length=300, unique=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Sub_Category"
-        verbose_name_plural = "Sub_Categories"
-
-    def __str__(self):
-        return self.sub_category_name"""
 
 class Expertise(models.Model):
     expertise_id = models.AutoField(primary_key=True)
