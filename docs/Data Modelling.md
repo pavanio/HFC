@@ -83,12 +83,12 @@ TFC Modelling
     *role | String | role | Possible: "Primary Contact(Admin) / Member"
 
 ## Volunteer Information | volunteers (This is a subclass of the candidate model)
-<<<<<<< HEAD
-    This can be any kind of profession (other than tech, desing, project mangament)
-    Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
-    Profession | String | profession | Ex: Design, Engineering, Management, Operations, HR,  etc. (This should be populated form area of category from category table)
-    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week
-    Year Of Experience | String | years_of_experience | Possible Values "No Experience, 1+, 2+" | Based on this we are populating the level of expertise.
+
+    This can be any kind of profession (other than tech, desing, project mangament)  
+    Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official  
+    Profession | String | profession | Ex: Design, Engineering, Management, Operations, HR,  etc. (This should be populated form area of category from category table)  
+    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week  
+    Year Of Experience | String | years_of_experience | Possible Values "No Experience, 1+, 2+" | Based on this we are populating the level of expertise.  
 
 
 ## Volunteer Screening
