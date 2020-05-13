@@ -26,7 +26,7 @@ SECRET_KEY = '%q9#g6m-+#uj78gxwghng(l&2#xhf04y@jmh^7#t#77dox5*xm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['staging.forchange.in']
 
 
 # Application definition
@@ -38,11 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     #'partners.apps.PartnersConfig',
     'HFCApp',
     'TFCApp',
     'screeningapp',
+=======
+    'HFCCore',
+    'TFC',
+    'ScreeningApp',
+    'django.contrib.sites',
+>>>>>>> screening-app
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'HFC.urls'
@@ -59,7 +69,7 @@ ROOT_URLCONF = 'HFC.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,6 +133,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

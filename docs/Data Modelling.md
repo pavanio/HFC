@@ -9,7 +9,9 @@ attribute | type | db column name | examples, possible values, assumptions | req
 HFC Modelling
 ------------------------------------------------------------------------------------------------------
 
-## HFC Organization (Chapter or a Center) | organizations
+## HFC Community Organization (Chapter or a Centre) | community_organizations
+    Note: Our community organizations are not TFC Orgnizations, these are just loosely/tightly coupled group of developers. So we dont want to give our tfc features to these groups
+    
     Organization Name | String | organization_name |  required | Ex:JNTU, GRIET
     Organization Type | String| type | Possible Values: "Center, Chapter" | required
     Website Link | String | website | Ex:JNTU Website link| optional
@@ -18,7 +20,7 @@ HFC Modelling
     Co-ordinator Email | String | coordinator_email | required  
     Co-ordinator Mobile | String | coordinator_mobile | required  
 
-## HFC Member | members** (*This can be a subclass of volunteers from TFC)
+## HFC Community Organization Member | community_members** (*This is a subclass of candidate in ScreeningApp)
     Name | String | name | required  
     Email | String | email | required    
     Mobile | String | mobile |  required   
@@ -46,19 +48,21 @@ HFC Modelling
     Related Links |String |related_link | required  
     Proposed Solution | Text | proposed_solution | required  
     Submitted By Which Partner | id | partner_id | required  
-    Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"  
+    Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"
+    Partner Association | id | partner_id | required |   
 
 ## Partner Information | partners (TFC Orgs are submodels or TFC Orgs)
-This is a subclass of TFC Organizations 
+This is a subclass of TFC Organizations Ex: Factly / Foundation For Democratic Reforms
 
 ------------------------------------------------------------------------------------------------------
 TFC Modelling
 ------------------------------------------------------------------------------------------------------
 
-## Organization | organization (Governmental/ Non-Governmental organization)
+## Organization | organizations (Governmental/ Non-Governmental organization)
     Name | String | name | required | Ex:factly
     Website |String  | website | required |  Ex: http://www.factly.in/
-    Organization Brief | Text| partner_desc| required |  Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
+
+    Organization Brief | Text| organization_brief| required |  Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
     Contact Phone Number | String | phone_number | required 
     Contact Email | String | email | required
     Logo | Image | logo | required
@@ -73,25 +77,23 @@ TFC Modelling
 ## Member (Team Members) | team_members
     Name | String | member_name | required | Ex: Rakesh Dubbudu
     Email | String | member_email | required
-    Phone Number | String | member_phone_number| required |Ex: +91 8888, We should be able to accept international numbers as well    
+    Phone Number | String | member_phone_number| required |Ex: +91 8888, We should be able to accept international numbers as well
     Password | String | password | required
     Invitation Auth Token | String | auth token | Created and sent in the email link, On password setup, auth token is cleared, if the auth token is nil, the email link will expire.
     *role | String | role | Possible: "Primary Contact(Admin) / Member"
 
 ## Volunteer Information | volunteers (This is a subclass of the candidate model)
+<<<<<<< HEAD
     This can be any kind of profession (other than tech, desing, project mangament)
     Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
     Profession | String | profession | Ex: Design, Engineering, Management, Operations, HR,  etc. (This should be populated form area of category from category table)
     Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week
     Year Of Experience | String | years_of_experience | Possible Values "No Experience, 1+, 2+" | Based on this we are populating the level of expertise.
 
-## Volunteer Categories | volunteer_category
-    Category Id | Integer | category_id  | required
-    Category Name | String | category_name | required
 
-## Volunteer Sub Categories | volunteer_sub_category  
-    Sub Category Id | Integer | sub_category_id  | required
-    Sub Category Name | String | Sub_category_name  | required  
+## Volunteer Screening
+    Subclass of ScreeningApp screening
+    Organizations should be able to choose the size of a screening
 
 ## Donation Request Raised | donation_requests
     Ogranization Association | integer| organization_id | 
@@ -113,6 +115,7 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     Area of Expertise (Skills) | String | area_of_expertse | Ex: For Contributer "Python, CSS, HTML, Databases",  For Mentor "Project Management| required * Category Name of category
 
     Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required
+
     
 ## Category | categories
     Categoer Id | Integer | category_id
@@ -122,9 +125,22 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     Sub Category Id | Integer | category_id    
     Sub Category Name | String | sub_category_name | required | Ex: Python, HTML, CSS etc
     Category Mapping | integer | category_id | required
+=======
+    Area of Expertise (Skills) | String | area_of_expertise |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management
+    | required
+    
+## Expertise Areas | expertise_areas
+    Expertise Area Id | Integer | expertise_area_id
+    Area Of Expertise | String | area_of_expertise | Ex: Design, Engineering
+    Category Of Expertise | String | category_of_expertise | required | Ex: Python, HTML, CSS etc
+    
+## Expertise | expertise     
+    Expertise Id | Integer | expertise_id
+    Expertise Name | String | expertise | required | Ex: ORM, DOM Model, CSS Animations etc.
+>>>>>>> screening-app
     
 ## Question Bank | questions
-    Question | Text | question | required
+    Question | Text | question | required 
     type | String | type | Possible Values: "Multiple Choice, Yes/No"
     Option 1 | Text | option_1 | required when type is multiple choice
     Option 2 | Text | option_2 | required when type is multiple choice
@@ -132,6 +148,7 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     Option 4 | Text | option_4 | required when type is multiple choice
     yes / no | String | yes_no | Possiblie Valaues: "YES, NO"
     Answer | String | answer | required
+<<<<<<< HEAD
     Category Mapping | integer | category_id | required (Is mapped with candidate/volunteers profession)
     Sub Category Mapping | integer | sub_category_id | required (Is mapped with candidate/volunteers area of expertise)
     Question Level Mapping | integer | level | entry, intermediate, advanced, expert | required (Is mapped with candidate/volunteers level_of_expertise)
@@ -139,11 +156,20 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     
 ## Screening with lots of questions | screenings
     Screening Association | integer | screening_d
+=======
+    Area Of Expertise Mapping | integer | expertise_area_id | required
+    Expertise Mapping | integer | expertise_id | required
+
+## Screening with lots of questions | screenings_questions
+    Screening Association | integer | screening_id
+>>>>>>> screening-app
     Question Association | integer | question_id
     Candidates Answer | String | candidates_answer
     Answers Correctness | Boolean | answer_correctness | Ex: True, False
 
-## Many to Many Screening | candidates_screenings
+## Many to Many Screening | screenings
+    Screeing id
+    Screening UUID | String | screening_uuid | Ex: SCRNGSMTY01, SCRNGSMTY02 so on which is auto generated whenever you create the record
     Candidate association | integer | candidate_id
-    Screening association | id | screening_d
+    Screening association | id | screening_id
     *Status | String | Possible Values: "New, Closed, Passed, Failed"

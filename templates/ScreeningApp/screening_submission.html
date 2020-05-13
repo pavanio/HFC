@@ -1,0 +1,60 @@
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Screen Test</title>
+</head>
+
+<body>
+
+  {% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <form method="post">
+          {%csrf_token%}
+
+
+          {% for question in questions %}
+          {%for i in question.question.all%}
+
+
+          <h3>{{i.question}}</h3><br>
+
+
+          <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_1" {% if question.candidate_ans == "option_1" %} checked{% endif %}  />
+          <label for="option_1">{{i.option_1}}</label><br>
+
+          <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_2" {% if question.candidate_ans == "option_2" %} checked{% endif %}/>
+          <label for="option_2">{{i.option_2}}</label><br>
+
+
+          <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_3" {% if question.candidate_ans == "option_3" %} checked{% endif %} />
+          <label for="option_1">{{i.option_3}}</label><br>
+
+
+          <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_4" {% if question.candidate_ans == "option_4" %} checked{% endif %} />
+          <label for="option_4">{{i.option_4}}</label><br>
+
+
+          {%endfor%}
+          {%endfor%}
+          <input type="submit" class="btn btn-success" value="Submit">
+        </form>
+      </div>
+
+
+
+      {%endblock%}
+
+      <div class="col-lg-6">
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
+</body>
+
+</html>
