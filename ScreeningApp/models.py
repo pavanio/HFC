@@ -21,14 +21,14 @@ LEVEL_OF_EXPERTISE = (
 class Expertise_Area(models.Model):
     expertise_area_id = models.AutoField(primary_key=True)
     area_of_expertise = models.CharField(max_length=300)#eng
-    category_of_expertise = models.CharField(max_length=300)#py
+    #category_of_expertise = models.CharField(max_length=300)#py
 
     class Meta:
         verbose_name = "Expertise_Area"
         verbose_name_plural = "Expertise_Areas"
 
     def __str__(self):
-        return self.category_of_expertise
+        return self.area_of_expertise
 
 
 
@@ -49,9 +49,13 @@ class Question(models.Model):
     category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
     expertise = models.ForeignKey(
         Expertise, on_delete=models.CASCADE)
+    level=models.CharField(
+        choices=LEVEL_OF_EXPERTISE, max_length=100)
+    topic=models.CharField(max_length=200)
     question_id = models.AutoField(primary_key=True)
-    question = models.TextField()
     qtype = models.CharField(choices=QUESTION_TYPE, max_length=100)
+    question = models.TextField()
+   
     option_1 = models.TextField(blank=True)
     option_2 = models.TextField(blank=True)
     option_3 = models.TextField(blank=True)

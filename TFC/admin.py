@@ -3,9 +3,11 @@ from .models import *
 
 class Team_MemberInline(admin.TabularInline):
 	model = Team_Member
-	exclude=['password',]
+	
+	exclude=['password','member_email','member_phone_number','auth_token']
 	extra=0
-	readonly_fields=('auth_token',)
+	readonly_fields=('member_name','role')
+	
 	
 
 class OrganizationAdmin(admin.ModelAdmin):
