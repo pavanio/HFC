@@ -64,13 +64,10 @@ TFC Modelling
     Organization Brief | Text| organization_brief| required |  Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
     Contact Phone Number | String | phone_number | required 
     Contact Email | String | email | required
-    Logo | Image | logo | required
-    Address | Text | address | required  
-    City | String | city | required  
-    State | String | state | required  
-    Zip | String | zip | required  
-    
-    * Not asked during signup
+    Logo | Image | logo | required  
+    City | String | city | required    
+    * Not asked during signup    
+    State | String | state | required    
     subdomain | String | subdomain | Automatically generated based on organization abbreviation, which can changed by the admin later.
     thankyou_template | String | thankyou_template | Automatically generated the first time, the organization will have option to edit it later.
     UPI Identifier | String | upi_id | Ex: factly@okhdfcbank
@@ -83,22 +80,17 @@ TFC Modelling
     Invitation Auth Token | String | auth token | Created and sent in the email link, On password setup, auth token is cleared, if the auth token is nil, the email link will expire.
     *role | String | role | Possible: "Primary Contact(Admin) / Member"
 
-## Volunteer Information | volunteers (This is a subclass of the candidate model)
-    Name | String | name | required 
-    *Mobile | String | mobile| required
-    Email | String | email | Required
-    Gender | String | gender | required
-    Age | integer | age | required
-    Address | Text | address | required  
-    City | String | city | required
-    State | String | state | required
-    Zip | String | zip | required
+## Volunteer Information | volunteers (This is a subclass of the candidate model)  
+    This can be any kind of profession (other than tech, desing, project mangament) 
+
+    Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official  
+
+    Profession | String | profession | Ex: Design, Engineering, Management, Operations, HR,  etc. (This should be populated form area of category from category table)  
+
+    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week  Based on this we are populating the level of expertise.  
     
-    Education | String | education | required    
-    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week
-    Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
     Years Of Experience | String | years_of_experience | required | "No Experience, 1+ years, 2+ years, 3+ years, 5+ years, 10+years, 15+years, 20+ years"
-    Profession | String | profession | Ex: Design, Engineering, Management etc.
+
 
 ## Volunteer Screening
     Subclass of ScreeningApp screening
@@ -114,10 +106,13 @@ Screening App Models
 
 ## Candidate | candidates
     Name | String | name | required
-    Email | String | email | required
-    Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required
-    Area of Expertise (Skills) | String | area_of_expertise |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management
-    | required
+    Email | String | email | required  
+    Contact Number | String | contact_number | required  
+    Gender | String | gender | required  
+    D.0.B | Datefield | required 
+    Highest Education | String | highest_education | Possible Values: "Intermediate, Bachelors, Masters" |required  
+    Area of Expertise (Skills) | String | area_of_expertise |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management| required  
+    Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required  
     
 ## Expertise Areas | expertise_areas
     Expertise Area Id | Integer | expertise_area_id

@@ -96,7 +96,7 @@ admin.site.register(Screenings,ScreeningAdmin)
 
 
 class CandidateAdmin(admin.ModelAdmin):
-	list_display=('name','email','level_of_expertise','area_of_expertise')
+	list_display=('name','email','contact_number','gender','dob','highest_education','level_of_expertise','area_of_expertise')
 	inlines =[ScreeningInline]
 	class meta:
 		model=Candidate

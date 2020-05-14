@@ -41,7 +41,6 @@
                     {% endfor %}
                 {% endif %}
             
-            <a href="addmember" class="btn btn-success" style="float:right;">Add New Member</a>
             {% for member in org.team_member_set.all %}
             <div>
                 <h3>{{member.member_name}}</h3>

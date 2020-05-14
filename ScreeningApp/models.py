@@ -15,7 +15,17 @@ LEVEL_OF_EXPERTISE = (
     ('Intermediate', 'Intermediate'),
     ('Advanced', 'Advanced'),
     ('Expert', 'Expert')
+)
+GENDER = (
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('Other','Other'),
 
+)
+EDUCATION = (
+    ('Intermediate', 'Intermediate'),
+    ('Bachelors', 'Bachelors'),
+    ('Masters','Masters'),
 
 )
 class Expertise_Area(models.Model):
@@ -76,6 +86,10 @@ class Candidate(models.Model):
     candidate_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=500)
     email = models.EmailField()
+    contact_number = models.CharField(max_length=20)
+    gender = models.CharField(choices=GENDER,max_length=50) 
+    dob = models.DateField() 
+    highest_education = models.CharField(choices=EDUCATION,max_length=50) 
     level_of_expertise = models.CharField(
         choices=LEVEL_OF_EXPERTISE, max_length=100)
     area_of_expertise = models.CharField(max_length=500)

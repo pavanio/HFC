@@ -4,9 +4,15 @@ from .models import *
 class Team_MemberInline(admin.TabularInline):
 	model = Team_Member
 	
-	exclude=['password','member_email','member_phone_number','auth_token']
+	exclude=['password','member_email','member_phone_number','auth_token','role']
 	extra=0
-	readonly_fields=('member_name','role')
+	readonly_fields=('member_name',)
+	show_change_link=True
+	def has_add_permission(self, request):
+		return False
+	def has_delete_permission(self, request, obj=None):
+		return False
+
 	
 	
 
@@ -17,10 +23,19 @@ class OrganizationAdmin(admin.ModelAdmin):
 		model=Organization
 admin.site.register(Organization,OrganizationAdmin)
 
-#admin.site.register(Team_Member)
+
+class Team_MemberAdmin(admin.ModelAdmin):
+	readonly_fields=('organization',)
+	list_display=('organization','member_name','member_email','member_phone_number','role')
+	
+	exclude=['password',]
+	class meta:
+		model=Team_Member
+admin.site.register(Team_Member,Team_MemberAdmin)
 
 class VolunteerAdmin(admin.ModelAdmin):
-	list_display=('name','email','mobile','age','gender','address','city','state','zip_code','education','availability','current_occupation','years_of_experience','profession')
+	list_display=('name','email','contact_number','dob','gender','highest_education','availability','current_occupation','years_of_experience','profession')
+	exclude=['level_of_expertise','area_of_expertise']
 	class meta:
 		model=Volunteer
 admin.site.register(Volunteer,VolunteerAdmin)

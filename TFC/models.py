@@ -9,25 +9,19 @@ ROLE = (
     ('Member', 'Member')
 
 )
-GENDER = (
-    ('Male', 'Male'),
-    ('Female', 'Female'),
-    ('Other','Other'),
-
-)
 
 AVAILABILITY=(
-    ('0 - 10hours per week', '0 - 10hours per week'),
-    ('10 - 20hours per week', '10 - 20hours per week'),
-    ('20 - 30hours per week','20 - 30hours per week'),
-    ('30 - 40hours per week','30 - 40hours per week'),
+    ('0 - 10 hours per week', '0 - 10 hours per week'),
+    ('10 - 20 hours per week', '10 - 20 hours per week'),
+    ('20 - 30 hours per week','20 - 30 hours per week'),
+    ('30 - 40 hours per week','30 - 40 hours per week'),
 
 )
 
 OCCUPATION=(
     ('Student', 'Student'),
     ('Working Professional', 'Working Professional'),
-    ('Govenment Official','Govenment Official'),
+    ('Government Official','Government Official'),
 )
 
 EXPERIENCE=(
@@ -88,14 +82,6 @@ class Team_Member(models.Model):
 
 
 class Volunteer(Candidate):
-    mobile=models.CharField(max_length=20)
-    age=models.CharField(max_length=10)
-    gender=models.CharField(choices=GENDER,max_length=50)
-    address=models.TextField()
-    city=models.CharField(max_length=200)
-    state=models.CharField(max_length=200)
-    zip_code=models.CharField(max_length=50)
-    education=models.CharField(max_length=200)
     availability=models.CharField(choices=AVAILABILITY,max_length=100)
     current_occupation=models.CharField(choices=OCCUPATION,max_length=200)
     years_of_experience=models.CharField(choices=EXPERIENCE,max_length=200)
@@ -106,6 +92,7 @@ class Volunteer(Candidate):
         verbose_name = "Volunteer"
         verbose_name_plural = "Volunteers"
     def save(self, *args, **kwargs):
+        self.area_of_expertise=self.profession
         
         yoexp=self.years_of_experience
         if yoexp =="No Experience" or yoexp == "1+ years" or yoexp == "2+ years":

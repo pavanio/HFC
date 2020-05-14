@@ -136,7 +136,26 @@ class LoginView(View):
                 return redirect('login')
                 
 
-    
+class MemberCreateView(View):
+    def get(self,request):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
+        form=MemberCreateForm()
+        return render(request,'TFC/member_signup.html',{'form':form,'org':org})
+    def post(self,request):
+        form=MemberCreateForm(request.POST)
+        if form.is_valid():
+            subdomain=subdomaincheck(request)
+            org=Organization.objects.get(subdomain=subdomain)
+            member_name = form.cleaned_data['member_name']
+            member_email = form.cleaned_data['member_email']
+            member_phone_number = form.cleaned_data['member_phone_number']
+            member=Team_Member(member_name=member_name,member_email=member_email,member_phone_number=member_phone_number,role='Member')
+            #member.organization.add(org)
+            member.organization=org
+            member.save()
+            messages.success(request,"Member Created Successfully")
+            return redirect('team_member')    
 class MemberListView(View):
     def get(self,request):
         subdomain=subdomaincheck(request)
@@ -188,6 +207,16 @@ class VolunteerCreateView(View):
             form.save()
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
             return render(request,'TFC/orghome.html',{'org':org})
+class VolunteerList(View):
+    def get(self,request):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
+        member_id=request.session['member']
+        if member_id == None:
+            return redirect('login')
+        else:
+            return render(request,'TFC/volunter_list.html',{'org':org})
+
 
 
             
