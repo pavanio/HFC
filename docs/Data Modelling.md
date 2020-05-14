@@ -122,11 +122,12 @@ Screening App Models
 ## Expertise Areas | expertise_areas
     Expertise Area Id | Integer | expertise_area_id
     Area Of Expertise | String | area_of_expertise | Ex: Design, Engineering
-    Category Of Expertise | String | category_of_expertise | required | Ex: Python, HTML, CSS etc
+    
     
 ## Expertise | expertise     
     Expertise Id | Integer | expertise_id
-    Expertise Name | String | expertise | required | Ex: ORM, DOM Model, CSS Animations etc.
+    Expertise Name | String | expertise | required | Ex: ORM, DOM Model, CSS Animations etc.  
+    Expertise  Area Mapping | integer | expertise_area_id  
     
 ## Question Bank | questions
     Question | Text | question | required 
@@ -137,8 +138,10 @@ Screening App Models
     Option 4 | Text | option_4 | required when type is multiple choice
     yes / no | String | yes_no | Possiblie Valaues: "YES, NO"
     Answer | String | answer | required
-    Area Of Expertise Mapping | integer | expertise_area_id | required
-    Expertise Mapping | integer | expertise_id | required
+    Area Of Expertise Mapping | integer | expertise_area_id | required  (Is mapped with candidate/volunteers profession)  
+    Expertise Mapping | integer | expertise_id | required (Is mapped with candidate/volunteers area of expertise)   
+    Question Level Mapping | integer | level | entry, intermediate, advanced, expert | required (Is mapped with candidate/volunteers level_of_expertise)   
+    * Topic | String | topic | required | Ex: ORM, DOM Model, CSS Animations etc.  
 
 ## Screening with lots of questions | screenings_questions
     Screening Association | integer | screening_id
