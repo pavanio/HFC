@@ -23,7 +23,7 @@
                                   <a class="nav-link" href="members" >Members</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="#">Volunteers</a>
+                                  <a class="nav-link" href="volunteerlist">Volunteers</a>
                                 </li>
                                 <li class="nav-item">
                                   <a class="nav-link" href="#">Donations</a>
@@ -41,9 +41,9 @@
                     {% endfor %}
                 {% endif %}
             
-            {% for member in org.team_member_set.all %}
+            {% for volunteer in org.volunteer_set.all %}
             <div>
-                <h3>{{member.member_name}}</h3>
+                <h3>{{volunteer.name}}</h3>
                 <a href="" class="btn btn-primary">Edit</a>
                 <a href="" class="btn btn-danger">Delete</a>
                 

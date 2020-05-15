@@ -204,7 +204,9 @@ class VolunteerCreateView(View):
         if form.is_valid():
             subdomain=subdomaincheck(request)
             org=Organization.objects.get(subdomain=subdomain)
-            form.save()
+            vol=form.save(commit=False)
+            vol.organization=org
+            vol.save()
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
             return render(request,'TFC/orghome.html',{'org':org})
 class VolunteerList(View):

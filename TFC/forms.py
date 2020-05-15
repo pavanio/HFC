@@ -36,7 +36,7 @@ class VolunteerForm(ModelForm):
     class Meta:
         model=Volunteer
         fields=('__all__')
-        exclude=('level_of_expertise','area_of_expertise')
+        exclude=('level_of_expertise','area_of_expertise','organization')
 
 class MemberCreateForm(ModelForm):
     class Meta:

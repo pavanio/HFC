@@ -85,7 +85,8 @@ class Volunteer(Candidate):
     availability=models.CharField(choices=AVAILABILITY,max_length=100)
     current_occupation=models.CharField(choices=OCCUPATION,max_length=200)
     years_of_experience=models.CharField(choices=EXPERIENCE,max_length=200)
-    profession=models.CharField(max_length=200)
+   
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE,verbose_name='Organization')
     def __str__(self):
         return self.name
     class Meta: 

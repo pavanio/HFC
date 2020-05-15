@@ -6,7 +6,8 @@ class Team_MemberInline(admin.TabularInline):
 	
 	exclude=['password',]
 	extra=0
-	readonly_fields=('auth_token',)
+	list_display_links = ('member_name',)
+	readonly_fields=('member_name','member_email','member_phone_number','role','auth_token',)
 	
 	
 	
@@ -22,7 +23,7 @@ admin.site.register(Organization,OrganizationAdmin)
 
 class Team_MemberAdmin(admin.ModelAdmin):
 	readonly_fields=('organization',)
-	list_display=('organization','member_name','member_email','member_phone_number','role')
+	list_display=('member_name','member_email','member_phone_number','role','organization')
 	
 	exclude=['password',]
 	class meta:
@@ -30,7 +31,7 @@ class Team_MemberAdmin(admin.ModelAdmin):
 admin.site.register(Team_Member,Team_MemberAdmin)
 
 class VolunteerAdmin(admin.ModelAdmin):
-	list_display=('name','email','contact_number','dob','gender','highest_education','availability','current_occupation','years_of_experience','profession')
+	list_display=('organization','name','email','contact_number','dob','gender','highest_education','availability','current_occupation','years_of_experience','profession')
 	exclude=['level_of_expertise','area_of_expertise']
 	class meta:
 		model=Volunteer
