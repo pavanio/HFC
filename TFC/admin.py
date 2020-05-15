@@ -4,15 +4,11 @@ from .models import *
 class Team_MemberInline(admin.TabularInline):
 	model = Team_Member
 	
-	exclude=['password','member_email','member_phone_number','auth_token','role']
+	exclude=['password',]
 	extra=0
-	readonly_fields=('member_name',)
-	show_change_link=True
-	def has_add_permission(self, request):
-		return False
-	def has_delete_permission(self, request, obj=None):
-		return False
-
+	readonly_fields=('auth_token',)
+	
+	
 	
 	
 
