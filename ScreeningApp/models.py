@@ -15,20 +15,30 @@ LEVEL_OF_EXPERTISE = (
     ('Intermediate', 'Intermediate'),
     ('Advanced', 'Advanced'),
     ('Expert', 'Expert')
+)
+GENDER = (
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('Other','Other'),
 
+)
+EDUCATION = (
+    ('Intermediate', 'Intermediate'),
+    ('Bachelors', 'Bachelors'),
+    ('Masters','Masters'),
 
 )
 class Expertise_Area(models.Model):
     expertise_area_id = models.AutoField(primary_key=True)
     area_of_expertise = models.CharField(max_length=300)#eng
-    category_of_expertise = models.CharField(max_length=300)#py
+    #category_of_expertise = models.CharField(max_length=300)#py
 
     class Meta:
         verbose_name = "Expertise_Area"
         verbose_name_plural = "Expertise_Areas"
 
     def __str__(self):
-        return self.category_of_expertise
+        return self.area_of_expertise
 
 
 
@@ -49,9 +59,13 @@ class Question(models.Model):
     category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
     expertise = models.ForeignKey(
         Expertise, on_delete=models.CASCADE)
+    level=models.CharField(
+        choices=LEVEL_OF_EXPERTISE, max_length=100)
+    topic=models.CharField(max_length=200)
     question_id = models.AutoField(primary_key=True)
-    question = models.TextField()
     qtype = models.CharField(choices=QUESTION_TYPE, max_length=100)
+    question = models.TextField()
+   
     option_1 = models.TextField(blank=True)
     option_2 = models.TextField(blank=True)
     option_3 = models.TextField(blank=True)
@@ -72,6 +86,10 @@ class Candidate(models.Model):
     candidate_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=500)
     email = models.EmailField()
+    contact_number = models.CharField(max_length=20)
+    gender = models.CharField(choices=GENDER,max_length=50) 
+    dob = models.DateField() 
+    highest_education = models.CharField(choices=EDUCATION,max_length=50) 
     level_of_expertise = models.CharField(
         choices=LEVEL_OF_EXPERTISE, max_length=100)
     area_of_expertise = models.CharField(max_length=500)

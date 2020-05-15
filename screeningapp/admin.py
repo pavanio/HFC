@@ -6,6 +6,7 @@ from .models import *
 # Register your models here.
 class ExpertiseInline(admin.TabularInline):
 	model=Expertise
+	extra=0
 
 class ScreeningInline(admin.TabularInline):
 	model=Screenings
@@ -48,7 +49,7 @@ admin.site.register(Category,CategoryAdmin)"""
 
 
 class Expertise_AreaAdmin(admin.ModelAdmin):
-	list_display = ('category_of_expertise','area_of_expertise')
+	list_display = ('area_of_expertise',)
 	inlines =[ExpertiseInline]
 	class meta:
 		model=Expertise_Area
@@ -59,7 +60,7 @@ admin.site.register(Expertise_Area,Expertise_AreaAdmin)
 
 
 class QuestionAdmin(admin.ModelAdmin):
-	list_display=('category_of_expertise','expertise','qtype','question','option_1','option_2','option_3','option_4','answer')
+	list_display=('category_of_expertise','expertise','level','topic','qtype','question','option_1','option_2','option_3','option_4','answer')
 	class meta:
 		model=Question
 admin.site.register(Question,QuestionAdmin)
@@ -95,7 +96,7 @@ admin.site.register(Screenings,ScreeningAdmin)
 
 
 class CandidateAdmin(admin.ModelAdmin):
-	list_display=('name','email','level_of_expertise','area_of_expertise')
+	list_display=('name','email','contact_number','gender','dob','highest_education','level_of_expertise','area_of_expertise')
 	inlines =[ScreeningInline]
 	class meta:
 		model=Candidate

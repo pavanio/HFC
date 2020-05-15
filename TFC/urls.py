@@ -11,5 +11,6 @@ urlpatterns = [
     path('dashboard',views.OrgDashboard.as_view(),name='dashboard'),
     path('logout',views.logout,name='logout'),
     path('volunteer',views.VolunteerCreateView.as_view(),name='volunteer signup'),
+    path('addmember',views.MemberCreateView.as_view(),name='member signup'),
     
 ]

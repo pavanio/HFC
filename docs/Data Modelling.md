@@ -24,11 +24,10 @@ HFC Modelling
     Name | String | name | required  
     Email | String | email | required    
     Mobile | String | mobile |  required   
-    Member Type | String |type | Ex: Contributor, Mentor| required      
+    Member Type | String |type | Ex: Contributor, Mentor| required
     Github Profile | String | coder_profile | required  
     LinkedIn Profile String | linkedin_profile | required  
     HFC Organization | integer | organization_id |required |  Ex: 2   
-    HFC Organization Type | String | organination_type | required | "Chapter"  
     *Assigned Project | integer | project_id| Ex: 1 | optional  
     *Screening Status | integer | screening_score 
 
@@ -74,7 +73,7 @@ TFC Modelling
     thankyou_template | String | thankyou_template | Automatically generated the first time, the organization will have option to edit it later.
     UPI Identifier | String | upi_id | Ex: factly@okhdfcbank
     
-## Member (Team Members) | team_members
+## Member (Team Members) | members
     Name | String | member_name | required | Ex: Rakesh Dubbudu
     Email | String | member_email | required
     Phone Number | String | member_phone_number| required |Ex: +91 8888, We should be able to accept international numbers as well
@@ -83,17 +82,15 @@ TFC Modelling
     *role | String | role | Possible: "Primary Contact(Admin) / Member"
 
 ## Volunteer Information | volunteers (This is a subclass of the candidate model)
+    This can be any kind of profession (other than tech, desing, project mangament) 
 
-    This can be any kind of profession (other than tech, desing, project mangament)  
-    Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official  
-    Profession | String | profession | Ex: Design, Engineering, Management, Operations, HR,  etc. (This should be populated form area of category from category table)  
-    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week  
-    Year Of Experience | String | years_of_experience | Possible Values "No Experience, 1+, 2+" | Based on this we are populating the level of expertise.  
+    Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
 
+    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week  Based on this we are populating the level of expertise.  
+    
+    Years Of Experience | String | years_of_experience | required | "No Experience, 1+ years, 2+ years, 3+ years, 5+ years, 10+years, 15+years, 20+ years"
 
-## Volunteer Screening
-    Subclass of ScreeningApp screening
-    Organizations should be able to choose the size of a screening
+    Organization Mapping | integer | organization_id | This essentially means a volunteer is tied to a particular organization as an applicant
 
 ## Donation Request Raised | donation_requests
     Ogranization Association | integer| organization_id | 
@@ -105,39 +102,23 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
 
 ## Candidate | candidates
     Name | String | name | required
-    Email | String | email | required
-    Contact Number | String | contact_number | required
-    Gender | String | gender | required
-    D.0.B | 
-    
+    Email | String | email | required  
+    Contact Number | String | contact_number | required  
+    Gender | String | gender | required  
+    D.0.B | Datefield | required 
     Highest Education | String | highest_education | Possible Values: "Intermediate, Bachelors, Masters" |required  
-
-    Area of Expertise (Skills) | String | area_of_expertse | Ex: For Contributer "Python, CSS, HTML, Databases",  For Mentor "Project Management| required * Category Name of category
-
-    Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required
-
-    
-## Category | categories
-    Categoer Id | Integer | category_id
-    Category Name | String | name | Ex: Design, Engineering, HR, P
-    
-## Sub Category | sub_categories
-    Sub Category Id | Integer | category_id    
-    Sub Category Name | String | sub_category_name | required | Ex: Python, HTML, CSS etc
-    Category Mapping | integer | category_id | required
-
-    Area of Expertise (Skills) | String | area_of_expertise |Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management
-    | required
+    Profession | String | profession | Ex: Design, Engineering, Management, Operations, HR,  etc. (This should be populated form area of category from category table)  
+    Expertise (Skills) | String | expertise | Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management| required  
+    Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required  
     
 ## Expertise Areas | expertise_areas
     Expertise Area Id | Integer | expertise_area_id
-    Area Of Expertise | String | area_of_expertise | Ex: Design, Engineering
-    
+    Area Of Expertise (Profession) | String | area_of_expertise | Ex: Design, Engineering
     
 ## Expertise | expertise     
     Expertise Id | Integer | expertise_id
-    Expertise Name | String | expertise | required | Ex: Python, Java
-    Expertise  Area Mapping | integer | expertise_area_id
+    Expertise Name | String | expertise | required | Ex: Python, Ruby, HTML, CSS, Java,
+    Expertise Area Mapping | integer | expertise_area_id  
     
 ## Question Bank | questions
     Question | Text | question | required 
@@ -148,12 +129,10 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     Option 4 | Text | option_4 | required when type is multiple choice
     yes / no | String | yes_no | Possiblie Valaues: "YES, NO"
     Answer | String | answer | required
-    Category Mapping | integer | category_id | required (Is mapped with candidate/volunteers profession)  
-    Sub Category Mapping | integer | sub_category_id | required (Is mapped with candidate/volunteers area of expertise)  
-    Question Level Mapping | integer | level | entry, intermediate, advanced, expert | required (Is mapped with candidate/volunteers level_of_expertise)  
+    Area Of Expertise Mapping | integer | expertise_area_id | required  (Is mapped with candidate/volunteers profession)  
+    Expertise Mapping | integer | expertise_id | required (Is mapped with candidate/volunteers area of expertise)   
+    Question Level Mapping | integer | level | entry, intermediate, advanced, expert | required (Is mapped with candidate/volunteers level_of_expertise)   
     * Topic | String | topic | required | Ex: ORM, DOM Model, CSS Animations etc.  
-    
-
 
 ## Screening with lots of questions | screenings_questions
     Screening Association | integer | screening_id
