@@ -38,17 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    #'partners.apps.PartnersConfig',
-    'HFCApp',
-    'TFCApp',
-    'screeningapp',
-=======
     'HFCCore',
     'TFC',
     'ScreeningApp',
     'django.contrib.sites',
->>>>>>> screening-app
 ]
 
 SITE_ID = 1
