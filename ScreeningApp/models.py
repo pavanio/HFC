@@ -92,9 +92,10 @@ class Candidate(models.Model):
     highest_education = models.CharField(choices=EDUCATION,max_length=50) 
     level_of_expertise = models.CharField(
         choices=LEVEL_OF_EXPERTISE, max_length=100)
-    area_of_expertise = models.CharField(max_length=500)
-    profession = models.CharField(max_length=20)
-
+    profession = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
+    area_of_expertise = models.ForeignKey(
+        Expertise, on_delete=models.CASCADE)
+    
     class Meta:
         verbose_name = "Candidate"
         verbose_name_plural = "Candidates"

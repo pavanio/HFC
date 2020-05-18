@@ -31,8 +31,8 @@ class Team_MemberAdmin(admin.ModelAdmin):
 admin.site.register(Team_Member,Team_MemberAdmin)
 
 class VolunteerAdmin(admin.ModelAdmin):
-	list_display=('organization','name','email','contact_number','dob','gender','highest_education','availability','current_occupation','years_of_experience','profession')
-	exclude=['level_of_expertise','area_of_expertise']
+	list_display=('organization','name','email','contact_number','dob','gender','highest_education','availability','current_occupation','years_of_experience','profession','area_of_expertise')
+	exclude=['level_of_expertise']
 	class meta:
 		model=Volunteer
 admin.site.register(Volunteer,VolunteerAdmin)

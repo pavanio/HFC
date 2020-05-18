@@ -85,6 +85,7 @@ class Volunteer(Candidate):
     availability=models.CharField(choices=AVAILABILITY,max_length=100)
     current_occupation=models.CharField(choices=OCCUPATION,max_length=200)
     years_of_experience=models.CharField(choices=EXPERIENCE,max_length=200)
+    
    
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE,verbose_name='Organization')
     def __str__(self):
@@ -93,7 +94,7 @@ class Volunteer(Candidate):
         verbose_name = "Volunteer"
         verbose_name_plural = "Volunteers"
     def save(self, *args, **kwargs):
-        self.area_of_expertise=self.profession
+        #self.area_of_expertise=self.profession
         
         yoexp=self.years_of_experience
         if yoexp =="No Experience" or yoexp == "1+ years" or yoexp == "2+ years":

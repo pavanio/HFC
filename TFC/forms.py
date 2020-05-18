@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from .models import *
+from ScreeningApp.models import *
 
 class OrganizationSignupForm(ModelForm):
     
@@ -33,10 +34,16 @@ class LoginForm(ModelForm):
             'password': forms.PasswordInput(),
         }
 class VolunteerForm(ModelForm):
+    field_order=['name','email','contact_number','dob','gender','highest_education','availability','current_occupation',
+        'years_of_experience','profession','area_of_expertise']
     class Meta:
         model=Volunteer
-        fields=('__all__')
-        exclude=('level_of_expertise','area_of_expertise','organization')
+        #fields=('__all__')
+        exclude=('level_of_expertise','organization')
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        #self.fields['profession'].queryset = Expertise_Area.objects.all()
 
 class MemberCreateForm(ModelForm):
     class Meta:
