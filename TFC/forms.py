@@ -43,7 +43,9 @@ class VolunteerForm(ModelForm):
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        #self.fields['profession'].queryset = Expertise_Area.objects.all()
+        #self.fields['profession'].queryset
+        #self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
+        #self.fields['area_of_expertise'].queryset=Expertise.objects.all()
 
 class MemberCreateForm(ModelForm):
     class Meta:
