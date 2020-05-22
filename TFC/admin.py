@@ -3,11 +3,12 @@ from .models import *
 
 class Team_MemberInline(admin.TabularInline):
 	model = Team_Member
+	list_display =('member_name','member_email','member_phone_number','role')
 	
 	exclude=['password',]
 	extra=0
 	list_display_links = ('member_name',)
-	readonly_fields=('member_name','member_email','member_phone_number','role','auth_token',)
+	readonly_fields=('auth_token',)
 	
 	
 	
@@ -22,7 +23,7 @@ admin.site.register(Organization,OrganizationAdmin)
 
 
 class Team_MemberAdmin(admin.ModelAdmin):
-	readonly_fields=('organization',)
+	#readonly_fields=('organization',)
 	list_display=('member_name','member_email','member_phone_number','role','organization')
 	
 	exclude=['password',]
