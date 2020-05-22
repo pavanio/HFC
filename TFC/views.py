@@ -30,7 +30,7 @@ class Home(View):
         subdomain=subdomaincheck(request)
         
         print(subdomain)
-        if subdomain == None:
+        if subdomain == None or subdomain == "":
             return render(request,'TFC/home.html')
         else:
             #subdomain=request.subdomain
@@ -42,7 +42,7 @@ class Home(View):
 class OrganizationCreateView(View):
     def get(self,request):
         subdomain=subdomaincheck(request)
-        if subdomain==None:
+        if subdomain == None or subdomain == "":
             form=OrganizationSignupForm()
             return render(request,'TFC/organization_signup.html',{'form':form})
     def post(self,request):
@@ -73,7 +73,7 @@ class OrganizationCreateView(View):
 class OrganizationListView(ListView):
     def get(self,request):
          subdomain=subdomaincheck(request)
-         if subdomain==None:
+         if subdomain==None or subdomain=="":
              organization=Organization.objects.all()
              return render(request,'TFC/organization_list.html',{'organization':organization})
 
@@ -204,6 +204,7 @@ class VolunteerCreateView(View):
         if form.is_valid():
             subdomain=subdomaincheck(request)
             org=Organization.objects.get(subdomain=subdomain)
+            
             vol=form.save(commit=False)
             vol.organization=org
             vol.save()
