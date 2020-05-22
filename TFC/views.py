@@ -140,8 +140,12 @@ class MemberCreateView(View):
     def get(self,request):
         subdomain=subdomaincheck(request)
         org=Organization.objects.get(subdomain=subdomain)
-        form=MemberCreateForm()
-        return render(request,'TFC/member_signup.html',{'form':form,'org':org})
+        member=request.session['member']
+        if member == None:
+            return redirect('login')
+        else:
+            form=MemberCreateForm()
+            return render(request,'TFC/member_signup.html',{'form':form,'org':org})
     def post(self,request):
         form=MemberCreateForm(request.POST)
         if form.is_valid():
@@ -160,20 +164,56 @@ class MemberListView(View):
     def get(self,request):
         subdomain=subdomaincheck(request)
         org=Organization.objects.get(subdomain=subdomain)
-        member_id=request.session['member']
-        if member_id == None:
+        member=request.session['member']
+        if member == None:
             return redirect('login')
         else:
             return render(request,'TFC/members.html',{'org':org})
+class MemberUpdate(View):
+    def get(self,request,member_id):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
+        member=request.session['member']
+        if member == None:
+            return redirect('login')
+        else:
+            form=MemberCreateForm()
+            member=Team_Member.objects.get(member_id=member_id)
+            return render(request,'TFC/memberupdate.html',{'form':form,'org':org,'member':member})
+    def post(self,request,member_id):
+        member=Team_Member.objects.get(member_id=member_id)
+        form=MemberCreateForm(request.POST,instance=member)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Member Updated Successfully")
+            return redirect ('team_member')
+class MemberDelete(View):
+    def get(self,request,member_id):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
+        member=request.session['member']
+        if member == None:
+            return redirect('login')
+        else:
+            member=Team_Member.objects.get(member_id=member_id)
+            return render(request,'TFC/memberdelete.html',{'org':org,'member':member})
+    def post(self,request,member_id):
+        member=Team_Member.objects.get(member_id=member_id)
+        member.delete()
+        messages.success(request,"Member Deleted Successfully")
+        return redirect ('team_member')
+
+
+
 
 class OrgDashboard(View):
     def get(self,request):
         subdomain=subdomaincheck(request)
         org=Organization.objects.get(subdomain=subdomain)
         
-        member_id=request.session['member']
-        print(member_id)
-        member=Team_Member.objects.get(member_id=member_id)
+        member=request.session['member']
+        print(member)
+        member=Team_Member.objects.get(member_id=member)
         organization=member.organization.name
         print(member.organization.name)
         print(org.name)
@@ -214,8 +254,8 @@ class VolunteerList(View):
     def get(self,request):
         subdomain=subdomaincheck(request)
         org=Organization.objects.get(subdomain=subdomain)
-        member_id=request.session['member']
-        if member_id == None:
+        member=request.session['member']
+        if member == None:
             return redirect('login')
         else:
             return render(request,'TFC/volunter_list.html',{'org':org})

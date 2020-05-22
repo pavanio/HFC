@@ -45,8 +45,8 @@
             {% for member in org.team_member_set.all %}
             <div>
                 <h3>{{member.member_name}}</h3>
-                <a href="" class="btn btn-primary">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="memberupdate/{{member.member_id}}" class="btn btn-primary">Edit</a>
+                <a href="memberdelete/{{member.member_id}}" class="btn btn-danger">Delete</a>
                 
                 <br>
 

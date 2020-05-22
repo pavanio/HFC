@@ -13,6 +13,8 @@ urlpatterns = [
     path('volunteer',views.VolunteerCreateView.as_view(),name='volunteer signup'),
     path('addmember',views.MemberCreateView.as_view(),name='member signup'),
     path('volunteerlist',views.VolunteerList.as_view(),name='volunteerlist'),
+    path('memberupdate/<member_id>',views.MemberUpdate.as_view(),name='memberupdate'),
+    path('memberdelete/<member_id>',views.MemberDelete.as_view(),name='memberdelete'),
 
     
 ]
