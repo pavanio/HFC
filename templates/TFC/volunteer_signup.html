@@ -4,6 +4,7 @@
 
     <head>
         <title>Volunteer Signup</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -28,7 +29,7 @@
           <div class="row">
             <div class="col-lg-8">
                     
-                    <form method="post" >
+                    <form method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}" >
                             {%csrf_token%}
                             {{form.as_p}}
                             <input type="submit" class="btn btn-success" value="Register">
@@ -38,5 +39,22 @@
         </div>
             {% include 'footer.html'%}
             {%endblock%}
+            <script>
+                $("#id_profession").change(function(){
+                var url=$("#volform").attr("sub-change-url");
+                var expertise_area_id=$(this).val();
+                
+                $.ajax({
+                    url:url,
+                    data:{
+                    'profession':expertise_area_id
+                    },
+                    success:function(data){
+                    $("#id_area_of_expertise").html(data);
+                    console.log(data)
+                    }
+                    });
+                    });
+                    </script>
     </body>
 </html>

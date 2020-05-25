@@ -5,6 +5,8 @@ from .models import *
 class ExpertiseInline(admin.TabularInline):
 	model=Expertise
 	extra=0
+	
+
 
 class ScreeningInline(admin.TabularInline):
 	model=Screenings
@@ -37,13 +39,9 @@ class Screenings_Questions_Inline(admin.TabularInline):
 
 
 
+	
 
-"""class CategoryAdmin(admin.ModelAdmin):
-	list_display = ('category_id','area','category_name')
-	inlines =[Sub_CategoryInline]
-	class meta:
-		model=Category
-admin.site.register(Category,CategoryAdmin)"""
+
 
 
 class Expertise_AreaAdmin(admin.ModelAdmin):
@@ -65,16 +63,6 @@ admin.site.register(Question,QuestionAdmin)
 
 
 
-"""class ScreeningQuestionAdmin(admin.ModelAdmin):
-	list_display=('id','screening_id')
-	def has_add_permission(self, request):
-		return False
-	
-	class meta:
-		model=Screenings_Questions
-admin.site.register(Screenings_Questions,ScreeningQuestionAdmin)"""
-
-
 
 class ScreeningAdmin(admin.ModelAdmin):
 	list_display=('screening_uuid','candidate_id')
@@ -94,7 +82,7 @@ admin.site.register(Screenings,ScreeningAdmin)
 
 
 class CandidateAdmin(admin.ModelAdmin):
-	list_display=('name','email','contact_number','gender','dob','highest_education','level_of_expertise','area_of_expertise','profession')
+	list_display=('name','email','contact_number','gender','dob','highest_education','level_of_expertise','profession','areaofexpertise')
 	inlines =[ScreeningInline]
 	class meta:
 		model=Candidate

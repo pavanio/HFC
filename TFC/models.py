@@ -94,7 +94,7 @@ class Volunteer(Candidate):
         verbose_name = "Volunteer"
         verbose_name_plural = "Volunteers"
     def save(self, *args, **kwargs):
-        #self.area_of_expertise=self.profession
+        
         
         yoexp=self.years_of_experience
         if yoexp =="No Experience" or yoexp == "1+ years" or yoexp == "2+ years":

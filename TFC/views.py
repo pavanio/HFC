@@ -18,9 +18,12 @@ from django.contrib import messages
 def subdomaincheck(request):
     request.subdomain = None
     host = request.META.get('HTTP_HOST', '')
+    print(host)
     host_s = host.replace('www.', '').split('.')
+    print(host_s)
     if len(host_s) > 2:
         request.subdomain = ''.join(host_s[:-2])
+    print(request.subdomain)
     if request.subdomain.endswith('staging'):
         request.subdomain=request.subdomain.replace('staging','')
     return request.subdomain
@@ -238,9 +241,12 @@ class VolunteerCreateView(View):
         subdomain=subdomaincheck(request)
         org=Organization.objects.get(subdomain=subdomain)
         form=VolunteerForm()
+        print(form)
         return render(request,'TFC/volunteer_signup.html',{'form':form,'org':org})
     def post(self,request):
         form=VolunteerForm(request.POST)
+        print(request.POST)
+        print(form)
         if form.is_valid():
             subdomain=subdomaincheck(request)
             org=Organization.objects.get(subdomain=subdomain)
@@ -248,6 +254,7 @@ class VolunteerCreateView(View):
             vol=form.save(commit=False)
             vol.organization=org
             vol.save()
+            print(vol.areaofexpertise)
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
             return render(request,'TFC/orghome.html',{'org':org})
 class VolunteerList(View):
@@ -261,6 +268,11 @@ class VolunteerList(View):
             return render(request,'TFC/volunter_list.html',{'org':org})
 
 
-
+def load_area_of_expertise(request):
+    expertise_area_id = request.GET.get('profession')
+    print(expertise_area_id)
+    expertises=Expertise.objects.filter(category_of_expertise=expertise_area_id)
+    print(expertises)
+    return render(request,'TFC/areaofexpertise.html',{'expertises':expertises})
             
 

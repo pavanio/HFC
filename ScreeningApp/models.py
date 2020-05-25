@@ -93,8 +93,7 @@ class Candidate(models.Model):
     level_of_expertise = models.CharField(
         choices=LEVEL_OF_EXPERTISE, max_length=100)
     profession = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
-    area_of_expertise = models.ForeignKey(
-        Expertise, on_delete=models.CASCADE)
+    area_of_expertise = models.ManyToManyField('Expertise')
     
     class Meta:
         verbose_name = "Candidate"
@@ -102,6 +101,9 @@ class Candidate(models.Model):
 
     def __str__(self):
         return self.name
+    def areaofexpertise(self):
+        return " ".join([area.expertise for area in self.area_of_expertise.all()])
+
 
 
 def generateUuid(self):
