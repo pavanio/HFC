@@ -43,6 +43,7 @@ class VolunteerForm(ModelForm):
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['gender'].widget=forms.RadioSelect()
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
         if 'profession' in self.data:

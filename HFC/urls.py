@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ScreeningApp.urls')),
     path('', include('TFC.urls')),
+    path('', include('HFCCore.urls')),
 ]
 
 if settings.DEBUG: 
