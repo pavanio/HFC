@@ -1,6 +1,7 @@
 from django.urls import path
-from ScreeningApp  import views
+from HFCCore  import views
 
 
 urlpatterns = [
+    path('',views.Home.as_view(),name='home'),
 ]

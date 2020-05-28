@@ -23,9 +23,9 @@ def subdomaincheck(request):
     print(host_s)
     if len(host_s) > 2:
         request.subdomain = ''.join(host_s[:-2])
-    print(request.subdomain)
-    if request.subdomain.endswith('staging'):
-        request.subdomain=request.subdomain.replace('staging','')
+        print(request.subdomain)
+        if request.subdomain.endswith('staging'):
+            request.subdomain=request.subdomain.replace('staging','')
     return request.subdomain
 
 class Home(View):
