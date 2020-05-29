@@ -56,11 +56,13 @@ A platform where we can curate and highlight problem statements shared by other 
 
 	## Dynamic Pages
 		- Problem Statement List
-			https://www.Hack.forchange.in/problem_statement_list
-		-Problem Statement Details
-			https://www.Hack.forchange.in/{problem_statement}
+			/problem-statements
+		- Probelm Statements by issue area
+		    /problem-statements/:issue_area
+		-Problem Statement Detail
+			/problem-statements/:problem-statement-title
 		- Project List  
-			https://www.Hack.forchange.in/project_list
+			/projects
 		- HFC Centers  
 			https://www.Hack.forchange.in/{hfc_center}
 		- HFC Chapters  
