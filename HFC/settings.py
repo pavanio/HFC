@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ScreeningApp',
     'django.contrib.sites',
     'storages',
+    
 ]
 
 SITE_ID = 1

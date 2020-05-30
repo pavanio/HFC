@@ -27,6 +27,16 @@ def subdomaincheck(request):
         if request.subdomain.endswith('staging'):
             request.subdomain=request.subdomain.replace('staging','')
     return request.subdomain
+def admin_redirect(request):
+    subdomain=subdomaincheck(request)
+    print(subdomain , "redirected")
+    if subdomain != None :
+        if request.path.startswith(reverse('admin:index')):
+            org=Organization.objects.get(subdomain=subdomain)
+            return redirect('home')
+    else:
+        return redirect(reverse('admin:index')) 
+
 
 class Home(View):
     def get(self, request):
@@ -161,6 +171,7 @@ class MemberCreateView(View):
             #member.organization.add(org)
             member.organization=org
             member.save()
+            
             messages.success(request,"Member Created Successfully")
             return redirect('team_member')    
 class MemberListView(View):
@@ -241,22 +252,25 @@ class VolunteerCreateView(View):
         subdomain=subdomaincheck(request)
         org=Organization.objects.get(subdomain=subdomain)
         form=VolunteerForm()
-        print(form)
+        #print(form)
         return render(request,'TFC/volunteer_signup.html',{'form':form,'org':org})
     def post(self,request):
         form=VolunteerForm(request.POST)
         print(request.POST)
-        print(form)
+        #print(form)
         if form.is_valid():
             subdomain=subdomaincheck(request)
             org=Organization.objects.get(subdomain=subdomain)
+            area_of_expertise=request.POST.getlist('area_of_expertise')
             
             vol=form.save(commit=False)
             vol.organization=org
             vol.save()
-            print(vol.areaofexpertise)
+            vol.area_of_expertise.set(area_of_expertise)
+            vol.save()
+            print(vol.area_of_expertise)
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
-            return render(request,'TFC/orghome.html',{'org':org})
+            return redirect('volunteerlist')
 class VolunteerList(View):
     def get(self,request):
         subdomain=subdomaincheck(request)

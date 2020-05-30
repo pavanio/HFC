@@ -10,9 +10,7 @@ class OrganizationSignupForm(ModelForm):
         fields=['name','website','partner_desc','phone_number','email','address' ,'city','state','zip_code',
         'upi_id','logo']
         success_url = 'organization_list'
-        """widgets = {
-            'password': forms.PasswordInput(),
-        }"""
+        
 
 
 class TeamMemberSignupForm(ModelForm):
@@ -43,7 +41,11 @@ class VolunteerForm(ModelForm):
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['gender'].widget=forms.RadioSelect()
+        self.fields['gender'].widget=forms.RadioSelect(choices=GENDER)
+        self.fields['highest_education'].widget=forms.RadioSelect(choices=EDUCATION)
+        self.fields['availability'].widget=forms.RadioSelect(choices=AVAILABILITY)
+        self.fields['current_occupation'].widget=forms.RadioSelect(choices=OCCUPATION)
+        self.fields['years_of_experience'].widget=forms.RadioSelect(choices=EXPERIENCE)
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
         if 'profession' in self.data:

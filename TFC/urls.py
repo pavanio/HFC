@@ -1,8 +1,9 @@
-from django.urls import path
+from django.urls import path,re_path
 from TFC  import views
 
 urlpatterns = [
     path('',views.Home.as_view(),name='home'),
+    #re_path('admin/',views.admin_redirect,name='admin-redirect'),
     path('organizations',views.OrganizationListView.as_view(),name='organization_list'),
     path('organizations/signup',views.OrganizationCreateView.as_view(),name='organization signup'),
     path('setpassword/<auth_token>',views.PasswordResetView.as_view(),name="setpassword"),
@@ -15,7 +16,7 @@ urlpatterns = [
     path('volunteerlist',views.VolunteerList.as_view(),name='volunteerlist'),
     path('memberupdate/<member_id>',views.MemberUpdate.as_view(),name='memberupdate'),
     path('memberdelete/<member_id>',views.MemberDelete.as_view(),name='memberdelete'),
-    path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise')
+    path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),
 
     
 ]
