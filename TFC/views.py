@@ -37,6 +37,11 @@ def admin_redirect(request):
     else:
         return redirect(reverse('admin:index')) 
 
+def thanks(request):
+    subdomain=subdomaincheck(request)
+    org=Organization.objects.get(subdomain=subdomain)
+
+    return render(request,'TFC/thanks.html',{'org':org})
 
 class Home(View):
     def get(self, request):
@@ -257,7 +262,6 @@ class VolunteerCreateView(View):
     def post(self,request):
         form=VolunteerForm(request.POST)
         print(request.POST)
-        #print(form)
         if form.is_valid():
             subdomain=subdomaincheck(request)
             org=Organization.objects.get(subdomain=subdomain)
@@ -270,7 +274,7 @@ class VolunteerCreateView(View):
             vol.save()
             print(vol.area_of_expertise)
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
-            return redirect('volunteerlist')
+            return redirect('thanks')
 class VolunteerList(View):
     def get(self,request):
         subdomain=subdomaincheck(request)

@@ -17,6 +17,7 @@ urlpatterns = [
     path('memberupdate/<member_id>',views.MemberUpdate.as_view(),name='memberupdate'),
     path('memberdelete/<member_id>',views.MemberDelete.as_view(),name='memberdelete'),
     path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),
+    path('thanks',views.thanks,name='thanks')
 
     
 ]
