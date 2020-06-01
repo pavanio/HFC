@@ -13,7 +13,14 @@ import django.contrib.auth
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
-
+from django.core.mail import send_mail
+from ScreeningApp import *
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
 
 def subdomaincheck(request):
     request.subdomain = None
@@ -42,6 +49,36 @@ def thanks(request):
     org=Organization.objects.get(subdomain=subdomain)
 
     return render(request,'TFC/thanks.html',{'org':org})
+
+
+def load_area_of_expertise(request):
+    expertise_area_id = request.GET.get('profession')
+    print(expertise_area_id)
+    expertises=Expertise.objects.filter(category_of_expertise=expertise_area_id)
+    print(expertises)
+    return render(request,'TFC/areaofexpertise.html',{'expertises':expertises})
+
+def mail_by_TFC(email,org,subdomain):
+    volunteer=Candidate.objects.get(email=email)
+    name=volunteer.name
+    screening=Screenings.objects.create(candidate_id=volunteer)
+    screeninguuid=screening.screening_uuid
+    print(screeninguuid)
+    email=volunteer.email
+    from_email=settings.EMAIL_HOST_USER
+    to=[email]
+    subject="Screening Link"
+    msg = MIMEMultipart('alternative')
+    text_content="Important message"
+    html_content = render_to_string('TFC/email.html', {'org': org,'subdomain':subdomain,'screeninguuid':screeninguuid,'name':name})
+    msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
+    msg.attach_alternative(html_content, "text/html")
+    msg.send(fail_silently=True)
+    
+
+    
+
+
 
 class Home(View):
     def get(self, request):
@@ -270,11 +307,13 @@ class VolunteerCreateView(View):
             vol=form.save(commit=False)
             vol.organization=org
             vol.save()
-            #vol.area_of_expertise.set(area_of_expertise)
-            #vol.save()
             form.save_m2m()
-            print(vol.area_of_expertise)
+            email=vol.email
+            mail_by_TFC(email,org,subdomain)
+            print(vol.email)
+           
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
+            
             return redirect('thanks')
 class VolunteerList(View):
     def get(self,request):
@@ -287,11 +326,8 @@ class VolunteerList(View):
             return render(request,'TFC/volunter_list.html',{'org':org})
 
 
-def load_area_of_expertise(request):
-    expertise_area_id = request.GET.get('profession')
-    print(expertise_area_id)
-    expertises=Expertise.objects.filter(category_of_expertise=expertise_area_id)
-    print(expertises)
-    return render(request,'TFC/areaofexpertise.html',{'expertises':expertises})
+ 
+
+
             
 
