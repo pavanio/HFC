@@ -270,8 +270,9 @@ class VolunteerCreateView(View):
             vol=form.save(commit=False)
             vol.organization=org
             vol.save()
-            vol.area_of_expertise.set(area_of_expertise)
-            vol.save()
+            #vol.area_of_expertise.set(area_of_expertise)
+            #vol.save()
+            form.save_m2m()
             print(vol.area_of_expertise)
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
             return redirect('thanks')
