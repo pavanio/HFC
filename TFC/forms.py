@@ -11,7 +11,11 @@ class OrganizationSignupForm(ModelForm):
         'upi_id','logo']
         success_url = 'organization_list'
         
-
+class MemberSignupForm(ModelForm):
+    class Meta:
+        model= Team_Member
+        fields=[ 'member_name','member_email','member_phone_number','role']
+        success_url='organization_list'
 
 class TeamMemberSignupForm(ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
@@ -22,6 +26,9 @@ class TeamMemberSignupForm(ModelForm):
         widgets = {
             'password': forms.PasswordInput(),
         }
+    confirm_password=forms.CharField(widget=forms.PasswordInput)
+
+
 
 class LoginForm(ModelForm):
      password = forms.CharField(widget=forms.PasswordInput)

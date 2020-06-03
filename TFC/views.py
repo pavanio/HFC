@@ -21,6 +21,8 @@ from email.mime.text import MIMEText
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
+import uuid 
+  
 
 def subdomaincheck(request):
     request.subdomain = None
@@ -58,7 +60,7 @@ def load_area_of_expertise(request):
     print(expertises)
     return render(request,'TFC/areaofexpertise.html',{'expertises':expertises})
 
-def mail_by_TFC(email,org,subdomain):
+def screeninglink_mail(email,org,subdomain):
     volunteer=Candidate.objects.get(email=email)
     name=volunteer.name
     screening=Screenings.objects.create(candidate_id=volunteer)
@@ -69,13 +71,20 @@ def mail_by_TFC(email,org,subdomain):
     to=[email]
     subject="Screening Link"
     msg = MIMEMultipart('alternative')
-    text_content="Important message"
     html_content = render_to_string('TFC/email.html', {'org': org,'subdomain':subdomain,'screeninguuid':screeninguuid,'name':name})
     msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
     msg.attach_alternative(html_content, "text/html")
     msg.send(fail_silently=True)
     
-
+def set_password_link(email,subdomain,org,auth_token,member_name):
+    from_email=settings.EMAIL_HOST_USER
+    to=[email]
+    subject="Welcome Email"
+    msg = MIMEMultipart('alternative')
+    html_content = render_to_string('TFC/setpassword_link.html', {'org': org,'subdomain':subdomain,'auth_token':auth_token,'member_name':member_name})
+    msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
+    msg.attach_alternative(html_content, "text/html")
+    msg.send(fail_silently=True)
     
 
 
@@ -98,28 +107,34 @@ class OrganizationCreateView(View):
     def get(self,request):
         subdomain=subdomaincheck(request)
         if subdomain == None or subdomain == "":
-            form=OrganizationSignupForm()
-            return render(request,'TFC/organization_signup.html',{'form':form})
+            form1=OrganizationSignupForm()
+            form2=MemberSignupForm()
+            return render(request,'TFC/organization_signup.html',{'form1':form1,'form2':form2})
     def post(self,request):
-        form=OrganizationSignupForm(request.POST)
-        if form.is_valid():
-            name=form.cleaned_data['name']
-            website=form.cleaned_data['website']
-            partner_desc=form.cleaned_data['partner_desc']
-            phone_number=form.cleaned_data['phone_number']
-            email=form.cleaned_data['email']
-            address=form.cleaned_data['address']
-            city=form.cleaned_data['city']
-            state=form.cleaned_data['state']
-            zip_code=form.cleaned_data['zip_code']
-            upi_id=form.cleaned_data['upi_id']
-            logo=form.cleaned_data['logo']
-            if Organization.objects.filter(email=email).exists():
+        form1=OrganizationSignupForm(request.POST,request.FILES)
+        print(form1)
+        form2=MemberSignupForm(request.POST)
+        if form1.is_valid() and form2.is_valid():
+            email=form1.cleaned_data['email']
+            member_email=form2.cleaned_data['member_email']
+            
+            if Organization.objects.filter(email=email).exists() or Team_Member.objects.filter(member_email=member_email).exists():
                 messages.error(request,"Email already exist")
-                return render(request,'TFC/organization_signup.html',{'form':form})
+                return render(request,'TFC/organization_signup.html',{'form1':form1,'form2':form2})
             else:
-                form.save()
+                form1.save()
+                org=Organization.objects.get(email=email)
+                member=form2.save(commit=False)
+                member.organization=org
+                member.save()
                 messages.success(request,"Organization Created Successfully")
+                #password set link email
+                auth_token=member.auth_token
+                member_name=member.member_name
+                subdomain=org.subdomain
+
+                set_password_link(member_email,subdomain,org,auth_token,member_name)
+
                 return redirect('organization_list')
 
     def get_success_url(self):
@@ -136,32 +151,78 @@ class OrganizationListView(ListView):
      
 
 
-class PasswordResetView(View):
+class PasswordSetView(View):
     form_class = TeamMemberSignupForm()
     
     def get(self,request,auth_token):
         subdomain=subdomaincheck(request)
         org=Organization.objects.get(subdomain=subdomain)
-        fields=['password',]
+        fields=['password','confirm_password']
         form=TeamMemberSignupForm()
         return render(request,"TFC/password_set.html",{'form':form,'org':org})
     
     def post(self,request,auth_token):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
+        
+
         form = TeamMemberSignupForm(request.POST)
         if form.is_valid():
-            password=form.cleaned_data['password']
-        try:
             member=Team_Member.objects.get(auth_token=auth_token)
-            member.password=make_password(password)
-            member.auth_token=None
-            member.save()
-            messages.success(request,"Password Created Successfully")
-
-            return redirect('login')
+                
+            email=form.cleaned_data['member_email']
+            password=form.cleaned_data['password']
+            confirm_password=form.cleaned_data['confirm_password']
+            member_email=member.member_email
+            print(member_email)
+           
+        try:
+            if password == confirm_password and email==member_email:
+                
+                member.password=make_password(password)
+                member.auth_token=None
+                member.save()
+                messages.success(request,"Password Created Successfully")
+                return redirect('login')
+            else:
+                messages.error(request,"Please give the same password in Confirm Password")
+                return render(request,"TFC/password_set.html",{'form':form,'org':org})
         except Team_Member.DoesNotExist:
             messages.error(request,"Password Not  Created")
             raise Http404("No  matches the given query.")
+class ForgotPasswordView(View):
+    
+    def get(self,request):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
         
+        return render(request,"TFC/password_reset.html",{'org':org})
+    def post(self,request):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
+    
+        if request.method=='POST':
+            email=request.POST['member_email']
+            member=Team_Member.objects.get(member_email=email)
+            if member.auth_token==None:
+                member.auth_token=uuid.uuid4()
+                auth_token=member.auth_token
+                member_name=member.member_name
+                print(auth_token)
+                member.save()
+                set_password_link(email,subdomain,org,auth_token,member_name)
+                return render(request,"TFC/reset_pass_instruction.html",{'org':org})
+            else:
+                messages.error(request,"Please  activate your account by Setting Your Password from the link given in your mail")
+                return redirect('login')
+
+
+                
+
+
+
+
+
 class LoginView(View):
     def get(self,request):
        subdomain=subdomaincheck(request)
@@ -309,7 +370,7 @@ class VolunteerCreateView(View):
             vol.save()
             form.save_m2m()
             email=vol.email
-            mail_by_TFC(email,org,subdomain)
+            screeninglink_mail(email,org,subdomain)
             print(vol.email)
            
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
