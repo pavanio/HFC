@@ -159,6 +159,10 @@ class PasswordSetView(View):
         org=Organization.objects.get(subdomain=subdomain)
         fields=['password','confirm_password']
         form=TeamMemberSignupForm()
+        try:
+            member=Team_Member.objects.get(auth_token=auth_token)
+        except Team_Member.DoesNotExist:
+            raise Http404("Your link has been expired")
         return render(request,"TFC/password_set.html",{'form':form,'org':org})
     
     def post(self,request,auth_token):
@@ -170,14 +174,13 @@ class PasswordSetView(View):
         if form.is_valid():
             member=Team_Member.objects.get(auth_token=auth_token)
                 
-            email=form.cleaned_data['member_email']
+            
             password=form.cleaned_data['password']
             confirm_password=form.cleaned_data['confirm_password']
-            member_email=member.member_email
-            print(member_email)
+            
            
         try:
-            if password == confirm_password and email==member_email:
+            if password == confirm_password :
                 
                 member.password=make_password(password)
                 member.auth_token=None
@@ -271,9 +274,12 @@ class MemberCreateView(View):
             member_email = form.cleaned_data['member_email']
             member_phone_number = form.cleaned_data['member_phone_number']
             member=Team_Member(member_name=member_name,member_email=member_email,member_phone_number=member_phone_number,role='Member')
-            #member.organization.add(org)
             member.organization=org
             member.save()
+            auth_token=member.auth_token
+            print(auth_token)
+            set_password_link(member_email,subdomain,org,auth_token,member_name)
+
             
             messages.success(request,"Member Created Successfully")
             return redirect('team_member')    
