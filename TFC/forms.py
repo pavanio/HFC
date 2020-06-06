@@ -21,7 +21,7 @@ class TeamMemberSignupForm(ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Team_Member
-        fields=['member_email','password']
+        fields=['password',]
         success_url='organization_list'
         widgets = {
             'password': forms.PasswordInput(),
