@@ -135,7 +135,11 @@ class Screenings(models.Model):
     screening_uuid = models.CharField(max_length=50, blank=True)
     candidate_id = models.ForeignKey(Candidate, on_delete=models.CASCADE,verbose_name='Candidate Name')
     @classmethod
-    def create(cls):
+    def create(cls,candidate_id):
+        print('candidate id',candidate_id)
+        print(candidate_id.level_of_expertise)
+        
+        print(candidate_id.area_of_expertise.all())
 
         questions = Question.objects.order_by('?')[:5]
         print(questions)
@@ -165,7 +169,7 @@ class Screenings(models.Model):
         self.screening_uuid = generateUuid(self.candidate_id)
         print(self.screening_uuid)
         super(Screenings, self).save(*args, **kwargs)
-        self.create()
+        self.create(self.candidate_id)
 
     class Meta:
         verbose_name = "Screening"

@@ -1,7 +1,10 @@
 from django.contrib import admin
 from .models import *
 from TFC.admin import Team_MemberInline
-from .models import Community_Organization, Project, Problem_Statement
+from .models import Community_Organization, Project, Problem_Statement,Community_Member
+class Community_MemberInline(admin.TabularInline):
+	model = Community_Member
+	extra=0
 
 class PartnerAdmin(admin.ModelAdmin):
 	list_display = ('name','website','partner_desc','phone_number','email','logo','address','city','state','zip_code','subdomain','thankyou_template','upi_id')
@@ -21,6 +24,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 class Community_OrganizationAdmin(admin.ModelAdmin):
 	list_display = ('organization_name', 'type', 'website', 'logo', 'coordinator_name', 'coordinator_email', 'coordinator_mobile')
+	inlines =[Community_MemberInline]
 	class Meta:
 		model = Community_Organization
 

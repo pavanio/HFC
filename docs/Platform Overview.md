@@ -234,6 +234,14 @@ Screening App
 	- Admin Panel to manage the questions and the question bank
 	- Admin Panel to mange the screenings
 
+# Screening Criteria  
+	- Screening is based on the level of expertise  and area of expertise  
+	- Every screening consist of 10 questions from the area of expertise 
+	- All the questions from different topics under the area of expertise  
+	- Qualifying criteria of  screening is 70%   
+	- Once screening completes the status of the candidate automatically change from "New" to "Passed" or "Failed" on organization dashboard.  
+	- After completion of screening its result will be mailed to the organization admin. 
+
 # Application Overview
 	## Screening 		
 		- Screening Page

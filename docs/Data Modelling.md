@@ -145,4 +145,5 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     Screening UUID | String | screening_uuid | Ex: SCRNGSMTY01, SCRNGSMTY02 so on which is auto generated whenever you create the record
     Candidate association | integer | candidate_id
     Screening association | id | screening_id
-    *Status | String | Possible Values: "New, Closed, Passed, Failed"
+    *Status | String | Possible Values: "New, Closed, Passed, Failed" 
+    Screening Result | String | screening_result | Possible Values:60%,50%, 

@@ -1,5 +1,6 @@
 from django.db import models
 from TFC.models import Organization
+from ScreeningApp.models import *
 
 class Partner(Organization):
     def __str__(self):
@@ -67,5 +68,18 @@ class Community_Organization(models.Model):
         verbose_name = "Community_Organization"
         verbose_name_plural = "Community_Organizations"
 
-
+MEMBER_TYPE_CHOICE = [
+    ('Contributor', 'Contributor'),
+    ('Mentor', 'Mentor')
+]
+class Community_Member(Candidate):
+    type = models.CharField(max_length=50, choices=MEMBER_TYPE_CHOICE, default="Contributor")
+    coder_profile = models.CharField(max_length=100)
+    linkedin_profile = models.CharField(max_length=100)
+    organization_id=models.ForeignKey(Community_Organization, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = "Community_Member"
+        verbose_name_plural = "Community_Members"
 
