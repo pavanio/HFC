@@ -25,6 +25,7 @@ class Problem_Statement(models.Model):
     proposed_solution = models.TextField()
     partner_id = models.ForeignKey(Partner, on_delete=models.CASCADE)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES)
+    issue_area=models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
