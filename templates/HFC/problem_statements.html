@@ -1,0 +1,48 @@
+{% include 'HFC/layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem-Statements</title>
+</head>
+<body>
+{% block body%}
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Problem Statements</h2>
+        <ul>
+            {% for prob_list in problems_list  %}
+                <a href="{% url 'HFCCore:problem_discription' prob_list.title %}">{{prob_list.title}}:</a>
+                <p>{{prob_list.summary}}</p>
+                <div>
+                    <table>
+                        <tr>
+                            <td>Submitted By</td>
+                            <td>Problem Areas</td>
+                            <td>Status</td>
+                        </tr>
+                        <tr>
+                            <td>{{prob_list.partner_id}}</td>
+                            <td>{{prob_list.issue_area}}</td>
+                            <td>{{prob_list.status}}</td>
+                            <button type="button">VIEW DETAILS</button>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <p>Explore the problem statements across various issue areas</p>
+        <ul>
+            {% for prob_list in problems_list %}
+                <li><a href="{% url 'HFCCore:problem_statements_with_issuearea' prob_list.issue_area %}">{{prob_list.issue_area}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
+
