@@ -48,7 +48,8 @@ HFC Modelling
     Proposed Solution | Text | proposed_solution | required  
     Submitted By Which Partner | id | partner_id | required  
     Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"
-    Partner Association | id | partner_id | required |   
+    Partner Association | id | partner_id | required |  
+    Issue Areas | String |issue_area | required | EX:"open gov","democracy"  
 
 ## Partner Information | partners (TFC Orgs are submodels or TFC Orgs)
 This is a subclass of TFC Organizations Ex: Factly / Foundation For Democratic Reforms
