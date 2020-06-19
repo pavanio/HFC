@@ -13,7 +13,7 @@ class PartnerAdmin(admin.ModelAdmin):
 		model=Partner
 
 class Problem_StatementAdmin(admin.ModelAdmin):
-	list_display = ('title', 'summary', 'background_info', 'related_link', 'proposed_solution', 'partner_id', 'status','issue_area')
+	list_display = ('title', 'summary', 'background_info', 'related_link', 'proposed_solution', 'partner_id', 'status','issue_area','title_slug')
 	class Meta:
 		model= Problem_Statement
 

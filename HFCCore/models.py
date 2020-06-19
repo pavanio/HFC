@@ -1,6 +1,7 @@
 from django.db import models
 from TFC.models import Organization
 from ScreeningApp.models import *
+from autoslug import AutoSlugField
 
 class Partner(Organization):
     def __str__(self):
@@ -26,6 +27,7 @@ class Problem_Statement(models.Model):
     partner_id = models.ForeignKey(Partner, on_delete=models.CASCADE)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES)
     issue_area=models.CharField(max_length=100)
+    title_slug=AutoSlugField(populate_from='title')
 
     def __str__(self):
         return self.title
