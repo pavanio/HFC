@@ -50,6 +50,7 @@ class Organization(models.Model):
     subdomain =  models.CharField(max_length = 100,blank = True)
     thankyou_template =  models.CharField(max_length = 500,blank = True)
     upi_id = models.CharField(max_length = 100,blank = True)
+    focus_area=models.TextField()
 
     def __str__(self):
         return self.name

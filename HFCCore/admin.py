@@ -7,7 +7,7 @@ class Problem_StatementInline(admin.TabularInline):
 	model = Problem_Statement
 	extra=0
 class PartnerAdmin(admin.ModelAdmin):
-	list_display = ('name','website','partner_desc','phone_number','email','logo','address','city','state','zip_code','subdomain','thankyou_template','upi_id')
+	list_display = ('name','website','partner_desc','phone_number','email','logo','address','city','state','zip_code','focus_area','subdomain','thankyou_template','upi_id')
 	inlines =[Team_MemberInline, Problem_StatementInline]
 	class meta:
 		model=Partner

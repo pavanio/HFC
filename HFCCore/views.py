@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View, generic
-from .models import Problem_Statement
+from .models import Problem_Statement, Partner
 # Create your views here.
 class Home(View):
     def get(self, request):
@@ -20,4 +20,8 @@ class ProblemsWithIssueareaView(generic.ListView):
 class ProblemDiscriptionView(View):
     def get(self, request, title_slug):
         problem = Problem_Statement.objects.get(title_slug=title_slug)
-        return render(request, 'HFC/problem_discription.html', {'problem': problem})
+        print("..............................................................")
+        print(problem.partner_id)
+        partner = Partner.objects.get(name=problem.partner_id)
+        focus_areas = partner.focus_area.split(',')
+        return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas})

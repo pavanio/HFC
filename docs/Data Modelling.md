@@ -67,6 +67,7 @@ TFC Modelling
     Contact Email | String | email | required
     Logo | Image | logo | required
     City | String | city | required
+    Focus Area | String | focus_area | required | EX:"open gov","democracy"   
     
     * Not asked during signup
     State | String | state | required
