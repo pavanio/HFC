@@ -20,7 +20,6 @@ class ProblemsWithIssueareaView(generic.ListView):
 class ProblemDiscriptionView(View):
     def get(self, request, title_slug):
         problem = Problem_Statement.objects.get(title_slug=title_slug)
-        print("..............................................................")
         print(problem.partner_id)
         partner = Partner.objects.get(name=problem.partner_id)
         focus_areas = partner.focus_area.split(',')
