@@ -137,11 +137,15 @@ class Screenings(models.Model):
     @classmethod
     def create(cls,candidate_id):
         print('candidate id',candidate_id)
-        print(candidate_id.level_of_expertise)
+        category_of_expertise=candidate_id.profession
+        print(category_of_expertise)
+        level=candidate_id.level_of_expertise
+        print(level)
         
         print(candidate_id.area_of_expertise.all())
 
-        questions = Question.objects.order_by('?')[:5]
+        #questions = Question.objects.order_by('?')[:5]
+        questions=Question.objects.filter(category_of_expertise=category_of_expertise).order_by('?')[:5]
         print(questions)
 
         screen = Screenings.objects.last()
