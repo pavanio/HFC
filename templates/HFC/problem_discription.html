@@ -1,0 +1,43 @@
+{% include 'HFC/layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-6">
+        <h2>{{problem.title}}</h2>
+        <br>
+        <h5>Summary</h5>
+        <p>{{problem.summary}}</p>
+        <br>
+        <h5>Background Information</h5>
+        <p>{{problem.background_info}}</p>
+        <br>
+        <h5>Related Links</h5>
+        <p>{{problem.related_link}}</p>
+        <br>
+        <h5>Proposed Solution</h5>
+        <p>{{problem.proposed_solution}}</p>
+    </div>
+    <div class="col-sm-6">
+        <h3>Foundation For Democratic Reforms</h3>
+        <br>
+        <p>Lorisfd giodsfkh dfosiughdsfiubhjdfsnoibulkhjbnoiusldkhgoieusghdf oiurdsgf hiourshfiosdljkfh isodfhsd</p>
+        <br>
+        <h5>Focus Areas</h5>
+        <ul>
+        {% for focus_area in focus_areas %}
+            <li>{{focus_area}}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>
