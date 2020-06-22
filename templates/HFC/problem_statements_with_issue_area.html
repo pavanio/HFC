@@ -36,7 +36,7 @@
     <div class="col-sm-6">
         <p>Explore the problem statements across various issue areas</p>
         <ul>
-            {% for prob_list in problems_list %}
+            {% for prob_list in all_problems %}
                 <li><a href="{% url 'HFCCore:problem_statements_with_issuearea' prob_list.issue_area_slug %}">{{prob_list.issue_area}}</a></li>
             {% endfor %}
         </ul>

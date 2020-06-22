@@ -28,6 +28,7 @@ class Problem_Statement(models.Model):
     status = models.CharField(max_length=100, choices=STATUS_CHOICES)
     issue_area=models.CharField(max_length=100)
     title_slug=AutoSlugField(populate_from='title')
+    issue_area_slug=AutoSlugField(populate_from='issue_area')
 
     def __str__(self):
         return self.title
