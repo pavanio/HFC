@@ -19,10 +19,10 @@ class VirtualHostMiddleware:
     def __call__(self, request):
         # let's configure the root urlconf
         host = request.get_host()
-        print('hostname=', host)
+        #print('hostname=', host)
         request.urlconf = virtual_hosts.get(host)
-        print('urlgoes to=', request.urlconf)
+        #print('urlgoes to=', request.urlconf)
     
         response = self.get_response(request)
-        print(response)
+        #print(response)
         return response

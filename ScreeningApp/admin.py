@@ -11,7 +11,7 @@ class ExpertiseInline(admin.TabularInline):
 class ScreeningInline(admin.TabularInline):
 	model=Screenings
 	extra=0
-	readonly_fields=('screening_uuid',)
+	readonly_fields=('screening_uuid','status','screening_result')
 	show_change_link=True
 	def has_add_permission(self, request):
 		return False
@@ -65,8 +65,8 @@ admin.site.register(Question,QuestionAdmin)
 
 
 class ScreeningAdmin(admin.ModelAdmin):
-	list_display=('screening_uuid','candidate_id')
-	readonly_fields=('screening_uuid',)
+	list_display=('screening_uuid','candidate_id','status','screening_result')
+	readonly_fields=('screening_uuid','status','screening_result')
 	inlines=[Screenings_Questions_Inline]
 	class meta:
 		model=Screenings

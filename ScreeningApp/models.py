@@ -1,6 +1,6 @@
 from django.db import models
 import itertools
-
+import random
 
 # Create your models here.
 
@@ -27,6 +27,12 @@ EDUCATION = (
     ('Bachelors', 'Bachelors'),
     ('Masters','Masters'),
 
+)
+STATUS=(
+    ('New','New'),
+    ('Closed','Closed'),
+    ('Passed','Passed'),
+    ('Failed','Failed'),
 )
 class Expertise_Area(models.Model):
     expertise_area_id = models.AutoField(primary_key=True)
@@ -134,6 +140,8 @@ class Screenings(models.Model):
     #screening_id = models.IntegerField(null=True,blank=True)
     screening_uuid = models.CharField(max_length=50, blank=True)
     candidate_id = models.ForeignKey(Candidate, on_delete=models.CASCADE,verbose_name='Candidate Name')
+    status=models.CharField(choices=STATUS, max_length=50,default='New')
+    screening_result=models.CharField(max_length=50, blank=True)
     @classmethod
     def create(cls,candidate_id):
         print('candidate id',candidate_id)
@@ -141,12 +149,20 @@ class Screenings(models.Model):
         print(category_of_expertise)
         level=candidate_id.level_of_expertise
         print(level)
+        Expertises=candidate_id.area_of_expertise.all()
+        print(Expertises)
+        #questions=Question.objects.filter(category_of_expertise=category_of_expertise).filter(level=level).filter(expertise__in=Expertises).order_by('?')[:5]
+        #questions=Question.objects.filter(expertise__in=Expertises)
+        questions_list=Question.objects.filter(category_of_expertise=category_of_expertise).filter(level=
+        level).filter(expertise__in=Expertises).values_list('question_id', flat=True)
+        random_question_id_list = random.sample(list(questions_list), min(len(questions_list), 5))
+        questions = Question.objects.filter(question_id__in=random_question_id_list)
+      
         
-        print(candidate_id.area_of_expertise.all())
 
-        #questions = Question.objects.order_by('?')[:5]
-        questions=Question.objects.filter(category_of_expertise=category_of_expertise).order_by('?')[:5]
-        print(questions)
+
+            
+        print('candidate screening questions', questions)
 
         screen = Screenings.objects.last()
         #print(screen)

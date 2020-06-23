@@ -63,10 +63,9 @@ A platform where we can curate and highlight problem statements shared by other 
 			/problem-statements/:problem-statement-title
 		- Project List  
 			/projects
-		- HFC Centers  
-			https://www.Hack.forchange.in/{hfc_center}
-		- HFC Chapters  
-			https://www.Hack.forchange.in/{hfc_chapter}
+		- Community Page  
+			https://www.Hack.forchange.in/community
+		- 
 		- Leaderboard (Individual Contribution Leaderboard)
 
 	## Registration / Submission Forms(s)
