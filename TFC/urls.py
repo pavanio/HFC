@@ -15,6 +15,7 @@ urlpatterns = [
     path('volunteer',views.VolunteerCreateView.as_view(),name='volunteer signup'),
     path('addmember',views.MemberCreateView.as_view(),name='member signup'),
     path('volunteers',views.VolunteerList.as_view(),name='volunteerlist'),
+    path('volunteer-details/<id>',views.VolunteerDetails.as_view(),name='volunteer_details'),
     path('memberupdate/<member_id>',views.MemberUpdate.as_view(),name='memberupdate'),
     path('memberdelete/<member_id>',views.MemberDelete.as_view(),name='memberdelete'),
     path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),

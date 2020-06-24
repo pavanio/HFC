@@ -387,10 +387,40 @@ class VolunteerList(View):
         subdomain=subdomaincheck(request)
         org=Organization.objects.get(subdomain=subdomain)
         member=request.session['member']
+        screenings_list=[]
         if member == None:
             return redirect('login')
         else:
-            return render(request,'TFC/volunter_list.html',{'org':org})
+            volunter=Volunteer.objects.filter(organization=org)
+            #val= volunter.values('candidate_ptr_id')
+            #print(val)
+            for vol in volunter:
+                candidate=Candidate.objects.get(email=vol.email)
+
+                screen_obj=Screenings.objects.filter(candidate_id=candidate).values('status','screening_result')
+                #print(screen_obj.screening_uuid)
+                screenings_list.append(screen_obj)
+
+            print(screenings_list)
+
+                
+            
+                
+            
+            return render(request,'TFC/volunter_list.html',{'org':org,'screenings_list':screenings_list,'volunter':volunter})
+class VolunteerDetails(View):
+    def get(self,request,id):
+        subdomain=subdomaincheck(request)
+        org=Organization.objects.get(subdomain=subdomain)
+        member=request.session['member']
+        if member == None:
+            return redirect('login')
+        else:
+            volunteer=Volunteer.objects.get(candidate_ptr_id=id)
+            candidate=Candidate.objects.get(email=volunteer.email)
+            screen_obj=Screenings.objects.filter(candidate_id= candidate).values('status','screening_result')
+            print(screen_obj)
+            return render(request,'TFC/volunteer_details.html',{'org':org,'volunteer':volunteer,'screen_obj':screen_obj})
 
 
  

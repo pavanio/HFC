@@ -17,9 +17,6 @@ def screening(request, screening_uuid):
 		ques_list.append(question)
 	if request.method == "POST":
 		data = request.POST.dict()
-
-		
-
 		if 'csrfmiddlewaretoken' in data:
 			del data['csrfmiddlewaretoken']
 		#print(data)
@@ -43,7 +40,7 @@ def screening(request, screening_uuid):
 				false_count=false_count+1
 		
 		total=true_count+false_count
-		percentage=(true_count/total)*100
+		percentage=int((true_count/total)*100)
 		screeningid=obj.screening_id.screening_id 
 		screening_obj=Screenings.objects.filter(screening_id = screeningid).update(screening_result=percentage)
 		if (percentage >=70):
@@ -76,26 +73,16 @@ def screening_preview(request, screening_uuid):
 		true_count=false_count=0
 		for qid,ans in data.items():
 			obj=Screenings_Questions.objects.get(pk=qid)
-			print(obj.screening_id)
-			#print(obj)
 			obj.candidate_ans=ans
 			obj.save()
-			print(obj.candidate_ans)
+			
 			if (obj.correct_ans == obj.candidate_ans):
 				obj.answer_correctness=True
-				true_count=true_count+1
 				obj.save()
-				
 				#print(ques.answer_correctness)
 			else:
 				obj.answer_correctness=False
-				false_count=false_count+1
 				obj.save()
-				
-				print(true_count,false_count)
-				
-		
-			
 				#print(ques.answer_correctness)
 		return render(request, 'ScreeningApp/thanks.html')
 		
