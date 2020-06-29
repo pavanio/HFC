@@ -44,9 +44,11 @@
             <h4>{{volunteer.years_of_experience}}</h4>
             <h4>{{volunteer.profession}}</h4>
             <h4>{{volunteer.areaofexpertise}}</h4>
-            {%for item in screen_obj%}
+            
+            {% for item in screen_obj%}
             <h4>Screening Status:{{item.status}}</h4>
             <h4>Screening Score:{{item.screening_result}}%</h4>
+            
             {%endfor%}
             {%endblock%}
             </body>

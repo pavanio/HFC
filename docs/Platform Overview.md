@@ -70,7 +70,8 @@ A platform where we can curate and highlight problem statements shared by other 
 
 	## Registration / Submission Forms(s)
 		- Contributor 
-			https://www.Hack.forchange.in/contributor/signup
+			https://www.Hack.forchange.in/chapters/{hfc_chapter}/contributor/signup
+		
 			
 		- Mentor  
 			https://www.Hack.forchange.in/mentor/signup

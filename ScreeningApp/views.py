@@ -3,6 +3,7 @@ from .models import *
 import json
 import itertools
 from .import forms
+from TFC.models import *
 # Create your views here.
 
 
@@ -42,11 +43,26 @@ def screening(request, screening_uuid):
 		total=true_count+false_count
 		percentage=int((true_count/total)*100)
 		screeningid=obj.screening_id.screening_id 
+	
 		screening_obj=Screenings.objects.filter(screening_id = screeningid).update(screening_result=percentage)
 		if (percentage >=70):
 			screening_obj=Screenings.objects.filter(screening_id = screeningid).update(status='Passed')
 		else:
 			screening_obj=Screenings.objects.filter(screening_id = screeningid).update(status='Failed')
+		screen_obj=Screenings.objects.get(screening_id = screeningid)
+		cand_id=screen_obj.candidate_id.candidate_id
+		print(cand_id)
+		candidate_obj=Candidate.objects.get(candidate_id=cand_id)
+		#print(type(candidate_obj))
+		candidate_email=candidate_obj.email 
+		vol=Volunteer.objects.get(email=candidate_email)
+		org=vol.organization
+		print(org)
+		org_admin=Team_Member.objects.filter(organization=org).filter(role='Admin').values('member_email')
+		print(org_admin)
+		print(org_admin[0]['member_email'])
+
+		
 
 		return redirect('screening_preview', screening_uuid)
 

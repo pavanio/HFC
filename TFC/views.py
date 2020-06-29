@@ -392,22 +392,7 @@ class VolunteerList(View):
             return redirect('login')
         else:
             volunter=Volunteer.objects.filter(organization=org)
-            #val= volunter.values('candidate_ptr_id')
-            #print(val)
-            for vol in volunter:
-                candidate=Candidate.objects.get(email=vol.email)
-
-                screen_obj=Screenings.objects.filter(candidate_id=candidate).values('status','screening_result')
-                #print(screen_obj.screening_uuid)
-                screenings_list.append(screen_obj)
-
-            print(screenings_list)
-
-                
-            
-                
-            
-            return render(request,'TFC/volunter_list.html',{'org':org,'screenings_list':screenings_list,'volunter':volunter})
+            return render(request,'TFC/volunter_list.html',{'org':org,'volunter':volunter})
 class VolunteerDetails(View):
     def get(self,request,id):
         subdomain=subdomaincheck(request)
