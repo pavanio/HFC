@@ -3,6 +3,17 @@ from TFC.models import Organization
 from ScreeningApp.models import *
 from autoslug import AutoSlugField
 
+EXPERIENCE=(
+    ('No Experience', 'No Experience'),
+    ('1+ years', '1+ years'),
+    ('2+ years','2+ years'),
+    ('3+ years','3+ years'),
+    ('5+ years','5+ years'),
+    ('10+ years','10+ years'),
+    ('15+ years','15+ years'),
+    ('20+ years','20+ years'),
+)
+
 class Partner(Organization):
     def __str__(self):
         return self.name
@@ -78,6 +89,7 @@ MEMBER_TYPE_CHOICE = [
 ]
 class Community_Member(Candidate):
     type = models.CharField(max_length=50, choices=MEMBER_TYPE_CHOICE, default="Contributor")
+    years_of_experience=models.CharField(choices=EXPERIENCE,max_length=200)
     coder_profile = models.CharField(max_length=100)
     linkedin_profile = models.CharField(max_length=100)
     organization_id=models.ForeignKey(Community_Organization, on_delete=models.CASCADE)
@@ -86,4 +98,17 @@ class Community_Member(Candidate):
     class Meta:
         verbose_name = "Community_Member"
         verbose_name_plural = "Community_Members"
+
+    def save(self, *args, **kwargs):     
+        
+        yoexp=self.years_of_experience
+        if yoexp =="No Experience" or yoexp == "1+ years" or yoexp == "2+ years":
+            self.level_of_expertise="Entry Level"
+        elif yoexp == "3+ years" or  yoexp == "5+ years":
+            self.level_of_expertise="Intermediate"
+        elif yoexp == "10+ years" or yoexp == "15+ years":
+            self.level_of_expertise="Advanced"
+        else:
+            self.level_of_expertise="Expert"
+        super(Volunteer,self).save(*args, **kwargs) 
 
