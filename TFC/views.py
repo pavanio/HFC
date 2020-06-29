@@ -376,8 +376,11 @@ class VolunteerCreateView(View):
             vol.save()
             form.save_m2m()
             email=vol.email
-            screeninglink_mail(email,org,subdomain)
-            print(vol.email)
+            try:
+                screeninglink_mail(email,org,subdomain)
+                print(vol.email)
+            except:
+                print('Error in sending email screening link to volunteer')
            
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
             

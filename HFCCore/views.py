@@ -1,9 +1,34 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.views import View, generic
 from .models import Problem_Statement, Partner
 from .forms import Mentor_form
+from ScreeningApp.models import *
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
+import uuid 
 # Create your views here.
+def screeninglink_mail(email):
+    candidate=Candidate.objects.get(email=email)
+    name=candidate.name
+    screening=Screenings.objects.create(candidate_id=candidate)
+    screeninguuid=screening.screening_uuid
+    print(screeninguuid)
+    email=candidate.email
+    from_email=settings.EMAIL_HOST_USER
+    to=[email]
+    subject="Screening Link"
+    msg = MIMEMultipart('alternative')
+    html_content = render_to_string('TFC/email.html', {'screeninguuid':screeninguuid,'name':name})
+    msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
+    msg.attach_alternative(html_content, "text/html")
+    msg.send(fail_silently=True)
+def thanks(request):
+    return render(request,'HFC/thanks.html')
 class Home(View):
     def get(self, request):
         return render(request,'HFC/hfc_home.html')
@@ -27,19 +52,6 @@ class ProblemDiscriptionView(View):
         focus_areas = partner.focus_area.split(',')
         return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas})
 
-# class MentorSignup(View):
-#     def get(self,request):
-#         form = Mentor_form()
-#         return render(request, 'HFC/mentor_form.html', {'form': form})
-
-#     def post(self,request):       
-#         form = Mentor_form(request.POST)
-#         print(form.is_valid())
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponse("form saved")
-#         return HttpResponse("form not saved")
-       
 def load_area_of_expertise(request):
     expertise_area_id = request.GET.get('profession')
     print(expertise_area_id)
@@ -49,29 +61,25 @@ def load_area_of_expertise(request):
 
 class MentorSignup(View):
     def get(self,request):
-        # subdomain=subdomaincheck(request)
-        # org=Organization.objects.get(subdomain=subdomain)
         form=Mentor_form()
-        #print(form)
         return render(request,'HFC/mentor_signup.html',{'form':form})
     def post(self,request):
         form=Mentor_form(request.POST)
         print(request.POST)
         if form.is_valid():
-            # subdomain=subdomaincheck(request)
-            # org=Organization.objects.get(subdomain=subdomain)
+            #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
-            
-            vol=form.save(commit=False)
-            # vol.organization=org
-            vol.save()
+            mentor=form.save(commit=False)
+            mentor.type="Mentor"
+            mentor.save()
             form.save_m2m()
-            email=vol.email
-            # screeninglink_mail(email,org,subdomain)
-            print(vol.email)
-           
-            messages.success(request,"Volunteer Registration Form Submitted Successfully")
-            
+            email=mentor.email
+            print(email)
+            try:
+                screeninglink_mail(email)
+            except:
+                print('Error in sending email screening link to Mentor')
+            #messages.success(request,"Volunteer Registration Form Submitted Successfully")
             return redirect('thanks')
 
 

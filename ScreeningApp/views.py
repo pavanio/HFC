@@ -55,12 +55,15 @@ def screening(request, screening_uuid):
 		candidate_obj=Candidate.objects.get(candidate_id=cand_id)
 		#print(type(candidate_obj))
 		candidate_email=candidate_obj.email 
-		vol=Volunteer.objects.get(email=candidate_email)
-		org=vol.organization
-		print(org)
-		org_admin=Team_Member.objects.filter(organization=org).filter(role='Admin').values('member_email')
-		print(org_admin)
-		print(org_admin[0]['member_email'])
+		try:
+			vol=Volunteer.objects.get(email=candidate_email)
+			org=vol.organization
+			print(org)
+			org_admin=Team_Member.objects.filter(organization=org).filter(role='Admin').values('member_email')
+			print(org_admin)
+			print(org_admin[0]['member_email'])
+		except:
+			print(candidate_email)
 
 		
 

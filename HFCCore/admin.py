@@ -36,8 +36,8 @@ class Community_OrganizationAdmin(admin.ModelAdmin):
 
 class Community_MemberAdmin(admin.ModelAdmin):
 	list_display = ('name', 'email', 'level_of_expertise', 'areaofexpertise', 'type', 'coder_profile', 'linkedin_profile', 'organization_id')
-	def has_module_permission(self, request):
-		return False
+	#def has_module_permission(self, request):
+		#return False
 	class Meta:
 		model = Community_Member
 

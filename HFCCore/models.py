@@ -90,9 +90,9 @@ MEMBER_TYPE_CHOICE = [
 class Community_Member(Candidate):
     type = models.CharField(max_length=50, choices=MEMBER_TYPE_CHOICE, default="Contributor")
     years_of_experience=models.CharField(choices=EXPERIENCE,max_length=200)
-    coder_profile = models.CharField(max_length=100)
-    linkedin_profile = models.CharField(max_length=100)
-    organization_id=models.ForeignKey(Community_Organization, on_delete=models.CASCADE)
+    coder_profile = models.URLField()
+    linkedin_profile = models.URLField()
+    organization_id=models.ForeignKey(Community_Organization, on_delete=models.CASCADE,blank=True,null=True)
     def __str__(self):
         return self.name
     class Meta:
@@ -110,5 +110,5 @@ class Community_Member(Candidate):
             self.level_of_expertise="Advanced"
         else:
             self.level_of_expertise="Expert"
-        super(Volunteer,self).save(*args, **kwargs) 
+        super(Community_Member,self).save(*args, **kwargs) 
 
