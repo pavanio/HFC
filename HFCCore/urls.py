@@ -8,6 +8,7 @@ urlpatterns = [
     path('problem-statements/<title_slug>', views.ProblemDiscriptionView.as_view(), name='problem_discription'),
     path('problem-Statements/<issue_area_slug>', views.ProblemsWithIssueareaView.as_view(), name='problem_statements_with_issuearea'),
     path('mentor/signup', views.MentorSignup.as_view(), name='mentor_signup'),
+    path('contributor/signup', views.CenterContributorSignup.as_view(), name='contributor_signup'),
     path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),
     path('thanks',views.thanks,name='thanks')
 ]

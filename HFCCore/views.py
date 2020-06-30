@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.views import View, generic
 from .models import Problem_Statement, Partner
-from .forms import Mentor_form
+from .forms import *
 from ScreeningApp.models import *
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -79,6 +79,28 @@ class MentorSignup(View):
                 screeninglink_mail(email)
             except:
                 print('Error in sending email screening link to Mentor')
+            #messages.success(request,"Volunteer Registration Form Submitted Successfully")
+            return redirect('thanks')
+class CenterContributorSignup(View):
+    def get(self,request):
+        form=Center_contributor_form()
+        return render(request,'HFC/center_contributor_signup.html',{'form':form}) 
+    def post(self,request):
+        form=Center_contributor_form(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            #form.save()
+            area_of_expertise=request.POST.getlist('area_of_expertise')
+            contributor=form.save(commit=False)
+            contributor.type="Contributor"
+            contributor.save()
+            form.save_m2m()
+            email=contributor.email
+            print(email)
+            try:
+                screeninglink_mail(email)
+            except:
+                print('Error in sending email screening link to Contributor')
             #messages.success(request,"Volunteer Registration Form Submitted Successfully")
             return redirect('thanks')
 
