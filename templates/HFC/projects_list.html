@@ -1,0 +1,37 @@
+{% include 'HFC/layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem-Statements</title>
+</head>
+<body>
+{% block body%}
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Projects</h2>
+        <p>Here are the list of projects in HFC platform</p>
+        <ul>
+            {% for projects_list in projects_list  %}
+                <h3>{{projects_list.name}}:</h3>
+                <p>{{projects_list.project_desc}}</p>
+                <div>
+                    <button type="button">LEARN MORE</button>
+                </div>
+                <br>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <p>Explore the problem statements across various issue areas</p>
+        <ul>
+            {% for prob_list in problem_statements %}
+                <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}">{{prob_list.issue_area}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
+

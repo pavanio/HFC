@@ -53,7 +53,8 @@ class Project(models.Model):
 
 TYPE_CHOICES = [
     ("Center", "Center"),
-    ("Chapter", "Chapter")
+    (""
+     "", "Chapter")
 ]
 
 class Community_Organization(models.Model):
