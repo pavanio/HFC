@@ -1,5 +1,5 @@
 from django import forms
-from .models import Community_Member
+from .models import Community_Member,Problem_Statement
 from ScreeningApp.models import *
 
 EXPERIENCE=(
@@ -34,3 +34,8 @@ class Mentor_form(forms.ModelForm):
     			pass
     	elif self.instance.pk:
     		self.fields['area_of_expertise'].queryset = self.instance.expertise_area.expertise_set
+
+class Problem_Statement_form(forms.ModelForm):
+	class Meta:
+	 	model=Problem_Statement
+	 	fields = '__all__'

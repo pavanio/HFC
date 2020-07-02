@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View, generic
 from .models import Problem_Statement, Partner
-from .forms import Mentor_form
+from .forms import Mentor_form,Problem_Statement_form
 # Create your views here.
 class Home(View):
     def get(self, request):
@@ -26,19 +26,17 @@ class ProblemDiscriptionView(View):
         partner = Partner.objects.get(name=problem.partner_id)
         focus_areas = partner.focus_area.split(',')
         return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas})
-
-# class MentorSignup(View):
-#     def get(self,request):
-#         form = Mentor_form()
-#         return render(request, 'HFC/mentor_form.html', {'form': form})
-
-#     def post(self,request):       
-#         form = Mentor_form(request.POST)
-#         print(form.is_valid())
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponse("form saved")
-#         return HttpResponse("form not saved")
+class ProblemStatementsSubmitView(View):
+    def get(self,request):
+        form=Problem_Statement_form()
+        return render(request,'HFC/problem_statements_submit.html',{'form':form})
+    def post(self,request):
+        form=Problem_Statement_form(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            form.save()
+            # messages.success(request,"Problem Statement Form Submitted Successfully")
+            return HttpResponse('thanks')
        
 def load_area_of_expertise(request):
     expertise_area_id = request.GET.get('profession')
@@ -68,10 +66,6 @@ class MentorSignup(View):
             form.save_m2m()
             email=vol.email
             # screeninglink_mail(email,org,subdomain)
-            print(vol.email)
-           
-            messages.success(request,"Volunteer Registration Form Submitted Successfully")
-            
+            print(vol.email)           
+            messages.success(request,"Volunteer Registration Form Submitted Successfully")            
             return redirect('thanks')
-
-
