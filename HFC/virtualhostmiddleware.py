@@ -7,7 +7,7 @@ virtual_hosts = {
     #local setup
     "www.staging.forchange.in:8000":"TFC.urls",
     "www.staging.hack-for-change.org:8000":"HFCCore.urls",
-    "www.staging.hack-for-change.org:8000":"ScreeningApp.urls"
+    
     
 }
 

@@ -1,5 +1,6 @@
 from django.urls import path
 from HFCCore import views
+from django.conf.urls import include
 
 app_name="HFCCore"
 urlpatterns = [
@@ -10,5 +11,7 @@ urlpatterns = [
     path('mentor/signup', views.MentorSignup.as_view(), name='mentor_signup'),
     path('contributor/signup', views.CenterContributorSignup.as_view(), name='contributor_signup'),
     path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),
-    path('thanks',views.thanks,name='thanks')
+    path('thanks',views.thanks,name='thanks'),
+    path('', include('ScreeningApp.urls')),
+
 ]
