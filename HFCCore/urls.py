@@ -13,6 +13,7 @@ urlpatterns = [
     path('<hfc_chapter>/signup', views.ChapterContributorSignup.as_view(), name='chapter_signup'),
     path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),
     path('thanks',views.thanks,name='thanks'),
+    path('problem-statements-submit', views.ProblemStatementsSubmitView.as_view(), name='problem_statements_submit'),
     
 
     path('projects', views.ProjectsView.as_view(), name='projects'),

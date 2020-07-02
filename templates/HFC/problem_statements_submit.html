@@ -1,0 +1,30 @@
+{% include 'HFC/layout.html'%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Mentor Signup</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+            
+        {% block body %}
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+                    
+                    <form method="post" >
+                            {%csrf_token%}
+                            {{form.as_p}}
+                            <input type="submit" class="btn btn-success" value="Register">
+                    </form>
+                </div>
+            </div>
+        </div>
+            {% include 'footer.html'%}
+            {%endblock%}
+            
+    </body>
+</html>

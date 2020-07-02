@@ -159,3 +159,16 @@ class CommunityView(View):
         mentors_list = Community_Member.objects.filter(type='Mentor')
         contributors_list = Community_Member.objects.filter(type='Contributor')
         return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list})
+
+class ProblemStatementsSubmitView(View):
+    def get(self,request):
+        form=Problem_Statement_form()
+        return render(request,'HFC/problem_statements_submit.html',{'form':form})
+    def post(self,request):
+        form=Problem_Statement_form(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            problem=form.save(commit=False)
+            problem.status="Draft"
+            form.save()
+            return HttpResponse('thanks')
