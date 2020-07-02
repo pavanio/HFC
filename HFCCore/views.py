@@ -11,6 +11,7 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 import uuid 
+from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member
 # Create your views here.
 def screeninglink_mail(email):
     candidate=Candidate.objects.get(email=email)
@@ -23,7 +24,7 @@ def screeninglink_mail(email):
     to=[email]
     subject="Screening Link"
     msg = MIMEMultipart('alternative')
-    html_content = render_to_string('TFC/email.html', {'screeninguuid':screeninguuid,'name':name})
+    html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name})
     msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
     msg.attach_alternative(html_content, "text/html")
     msg.send(fail_silently=True)
@@ -101,7 +102,60 @@ class CenterContributorSignup(View):
                 screeninglink_mail(email)
             except:
                 print('Error in sending email screening link to Contributor')
-            #messages.success(request,"Volunteer Registration Form Submitted Successfully")
+            
             return redirect('thanks')
 
 
+        #return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas, 'partner':partner})
+class ChapterContributorSignup(View):
+    def get(self,request,hfc_chapter):
+        form=Chapter_contributor_form()
+        print(hfc_chapter)
+        return render(request,'HFC/chapter_contributor_signup.html',{'form':form}) 
+    def post(self,request,hfc_chapter):
+        form=Chapter_contributor_form(request.POST)
+        community_org=Community_Organization.objects.get(organization_name=hfc_chapter)
+        print(request.POST)
+        if form.is_valid():
+            #form.save()
+            area_of_expertise=request.POST.getlist('area_of_expertise')
+            contributor=form.save(commit=False)
+            contributor.type="Contributor"
+            contributor.organization_id=community_org
+
+            contributor.save()
+            form.save_m2m()
+            email=contributor.email
+            print(email)
+            try:
+                screeninglink_mail(email)
+            except:
+                print('Error in sending email screening link to Contributor')
+            return redirect('thanks')
+
+class ProjectsView(generic.ListView):
+    def get(self, request):
+        projects_list = Project.objects.all()
+        problem_statements=Problem_Statement.objects.all()
+        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list, 'problem_statements':problem_statements})
+
+class CommunityView(View):
+    def get(self, request):
+        hfc_centers=Community_Organization.objects.filter(type='Center')
+        hfc_chapters=Community_Organization.objects.filter(type='Chapter')
+        
+        centre_count = {}
+        chapter_count = []
+        for centre in hfc_centers:
+            print(centre.community_member_set.count())
+            centre_count[centre.organization_name]=centre.community_member_set.count()
+        
+            #centre_count = centre_count.count()
+        print("<<<<<<<<<<<<<<<<<<")
+        print(centre_count)
+        for chapter in hfc_chapters:
+            print(chapter.community_member_set.count())
+           
+        mentors_list = Community_Member.objects.filter(type='Mentor')
+        contributors_list = Community_Member.objects.filter(type='Contributor')
+        return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list})
