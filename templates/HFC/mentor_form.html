@@ -1,5 +1,4 @@
 {% include 'HFC/layout.html' %}
-{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +11,7 @@
 	   <div class="container">
     	<form method="post">
     	{% csrf_token %}
-    	{{ form|crispy }}
+    	{{ form }}
         <button type="submit" style="margin-top: 40px;">Submit</button>
 	  </form>
 	  </div>
