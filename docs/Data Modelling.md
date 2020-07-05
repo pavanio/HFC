@@ -98,18 +98,18 @@ TFC Modelling
     Organization Association | integer| organization_id | 
     Intent Amount | float | intent_amount | Ex: 100.00, 500.00, 1000.00
     Intent Frequency | string | intent_frequency | Ex: One Time, Monthly, Quarterly, Annually
-    Donor First Name | string
-    Donor Last Name
-    Donor Email
-    Donor Phone Number
-    Donor Comment
+    Donor First Name | string | first_name
+    Donor Last Name | string | last_name 
+    Donor Email | string | donor_email
+    Donor Phone Number | string | donor_mobile
+    Donor Comment | text | comments
     Donor Anonymity | string | donor_anonymity | Ex: Yes / No    
     Subscription
 
 ## Platform Donation Requests (Jobs)
-    Donor Full Name
-    Donor Phone Number
-    Donation Request Amount
+    Donor Full Name | string | donor_fullname
+    Donor Phone Number | string | donor_mobile
+    Donation Request Amount | float | request_amount
     Status | string | status | Ex: Open, Raised, Full-filled
     
 ------------------------------------------------------------------------------------------------------
