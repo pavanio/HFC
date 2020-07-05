@@ -9,8 +9,8 @@ Hack For Change
 A platform where we can curate and highlight problem statements shared by other non profit organizations and engage the hacker community using the same.
 
 # Goals 
-	- Domain Experts to be engaged in submitted problem statements that are relavent to their area of expertise and domain
-		- Highlight Problem Statement(s)		
+    - Domain Experts to be engaged in submitted problem statements that are relavent to their area of expertise and domain
+        - Highlight Problem Statement(s)
 	- Engage Developer, Designer and Mentor Community
 		- Encouraging continuous contribution
 		- Engage institutions as a way contribute, in a more fixed and centralized manner (HFC Centers)
@@ -137,6 +137,7 @@ TFC in a generic application, which can be used by any organization (for-profit 
 
 		- Org Donation Request Page
 			https://factly.forchange.in/donate
+            https://factly.forchange.in/donate/thankyou
 
 		- Organization Login
 			https://factly.forchange.in/login
@@ -173,12 +174,12 @@ TFC in a generic application, which can be used by any organization (for-profit 
 		- Volunteer Management (Applications)
 			- List / Detail
 		
-		- Donation Request Management (Donations)
+		- Donation Intent Management (Donations)
 			- List / Detail / Metrics etc
 
-		- Volunteer Requrements
-		
-		- Donation Requirements
+		- Donation Requests Raised
+		    - Mark it as full filled
+		    - Request to raise again
 
 	## Admin Panel
 		https://www.forchange.in/admin

@@ -94,9 +94,23 @@ TFC Modelling
 
     Organization Mapping | integer | organization_id | This essentially means a volunteer is tied to a particular organization as an applicant
 
-## Donation Request Raised | donation_requests
-    Ogranization Association | integer| organization_id | 
-    Donation Request | float | donation_request | Ex: 100.00, 500.00, 1000.00
+## Donation Intents | donation_intents
+    Organization Association | integer| organization_id | 
+    Intent Amount | float | intent_amount | Ex: 100.00, 500.00, 1000.00
+    Intent Frequency | string | intent_frequency | Ex: One Time, Monthly, Quarterly, Annually
+    Donor First Name | string
+    Donor Last Name
+    Donor Email
+    Donor Phone Number
+    Donor Comment
+    Donor Anonymity | string | donor_anonymity | Ex: Yes / No    
+    Subscription
+
+## Platform Donation Requests (Jobs)
+    Donor Full Name
+    Donor Phone Number
+    Donation Request Amount
+    Status | string | status | Ex: Open, Raised, Full-filled
     
 ------------------------------------------------------------------------------------------------------
 Screening App Models (Should be usable by volunteers/non-volunteers as well)
