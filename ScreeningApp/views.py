@@ -29,6 +29,9 @@ def screening_result(email,name,screening_status):
 def screening(request, screening_uuid):
 	screening_uuid = screening_uuid
 	screen = Screenings.objects.get(screening_uuid=screening_uuid)
+	if screen.status=="Passed" or screen.status=="Failed":
+		return render(request, 'ScreeningApp/screening_error.html')
+
 	screening_id = screen.screening_id
 	questions = Screenings_Questions.objects.filter(screening_id=screening_id)
 	ques_list = []

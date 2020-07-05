@@ -1,4 +1,4 @@
-{% include 'header.html'%}
+{% include 'HFC/layout.html' %}
 <!DOCTYPE html>
 <html>
 
@@ -8,14 +8,7 @@
     </head>
 
     <body>
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-white">
-                    <!-- Brand/logo -->
-                    {% load static %}
-                    <a  href="#" class="navbar-brand">
-
-                            <img src="{{org.logo.url}}" width="50", height="50">
-                    </a>
-                    </nav>
+           
         {% block body %}
         {% if messages %}
                     {% for msg in messages %}

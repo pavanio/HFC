@@ -85,12 +85,7 @@ body {font-family: Arial;}
         </div>
 
         <div id="leaderboard" class="tabcontent">
-        {% for mentor in mentors_list %}
-                <div>
-                    <img>
-                    <h3>{{mentor.name}}</h3>
-                </div>
-            {% endfor %}
+        
             
             {% for contributor in contributors_list %}
                 <div>
@@ -103,7 +98,7 @@ body {font-family: Arial;}
     <div class="col-sm-4">
         <h3>Setting up a Hack For Change (HFC) Centre in your college?</h3>
         <p>Lorem ipsum dolor sit amet, affert qualisque efficiendi vim at, per cu agam eruditi. Ius an duis dicam ancillae. Modus fastidii expetenda cum ad. Pro id facilisis incorrupte, nec te exerci debitis assentior.</p>
-        <button type="button">CONTACT US</button>
+        <button type="button"><a href="mailto:someone@example.com">CONTACT US</a></button>
     </div>
 </div>
 <script>
@@ -121,8 +116,7 @@ function openfunctn(evt, type) {
   evt.currentTarget.className += " active";
 }
 
-console.log("/////////")
-console.log(hfc_centers)
+
 
 </script>
 {% endblock %}
