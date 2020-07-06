@@ -381,9 +381,7 @@ class VolunteerCreateView(View):
                 print(vol.email)
             except:
                 print('Error in sending email screening link to volunteer')
-           
             messages.success(request,"Volunteer Registration Form Submitted Successfully")
-            
             return redirect('thanks')
 class VolunteerList(View):
     def get(self,request):
