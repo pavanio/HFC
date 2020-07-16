@@ -8,7 +8,7 @@ class OrganizationSignupForm(ModelForm):
     class Meta:
         model=Organization
         fields=['name','website','partner_desc','phone_number','email','address' ,'city','state','zip_code',
-        'upi_id','logo']
+        'upi_id','logo','focus_area']
         success_url = 'organization_list'
         
 class MemberSignupForm(ModelForm):
