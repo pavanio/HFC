@@ -88,6 +88,7 @@ def screening(request, screening_uuid):
 			org_admin=Team_Member.objects.filter(organization=org).filter(role='Admin').values('member_email')
 			print(org_admin)
 			print(org_admin[0]['member_email'])
+			screening_result(candidate_email,candidate_name,screening_status)
 		except:
 			print(candidate_email)
 			print(candidate_name)
