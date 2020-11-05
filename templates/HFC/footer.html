@@ -1,0 +1,65 @@
+{% load static from staticfiles %}
+
+<!--footer start -->
+<div class="subscription-wrap">
+    <div class="content-width md-content-width">
+        <div class="subscription-section">
+            <div class="subscription__left">
+                <p class="large bold">Subscribe to our newsletter</p>
+            </div>
+            <div class="subscription__right">
+                <form action="#" class="subscription__form">
+                    <input type="email" placeholder="Enter your email"><input type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer-wrap">
+	<div class="content-width md-content-width">
+        <footer id="footer">
+        	<div class="footer__left">
+                <div class="footer__menu">
+                    <p class="small bold">Company</p>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="{% url 'problem_statements' %}">Problem Statements</a></li>
+                        <li><a href="{% url 'projects' %}">Projects</a></li>
+                        <li><a href="{% url 'community' %}">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer__menu">
+                    <p class="small bold">Legal</p>
+                    <ul>
+                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer__menu">
+                    <p class="small bold">Get In Touch</p>
+                    <address>402 Abhis Hiranya <br>Kavuri Hills, Madhapur <br>Hyderabad - 500 033</address>
+                    <p><a href="mailto:contact@hackforchange.co"><i class="fas fa-envelope"></i>contact@hackforchange.co</a></p>
+                    <p><a href="tel:+04090062872"><i class="fas fa-phone-alt"></i>+040 90062872</a></p>
+                </div>
+            </div>
+            <div class="footer__right">
+                <p class="small bold">Social Media</p>
+                <ul>
+                    <li><a href="#"><img width="30" src="{% static 'images/facebook-icon.png' %}" alt="Icon"></a></li>
+                    <li><a href="#"><img width="35" src="{% static 'images/insta-icon.png' %}" alt="Icon"></a></li>
+                    <li><a href="#"><img width="31" src="{% static 'images/linkedin-icon.png' %}" alt="Icon"></a></li>
+                </ul>
+                <a href="#" class="btn btn--border">Donate</a>
+            </div>
+        </footer>
+        <footer class="footer__copyright">
+            <div class="copyright__left">
+                <p>An Initiative By<a href="#"><img width="171" src="{% static 'images/ctsc-logo.png' %}" alt="logo"></a></p>
+            </div>
+            <div class="copyright__right">© Copyright @HackForChange 2020</div>
+        </footer>
+    </div>
+</div>
+<!--footer end -->
+
