@@ -1,30 +1,55 @@
-{% include 'HFC/layout.html'%}
-<!DOCTYPE html>
-<html>
-
-    <head>
-        <title>Mentor Signup</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-
-    <body>
-            
-        {% block body %}
-        
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-                    
-                    <form method="post" >
+{% extends 'HFC/layout.html'%}
+{% load static %}
+{% block title %} Suggest Problem Statement {% endblock %}
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main">
+                <h1>Suggest a Problem Statement</h1>
+                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+            </div>
+        </div>
+</div>
+    <!--Banner end -->
+<!--main start -->
+<div id="main-wrap" class="main__large-pd">
+        <div class="content-width">
+            <div class="main">
+                <section id="contents">
+                    <form class="site-form" action="" method="post">
                             {%csrf_token%}
                             {{form.as_p}}
+                            
+                            
                             <input type="submit" class="btn btn-success" value="Register">
                     </form>
+                </section>
+                <aside id="sidebar">
+                        <div class="sidebar__list">
+                            <p>Explore problem statements across various issue areas</p>
+                            <ul>
+                                    {% for problem in all_problems %}
+                                <li><a href="{% url 'problem_statements_with_issuearea' problem.issue_area_slug %}">{{problem.issue_area}}</a></li>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="newsletter">
+                            <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                            <form action="#" class="newsletter__form">
+                                <p class="large bold">Get Latest Updates!</p>
+                                <input type="email" placeholder="Enter your email">
+                                <input class="btn btn--info" type="submit" value="Subscribe">
+                            </form>
+                        </div>
+                    </aside><!--sidebar -->
                 </div>
             </div>
         </div>
-            {% include 'footer.html'%}
-            {%endblock%}
+        <!--main end -->
+        
+
+                
+{%endblock%}
             
-    </body>
-</html>
+    

@@ -51,7 +51,8 @@ class ProblemDiscriptionView(View):
         print(problem.partner_id)
         partner = Partner.objects.get(name=problem.partner_id)
         focus_areas = partner.focus_area.split(',')
-        return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas})
+        all_problems = Problem_Statement.objects.all()
+        return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas,'all_problems': all_problems,'partner':partner})
 
 def load_area_of_expertise(request):
     expertise_area_id = request.GET.get('profession')
@@ -163,7 +164,8 @@ class CommunityView(View):
 class ProblemStatementsSubmitView(View):
     def get(self,request):
         form=Problem_Statement_form()
-        return render(request,'HFC/problem_statements_submit.html',{'form':form})
+        all_problems = Problem_Statement.objects.all()
+        return render(request,'HFC/problem_statements_submit.html',{'form':form,'all_problems': all_problems})
     def post(self,request):
         form=Problem_Statement_form(request.POST)
         print(request.POST)

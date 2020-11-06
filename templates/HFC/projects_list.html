@@ -1,37 +1,55 @@
-{% include 'HFC/layout.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Problem-Statements</title>
-</head>
-<body>
-{% block body%}
-<div class="row">
-    <div class="col-sm-8">
-        <h2>Projects</h2>
-        <p>Here are the list of projects in HFC platform</p>
-        <ul>
-            {% for projects_list in projects_list  %}
-                <h3>{{projects_list.name}}:</h3>
-                <p>{{projects_list.project_desc}}</p>
-                <div>
-                    <button type="button">LEARN MORE</button>
-                </div>
-                <br>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="col-sm-4">
-        <p>Explore the problem statements across various issue areas</p>
-        <ul>
-            {% for prob_list in problem_statements %}
-                <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}">{{prob_list.issue_area}}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
+{% extends 'HFC/layout.html' %}
+{% load static %}
+
+{% block title %} Projects {% endblock %}
+
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main">
+                <h1>Projects</h1>
+                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+            </div>
+        </div>
 </div>
+<!--Banner end -->
+<!--main start -->
+<div id="main-wrap" class="main__large-pd">
+        <div class="content-width">
+            <div class="main">
+                <section id="contents">
+                    {% for projects_list in projects_list  %}
+                    <article class="post-blog">
+                        <h4>{{projects_list.name}}</h4>
+                        <p>{{projects_list.project_desc}}</p>
+                        <a class="btn btn--border" href="#">Learn More</a>
+                    </article>
+                    {% endfor %}
+                </section><!--contents -->
+                <aside id="sidebar">
+                        <div class="sidebar__list">
+                                <p>Explore Problem Statement across various issue areas</p>
+                                    <ul>
+                                        {% for prob_list in problem_statements %}
+                                        <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}">{{prob_list.issue_area}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                        
+                        </div>
+                        <div class="newsletter">
+                                <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                                <form action="#" class="newsletter__form">
+                                    <p class="large bold">Get Latest Updates!</p>
+                                    <input type="email" placeholder="Enter your email">
+                                    <input class="btn btn--info" type="submit" value="Subscribe">
+                                </form>
+                        </div> 
+                    </aside><!--sidebar -->
+                </div>
+            </div>
+        </div>
+
 {% endblock %}
-</body>
-</html>
+
 

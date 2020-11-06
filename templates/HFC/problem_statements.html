@@ -42,8 +42,9 @@
                                 <ul>
                                     {% for prob_list in problems_list %}
                                     <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}">{{prob_list.issue_area}}</a></li>
-                                </ul>
                                     {% endfor %}
+                                </ul>
+                                    
                     </div>
                     <div class="newsletter">
                             <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>

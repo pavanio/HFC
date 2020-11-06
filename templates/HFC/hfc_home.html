@@ -1,4 +1,5 @@
 {% extends 'HFC/layout.html' %}
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -6,8 +7,97 @@
         {% block title %}Home{% endblock %}
     </head>
 
-    <body>
-        <div >  <H3>Hack For Change Home Page</H3></div>
-        
-    </body>
-</html>
+{% block main %}
+<!--Banner start -->
+<div class="home-banner-wrap">
+    <div class="content-width">
+        <div class="home-banner">
+            <div class="home-banner__right">
+                <img src="{% static 'images/developer-team-2043022-0.png' %}" srcset="images/developer-team-2043022-0@2x.png 2x, images/developer-team-2043022-0@3x.png 3x " alt="Pic">
+            </div>
+            <div class="home-banner__left">
+                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit</h1>
+                <p class="large sbold">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+                <div class="banner__btn">
+                    <a class="btn btn--info" href="#">Our Mission</a><a class="btn btn--border" href="#">Donate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Banner end -->
+<!--main start -->
+<div class="solution-wrap">
+    <div class="solution__left"><img width="685" src="{% static 'images/solution-img.jpg' %}" alt="Pic"></div>
+    <div class="solution__main">
+        <div class="content-width">
+            <div class="solution__inner">
+                <div class="solution__right">
+                    <h2>Solutions We Build</h2>
+                    <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music lorem ipsum dolor sit amcetghjj adipscing sed do eiumosod ritfghdy incidudunt ut labore.</p>
+                    <a class="btn btn--border" href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contribute-wrap">
+    <div class="content-width">
+        <div class="contribute__main">
+            <div class="contribute__top">
+                <h2 class="underline">How can you Contribute?</h2>
+                <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music.</p>
+            </div>
+            <div class="contribute__outer">
+                <div class="contribute__sec">
+                    <div class="contribute__info">
+                        <h4>Coders/Software Engineers</h4>
+                        <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music.</p>
+                        <img src="{% static 'images/undraw_code_typing_7jnv.png' %}" srcset="images/undraw_code_typing_7jnv@2x.png 2x, images/undraw_code_typing_7jnv@3x.png 3x" alt="Pic">
+                    </div>
+                </div>
+                <div class="contribute__sec">
+                    <div class="contribute__info">
+                        <h4>Working Professionals</h4>
+                        <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music.</p>
+                        <img width="238" src="{% static 'images/contribute-img2.jpg' %}" alt="Pic">
+                    </div>
+                    </div>
+                <div class="contribute__sec">
+                    <div class="contribute__info">
+                        <h4>Mentors</h4>
+                        <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music.</p>
+                        <img src="{% static 'images/undraw_online_learning_ao11.png' %}" srcset="images/undraw_online_learning_ao11@2x.png 2x, images/undraw_online_learning_ao11@3x.png 3x" alt="Pic">
+                    </div>
+                </div>
+            </div>
+            <div class="contribute__btn">
+                <a href="#"><span>Learn More</span><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="home-donate-wrap">
+    <div class="content-width">
+        <div class="home-donate-sec">
+            <p class="large bold">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+            <a class="btn btn--info" href="#">Donate</a>
+        </div>
+    </div>
+</div>
+<div class="we-work-wrap">
+    <div class="content-width">
+        <div class="we-work__main">
+            <h2 class="underline">Who We Work With?</h2>
+            <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+            <div class="we-work__sec">
+                <div class="we-work__fig"><img src="{% static 'images/faq-logo.png' %}" srcset="images/faq-logo@2x.png 2x, images/faq-logo@3x.png 3x"></div>
+                <div class="we-work__fig"><img src="{% static 'images/fdr-logo.png' %}" srcset="images/fdr-logo@2x.png 2x, images/fdr-logo@3x.png 3x"></div>
+                <div class="we-work__fig"><img src="{% static 'images/md-logo.png' %}" srcset="images/md-logo@2x.png 2x, images/md-logo@3x.png 3x"></div>
+            </div>
+            <p>Does your non-profit want to work with Hack For Change? <a href="#">Send us a note</a></p>
+        </div>
+    </div>
+</div>
+<!--main end -->
+{% endblock %}

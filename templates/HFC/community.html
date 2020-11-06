@@ -1,124 +1,111 @@
-{% include 'HFC/layout.html' %}
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {font-family: Arial;}
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
-</head>
-
-<body>
-{% block body %}
-<div class="row">
-    <div class="col-sm-8">
-        <h2>Community</h2>
-        <div class="tab">
-            <button class="tablinks" onclick="openfunctn(event, 'centres')">HFC Centres</button>
-            <button class="tablinks" onclick="openfunctn(event, 'chapters')">HFC Chapters</button>
-            <button class="tablinks" onclick="openfunctn(event, 'leaderboard')">Leaderboard</button>
+{% extends 'HFC/layout.html' %}
+{% load static %}
+{% block title %} Community {% endblock %}
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main banner__main--upper banner__main--community">
+                <h1>Community</h1>
+                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+            </div>
         </div>
-
-        <div id="centres" class="tabcontent">
-            {% for item in centre_count %}
-                <div>
-                    <img>
-                    <h3>{{item}}</h3>
-                    
-                    <div>
-                        <tr>
-                            <td id="mem_count">{{item. }}Members</td>
-                
-                           
-                            <td>11 Projects</td>
-                            <td> Member Since 2020</td>
-                        </tr>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-
-        <div id="chapters" class="tabcontent">
-            {% for hfc_chapters in hfc_chapters %}
-                <div>
-                    <img>
-                    <h3>{{hfc_chapters.organization_name}}<a href="{{hfc_chapters.organization_name}}/signup" class="btn btn-secondary" style="float:right;">Signup As A Contributor</a></h3>
-                    <p>11 Projects Member Since 2020</p>
-                    
-                    
-                </div>
-            {% endfor %}
-        </div>
-
-        <div id="leaderboard" class="tabcontent">
-        
-            
-            {% for contributor in contributors_list %}
-                <div>
-                    <img>
-                    <h3>{{contributor.name}}</h3>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <h3>Setting up a Hack For Change (HFC) Centre in your college?</h3>
-        <p>Lorem ipsum dolor sit amet, affert qualisque efficiendi vim at, per cu agam eruditi. Ius an duis dicam ancillae. Modus fastidii expetenda cum ad. Pro id facilisis incorrupte, nec te exerci debitis assentior.</p>
-        <button type="button"><a href="mailto:someone@example.com">CONTACT US</a></button>
-    </div>
 </div>
-<script>
-function openfunctn(evt, type) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(type).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+<!--Banner end -->
+<!--main start -->
+<div id="main-wrap" class="main-wrap--pdb">
+        <div class="content-width">
+            <ul class="tab-sec">
+                <li class="active"><a href="#hfcCentres"><img width="27" src="{% static 'images/hfc-icon1.jpg' %}" alt="ICON"><img width="27" src="{% static 'images/hfc-icon1-alt.jpg' %}" alt="ICON"><span>HFC Centres</span></a></li>
+                <li><a href="#hfcChapters"><img width="48" src="{% static 'images/hfc-icon2.jpg' %}" alt="ICON"><img width="48" src="{% static 'images/hfc-icon2-alt.jpg' %}" alt="ICON"><span>HFC Chapters</span></a></li>
+                <li><a href="#hfcLeaderboard"><img width="23" src="{% static 'images/hfc-icon3.jpg' %}" alt="ICON"><img width="23" src="{% static 'images/hfc-icon3-alt.jpg' %}" alt="ICON"><span>Leaderboard</span></a></li>
+            </ul>
+            <div class="hfc-outer">
+                    <section class="active" id="hfcCentres">
+                        <div class="main main--community">
+                            {% for center in hfc_centers %}
+                            <div class="main__community-outer">
+                                <div class="main__community-fig squre-radius"><img width="85" src={{center.logo.url}} alt="Logo"></div>
+                                <div class="main__community-sec">
+                                    <p class="large sbold">{{center.organization_name}}</p>
+                                    <p>11 Projects, 150 Members</p>
+                                    <p class="fz16">Member since 2019</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="hfc-card">
+                                <div class="hfc-card__fig"><img width="111" src="{% static 'images/hfc-img.jpg' %}" alt="Pic"></div>
+                                <div class="hfc-card__info">
+                                    <h3>Want to set up HFC Centre in your college?</h3>
+                                    <p class="small">Lorem ipsum dolor sit amet, affert qualisque efficiendvim at, per cuagam eruditi. Ius an duis</p>
+                                    <a href="#" class="btn btn--info">Contact Us</a>
+                                </div>
+                        </div>    
+                    </section>
+                    <section id="hfcChapters">
+                        <div class="main main--community">
+                            {% for chapter in hfc_chapters %}
+                            <div class="main__community-outer">
+                                <div class="main__community-fig squre-radius"><img width="85" src={{chapter.logo.url}} alt="Logo"></div>
+                                <div class="main__community-sec">
+                                    <p class="large sbold">{{chapter.organization_name}}</p>
+                                    <p>11 Projects, 150 Members</p>
+                                    <a href="{{chapter.organization_name}}/signup" class="btn btn--border">Join as a Contributor</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </section>
+                    <section id="hfcLeaderboard">
+                        <div class="unborder-table__outer">
+                            <table class="unborder-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Centre/Chapter</th>
+                                        <th>Projects</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="table-sec">
+                                                <div class="table-fig"><img width="95" src="images/c-member-img3.jpg" alt="Pic"></div>
+                                                <div class="table-info">
+                                                    <p class="large">Akash Sahoo</p>
+                                                    <div class="comment-count"><img width="16" src="{% static 'images/badge-icon.jpg' %}" alt="Icon">No. of Commits <a href="#">- 15</a></div>
+                                                    <p>Member since 2019</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="large sbold">IIIT Hyderabad</p>
+                                        </td>
+                                        <td>
+                                            <p class="large sbold">India By Numbers, OpenGov</p>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="lead-more-btn">
+                            <a href="#" class="btn btn--border">Load More Leaders</a>
+                        </div>
+                        <div class="hfc-card hfc-card--wide">
+                            <div class="hfc-card__fig"><img src="{% static 'images/undraw_proud_coder_7ain.png' %}" srcset="images/undraw_proud_coder_7ain@2x.png 2x, images/undraw_proud_coder_7ain@3x.png 3x" alt="Pic"></div>
+                            <div class="hfc-card__info">
+                                <h3>Want to set up HFC Centre in your college?</h3>
+                                <p class="small">Lorem ipsum dolor sit amet, affert qualisque efficiendvim at, per cuagam eruditi. Ius an duis</p>
+                                <a href="#" class="btn btn--info">Contact Us</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--main end -->
 
-
-
-</script>
 {% endblock %}
-</body>
-</html>
+

@@ -1,43 +1,65 @@
-{% include 'HFC/layout.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'HFC/layout.html' %}
+{% load static  %}
+{% block title %} Problem Description {% endblock %}
 
-{% block body %}
-<div class="row">
-    <div class="col-sm-6">
-        <h2>{{problem.title}}</h2>
-        <br>
-        <h5>Summary</h5>
-        <p>{{problem.summary}}</p>
-        <br>
-        <h5>Background Information</h5>
-        <p>{{problem.background_info}}</p>
-        <br>
-        <h5>Related Links</h5>
-        <p>{{problem.related_link}}</p>
-        <br>
-        <h5>Proposed Solution</h5>
-        <p>{{problem.proposed_solution}}</p>
-    </div>
-    <div class="col-sm-6">
-        <h3>{{partner.name}}</h3>
-        <br>
-        <p>{{partner.partner_desc}}</p>
-        <br>
-        <h5>Focus Areas</h5>
-        <ul>
-        {% for focus_area in focus_areas %}
-            <li>{{focus_area}}</li>
-        {% endfor %}
-        </ul>
+{% block main %}
+<!--main start -->
+<div id="main-wrap" class="main__md-pd">
+	<div class="content-width">
+        <div class="main">
+        	<section id="contents">
+                <div class="blog-single">
+                    <h3>{{problem.title}}</h3>
+                    <div class="single__author-sec">
+                        <div class="author__left">
+                            <img width="87" src={{partner.logo.url}}  alt="Partner logo">
+                        </div>
+                        <div class="author__right">
+                            <div class="badge-sec"><strong>Submitted By : </strong><span class="badge badge--yellow">{{partner.name}}</span></div>
+                            <div class="badge-sec"><strong>Focus Area : </strong>
+                                {% for focus_area in focus_areas %}
+                            <span class="badge">{{focus_area}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-single__content">
+                        <p class="large sbold">Summary</p>
+                        <p>{{problem.summary}}</p>
+                        <p class="large sbold">Background Information</p>
+                        <p>{{problem.background_info}}</p>
+                        <p class="large sbold">Related Links</p>
+                        <p><a href={{problem.related_link}} ></a></p>
+                        <p class="large sbold">Proposed Solution</p>
+                        <p>{{problem.proposed_solution}}</p>
+                    </div>
+                </div>
+            </section>
+            <aside id="sidebar">
+                <div class="sidebar__list">
+                    <p>Explore problem statements across various issue areas</p>
+                    <ul>
+                            {% for prob_list in all_problems %}
+                        <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}">{{prob_list.issue_area}}</a></li>
+                            {% endfor %}
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form action="#" class="newsletter__form">
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </aside><!--sidebar -->
+        </div>
     </div>
 </div>
+<!--main end -->
+        
+        
+        
+        
 
 {% endblock %}
-</body>
-</html>
