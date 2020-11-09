@@ -1,6 +1,6 @@
 virtual_hosts = {
     "hackforchange.co": "HFCCore.urls",
-    "staging.hackforchange.co":"HFCCore.urls" and "ScreeningApp.urls",
+    "staging.hackforchange.co":"HFCCore.urls" ,
     "forchange.in": "TFC.urls",
     "staging.forchange.in":"TFC.urls",
     "*.staging.forchange.in":"TFC.urls",
