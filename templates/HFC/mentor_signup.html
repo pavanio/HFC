@@ -1,53 +1,181 @@
-{% include 'HFC/layout.html' %}
-<!DOCTYPE html>
-<html>
-
-    <head>
-        <title>Mentor Signup</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-
-    <body>
-           
-        {% block body %}
-        {% if messages %}
-                    {% for msg in messages %}
-                         <div class="alert alert-info alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    {{msg.message}}
+{% extends 'HFC/layout.html' %}
+{% load static %}
+{% block title %} Mentor Signup {% endblock %}
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+    <div class="content-width sm-content-width">
+        <div class="banner__main">
+            <h1>Signup as a Mentor</h1>
+            <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+        </div>
+    </div>
+</div>
+<!--Banner end -->
+<!--main start -->
+<div id="main-wrap" class="main__large-pd">
+	<div class="content-width">
+        <div class="main">
+        	<section id="contents">
+                <div class="leader-skill-sec">
+                    <div class="leader-skill__left">
+                        <p class="large bold">Must Have Skills</p>
+                        <ul>
+                            <li>Leadership</li>
+                            <li>Leadership</li>
+                            <li>Leadership</li>
+                            <li>Leadership</li>
+                            <li>Leadership</li>
+                        </ul>
+                    </div>
+                    <div class="leader-skill__right">
+                        <img src="{% static 'images/undraw_candidate_ubwv.png' %}" srcset="images/undraw_candidate_ubwv@2x.png 2x, images/undraw_candidate_ubwv@3x.png 3x">
+                    </div>
+                </div>
+                <form  class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}" >
+                        {%csrf_token%}
+                        <div class="form-control">
+                            <div class="form-field">
+                                <label for="">Full Name</label>
+                                    {{form.name}}
+                            </div>    
+                            <div class="form-field">
+                                <label for="">Email</label>
+                                    {{form.email}}   
+                            </div>
                         </div>
-                    {% endfor %}
-                {% endif %}
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-                    
-                    <form method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}" >
-                            {%csrf_token%}
-                            {{form.as_p}}
-                            <input type="submit" class="btn btn-success" value="Register">
+                        <div class="form-control">
+                                <div class="form-field">
+                                    <label for="">Contact Number</label>
+                                        {{form.contact_number}} 
+                                </div>
+                                <div class="form-field">
+                                    <label for="">Date of Birth</label>
+                                    
+                                        {{form.dob}}
+                                     
+                                    
+                                </div>
+                        </div>
+                        <div class="form-control">
+                                <div class="form-field">
+                                    <label for="">Gender</label>
+                                    <div class="form-field__select">
+                                        {{form.gender}}
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label for="">LinkedIn Profile</label>
+                                    {{form.linkedin_profile}}
+                                </div>
+                        </div>
+                        <div class="form-control">
+                                <div class="form-field">
+                                    <label for="">GitHub Profile</label>
+                                    {{form.coder_profile}}
+                                </div>
+                                <div class="form-field">
+                                    <label for="">Highest Education</label>
+                                    <div class="form-field__select">
+                                        {{form.highest_education}}
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-control">
+                                <div class="form-field">
+                                    <label for="">Profession</label>
+                                    {{form.profession}}
+                                </div>
+                                <div class="form-field">
+                                    <label for="">Years of Experience</label>
+                                    <div class="form-field__select">
+                                        {{form.years_of_experience}}
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="form-control">
+                            
+                                <label for="" style="padding-left:20px;"><b>Area of Expertise</b></label>
+                                <div style ="margin-left:-120px;padding-top:50px;width: 200px;">
+                                {{form.area_of_expertise}}
+                                </div>
+                            
+                        </div>
+                        
+                        <div class="btn-outer">
+                            <input class="btn btn--info btn--full" type="submit" value="Register">
+                        </div>
+                        
+                </form>
+            </section><!--contents -->
+            <aside id="sidebar">
+                <div class="sidebar__member-sec">
+                    <p class="sbold">Our Top Mentors</p>
+                    <ul class="sidebar__member">
+                        <li><img src="{% static 'images/c-member-img1.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img2.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img3.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img1.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img2.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img3.jpg' %}" alt="Pic"></li>
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form action="#" class="newsletter__form">
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
                     </form>
                 </div>
+            </aside><!--sidebar -->
             </div>
         </div>
-            {% include 'footer.html'%}
-            {%endblock%}
-            <script>
-                $("#id_profession").change(function(){
-                var url=$("#volform").attr("sub-change-url");
-                var expertise_area_id=$(this).val();
-                
-                $.ajax({
-                    url:url,
-                    data:{
-                    'profession':expertise_area_id
-                    },
-                    success:function(data){
-                    $("#id_area_of_expertise").html(data);
-                    console.log(data)
-                    }
-                    });
-                    });
-                    </script>
-    </body>
-</html>
+    </div>
+        
+        {%endblock%}
+        {% block js %}
+        <script>
+            $("#id_profession").change(function(){
+            var url=$("#volform").attr("sub-change-url");
+            console.log(url)
+            
+            var expertise_area_id=$(this).val();
+            
+            $.ajax({
+                url:url,
+                data:{
+                'profession':expertise_area_id
+                },
+                success:function(data){
+                $("#id_area_of_expertise").html(data);
+                console.log(data)
+                }
+                });
+                });
+                </script>
+        
+            
+        {% endblock %}
+
+                                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

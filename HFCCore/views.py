@@ -112,11 +112,13 @@ class ChapterContributorSignup(View):
     def get(self,request,hfc_chapter):
         form=Chapter_contributor_form()
         print(hfc_chapter)
-        return render(request,'HFC/chapter_contributor_signup.html',{'form':form}) 
+        chapter = Community_Organization.objects.get(organization_name=hfc_chapter)
+        return render(request,'HFC/chapter_contributor_signup.html',{'form':form,'chapter':chapter}) 
     def post(self,request,hfc_chapter):
         form=Chapter_contributor_form(request.POST)
         community_org=Community_Organization.objects.get(organization_name=hfc_chapter)
         print(request.POST)
+        print(form.is_valid())
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
@@ -174,3 +176,7 @@ class ProblemStatementsSubmitView(View):
             problem.status="Draft"
             form.save()
             return HttpResponse('thanks')
+
+class AboutView(View):
+    def get(self,request):
+        return render(request,'HFC/about.html')

@@ -1,0 +1,154 @@
+{% extends 'HFC/layout.html' %}
+{% load static from staticfiles %}
+{% block title %} About {% endblock %}
+    
+
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main banner__main--upper banner__main--community">
+                <h1>About Us</h1>
+                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+            </div>
+        </div>
+    </div>
+    <!--Banner end -->
+<!--main start -->
+<div id="main-wrap" class="main-wrap--pdb">
+        <div class="content-width">
+            <ul class="tab-sec">
+                <li class="active"><a href="#aboutUs"><img width="24" src="{% static 'images/aboutus-icon.jpg' %}" alt="ICON"><img width="24" src="{% static 'images/aboutus-icon-alt.jpg' %}" alt="ICON"><span>About Us</span></a></li>
+                <li><a href="#ourMission"><img width="23" src="{% static 'images/our-mission-icon.jpg' %}" alt="ICON"><img width="23" src="{% static 'images/our-mission-icon-alt.jpg' %}" alt="ICON"><span>Our Mission</span></a></li>
+                <li><a href="#howItWorks"><img width="25" src="{% static 'images/hiw-icon.jpg' %}" alt="ICON"><img width="25" src="{% static 'images/hiw-icon-alt.jpg' %}" alt="ICON"><span>How it Works</span></a></li>
+            </ul>
+            <div class="hfc-outer">
+                <section class="active" id="aboutUs">
+                    <div class="about-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="about-team">
+                        <h2 class="underline">Meet Our Team</h2>
+                        <div class="about-team__outer">
+                            <div class="about-team__sec">
+                                <div class="about-team__fig">
+                                    <img src="{% static 'images/srini-image.png' %}" alt="Pic">
+                                </div>
+                                <div class="about-team__info">
+                                    <h4>Srinivas Aki <span>Executive Director</span></h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis </p>
+                                </div>
+                            </div>
+                            <div class="about-team__sec">
+                                <div class="about-team__fig">
+                                    <img src="{% static 'images/team-men-aki.jpg' %}" alt="Pic">
+                                </div>
+                                <div class="about-team__info">
+                                    <h4>Srinivas Aki <span>Executive Director</span></h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="ourMission">
+                    <div class="mission-outer">
+                        <h2 class="underline">Coders/Software Engineers</h2>
+                        <div class="mission__sec">
+                            <div class="mission__fig"><img width="414" src="{% static 'images/our-mission-img1.jpg' %}" alt="Pic"></div>
+                            <div class="mission__info">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia  deserunt mollit anim id est laborum.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mission-outer">
+                        <h2 class="underline">Coders/Software Engineers</h2>
+                        <div class="mission__sec mission__sec--alt">
+                            <div class="mission__fig"><img width="418" src="{% static 'images/our-mission-img2.jpg' %}" alt="Pic"></div>
+                            <div class="mission__info">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia  deserunt mollit anim id est laborum.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mission-outer">
+                        <h2 class="underline">Coders/Software Engineers</h2>
+                        <div class="mission__sec">
+                            <div class="mission__fig"><img width="387" src="{% static 'images/our-mission-img3.jpg' %}" alt="Pic"></div>
+                            <div class="mission__info">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia  deserunt mollit anim id est laborum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="howItWorks">
+                    <div class="howItWorks-outer">
+                        <div class="howItWorks__sec">
+                            <div class="howItWorks__fig">
+                                <span>1</span>
+                                <img width="278" src="{% static 'images/undraw_Questions_re_1fy7.png' %}" srcset="images/undraw_Questions_re_1fy7@2x.png 2x, images/undraw_Questions_re_1fy7@3x.png 3x">
+                            </div>
+                            <div class="howItWorks__info">
+                                <div class="howItWorks__info__inner">
+                                    <p class="large bold">Problem Statement</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="howItWorks__sec">
+                            <div class="howItWorks__fig">
+                                <span>2</span>
+                                <img width="288" src="{% static 'images/undraw_shared_goals_3d12.png' %}" srcset="images/undraw_shared_goals_3d12@2x.png 2x, images/undraw_shared_goals_3d12@3x.png 3x">
+                            </div>
+                            <div class="howItWorks__info">
+                                <div class="howItWorks__info__inner">
+                                    <p class="large bold">Team analyzing the Problem Statement</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="howItWorks__sec">
+                            <div class="howItWorks__fig">
+                                <span>3</span>
+                                <img width="282" src="{% static 'images/undraw_meet_the_team_e5b7.png' %}" srcset="images/undraw_meet_the_team_e5b7@2x.png 2x, images/undraw_meet_the_team_e5b7@3x.png 3x">
+                            </div>
+                            <div class="howItWorks__info">
+                                <div class="howItWorks__info__inner">
+                                    <p class="large bold">Contributors join HFC Community </p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="howItWorks__sec">
+                            <div class="howItWorks__fig">
+                                <span>4</span>
+                                <img width="325" src="{% static 'images/undraw_shared_workspace_hwky.png' %}" srcset="images/undraw_shared_workspace_hwky@2x.png 2x, images/undraw_shared_workspace_hwky@3x.png 3x">
+                            </div>
+                            <div class="howItWorks__info">
+                                <div class="howItWorks__info__inner">
+                                    <p class="large bold">Project Assigned</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="howItWorks__sec">
+                            <div class="howItWorks__fig">
+                                <span>5</span>
+                                <img width="295" src="{% static 'images/undraw_maker_launch_crhe.png' %}" srcset="images/undraw_maker_launch_crhe@2x.png 2x, images/undraw_maker_launch_crhe@3x.png 3x">
+                            </div>
+                            <div class="howItWorks__info">
+                                <div class="howItWorks__info__inner">
+                                    <p class="large bold">Project Launch</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--main end -->
+    {% endblock %} 

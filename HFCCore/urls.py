@@ -14,9 +14,8 @@ urlpatterns = [
     path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),
     path('thanks',views.thanks,name='thanks'),
     path('problem-statements-submit', views.ProblemStatementsSubmitView.as_view(), name='problem_statements_submit'),
-    
-
     path('projects', views.ProjectsView.as_view(), name='projects'),
     path('community', views.CommunityView.as_view(), name='community'),
+    path('about',views.AboutView.as_view(),name = 'about'),
     path('', include('ScreeningApp.urls')),
 ]

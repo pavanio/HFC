@@ -12,6 +12,8 @@ EXPERIENCE=(
     ('15+ years','15+ years'),
     ('20+ years','20+ years'),
 )
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class Mentor_form(forms.ModelForm):
     field_order=['name','email','contact_number','dob','gender','highest_education','coder_profile','linkedin_profile',
@@ -21,11 +23,12 @@ class Mentor_form(forms.ModelForm):
     	exclude=('level_of_expertise','organization_id','type')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['gender'].widget=forms.RadioSelect(choices=GENDER)
-        self.fields['highest_education'].widget=forms.RadioSelect(choices=EDUCATION)
-        self.fields['years_of_experience'].widget=forms.RadioSelect(choices=EXPERIENCE)
+        self.fields['gender']=forms.ChoiceField(choices=GENDER)
+        self.fields['highest_education']=forms.ChoiceField(choices=EDUCATION)
+        self.fields['years_of_experience']=forms.ChoiceField(choices=EXPERIENCE)
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
+        self.fields['dob'] = forms.DateField(widget = DateInput)
         if 'profession'in self.data:
             try:
                 expertise_area_id = int(self.data.get('profession'))
@@ -43,11 +46,12 @@ class Center_contributor_form(forms.ModelForm):
     	exclude=('level_of_expertise','type')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['gender'].widget=forms.RadioSelect(choices=GENDER)
-        self.fields['highest_education'].widget=forms.RadioSelect(choices=EDUCATION)
-        self.fields['years_of_experience'].widget=forms.RadioSelect(choices=EXPERIENCE)
+        self.fields['gender']=forms.ChoiceField(choices=GENDER)
+        self.fields['highest_education']=forms.ChoiceField(choices=EDUCATION)
+        self.fields['years_of_experience']=forms.ChoiceField(choices=EXPERIENCE)
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
+        self.fields['dob'] = forms.DateField(widget = DateInput)
         if 'profession'in self.data:
             try:
                 expertise_area_id = int(self.data.get('profession'))
@@ -64,11 +68,13 @@ class Chapter_contributor_form(forms.ModelForm):
     	exclude=('level_of_expertise','type','organization_id')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['gender'].widget=forms.RadioSelect(choices=GENDER)
-        self.fields['highest_education'].widget=forms.RadioSelect(choices=EDUCATION)
-        self.fields['years_of_experience'].widget=forms.RadioSelect(choices=EXPERIENCE)
+        self.fields['gender']=forms.ChoiceField(choices=GENDER)
+        self.fields['highest_education']=forms.ChoiceField(choices=EDUCATION)
+        self.fields['years_of_experience']=forms.ChoiceField(choices=EXPERIENCE)
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
+        self.fields['dob'] = forms.DateField(widget = DateInput)
+        
         if 'profession'in self.data:
             try:
                 expertise_area_id = int(self.data.get('profession'))
