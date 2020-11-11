@@ -32,8 +32,8 @@
                 <div class="footer__menu">
                     <p class="small bold">Legal</p>
                     <ul>
-                        <li><a href="#">Privacy policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="{% url 'privacy' %}">Privacy policy</a></li>
+                        <li><a href="{% url 'terms_conditions' %}">Terms & Conditions</a></li>
                     </ul>
                 </div>
                 <div class="footer__menu">
@@ -50,7 +50,7 @@
                     <li><a href="#"><img width="35" src="{% static 'images/insta-icon.png' %}" alt="Icon"></a></li>
                     <li><a href="#"><img width="31" src="{% static 'images/linkedin-icon.png' %}" alt="Icon"></a></li>
                 </ul>
-                <a href="#" class="btn btn--border">Donate</a>
+                <a href="{% url 'donate' %}" class="btn btn--border">Donate</a>
             </div>
         </footer>
         <footer class="footer__copyright">

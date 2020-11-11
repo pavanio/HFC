@@ -11,6 +11,7 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 import uuid 
+from django.core.mail import send_mail
 from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member
 # Create your views here.
 def screeninglink_mail(email):
@@ -180,3 +181,33 @@ class ProblemStatementsSubmitView(View):
 class AboutView(View):
     def get(self,request):
         return render(request,'HFC/about.html')
+class PrivacyPolicyView(View):
+    def get(self,request):
+        problem_statements=Problem_Statement.objects.all()
+        return render(request,'HFC/privacy_policy.html',{'problem_statements':problem_statements})
+class TermsAndConditionView(View):
+    def get(self,request):
+        problem_statements=Problem_Statement.objects.all()
+        return render(request,'HFC/terms_conditions.html',{'problem_statements':problem_statements})
+class ContactView(View):
+    def get(self,request):
+        return render(request,'HFC/contact.html')
+    def post(self,request):
+        data = request.POST.dict()
+        if 'csrfmiddlewaretoken' in data:
+            del data['csrfmiddlewaretoken']
+        print(data)
+        sender_name = data['name']
+        sender_email=data['email']
+        subject="New contact us  message"
+        #From_mail=settings.EMAIL_HOST_USER
+        to_list=['sambit@ctsc-india.org',] 
+        message = "{0} has sent you a new message:\n\n{1} and his email is {2}".format(sender_name, data['message'],sender_email)
+        #content =data[message]
+        #send_mail(subject,content,From_mail,to_list,fail_silently=False)
+        send_mail('New Enquiry', message, sender_email,to_list)
+        return HttpResponse('thanks')
+class DonateView(View):
+    def get(self,request):
+        return render(request,'HFC/donate.html')
+

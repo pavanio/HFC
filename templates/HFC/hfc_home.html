@@ -19,7 +19,7 @@
                 <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit</h1>
                 <p class="large sbold">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
                 <div class="banner__btn">
-                    <a class="btn btn--info" href="#">Our Mission</a><a class="btn btn--border" href="#">Donate</a>
+                    <a class="btn btn--info" href="{% url 'about' %}#ourMission">Our Mission</a><a class="btn btn--border" href="{% url 'donate' %}">Donate</a>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <div class="solution__right">
                     <h2>Solutions We Build</h2>
                     <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music lorem ipsum dolor sit amcetghjj adipscing sed do eiumosod ritfghdy incidudunt ut labore.</p>
-                    <a class="btn btn--border" href="#">Read More</a>
+                    <a class="btn btn--border" href="{% url 'projects' %}">Read More</a>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="contribute__btn">
-                <a href="#"><span>Learn More</span><i class="fas fa-chevron-right"></i></a>
+                <a href="{% url 'about' %}#howItWorks"><span>Learn More</span><i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
     <div class="content-width">
         <div class="home-donate-sec">
             <p class="large bold">Lorem ipsum dolor sit amet consectetur adipiscing</p>
-            <a class="btn btn--info" href="#">Donate</a>
+            <a class="btn btn--info" href="{% url 'donate' %}">Donate</a>
         </div>
     </div>
 </div>
@@ -95,7 +95,7 @@
                 <div class="we-work__fig"><img src="{% static 'images/fdr-logo.png' %}" srcset="images/fdr-logo@2x.png 2x, images/fdr-logo@3x.png 3x"></div>
                 <div class="we-work__fig"><img src="{% static 'images/md-logo.png' %}" srcset="images/md-logo@2x.png 2x, images/md-logo@3x.png 3x"></div>
             </div>
-            <p>Does your non-profit want to work with Hack For Change? <a href="#">Send us a note</a></p>
+            <p>Does your non-profit want to work with Hack For Change? <a href="{% url 'contact' %}">Send us a note</a></p>
         </div>
     </div>
 </div>

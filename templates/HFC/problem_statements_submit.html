@@ -18,10 +18,29 @@
             <div class="main">
                 <section id="contents">
                     <form class="site-form" action="" method="post">
-                        <div class="form-field">
                             {%csrf_token%}
-                            {{form}}
-                        </div>
+                            <div class="form-field">
+                                <label for="">Title</label>
+                                {{form.title}}
+                            </div>
+                            <div class="form-field">
+                                <label for="">Summary</label>
+                                {{form.summary}}
+                            </div>
+                            <div class="form-field">
+                                <label for="">Background Information</label>
+                                {{form.background_info}}
+                            </div>
+                            <div class="form-field">
+                                <label for="">Related Links</label>
+                                {{form.related_link}}
+                            </div>
+                            <div class="form-field">
+                                <label for="">Issue Area</label>
+                                {{form.issue_area}}
+                            </div>
+                            
+                        
                             
                             
                             

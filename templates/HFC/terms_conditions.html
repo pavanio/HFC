@@ -1,0 +1,44 @@
+{% extends 'HFC/layout.html'%}
+{% load static %}
+{% block title %} Terms and Conditions {% endblock %}
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main">
+                <h1>Terms and Conditions</h1>
+                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+            </div>
+        </div>
+</div>
+ <!--Banner end -->
+<!--main start -->
+<div id="main-wrap" class="main__large-pd">
+    <div class="content-width">
+        <div class="main">
+            <section id="contents">
+            
+            </section>
+            <aside id="sidebar">
+                    <div class="sidebar__list">
+                        <p>Explore problem statements across various issue areas</p>
+                        <ul>
+                                {% for problem in problem_statements %}
+                            <li><a href="{% url 'problem_statements_with_issuearea' problem.issue_area_slug %}">{{problem.issue_area}}</a></li>
+                                {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="newsletter">
+                        <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                        <form action="#" class="newsletter__form">
+                            <p class="large bold">Get Latest Updates!</p>
+                            <input type="email" placeholder="Enter your email">
+                            <input class="btn btn--info" type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </aside><!--sidebar -->
+            </div>
+        </div>
+    </div>
+    <!--main end -->
+    {%endblock%}
