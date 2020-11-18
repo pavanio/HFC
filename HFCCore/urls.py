@@ -21,6 +21,7 @@ urlpatterns = [
     path('terms_conditions',views.TermsAndConditionView.as_view(),name = 'terms_conditions'),
     path('contact',views.ContactView.as_view(),name = 'contact'),
     path('donate',views.DonateView.as_view(),name = 'donate'),
+    path('blog/',include('andablog.urls',namespace='andablog')),
 
     path('', include('ScreeningApp.urls')),
 ]

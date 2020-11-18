@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'ScreeningApp',
     'django.contrib.sites',
     'storages',
+    'andablog',
+    'taggit',
     
 
 ]

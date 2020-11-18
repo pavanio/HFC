@@ -1,0 +1,55 @@
+{% extends "andablog/base.html" %}
+{% load static % }
+{% load andablog_tags %}
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main">
+                <h1>Our Latest Updates</h1>
+                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing
+                sed do eiusmod tempor incididunt ut labore</p>
+            </div>
+        </div>
+    </div>
+
+
+{% block andablog_meta %}
+    <meta name="description" content="Latest blog entries">
+{% endblock %}
+
+{% block andablog_page_title %}
+    
+{% endblock %}
+
+{% block andablog_content %}
+{% load static %}
+<main>
+        <link rel="stylesheet" href="{% static 'css/andablog.css' %}">
+        
+    <div class="content-width blog-list">
+            {% for entry in entries %}  
+        <div class="post-block">
+                
+            <div class="post-img">
+                    {% if entry.preview_image %}
+                <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }}" alt="Preview image for {{ entry.title }}"></a>
+                {% endif %}
+            </div>
+            <div class="post-info">
+                <p> {{ entry.published_timestamp|date:"DATE_FORMAT" }}</p>
+                <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h4>
+                <a href="{{ entry.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
+            </div>
+            
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+    <div class="last-Updates">
+        <div class="learn-more"><a href="">Load More</a></div>
+    </div>
+</main>
+{% endblock%}
+{% endblock%}

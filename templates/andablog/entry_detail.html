@@ -1,0 +1,45 @@
+{% extends "andablog/base.html" %}
+{% load andablog_tags %}
+{% block main %}
+{% block andablog_meta %}
+    <meta name="description" content="{{ entry.title }}">
+    <meta name="author" content="{{ entry.author.get_short_name }}">
+{% endblock %}
+
+{% block andablog_page_title %}
+    
+{% endblock %}
+
+{% block andablog_content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/andablog.css' %}">
+<!-- main starts -->
+<div class="content-width">
+        <div class="procuding">
+            <h3>{{entry.title}} </h3>
+            <div class="proceedings-text">
+               <div class="procuding-img bloge-img"><img width="87" src="{% static 'images/post-author.png' %}"></div>
+                <div class="foucs bloge"><span>{% if entry.author %}{{ entry.author|authordisplay }}{% endif %}</span><br>
+                {{entry.published_timestamp|date:"DATE_FORMAT" }}
+                </div>
+            </div>
+            {% if entry.preview_image %}
+            <div class="blog-main-img">
+                <a href="{{ entry.get_absolute_url }}"><img src="{{entry.preview_image.url }}" alt="Preview image for {{ entry.title }}"></a> 
+            </div>
+            {% endif %}
+        </div>
+        <div class="blog-info">
+            {{ entry.content }}
+        </div>
+</div>
+    
+        
+			
+            
+        
+
+        {% include "andablog/comments_snippet.html" with comment_object=entry %}
+    
+{% endblock %}
+{% endblock %}
