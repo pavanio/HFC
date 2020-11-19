@@ -12,7 +12,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 import uuid 
 from django.core.mail import send_mail
-from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member
+from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member 
 # Create your views here.
 def screeninglink_mail(email):
     candidate=Candidate.objects.get(email=email)
@@ -50,8 +50,15 @@ class ProblemDiscriptionView(View):
     def get(self, request, title_slug):
         problem = Problem_Statement.objects.get(title_slug=title_slug)
         print(problem.partner_id)
-        partner = Partner.objects.get(name=problem.partner_id)
-        focus_areas = partner.focus_area.split(',')
+        try:
+            partner = Partner.objects.get(name=problem.partner_id)
+        except:
+            print('No Partner for this problem statement')
+            partner=' '
+        try:
+            focus_areas = partner.focus_area.split(',')
+        except:
+            focus_areas =' '
         all_problems = Problem_Statement.objects.all()
         return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas,'all_problems': all_problems,'partner':partner})
 
@@ -210,4 +217,5 @@ class ContactView(View):
 class DonateView(View):
     def get(self,request):
         return render(request,'HFC/donate.html')
+
 

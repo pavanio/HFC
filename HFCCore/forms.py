@@ -87,4 +87,4 @@ class Problem_Statement_form(forms.ModelForm):
 	class Meta:
             model=Problem_Statement
             fields = '__all__'
-            exclude=('status',)
+            exclude=('status','partner_id','proposed_solution')

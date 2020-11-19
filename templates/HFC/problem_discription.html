@@ -12,6 +12,7 @@
                     <h3>{{problem.title}}</h3>
                     <div class="single__author-sec">
                         <div class="author__left">
+                            {% if partner %}
                             <img width="87" src={{partner.logo.url}}  alt="Partner logo">
                         </div>
                         <div class="author__right">
@@ -20,8 +21,17 @@
                                 {% for focus_area in focus_areas %}
                             <span class="badge">{{focus_area}}</span>
                                 {% endfor %}
+                                
                             </div>
                         </div>
+                        {% else %}
+                        <div class="author__right">
+                                <div class="badge-sec"><strong></strong><span class="badge badge--yellow"></span></div>
+                                <div class="badge-sec"><strong> </strong>
+                                <span class="badge"></span>
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="blog-single__content">
                         <p class="large sbold">Summary</p>

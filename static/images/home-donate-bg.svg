@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1367" height="121" viewBox="0 0 1367 121">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6852ed"/>
+      <stop offset="1" stop-color="#ba43fc"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Bg" width="1367" height="121" opacity="0.45" fill="url(#linear-gradient)"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffdb00"/>
+      <stop offset="1" stop-color="#0068ff"/>
+    </linearGradient>
+  </defs>
+  <g id="Bg-2" data-name="Bg" clip-path="url(#clip-path)">
+    <path id="Rectangle" d="M72.791.128A73.064,73.064,0,0,1,145.71,72.973l.354,201.757A72.791,72.791,0,0,1,.482,274.475L.128,72.718A72.447,72.447,0,0,1,72.791.128Z" transform="matrix(0.602, 0.799, -0.799, 0.602, 151.71, 46.089)" opacity="0.45" fill="url(#linear-gradient-2)"/>
+    <path id="Oval" d="M39.854,0C61.865,0,79.708,17.62,79.708,39.356S61.865,78.712,39.854,78.712,0,61.092,0,39.356,17.843,0,39.854,0Z" transform="translate(1258.397 61)" opacity="0.45" fill="url(#linear-gradient-2)"/>
+    <path id="Oval-2" data-name="Oval" d="M17.934,0A17.934,17.934,0,1,1,0,17.934,17.934,17.934,0,0,1,17.934,0Z" transform="translate(1179.685 10)" opacity="0.6" fill="url(#linear-gradient-2)"/>
+  </g>
+</svg>

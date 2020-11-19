@@ -21,7 +21,7 @@
                 <div class="content-width">
                 <header id="header">
                     <div class="header__left">
-                        <a href="{% url 'home' %}"><img width="58.2" src="{% static 'images/logo.png' %}" alt="LOGO"></a>
+                        <a href="{% url 'home' %}"><img width="58.2" src="{% static 'images/logo.svg' %}" alt="LOGO"></a>
                         <span class="menu-btn">
                             <i></i>
                             <i></i>
@@ -34,12 +34,13 @@
                             <li><a href="{% url 'problem_statements' %}"{% if 'problem_statements' in  request.path %}class="active"{% endif %}>Problem Statements</a></li>
                             <li><a href="{% url 'projects' %}"{% if 'projects' in  request.path %}class="active"{% endif %}>Projects</a></li>
                             <li><a href="{% url 'community' %}"{% if 'community' in  request.path %}class="active"{% endif %}>Community</a></li>
+                            <li><a href="{% url 'andablog:entrylist' %}"{% if 'andablog:entrylist' in  request.path %}class="active"{% endif %}>Blog</a></li>
                             <li class="menu__hasChild"><a href="{% url 'about' %}">About</a>
                                 <ul class="sub-menu">
                                     <li><a href="{% url 'about' %}#ourMission">Our Mission</a></li>
                                     <li><a href="{% url 'about' %}#howItWorks">How it works</a></li>
-                                    <li><a href="#">About Sub</a></li>
-                                    <li><a href="#">About Sub</a></li>
+                                    <li><a href="{% url 'donate' %}">Donate</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                 </ul>
                             </li>
                             <li><a class="btn btn--info" href="{% url 'mentor_signup' %}">Signup as a Mentor</a></li>

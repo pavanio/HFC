@@ -28,7 +28,7 @@
                         {% for prob_list in problems_list  %}
                     <article class="post-blog">
                         <h4><a href="{% url 'problem_discription' prob_list.title_slug %}">{{prob_list.title}}:</a></h4>
-                        <div class="badge-sec"><strong>Submitted By : </strong><span class="badge badge--yellow">{{prob_list.partner_id}}</span>
+                        <div class="badge-sec"><strong>Submitted By : </strong><span class="badge badge--yellow">{% if prob_list.partner_id %}{{prob_list.partner_id}}{%endif%}</span>
                         <strong>Issue Area : </strong><span class="badge badge--pink"></span>{{prob_list.issue_area}}</div>
                         <p>{{prob_list.summary}}</p>
                         <div class="badge-sec badge-sec__alt"><strong>Status : </strong><span class="badge">{{prob_list.status}}</span></div>
