@@ -28,7 +28,7 @@
                                 <div class="main__community-fig squre-radius"><img width="85" src={{center.logo.url}} alt="Logo"></div>
                                 <div class="main__community-sec">
                                     <p class="large sbold">{{center.organization_name}}</p>
-                                    <p>11 Projects, 150 Members</p>
+                                    <p>11 Projects, {{center.community_member_set.count}} Members</p>
                                     <p class="fz16">Member since 2019</p>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="main__community-fig squre-radius"><img width="85" src={{chapter.logo.url}} alt="Logo"></div>
                                 <div class="main__community-sec">
                                     <p class="large sbold">{{chapter.organization_name}}</p>
-                                    <p>11 Projects, 150 Members</p>
+                                    <p>11 Projects, {{chapter.community_member_set.count}} Members</p>
                                     <a href="{{chapter.organization_name}}/signup" class="btn btn--border">Join as a Contributor</a>
                                 </div>
                             </div>
@@ -68,25 +68,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                        {% for contributor in contributors_list %}
                                     <tr>
                                         <td>
                                             <div class="table-sec">
-                                                <div class="table-fig"><img width="95" src="images/c-member-img3.jpg" alt="Pic"></div>
+                                                
+
+                                                <div class="table-fig" id="profileImage"></div>
                                                 <div class="table-info">
-                                                    <p class="large">Akash Sahoo</p>
-                                                    <div class="comment-count"><img width="16" src="{% static 'images/badge-icon.jpg' %}" alt="Icon">No. of Commits <a href="#">- 15</a></div>
+                                                    <p class="large"><span id="firstName">{{contributor.name}}</p></span>
+                                                    
+                                                    <div class="comment-count"><img width="16" src="{% static 'images/badge-icon.svg' %}" alt="Icon">No. of Commits <a href="#">- 15</a></div>
                                                     <p>Member since 2019</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="large sbold">IIIT Hyderabad</p>
+                                            <p class="large sbold">{{contributor.organization_id}}</p>
                                         </td>
                                         <td>
                                             <p class="large sbold">India By Numbers, OpenGov</p>
                                         </td>
                                     </tr>
-                                    
+                                        {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -106,6 +110,36 @@
             </div>
         </div>
         <!--main end -->
+
+{% endblock %}
+{% block css %}
+<style>
+#profileImage {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 80px;
+    margin: 10px 0;
+    
+  }
+  </style>
+
+{% endblock %}
+
+{% block js %}
+<script>
+$(document).ready(function(){
+var firstName = $('#firstName').text();
+var intials = firstName.charAt(0);
+var profileImage = $('#profileImage').text(intials);
+});
+console.log(firstName)
+</script>
+
 
 {% endblock %}
 

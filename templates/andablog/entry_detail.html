@@ -18,8 +18,8 @@
         <div class="procuding">
             <h3>{{entry.title}} </h3>
             <div class="proceedings-text">
-               <div class="procuding-img bloge-img"><img width="87" src="{% static 'images/post-author.png' %}"></div>
-                <div class="foucs bloge"><span>{% if entry.author %}{{ entry.author|authordisplay }}{% endif %}</span><br>
+               <div class="procuding-img bloge-img" id="profileImage"></div>
+                <div class="foucs bloge"><span id="firstName">{% if entry.author %}{{ entry.author|authordisplay }}{% endif %}</span><br>
                 {{entry.published_timestamp|date:"DATE_FORMAT" }}
                 </div>
             </div>
@@ -42,4 +42,34 @@
         {% include "andablog/comments_snippet.html" with comment_object=entry %}
     
 {% endblock %}
+{% endblock %}
+{% block css %}
+<style>
+#profileImage {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 80px;
+    margin: 10px 0;
+    
+  }
+  </style>
+
+{% endblock %}
+
+{% block js %}
+<script>
+$(document).ready(function(){
+var firstName = $('#firstName').text();
+var intials = firstName.charAt(0);
+var profileImage = $('#profileImage').text(intials);
+});
+console.log(firstName)
+</script>
+
+
 {% endblock %}
