@@ -12,7 +12,9 @@ from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 import uuid 
 from django.core.mail import send_mail
-from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member 
+from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member
+from django.apps import apps
+Entry = apps.get_model('andablog', 'Entry')
 # Create your views here.
 def screeninglink_mail(email):
     candidate=Candidate.objects.get(email=email)
@@ -33,7 +35,8 @@ def thanks(request):
     return render(request,'HFC/thanks.html')
 class Home(View):
     def get(self, request):
-        return render(request,'HFC/hfc_home.html')
+        entries = Entry.objects.all()[:3]
+        return render(request,'HFC/hfc_home.html',{'entries':entries})
 
 class ProblemStatementsView(generic.ListView):
     def get(self, request):
@@ -76,6 +79,7 @@ class MentorSignup(View):
     def post(self,request):
         form=Mentor_form(request.POST)
         print(request.POST)
+        text = "Thanks for signing up as a Mentor"
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
@@ -90,7 +94,7 @@ class MentorSignup(View):
             except:
                 print('Error in sending email screening link to Mentor')
             #messages.success(request,"Volunteer Registration Form Submitted Successfully")
-            return redirect('thanks')
+            return render(request, 'HFC/thanks.html',{'text':text})
 class CenterContributorSignup(View):
     def get(self,request):
         form=Center_contributor_form()
@@ -98,6 +102,7 @@ class CenterContributorSignup(View):
     def post(self,request):
         form=Center_contributor_form(request.POST)
         print(request.POST)
+        text = "Thanks for signing up as a contributor"
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
@@ -112,7 +117,7 @@ class CenterContributorSignup(View):
             except:
                 print('Error in sending email screening link to Contributor')
             
-            return redirect('thanks')
+            return render(request, 'HFC/thanks.html',{'text':text})
 
 
         #return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas, 'partner':partner})
@@ -127,6 +132,7 @@ class ChapterContributorSignup(View):
         community_org=Community_Organization.objects.get(organization_name=hfc_chapter)
         print(request.POST)
         print(form.is_valid())
+        text = "Thanks for signing up as a contributor"
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
@@ -142,7 +148,7 @@ class ChapterContributorSignup(View):
                 screeninglink_mail(email)
             except:
                 print('Error in sending email screening link to Contributor')
-            return redirect('thanks')
+            return render(request, 'HFC/thanks.html',{'text':text})
 
 class ProjectsView(generic.ListView):
     def get(self, request):
@@ -179,11 +185,12 @@ class ProblemStatementsSubmitView(View):
     def post(self,request):
         form=Problem_Statement_form(request.POST)
         print(request.POST)
+        text="Thanks for submitting the problem statement"
         if form.is_valid():
             problem=form.save(commit=False)
             problem.status="Draft"
             form.save()
-            return HttpResponse('thanks')
+            return render(request, 'HFC/thanks.html',{'text':text})
 
 class AboutView(View):
     def get(self,request):
@@ -204,6 +211,7 @@ class ContactView(View):
         if 'csrfmiddlewaretoken' in data:
             del data['csrfmiddlewaretoken']
         print(data)
+        text ="Thanks for contacting us."
         sender_name = data['name']
         sender_email=data['email']
         subject="New contact us  message"
@@ -213,7 +221,7 @@ class ContactView(View):
         #content =data[message]
         #send_mail(subject,content,From_mail,to_list,fail_silently=False)
         send_mail('New Enquiry', message, sender_email,to_list)
-        return HttpResponse('thanks')
+        return render(request, 'HFC/thanks.html',{'text':text})
 class DonateView(View):
     def get(self,request):
         return render(request,'HFC/donate.html')

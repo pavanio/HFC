@@ -78,6 +78,8 @@
                                                 <div class="table-info">
                                                     <p class="large"><span id="firstName">{{contributor.name}}</p></span>
                                                     
+                                                        
+                                                    
                                                     <div class="comment-count"><img width="16" src="{% static 'images/badge-icon.svg' %}" alt="Icon">No. of Commits <a href="#">- 15</a></div>
                                                     <p>Member since 2019</p>
                                                 </div>
@@ -131,15 +133,14 @@
 {% endblock %}
 
 {% block js %}
-<script>
-$(document).ready(function(){
-var firstName = $('#firstName').text();
-var intials = firstName.charAt(0);
-var profileImage = $('#profileImage').text(intials);
-});
-console.log(firstName)
-</script>
 
-
+<script type="text/javascript">
+    $(document).ready(function(){
+    var firstName = $('#firstName').text();
+    var intials = firstName.charAt(0);
+    var profileImage = $('#profileImage').text(intials);
+    });
+    console.log(firstName)
+    </script>
 {% endblock %}
 

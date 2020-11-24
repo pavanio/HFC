@@ -1178,7 +1178,7 @@ ______________________*/
 /*  Home Page
 -------------------------------------- */
 .home-banner-wrap{
-	background: #fff url(../images/banner-bg.jpg) no-repeat left 30% bottom;
+	/*background: #fff url(../images/banner-bg.jpg) no-repeat left 30% bottom;*/
 	padding: 70px 0 152px;
 	overflow: hidden;
 }

@@ -12,7 +12,7 @@
                     <h3>{{problem.title}}</h3>
                     <div class="single__author-sec">
                         <div class="author__left">
-                            {% if partner %}
+                            {% if partner.name %}
                             <img width="87" src={{partner.logo.url}}  alt="Partner logo">
                         </div>
                         <div class="author__right">
@@ -23,28 +23,27 @@
                                 {% endfor %}
                                 
                             </div>
+                            {% endif %}
                         </div>
-                        {% else %}
-                        <div class="author__right">
-                                <div class="badge-sec"><strong></strong><span class="badge badge--yellow"></span></div>
-                                <div class="badge-sec"><strong> </strong>
-                                <span class="badge"></span>
-                                </div>
-                            </div>
-                        {% endif %}
+                        
+                        
+                        
+                        
                     </div>
                     <div class="blog-single__content">
                         <p class="large sbold">Summary</p>
-                        <p>{{problem.summary}}</p>
+                        <p style="text-align:justify;">{{problem.summary}}</p>
                         <p class="large sbold">Background Information</p>
-                        <p>{{problem.background_info}}</p>
+                        <p style="text-align:justify;">{{problem.background_info}}</p>
                         <p class="large sbold">Related Links</p>
-                        <p><a href={{problem.related_link}} ></a></p>
+                        <p><a href={{problem.related_link}} >{{problem.related_link}}</a></p>
+                        
                         <p class="large sbold">Proposed Solution</p>
-                        <p>{{problem.proposed_solution}}</p>
+                        <p style="text-align:justify;">{{problem.proposed_solution}}</p>
                     </div>
                 </div>
             </section>
+            
             <aside id="sidebar">
                 <div class="sidebar__list">
                     <p>Explore problem statements across various issue areas</p>
@@ -56,10 +55,17 @@
                 </div>
                 <div class="newsletter">
                     <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
-                    <form action="#" class="newsletter__form">
+                    <form action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04" method="post"  target="_blank"  id="mc-embedded-subscribe-form" class="newsletter__form" novalidate>
                         <p class="large bold">Get Latest Updates!</p>
-                        <input type="email" placeholder="Enter your email">
-                        <input class="btn btn--info" type="submit" value="Subscribe">
+                        <input type="email" placeholder="Enter your email" name= "EMAIL" id="mce-EMAIL">
+                        <input class="btn btn--info" type="submit"  value="Subscribe">
+                        <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
+                        </div>
                     </form>
                 </div>
             </aside><!--sidebar -->
