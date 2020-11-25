@@ -242,40 +242,30 @@ ______________________*/
 }
 .sub-menu{
 	position: absolute;
-	right: 0;
-	margin-right: -22px;
-	padding-top: 10px;
+	left: 0;
 	top: 100%;
-	min-width: 131px;
+	padding-top: 10px;
+	min-width: 200px;
 	opacity: 0;
-	font-size: 14px;
 	visibility: hidden;
 	transition: all 0.3s;
-	background: #fff;
-	overflow: hidden;
-	border-radius: 5px;
-}
-.sub-menu li{
-	background: #fff;
-}
-.sub-menu li:first-child{
-	border-radius: 5px 5px 0 0;
-	overflow: hidden;
 }
 .sub-menu a{
-	padding: 0 17px;
-	min-height: 25px;
-	line-height: 25px;
-	font-weight: 400;
+	padding: 5px 10px;
 	display: block;
 	color: #262626;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-width: 1px 1px 0 1px;
 }
-.sub-menu li.active a,
 .sub-menu a:hover{
-	color: #000;
-	font-weight: 600;
-	background: rgba(0, 104, 255, 0.15);
+	color: #fff;
+	background: #0068ff;
 }
+.sub-menu li:last-of-type a{
+	border-bottom-width: 2px;
+}
+
 
 /*  Banner Area
 -------------------------------------- */
@@ -1394,8 +1384,9 @@ ______________________*/
 	color: #0068ff;
 }
 .post-img img{
-	width: 50%;
+	width: 100%;
 	display: block;
+
 }
 .post-info{
 	background-color:#fffcf0;

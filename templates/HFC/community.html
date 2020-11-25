@@ -74,9 +74,9 @@
                                             <div class="table-sec">
                                                 
 
-                                                <div class="table-fig" id="profileImage"></div>
-                                                <div class="table-info">
-                                                    <p class="large"><span id="firstName">{{contributor.name}}</p></span>
+                                                <div class="table-fig" id="profileImage">{{contributor.name.0}}</div>
+                                                <div class="table-info" style="padding-left: 20px;">
+                                                    <p class="large"><span id="firstName" >{{contributor.name}}</p></span>
                                                     
                                                         
                                                     
@@ -134,13 +134,6 @@
 
 {% block js %}
 
-<script type="text/javascript">
-    $(document).ready(function(){
-    var firstName = $('#firstName').text();
-    var intials = firstName.charAt(0);
-    var profileImage = $('#profileImage').text(intials);
-    });
-    console.log(firstName)
-    </script>
+
 {% endblock %}
 
