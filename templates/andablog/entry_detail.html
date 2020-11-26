@@ -1,5 +1,6 @@
 {% extends "andablog/base.html" %}
 {% load andablog_tags %}
+{% block title %}{{entry.title}}| Hack For Change{% endblock %}
 {% block main %}
 {% block andablog_meta %}
     <meta name="description" content="{{ entry.title }}">
@@ -7,12 +8,12 @@
 {% endblock %}
 
 {% block andablog_page_title %}
-    
+
 {% endblock %}
 
 {% block andablog_content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/andablog.css' %}">
+
 <!-- main starts -->
 <div class="content-width">
         <div class="procuding">
@@ -46,7 +47,7 @@
 {% block css %}
 <style>
 #profileImage {
-    width: 80px;
+    width: 87px;
     height: 80px;
     border-radius: 50%;
     background: #512DA8;

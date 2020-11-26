@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+{% load static  %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,12 +36,15 @@
                             <li><a href="{% url 'community' %}"{% if 'community' in  request.path %}class="active"{% endif %}>Community</a></li>
                             <li><a href="{% url 'andablog:entrylist' %}"{% if 'andablog:entrylist' in  request.path %}class="active"{% endif %}>Blog</a></li>
                             <li class="menu__hasChild"><a href="{% url 'about' %}">About</a>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'about' %}#ourMission">Our Mission</a></li>
-                                    <li><a href="{% url 'about'  %}#howItWorks">How it works</a></li>
-                                    <li><a href="{% url 'donate' %}">Donate</a></li>
-                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                                </ul>
+                                <div class="sub-menu__outer">
+                                    <ul class="sub-menu">
+                                        <li class="active"><a href="{% url 'about' %}#aboutUs">About Us</a></li>
+                                        <li><a href="{% url 'about' %}#ourMission">Our Mission</a></li>
+                                        <li><a href="{% url 'about' %}#howItWorks">How it Works</a></li>
+                                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                        <li><a href="{% url 'donate' %}">Donate</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <li><a class="btn btn--info" href="{% url 'mentor_signup' %}">Signup as a Mentor</a></li>
                         </ul>

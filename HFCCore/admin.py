@@ -29,13 +29,13 @@ class Community_MemberInline(admin.TabularInline):
 	extra=0
 
 class Community_OrganizationAdmin(admin.ModelAdmin):
-	list_display = ('organization_name', 'type', 'website', 'logo', 'coordinator_name', 'coordinator_email', 'coordinator_mobile')
+	list_display = ('organization_name', 'type', 'website', 'logo', 'coordinator_name', 'coordinator_email', 'coordinator_mobile','organization_name_slug')
 	inlines = [Community_MemberInline]
 	class Meta:
 		model = Community_Organization
 
 class Community_MemberAdmin(admin.ModelAdmin):
-	list_display = ('name', 'email', 'level_of_expertise', 'areaofexpertise', 'type', 'coder_profile', 'linkedin_profile', 'organization_id')
+	list_display = ('name', 'email', 'level_of_expertise', 'areaofexpertise', 'type', 'coder_profile', 'linkedin_profile','image', 'organization_id')
 	#def has_module_permission(self, request):
 		#return False
 	class Meta:

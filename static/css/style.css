@@ -164,7 +164,8 @@ ______________________*/
 /* Header
 ______________________*/
 #header-wrap{
-
+	position: relative;
+	z-index: 1001;
 }
 #header{
 	display: -webkit-flex;
@@ -236,42 +237,56 @@ ______________________*/
 	margin-left: 4px;
 	color: #0068ff;
 }
+.menu__hasChild:hover .sub-menu__outer,
 .menu__hasChild:hover .sub-menu{
 	opacity: 1;
 	visibility: visible;
 }
-.sub-menu{
+.sub-menu__outer{
+	z-index: 1;
 	position: absolute;
-	left: 0;
-	top: 100%;
+	right: 0;
+	margin-right: -22px;
 	padding-top: 10px;
-	min-width: 200px;
+	top: 100%;
+	min-width: 136px;
 	opacity: 0;
+	font-size: 15px;
 	visibility: hidden;
 	transition: all 0.3s;
 }
+.sub-menu{
+	background: #fff;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0 3px 6px 0 #d6d4d4;
+}
+.sub-menu li:first-child{
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
 .sub-menu a{
-	padding: 5px 10px;
+	padding: 0 17px;
+	min-height: 29px;
+	line-height: 29px;
+	letter-spacing: 0.3px;
+	font-weight: 400;
 	display: block;
 	color: #262626;
-	background: #fff;
-	border: 1px solid #ccc;
-	border-width: 1px 1px 0 1px;
 }
+.sub-menu li.active a,
 .sub-menu a:hover{
-	color: #fff;
-	background: #0068ff;
+	color: #000;
+	font-weight: 600;
+	background: rgba(0, 104, 255, 0.15);
 }
-.sub-menu li:last-of-type a{
-	border-bottom-width: 2px;
-}
-
 
 /*  Banner Area
 -------------------------------------- */
 .banner-wrap{
 	background: rgba(255, 219, 0, 0.14);
 	position: relative;
+	overflow: hidden;
 }
 .banner-wrap::before{
 	content: '';
@@ -285,6 +300,10 @@ ______________________*/
 .banner-wrap--dotInside::before{
 	left: 16.47%;
 	bottom: 29px;
+}
+.banner-wrap--dotLeft::before{
+	left: calc(50% - 545px);
+	bottom: 60px;
 }
 .banner__main{
 	text-align: center;
@@ -990,6 +1009,12 @@ ______________________*/
 	display: flex;
 	margin: 0 -23px;
 }
+.about-team__outer:not(:last-of-type){
+	margin-bottom: 82px;
+}
+.about-team__outer--third .about-team__sec{
+	max-width: 33.33%;
+}
 .about-team__sec{
 	width: 100%;
 	max-width: 50%;
@@ -1012,7 +1037,7 @@ ______________________*/
 	border-radius: 10px;
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 	background-color: #ffffff;
-	padding: 88px 10px 29px;
+	padding: 88px 10px 26px;
 	text-align: center;
 }
 .about-team__info h4{
@@ -1030,7 +1055,28 @@ ______________________*/
 }
 .about-team__info p{
 	font-size: 15px;
+	line-height: 1.67;
 	letter-spacing: 0.3px;
+}
+.about-team__outer--third .about-team__fig{
+	width: 100px;
+	height: 100px;
+	margin-bottom: -50px;
+}
+.about-team__outer--third .about-team__info{
+	padding: 67px 10px 19px;
+}
+.about-team__outer--third .about-team__info h4{
+	margin-bottom: 18px;
+	font-size: 17px;
+}
+.about-team__outer--third .about-team__info h4 span{
+	font-size: 14px;
+}
+.about-team__outer--third .about-team__info p{
+	font-size: 13px;
+	line-height: 1.538;
+	letter-spacing: 0.26px;
 }
 /*	Our Mission Page
 ----------------------------------- */
@@ -1168,7 +1214,6 @@ ______________________*/
 /*  Home Page
 -------------------------------------- */
 .home-banner-wrap{
-	/*background: #fff url(../images/banner-bg.jpg) no-repeat left 30% bottom;*/
 	padding: 70px 0 152px;
 	overflow: hidden;
 }
@@ -1386,7 +1431,6 @@ ______________________*/
 .post-img img{
 	width: 100%;
 	display: block;
-
 }
 .post-info{
 	background-color:#fffcf0;
@@ -1498,17 +1542,17 @@ ______________________*/
 /*thanku page
 =====================================*/
 .thanku-main{
-	margin: 84px auto 136px;
+	margin: 65px auto 136px;
 	text-align: center;
 }
 .thanku-heading{
 	max-width: 379px;
 	margin: 0 auto;
 }
-.thanku-main h2{
-	margin: 36px 0 20px;
-	line-height: 1.38;
-	letter-spacing: 0.48px;
+.thanku-main h3{
+	margin: 29px 0 20px;
+	line-height: 1.364;
+	letter-spacing: 0.44px;
 	color: #000000;
 }
 .thanku-main .btn--info{
@@ -1881,6 +1925,9 @@ ______________________*/
 	.blog-info{
 		margin: 40px 0 200px;
 	}
+	.about-team__outer:not(:last-of-type){
+		margin-bottom: 40px;
+	}
 }
 @media (min-width: 768px) {
 	.menu-btn{
@@ -1975,12 +2022,17 @@ ______________________*/
 	.main-menu > li.menu__hasChild > a{
 		border: none;
 	}
-	.sub-menu{
+	.sub-menu__outer{
 		position: relative;
 		opacity: 1;
 		visibility: visible;
 		padding-top: 0;
 		margin-right: 0;
+	}
+	.sub-menu{
+		background: none;
+		box-shadow: none;
+		border-radius: 0;
 	}
 	.sub-menu a{
 		padding: 10px 25px;
@@ -2219,6 +2271,13 @@ ______________________*/
 	}
 	.blog-info{
 		margin: 30px 0 150px;
+	}
+	.about-team__outer--third{
+		display: block;
+	}
+	.about-team__outer--third .about-team__sec{
+		max-width: none;
+		margin-bottom: 30px;
 	}
 }
 @media (max-width: 575px) {

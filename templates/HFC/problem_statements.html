@@ -3,7 +3,7 @@
 {% load static from staticfiles %}
 
   <head>
-{% block title %} Problem Statements {% endblock %}
+{% block title %} Problem Statements | Hack For Change {% endblock %}
 </head>  
 
 
@@ -27,7 +27,7 @@
                 <section id="contents">
                         {% for prob_list in problems_list  %}
                     <article class="post-blog">
-                        <h4><a href="{% url 'problem_discription' prob_list.title_slug %}">{{prob_list.title}}:</a></h4>
+                        <h4><a href="{% url 'problem_discription' prob_list.title_slug %}">{{prob_list.title}}</a></h4>
                         <div class="badge-sec"><strong>Submitted By : </strong><span class="badge badge--yellow">{% if prob_list.partner_id %}{{prob_list.partner_id}}{%endif%}</span>
                         <strong>Issue Area : </strong><span class="badge badge--pink"></span>{{prob_list.issue_area}}</div>
                         <p>{{prob_list.summary}}</p>
@@ -38,7 +38,7 @@
             </section><!--contents -->
               <aside id="sidebar">
                     <div class="sidebar__list">
-                            <p>Explore Problem Statement across various issue areas</p>
+                            <p>Explore problem statements across various issue areas</p>
                                 <ul>
                                     {% for prob_list in problems_list %}
                                     <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}">{{prob_list.issue_area}}</a></li>

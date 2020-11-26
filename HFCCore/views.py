@@ -46,6 +46,7 @@ class ProblemStatementsView(generic.ListView):
 class ProblemsWithIssueareaView(generic.ListView):
     def get(self, request, issue_area_slug):
         problems_list = Problem_Statement.objects.filter(issue_area_slug=issue_area_slug)
+        print( problems_list)
         all_problems = Problem_Statement.objects.all()
         return render(request, 'HFC/problem_statements_with_issue_area.html', {'problems_list': problems_list, 'all_problems': all_problems})
 
@@ -75,7 +76,8 @@ def load_area_of_expertise(request):
 class MentorSignup(View):
     def get(self,request):
         form=Mentor_form()
-        return render(request,'HFC/mentor_signup.html',{'form':form})
+        mentors = Community_Member.objects.all()
+        return render(request,'HFC/mentor_signup.html',{'form':form,'mentors':mentors})
     def post(self,request):
         form=Mentor_form(request.POST)
         print(request.POST)
@@ -122,14 +124,14 @@ class CenterContributorSignup(View):
 
         #return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas, 'partner':partner})
 class ChapterContributorSignup(View):
-    def get(self,request,hfc_chapter):
+    def get(self,request,hfc_chapter_slug):
         form=Chapter_contributor_form()
-        print(hfc_chapter)
-        chapter = Community_Organization.objects.get(organization_name=hfc_chapter)
+        print(hfc_chapter_slug)
+        chapter = Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         return render(request,'HFC/chapter_contributor_signup.html',{'form':form,'chapter':chapter}) 
-    def post(self,request,hfc_chapter):
+    def post(self,request,hfc_chapter_slug):
         form=Chapter_contributor_form(request.POST)
-        community_org=Community_Organization.objects.get(organization_name=hfc_chapter)
+        community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(request.POST)
         print(form.is_valid())
         text = "Thanks for signing up as a contributor"

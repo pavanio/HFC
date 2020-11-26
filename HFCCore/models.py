@@ -75,6 +75,8 @@ class Community_Organization(models.Model):
     coordinator_name = models.CharField(max_length=100)
     coordinator_email = models.EmailField()
     coordinator_mobile = models.IntegerField()
+    organization_name_slug = AutoSlugField(populate_from='organization_name',blank=True,null=True)
+
 
     def __str__(self):
         return self.organization_name
@@ -93,6 +95,7 @@ class Community_Member(Candidate):
     coder_profile = models.URLField()
     linkedin_profile = models.URLField()
     organization_id=models.ForeignKey(Community_Organization, on_delete=models.CASCADE,blank=True,null=True)
+    image = models.ImageField(blank=True,null=True)
     def __str__(self):
         return self.name
     class Meta:
