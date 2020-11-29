@@ -1,161 +1,172 @@
 {% extends 'HFC/layout.html' %}
 {% load static %}
 {% block title %} Contributor Signup | Hack For Change {% endblock %}
-            
+
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
-        <div class="content-width sm-content-width">
-            <div class="banner__main">
-                <h1>Signup as a Contributor</h1>
-                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
-            </div>
+    <div class="content-width sm-content-width">
+        <div class="banner__main">
+            <h1>Signup as a Contributor</h1>
+            <p class="large">
+                Inviting working professionals from various cities to join city specific chapters
+            </p>
         </div>
     </div>
-    <!--Banner end -->
+</div>
+<!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main__large-pd">
-        <div class="content-width">
-            <div class="main">
-                <section id="contents">
-                    <div class="uni-chapter"><img width="84px" src={{chapter.logo.url}} srcset="images/dit_university_logo@2x.jpg 2x, images/dit_university_logo@3x.jpg 3x"><h2>{{chapter.organization_name}}</h2></div>
-                    
-                    <form  class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}" >
-                            {%csrf_token%}
-                            <div class="form-control">
-                                <div class="form-field">
-                                    <label for="">Full Name</label>
-                                        {{form.name}}
-                                </div>    
-                                <div class="form-field">
-                                    <label for="">Email</label>
-                                        {{form.email}}   
-                                </div>
-                            </div>
-                            <div class="form-control">
-                                    <div class="form-field">
-                                        <label for="">Contact Number</label>
-                                            {{form.contact_number}} 
-                                    </div>
-                                    <div class="form-field">
-                                        <label for="">Date of Birth</label>
-                                        
-                                            {{form.dob}}
-                                         
-                                        
-                                    </div>
-                            </div>
-                            <div class="form-control">
-                                    <div class="form-field">
-                                        <label for="">Gender</label>
-                                        <div class="form-field__select">
-                                            {{form.gender}}
-                                            <i class="fas fa-chevron-down"></i>
-                                        </div>
-                                    </div>
-                                    <div class="form-field">
-                                        <label for="">LinkedIn Profile</label>
-                                        {{form.linkedin_profile}}
-                                    </div>
-                            </div>
-                            <div class="form-control">
-                                    <div class="form-field">
-                                        <label for="">GitHub Profile</label>
-                                        {{form.coder_profile}}
-                                    </div>
-                                    <div class="form-field">
-                                        <label for="">Highest Education</label>
-                                        <div class="form-field__select">
-                                            {{form.highest_education}}
-                                            <i class="fas fa-chevron-down"></i>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="form-control">
-                                    <div class="form-field">
-                                        <label for="">Profession</label>
-                                        <div class="form-field__select">
-                                        {{form.profession}}
-                                        <i class="fas fa-chevron-down"></i>
-                                        </div>
-                                    </div>
-                                    <div class="form-field">
-                                        <label for="">Years of Experience</label>
-                                        <div class="form-field__select">
-                                            {{form.years_of_experience}}
-                                            <i class="fas fa-chevron-down"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            <div class="form-control">
-                                
-                                    <label for="" style="padding-left:20px;"><b>Area of Expertise</b></label>
-                                    <div style ="margin-left:-120px;padding-top:50px;width: 200px;">
-                                    {{form.area_of_expertise}}
-                                    </div>
-                                
-                            </div>
-                            
-                            <div class="btn-outer">
-                                <input class="btn btn--info btn--full" type="submit" value="Register">
-                            </div>
-                            
-                    </form>
-                </section><!--contents -->
-                <aside id="sidebar">
-                    <div class="sidebar__member-sec">
-                        <p class="sbold">Our Top Contributors</p>
-                        <ul class="sidebar__member">
-                            <li><img src="{% static 'images/c-member-img1.jpg' %}" alt="Pic"></li>
-                            <li><img src="{% static 'images/c-member-img2.jpg' %}" alt="Pic"></li>
-                            <li><img src="{% static 'images/c-member-img3.jpg' %}" alt="Pic"></li>
-                            <li><img src="{% static 'images/c-member-img1.jpg' %}" alt="Pic"></li>
-                            <li><img src="{% static 'images/c-member-img2.jpg' %}" alt="Pic"></li>
-                            <li><img src="{% static 'images/c-member-img3.jpg' %}" alt="Pic"></li>
-                        </ul>
-                    </div>
-                    <div class="newsletter">
-                        <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
-                        <form action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04" method="post"  target="_blank"  id="mc-embedded-subscribe-form" class="newsletter__form" novalidate>
-                            <p class="large bold">Get Latest Updates!</p>
-                            <input type="email" placeholder="Enter your email" name= "EMAIL" id="mce-EMAIL">
-                            <input class="btn btn--info" type="submit"  value="Subscribe">
-                            <div id="mce-responses" class="clear">
-                                    <div class="response" id="mce-error-response" style="display:none"></div>
-                                    <div class="response" id="mce-success-response" style="display:none"></div>
-                                </div>
-                            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
-                            </div>
-                        </form>
-                    </div>
-                </aside><!--sidebar -->
+    <div class="content-width">
+        <div class="main">
+            <section id="contents">
+                <div class="uni-chapter"><img width="84px" src={{chapter.logo.url}}
+                        srcset="images/dit_university_logo@2x.jpg 2x, images/dit_university_logo@3x.jpg 3x">
+                    <h2>{{chapter.organization_name}}</h2>
                 </div>
-            </div>
+
+                <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
+                    {%csrf_token%}
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">Full Name</label>
+                            {{form.name}}
+                        </div>
+                        <div class="form-field">
+                            <label for="">Email</label>
+                            {{form.email}}
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">Contact Number</label>
+                            {{form.contact_number}}
+                        </div>
+                        <div class="form-field">
+                            <label for="">Date of Birth</label>
+
+                            {{form.dob}}
+
+
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">Gender</label>
+                            <div class="form-field__select">
+                                {{form.gender}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="">LinkedIn Profile</label>
+                            {{form.linkedin_profile}}
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">GitHub Profile</label>
+                            {{form.coder_profile}}
+                        </div>
+                        <div class="form-field">
+                            <label for="">Highest Education</label>
+                            <div class="form-field__select">
+                                {{form.highest_education}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">Profession</label>
+                            <div class="form-field__select">
+                                {{form.profession}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="">Years of Experience</label>
+                            <div class="form-field__select">
+                                {{form.years_of_experience}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-control">
+
+                        <label for="" style="padding-left:20px;"><b>Area of Expertise</b></label>
+                        <div style="margin-left:-120px;padding-top:50px;width: 200px;">
+                            {{form.area_of_expertise}}
+                        </div>
+
+                    </div>
+
+                    <div class="btn-outer">
+                        <input class="btn btn--info btn--full" type="submit" value="Register">
+                    </div>
+
+                </form>
+            </section>
+            <!--contents -->
+            <aside id="sidebar">
+                <div class="sidebar__member-sec">
+                    <p class="sbold">Our Top Contributors</p>
+                    <ul class="sidebar__member">
+                        <li><img src="{% static 'images/c-member-img1.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img2.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img3.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img1.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img2.jpg' %}" alt="Pic"></li>
+                        <li><img src="{% static 'images/c-member-img3.jpg' %}" alt="Pic"></li>
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form
+                        action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04"
+                        method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                        novalidate>
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
         </div>
-            
-            {%endblock%}
-            {% block js %}
-            <script>
-                $("#id_profession").change(function(){
-                var url=$("#volform").attr("sub-change-url");
-                console.log(url)
-                
-                var expertise_area_id=$(this).val();
-                
-                $.ajax({
-                    url:url,
-                    data:{
-                    'profession':expertise_area_id
-                    },
-                    success:function(data){
-                    $("#id_area_of_expertise").html(data);
-                    console.log(data)
-                    }
-                    });
-                    });
-                    </script>
-            
-                
-            {% endblock %}
-    
+        </form>
+    </div>
+    </aside>
+    <!--sidebar -->
+</div>
+</div>
+</div>
+
+{%endblock%}
+{% block js %}
+<script>
+    $("#id_profession").change(function () {
+        var url = $("#volform").attr("sub-change-url");
+        console.log(url)
+
+        var expertise_area_id = $(this).val();
+
+        $.ajax({
+            url: url,
+            data: {
+                'profession': expertise_area_id
+            },
+            success: function (data) {
+                $("#id_area_of_expertise").html(data);
+                console.log(data)
+            }
+        });
+    });
+</script>
+
+
+{% endblock %}

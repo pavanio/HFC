@@ -4,51 +4,56 @@
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap banner-wrap--dotInside">
-        <div class="content-width sm-content-width">
-            <div class="banner__main banner__main--upper">
-                <h1>Get in Touch</h1>
-            </div>
+    <div class="content-width sm-content-width">
+        <div class="banner__main banner__main--upper">
+            <h1>Get in Touch</h1>
         </div>
+    </div>
 </div>
 <!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main__reverse">
-        <div class="content-width">
-            <div class="main main--contact">
-                <section class="main__contact-form">
-                    <p class="blue-title">Leave us a message</p>
-                    <form class="site-form site-form--fixWidth" action="" method ="post">
-                        {% csrf_token %}
-                        <div class="form-field">
-                            <label for="">Full Name</label>
-                            <input type="text" name ="name" placeholder="Enter your name">
-                        </div>
-                        <div class="form-field">
-                            <label for="">Email</label>
-                            <input type="email" name ="email" placeholder="Enter your email id">
-                        </div>
-                        <div class="form-field">
-                            <label for="">Message</label>
-                            <textarea rows="3"  name ="message" placeholder="Write your message here"></textarea>
-                        </div>
-                        <div class="btn-outer">
-                            <input class="btn btn--info btn--full" type="submit" value="Send">
-                        </div>
-                    </form>
-                </section><!--contents -->
-                <aside class="main__contact-sidebar">
-                        <div class="contact-sidebar__sec">
-                            <p class="blue-title">Contact Information</p>
-                            <div class="contact-sidebar__info">
-                                <address><i class="fas fa-map-marker-alt"></i>402 Abhis Hiranya <br>Kavuri Hills, Madhapur <br>Hyderabad - 500 033</address>
-                                <p><a href="mailto:contact@hackforchange.co"><i class="fas fa-envelope"></i>contact@hackforchange.co</a></p>
-                                <p><a href="tel:+919963362872"><i class="fas fa-phone-alt"></i>+91 99633 62872</a></p>
-                            </div>
-                            <img width="288" src="{% static 'images/email-campaign-rafiki.svg' %}" srcset="images/email-campaign-rafiki@2x.png 2x, images/email-campaign-rafiki@3x.png 3x">
-                        </div>
-                    </aside><!--sidebar -->
+    <div class="content-width">
+        <div class="main main--contact">
+            <section class="main__contact-form">
+                <p class="blue-title">Leave us a message</p>
+                <form class="site-form site-form--fixWidth" action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-field">
+                        <label for="">Full Name</label>
+                        <input type="text" name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-field">
+                        <label for="">Email</label>
+                        <input type="email" name="email" placeholder="Enter your email id">
+                    </div>
+                    <div class="form-field">
+                        <label for="">Message</label>
+                        <textarea rows="3" name="message" placeholder="Write your message here"></textarea>
+                    </div>
+                    <div class="btn-outer">
+                        <input class="btn btn--info btn--full" type="submit" value="Send">
+                    </div>
+                </form>
+            </section>
+            <!--contents -->
+            <aside class="main__contact-sidebar">
+                <div class="contact-sidebar__sec">
+                    <p class="blue-title">Contact Information</p>
+                    <div class="contact-sidebar__info">
+                        <address><i class="fas fa-map-marker-alt"></i>402 Abhis Hiranya <br>Kavuri Hills, Madhapur
+                            <br>Hyderabad - 500 033</address>
+                        <p><a href="mailto:contact@hackforchange.co"><i
+                                    class="fas fa-envelope"></i>contact@hackforchange.co</a></p>
+                        <p><a href="tel:+919963362872"><i class="fas fa-phone-alt"></i>+91 99633 62872</a></p>
+                    </div>
+                    <img width="288" src="{% static 'images/email-campaign-rafiki.svg' %}"
+                        srcset="images/email-campaign-rafiki@2x.png 2x, images/email-campaign-rafiki@3x.png 3x">
                 </div>
-            </div>
+            </aside>
+            <!--sidebar -->
         </div>
-        <!--main end -->
+    </div>
+</div>
+<!--main end -->
 {% endblock %}

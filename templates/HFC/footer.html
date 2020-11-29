@@ -8,27 +8,32 @@
                 <p class="large bold">Subscribe to our newsletter</p>
             </div>
             <div class="subscription__right">
-                    
-                <form action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04" method="post"  target="_blank"  id="mc-embedded-subscribe-form" class="subscription__form" novalidate>
-                    <input type="email" placeholder="Enter your email" name= "EMAIL" id="mce-EMAIL" ><input type="submit" id="mc-embedded-subscribe"  value="Subscribe">
+
+                <form
+                    action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04"
+                    method="post" target="_blank" id="mc-embedded-subscribe-form" class="subscription__form" novalidate>
+                    <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL"><input type="submit"
+                        id="mc-embedded-subscribe" value="Subscribe">
                     <div id="mce-responses" class="clear">
                         <div class="response" id="mce-error-response" style="display:none"></div>
                         <div class="response" id="mce-success-response" style="display:none"></div>
                     </div>
-                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
-                </div>
-                    
-                </form>
             </div>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                    name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
         </div>
+
+        </form>
     </div>
+</div>
+</div>
 </div>
 
 <div id="footer-wrap">
-	<div class="content-width md-content-width">
+    <div class="content-width md-content-width">
         <footer id="footer">
-        	<div class="footer__left">
+            <div class="footer__left">
                 <div class="footer__menu">
                     <p class="small bold">Company</p>
                     <ul>
@@ -41,30 +46,36 @@
                 <div class="footer__menu">
                     <p class="small bold">Legal</p>
                     <ul>
-                        <li><a href="{% url 'privacy' %}">Privacy policy</a></li>
+                        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
                         <li><a href="{% url 'terms_conditions' %}">Terms & Conditions</a></li>
                     </ul>
                 </div>
                 <div class="footer__menu">
                     <p class="small bold">Get In Touch</p>
                     <address>402 Abhis Hiranya <br>Kavuri Hills, Madhapur <br>Hyderabad - 500 033</address>
-                    <p><a href="mailto:contact@hackforchange.co"><i> <img width="24" src="{% static 'images/envelope-icon-w.svg' %}" alt="icon"></i>contact@hackforchange.co</a></p>
-                    <p><a href="tel:+04090062872"><i><img width="19" src="{% static 'images/phone-icon-w.svg' %}" alt="icon"></i>+040 90062872</a></p>
+                    <p><a href="mailto:contact@hackforchange.co"><i> <img width="24"
+                                    src="{% static 'images/envelope-icon-w.svg' %}"
+                                    alt="icon"></i>contact@hackforchange.co</a></p>
+                    <p><a href="tel:+04090062872"><i><img width="19" src="{% static 'images/phone-icon-w.svg' %}"
+                                    alt="icon"></i>+040 90062872</a></p>
                 </div>
             </div>
             <div class="footer__right">
                 <p class="small bold">Social Media</p>
                 <ul>
-                    <li><a href="https://www.facebook.com/HackForChange"><img width="30" src="{% static 'images/facebook-icon.svg' %}" alt="Icon"></a></li>
+                    <li><a href="https://www.facebook.com/HackForChange"><img width="30"
+                                src="{% static 'images/facebook-icon.svg' %}" alt="Icon"></a></li>
                     <li><a href="#"><img width="35" src="{% static 'images/insta-icon.svg' %}" alt="Icon"></a></li>
-                    <li><a href="https://www.linkedin.com/showcase/hack-for-change"><img width="31" src="{% static 'images/linkedin-icon.svg' %}" alt="Icon"></a></li>
+                    <li><a href="https://www.linkedin.com/showcase/hack-for-change"><img width="31"
+                                src="{% static 'images/linkedin-icon.svg' %}" alt="Icon"></a></li>
                 </ul>
                 <a href="{% url 'donate' %}" class="btn btn--border">Donate</a>
             </div>
         </footer>
         <footer class="footer__copyright">
             <div class="copyright__left">
-                <p>An Initiative By<a href="https://www.ctsc-india.org/"><img width="171" src="{% static 'images/ctsc-logo.svg' %}" alt="logo"></a></p>
+                <p>An Initiative By<a href="https://www.ctsc-india.org/"><img width="171"
+                            src="{% static 'images/ctsc-logo.svg' %}" alt="logo"></a></p>
             </div>
             <div class="copyright__right">© Copyright @Hack For Change 2020</div>
         </footer>
@@ -72,6 +83,7 @@
 </div>
 <!--footer end -->
 {% block js%}
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script
+    type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
 {%endblock%}
-
