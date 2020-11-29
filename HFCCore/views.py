@@ -76,7 +76,7 @@ def load_area_of_expertise(request):
 class MentorSignup(View):
     def get(self,request):
         form=Mentor_form()
-        mentors = Community_Member.objects.all()
+        mentors = Community_Member.objects.filter(type  ='Mentor')
         return render(request,'HFC/mentor_signup.html',{'form':form,'mentors':mentors})
     def post(self,request):
         form=Mentor_form(request.POST)
@@ -128,7 +128,8 @@ class ChapterContributorSignup(View):
         form=Chapter_contributor_form()
         print(hfc_chapter_slug)
         chapter = Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
-        return render(request,'HFC/chapter_contributor_signup.html',{'form':form,'chapter':chapter}) 
+        contributors = Community_Member.objects.filter(type  ='Contributor')
+        return render(request,'HFC/chapter_contributor_signup.html',{'form':form,'chapter':chapter,'contributors':contributors}) 
     def post(self,request,hfc_chapter_slug):
         form=Chapter_contributor_form(request.POST)
         community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
