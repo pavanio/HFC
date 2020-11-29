@@ -41,6 +41,7 @@ class Home(View):
 class ProblemStatementsView(generic.ListView):
     def get(self, request):
         problems_list = Problem_Statement.objects.all()
+        print(problems_list)
         return render(request, 'HFC/problem_statements.html', {'problems_list': problems_list})
 
 class ProblemsWithIssueareaView(generic.ListView):
