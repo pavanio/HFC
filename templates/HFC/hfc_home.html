@@ -2,12 +2,13 @@
 {% extends "andablog/base.html" %}
 {% load static from staticfiles %}
 {% load andablog_tags %}
-<!DOCTYPE html>
-<html>
+{% block meta_tags %}
+<meta content="" name="description">
+<meta content="" name="keywords">
+{% endblock %}
 
-    <head>
         {% block title %}Home | Hack For Change{% endblock %}
-    </head>
+    
 
 {% block main %}
 <!--Banner start -->
