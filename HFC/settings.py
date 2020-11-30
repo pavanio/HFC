@@ -26,7 +26,13 @@ SECRET_KEY = '%q9#g6m-+#uj78gxwghng(l&2#xhf04y@jmh^7#t#77dox5*xm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.hackforchange.co',
+                'hackforchange-staging.herokuapp.com',
+                'hackforchange-production.herokuapp.com',
+                '127.0.0.1',
+                'www.staging.hackforchange.co'
+
+]
 
 
 # Application definition
