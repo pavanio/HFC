@@ -11,24 +11,26 @@
 {% endblock %}
 {% block title %} Privacy Policy | Hack For Change {% endblock %}
 {% block main %}
-<!--Banner start -->
 <div class="banner-wrap">
-        <div class="content-width sm-content-width">
-            <div class="banner__main">
-                <h1>Privacy Policy </h1>
-                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
-            </div>
+    <div class="content-width sm-content-width">
+        <div class="banner__main">
+            <h1>Privacy Policy</h1>
+            <p class="large">
+                Our standard policy to protect your privacy
+            </p>
         </div>
+    </div>
 </div>
- <!--Banner end -->
+<!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main__large-pd">
     <div class="content-width">
         <div class="main">
             <section id="contents">
-                      
-                    <h1>Privacy Policy</h1><br>
-                    <h2>1. Introduction</h2>
+
+                <h1>Privacy Policy</h1><br>
+
+                <h2>1. Introduction</h2>
                 <p style="text-align:justify;text-justify:inter-word;">These Privacy Policy (“Privacy Policy”) apply to
                     the use of the website and products provided by HackForChange (hereinafter also referred as “we” or
                     “us”). Our registered office is at Hyderabad.</p>
@@ -138,38 +140,47 @@
                     Privacy Policy, please discontinue the use of the website and the Services. This Privacy Policy has
                     been created with the help of <a href="http://livechat.com/privacy-policy-generator/?ppg"
                         target="_blank">Privacy Policy Generator</a>.</p>
-                            
+
+
             </section>
             <aside id="sidebar">
-                    <div class="sidebar__list">
-                        <p>Explore problem statements across various issue areas</p>
-                        <ul>
-                                {% for problem in problem_statements %}
-                            <li><a href="{% url 'problem_statements_with_issuearea' problem.issue_area_slug %}">{{problem.issue_area}}</a></li>
-                                {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="newsletter">
-                        <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
-                        <form action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04" method="post"  target="_blank"  id="mc-embedded-subscribe-form" class="newsletter__form" novalidate>
-                            <p class="large bold">Get Latest Updates!</p>
-                            <input type="email" placeholder="Enter your email" name= "EMAIL" id="mce-EMAIL">
-                            <input class="btn btn--info" type="submit"  value="Subscribe">
-                            <div id="mce-responses" class="clear">
-                                    <div class="response" id="mce-error-response" style="display:none"></div>
-                                    <div class="response" id="mce-success-response" style="display:none"></div>
-                            </div>
-                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
-                            
-                        </form>
-                    </div>
-                </aside><!--sidebar -->
-            </div>
+                <div class="sidebar__list">
+                    <p>Explore problem statements across various issue areas</p>
+                    <ul>
+                        {% for problem in problem_statements %}
+                        <li><a
+                                href="{% url 'problem_statements_with_issuearea' problem.issue_area_slug %}">{{problem.issue_area}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form
+                        action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04"
+                        method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                        novalidate>
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
         </div>
+        </form>
     </div>
-    <!--main end -->
-    {%endblock%}
-    {%block js%}
+    </aside>
+    <!--sidebar -->
+</div>
+</div>
+</div>
+<!--main end -->
+{%endblock%}
+{%block js%}
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
     {%endblock%}
