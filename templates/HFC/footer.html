@@ -8,24 +8,17 @@
                 <p class="large bold">Subscribe to our newsletter</p>
             </div>
             <div class="subscription__right">
-
-                <form
-                    action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04"
-                    method="post" target="_blank" id="mc-embedded-subscribe-form" class="subscription__form" novalidate>
-                    <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL"><input type="submit"
-                        id="mc-embedded-subscribe" value="Subscribe">
-                    <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>
+            <form class="subscription__form" action="https://ctsc-india.us7.list-manage.com/subscribe/post" method="POST" target="formaReturning">
+                <input type="hidden" name="u" value="1a02ab21f5eb63b797a40e347">
+                <input type="hidden" name="id" value="72baea4f04">
+                <input type="email" placeholder="Enter your email" value="" name="EMAIL" id="mce-EMAIL" >
+                <input type="submit" value="Subscribe" id="mc-embedded-subscribe">
+            </form>
+            <div id="thankYouMessage" style="display:none;">
+                <p>Thank you for subscribing!</p>
             </div>
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                    name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
-        </div>
-
-        </form>
-    </div>
+            <iframe name="formaReturning" style="display:none !important;" frameborder="0"></iframe>
+            <!--End mc_embed_signup-->
 </div>
 </div>
 </div>
