@@ -1,5 +1,6 @@
 virtual_hosts = {
     "hackforchange.co": "HFCCore.urls",
+    "www.hackforchange.co":"HFCCore.urls",
     "staging.hackforchange.co":"HFCCore.urls" ,
     "forchange.in": "TFC.urls",
     "staging.forchange.in":"TFC.urls",
@@ -10,7 +11,6 @@ virtual_hosts = {
     
     
 }
-
 
 class VirtualHostMiddleware:
     def __init__(self, get_response):
