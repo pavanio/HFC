@@ -3,8 +3,13 @@
 {% load static from staticfiles %}
 {% load andablog_tags %}
 {% block meta_tags %}
-<meta content="" name="description">
+
 <meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article" >    
+<meta property="og:image" content="">
+<meta property="og:url" content="">
 {% endblock %}
 
         {% block title %}Home | Hack For Change{% endblock %}
@@ -19,8 +24,8 @@
                 <img src="{% static 'images/developer-team-2043022-0.svg' %}" srcset="images/developer-team-2043022-0@2x.png 2x, images/developer-team-2043022-0@3x.png 3x " alt="Pic">
             </div>
             <div class="home-banner__left">
-                <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit</h1>
-                <p class="large sbold">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+                <h1>Lets join hands to create a lasting social change</h1>
+                <p class="large sbold">Our approach to empowerment is to design technology-driven systemic solutions for present-day social challenges</p>
                 <div class="banner__btn">
                     <a class="btn btn--info" href="{% url 'about' %}#ourMission">Our Mission</a><a class="btn btn--border" href="{% url 'donate' %}">Donate</a>
                 </div>
@@ -36,8 +41,8 @@
         <div class="content-width">
             <div class="solution__inner">
                 <div class="solution__right">
-                    <h2>Solutions We Build</h2>
-                    <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music lorem ipsum dolor sit amcetghjj adipscing sed do eiumosod ritfghdy incidudunt ut labore.</p>
+                    <h2>Our focus areas</h2>
+                    <p> Our primary focus is on empowering lasting social change by improving ones' relationship with the government and also with his community as a whole.</p>
                     <a class="btn btn--border" href="{% url 'projects' %}">Read More</a>
                 </div>
             </div>
@@ -49,27 +54,28 @@
         <div class="contribute__main">
             <div class="contribute__top">
                 <h2 class="underline">How can you Contribute?</h2>
-                <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music.</p>
+                <p>Join our community of coders, designers and experienced mentors to work on specific problem statements</p>
+                
             </div>
             <div class="contribute__outer">
                 <div class="contribute__sec">
                     <div class="contribute__info">
-                        <h4>Coders/Software Engineers</h4>
-                        <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music.</p>
+                        <h4>Coders</h4>
+                        <p> Develop robust and scalable software applications based on product roadmaps</p>
                         <img src="{% static 'images/undraw_code_typing_7jnv.svg' %}" srcset="images/undraw_code_typing_7jnv@2x.png 2x, images/undraw_code_typing_7jnv@3x.png 3x" alt="Pic">
                     </div>
                 </div>
                 <div class="contribute__sec">
                     <div class="contribute__info">
-                        <h4>Working Professionals</h4>
-                        <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music.</p>
+                        <h4>Designers</h4>
+                        <p>Ideate and design solutions for some of the pressing social problems of today</p>
                         <img width="238" src="{% static 'images/contribute-img2.svg' %}" alt="Pic">
                     </div>
                     </div>
                 <div class="contribute__sec">
                     <div class="contribute__info">
                         <h4>Mentors</h4>
-                        <p>Peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music.</p>
+                        <p>Guide our community of developers from various city chapters and colleges</p>
                         <img src="{% static 'images/undraw_online_learning_ao11.svg' %}" srcset="images/undraw_online_learning_ao11@2x.png 2x, images/undraw_online_learning_ao11@3x.png 3x" alt="Pic">
                     </div>
                 </div>
@@ -83,7 +89,7 @@
 <div class="home-donate-wrap">
     <div class="content-width">
         <div class="home-donate-sec">
-            <p class="large bold">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+            <p class="large bold">Your donations will go a long way in sustaining our mission</p>
             <a class="btn btn--info" href="{% url 'donate' %}">Donate</a>
         </div>
     </div>
@@ -91,14 +97,14 @@
 <div class="we-work-wrap">
     <div class="content-width">
         <div class="we-work__main">
-            <h2 class="underline">Who We Work With?</h2>
-            <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+            <h2 class="underline">Our brothers in arms</h2>
+            <p class="large">A few of the governmental, non-governmental and social organisations who have partned with us, to scale their mission, using our community of developers and designers </p>
             <div class="we-work__sec">
                 <div class="we-work__fig"><img src="{% static 'images/faq-logo.svg' %}" srcset="images/faq-logo@2x.png 2x, images/faq-logo@3x.png 3x"></div>
                 <div class="we-work__fig"><img src="{% static 'images/fdr-logo.svg' %}" srcset="images/fdr-logo@2x.png 2x, images/fdr-logo@3x.png 3x"></div>
                 <div class="we-work__fig"><img src="{% static 'images/md-logo.svg' %}" srcset="images/md-logo@2x.png 2x, images/md-logo@3x.png 3x"></div>
             </div>
-            <p>Does your non-profit want to work with Hack For Change? <a href="{% url 'contact' %}">Send us a note</a></p>
+            <p>Reach out to us, if you think your organization can leverage our help? <a href="{% url 'contact' %}">Send us a note</a></p>
         </div>
     </div>
 </div>

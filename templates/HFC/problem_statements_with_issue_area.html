@@ -1,10 +1,18 @@
 
 {% extends 'HFC/layout.html' %}
 {% load static from staticfiles %}
+{% block meta_tags %}
 
-  <head>
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article" >    
+<meta property="og:image" content="">
+<meta property="og:url" content="">
+{% endblock %}
+  
 {% block title %} Problem Statements | Hack For Change {% endblock %}
-</head>  
+  
 
 
 {% block main %}
@@ -13,8 +21,8 @@
         <div class="content-width sm-content-width">
             <div class="banner__main">
                 <h1>Problem Statements</h1>
-                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
-                <a class="btn btn--info" href="#">Suggest a Problem Statement</a>
+                <p class="large">Explore Problem Statements submitted by various govermental, non-governmental and social organizations</p>
+                <a class="btn btn--info" href="{% url 'problem_statements_submit' %}">Suggest a Problem Statement</a>
             </div>
         </div>
     </div>

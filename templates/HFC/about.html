@@ -1,7 +1,15 @@
 {% extends 'HFC/layout.html' %}
 {% load static from staticfiles %}
 {% block title %} About | Hack For Change {% endblock %}
-    
+{% block meta_tags %}
+
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article" >    
+<meta property="og:image" content="">
+<meta property="og:url" content="">
+{% endblock %}
 
 {% block main %}
 <!--Banner start -->
@@ -9,7 +17,7 @@
         <div class="content-width sm-content-width">
             <div class="banner__main banner__main--upper banner__main--community">
                 <h1>About Us</h1>
-                <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore</p>
+                <p class="large">Building sustainable solutions to social problems, by connecting tech enthusiasts with public domain experts</p>
             </div>
         </div>
     </div>
@@ -25,7 +33,10 @@
             <div class="hfc-outer">
                 <section class="active" id="aboutUs">
                     <div class="about-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Hack For Change is a community of developers, software engineers and other like minded
+                        individuals, focused on solving <b>specific problem statements</b> proposed by social and
+                        governmental organisations, using *emerging technologies*.
+                        </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -124,8 +135,8 @@
                             </div>
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
-                                    <p class="large bold">Problem Statement</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                    <p class="large bold">Problem Statement Identification</p>
+                                    <p>Our partner organizations with deep domain expertise suggest problem statements and a possible solution to the issues that can be solved by leveraging technology.</p>
                                 </div>
                             </div>
                         </div>
@@ -136,8 +147,8 @@
                             </div>
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
-                                    <p class="large bold">Team analyzing the Problem Statement</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                    <p class="large bold">Solutioning And Planning</p>
+                                    <p> Our core team of technologists and social scientists evaluate the problem statement, analyze effectiveness of the proposed solution, and devise a way forward. </p>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +160,7 @@
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
                                     <p class="large bold">Contributors join HFC Community </p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                    <p>Developers and designers from various colleges and cities join the HackForChange community at a college center level or a city chapter level based on their availability.</p>
                                 </div>
                             </div>
                         </div>
@@ -160,8 +171,8 @@
                             </div>
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
-                                    <p class="large bold">Project Assigned</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                    <p class="large bold">Project Planning & Groundwork</p>
+                                    <p>Our core team of project co-ordinators along with the leadership team, define a product roadmap and create an execution plan.</p>
                                 </div>
                             </div>
                         </div>
@@ -172,8 +183,8 @@
                             </div>
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
-                                    <p class="large bold">Project Launch</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor</p>
+                                    <p class="large bold">Collaborative Execution</p>
+                                    <p>Based on the defined product roadmap and the project plan, solution is developed through community of contributors at college level or city level.</p>
                                 </div>
                             </div>
                         </div>

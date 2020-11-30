@@ -1,5 +1,14 @@
 {% extends "andablog/base.html" %}
 {% load andablog_tags %}
+{% block meta_tags %}
+
+<meta content="" name="keywords">
+<meta property="og:title" content="{{entry.title}}">
+<meta name="description" property="og:description" content=" {{ entry.content|striptags|truncatewords:20 }}">
+<meta property="og:type" content="article" >    
+<meta property="og:image" content="{{ entry.preview_image.url }}">
+<meta property="og:url" content="{{ entry.get_absolute_url }}">
+{% endblock %}
 {% block title %}{{entry.title}}| Hack For Change{% endblock %}
 {% block main %}
 {% block andablog_meta %}
