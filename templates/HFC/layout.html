@@ -5,13 +5,22 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
     <meta property="fb:app_id" content="{{FB_APP_ID}}" />
-    {% block meta_tags %}{% endblock %}
+    {% block meta_tags %}
+    
+    
+    {% endblock %}
     <title>{% block title %} {% endblock %}</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">  
     <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <script type="text/javascript" src="{% static 'js/modernizr.min.js' %}"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/android-chrome-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    
 </head>
 <body>
 
@@ -56,6 +65,8 @@
         <!--header end -->
 {% block main %}  
 {% endblock %}
+
+
 {% include 'HFC/footer.html' %}
 </div><!--container-fluid -->
 

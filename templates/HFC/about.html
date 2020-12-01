@@ -7,7 +7,7 @@
 <meta property="og:title" content="">
 <meta name="description" property="og:description" content="">
 <meta property="og:type" content="article" >    
-<meta property="og:image" content="">
+<meta property="og:image" content="http://www.hackforchange.co/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
 
@@ -95,8 +95,6 @@
                 </section>
                 
                 <section id="ourMission" >
-                    
-                        
                     <div class="mission-outer">
                         <h2 class="underline">Coders/Software Engineers</h2>
                         <div class="mission__sec">
@@ -196,5 +194,16 @@
     <!--main end -->
     {% endblock %} 
     {%block js%}
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+        if(window.location.hash){
+        $('.tab-sec li').removeClass('active');
+        $('a[href="'+ window.location.hash +'"]').parent().addClass('active');
+        
+        $('.hfc-outer section').removeClass('active');
+        $(window.location.hash).addClass('active');
+        }
+        });
+    </script>
     
     {%endblock%}
