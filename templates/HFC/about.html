@@ -9,8 +9,9 @@
     <div class="content-width sm-content-width">
         <div class="banner__main banner__main--upper banner__main--community">
             <h1>About Us</h1>
-            <p class="large">                
-                Building sustainable solutions to social problems, by connecting tech enthusiasts with public domain experts
+            <p class="large">
+                Building sustainable solutions to social problems, by connecting tech enthusiasts with public domain
+                experts
             </p>
         </div>
     </div>
@@ -178,7 +179,9 @@
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
                                     <p class="large bold">Problem Statement Identification</p>
-                                    <p> Our partner organizations with deep domain expertise suggest problem statements and a possible solution to the issues that can be solved by leveraging technology.</p>
+                                    <p> Our partner organizations with deep domain expertise suggest problem statements
+                                        and a possible solution to the issues that can be solved by leveraging
+                                        technology.</p>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +194,9 @@
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
                                     <p class="large bold">Solutioning And Planning</p>
-                                    <p> Our core team of technologists and social scientists evaluate the problem statement, analyze effectiveness of the proposed solution, and devise a way forward. 
+                                    <p> Our core team of technologists and social scientists evaluate the problem
+                                        statement, analyze effectiveness of the proposed solution, and devise a way
+                                        forward.
                                     </p>
                                 </div>
                             </div>
@@ -205,7 +210,9 @@
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
                                     <p class="large bold">Contributors Join HFC Community </p>
-                                    <p> Developers and designers from various colleges and cities join the HackForChange community at a college center level or a city chapter level based on their availability.</p>
+                                    <p> Developers and designers from various colleges and cities join the HackForChange
+                                        community at a college center level or a city chapter level based on their
+                                        availability.</p>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +225,8 @@
                             <div class="howItWorks__info">
                                 <div class="howItWorks__info__inner">
                                     <p class="large bold">Project Planning & Groundwork</p>
-                                    <p> Our core team of project co-ordinators along with the leadership team, define a product roadmap and create an execution plan.
+                                    <p> Our core team of project co-ordinators along with the leadership team, define a
+                                        product roadmap and create an execution plan.
                                     </p>
                                 </div>
                             </div>
@@ -233,7 +241,8 @@
                                 <div class="howItWorks__info__inner">
                                     <p class="large bold">Collaborative Execution</p>
                                     <p>
-                                        Based on the defined product roadmap and the project plan, solution is developed through community of contributors at college level or city level.
+                                        Based on the defined product roadmap and the project plan, solution is developed
+                                        through community of contributors at college level or city level.
                                     </p>
                                 </div>
                             </div>
@@ -246,6 +255,18 @@
 </div>
 <!--main end -->
 {% endblock %}
-{%block js%}
+{% block js %}
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        if (window.location.hash) {
+            if ($(window.location.hash).length > 0) {
+                $('.tab-sec li').removeClass('active');
+                $('a[href="' + window.location.hash + '"]').parent().addClass('active');
 
-{%endblock%}
+                $('.hfc-outer section').removeClass('active');
+                $(window.location.hash).addClass('active');
+            }
+        }
+    });
+</script>
+{% endblock %}
