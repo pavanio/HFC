@@ -1,10 +1,18 @@
 {% extends "andablog/base.html" %}
 {% load andablog_tags %}
+{% block meta_tags %}
+<meta content="" name="keywords">
+<meta property="og:title" content="{{entry.title}}">
+<meta name="description" property="og:description" content=" {{ entry.content|striptags|truncatewords:20 }}">
+<meta property="og:type" content="article">
+<meta property="og:image" content="{{ entry.preview_image.url }}">
+<meta property="og:url" content="{{ entry.get_absolute_url }}">
+{% endblock %}
 {% block title %}{{entry.title}}| Hack For Change{% endblock %}
 {% block main %}
 {% block andablog_meta %}
-    <meta name="description" content="{{ entry.title }}">
-    <meta name="author" content="{{ entry.author.get_short_name }}">
+<meta name="description" content="{{ entry.title }}">
+<meta name="author" content="{{ entry.author.get_short_name }}">
 {% endblock %}
 
 {% block andablog_page_title %}
@@ -16,60 +24,62 @@
 
 <!-- main starts -->
 <div class="content-width">
-        <div class="procuding">
-            <h3>{{entry.title}} </h3>
-            <div class="proceedings-text">
-               <div class="procuding-img bloge-img" id="profileImage"></div>
-                <div class="foucs bloge"><span id="firstName">{% if entry.author %}{{ entry.author|authordisplay }}{% endif %}</span><br>
+    <div class="procuding">
+        <h3>{{entry.title}} </h3>
+        <div class="proceedings-text">
+            <div class="procuding-img bloge-img" id="profileImage"></div>
+            <div class="foucs bloge"><span
+                    id="firstName">{% if entry.author %}{{ entry.author|authordisplay }}{% endif %}</span><br>
                 {{entry.published_timestamp|date:"DATE_FORMAT" }}
-                </div>
             </div>
-            {% if entry.preview_image %}
-            <div class="blog-main-img">
-                <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }} " alt="Preview image for {{ entry.title }}"></a> 
-            </div>
-            {% endif %}
         </div>
-        <div class="blog-info">
-            {{ entry.content }}
+        {% if entry.preview_image %}
+        <div class="blog-main-img">
+            <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }} "
+                    alt="Preview image for {{ entry.title }}"></a>
         </div>
+        {% endif %}
+    </div>
+    <div class="blog-info">
+        {{ entry.content }}
+    </div>
 </div>
-    
-        
-			
-            
-        
 
-        {% include "andablog/comments_snippet.html" with comment_object=entry %}
-    
+
+
+
+
+
+{% include "andablog/comments_snippet.html" with comment_object=entry %}
+
 {% endblock %}
 {% endblock %}
 {% block css %}
 <style>
-#profileImage {
-    width: 87px;
-    height: 80px;
-    border-radius: 50%;
-    background: #512DA8;
-    font-size: 30px;
-    color: #fff;
-    text-align: center;
-    line-height: 80px;
-    margin: 10px 0;
-    
-  }
-  </style>
+    #profileImage {
+        width: 87px;
+        height: 80px;
+        border-radius: 50%;
+        background: #512DA8;
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+        line-height: 80px;
+        margin: 10px 0;
+
+    }
+</style>
 
 {% endblock %}
 
 {% block js %}
 <script>
-$(document).ready(function(){
-var firstName = $('#firstName').text();
-var intials = firstName.charAt(0);
-var profileImage = $('#profileImage').text(intials);
-});
-console.log(firstName)
+    $(document).ready(function () {
+        var firstName = $('#firstName').text();
+        var intials = firstName.charAt(0);
+        var profileImage = $('#profileImage').text(intials);
+    });
+    console.log(firstName)
 </script>
 
 

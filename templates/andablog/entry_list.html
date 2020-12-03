@@ -1,5 +1,13 @@
 {% extends "andablog/base.html" %}
 {% load static % }
+{% block meta_tags %}
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.hackforchange.co/static/images/hfc.png">
+<meta property="og:url" content="">
+{% endblock %}
 {% load andablog_tags %}
 {% block main %}
 <!--Banner start -->
@@ -7,11 +15,10 @@
     <div class="content-width sm-content-width">
         <div class="banner__main">
             <h1>Our Latest Updates</h1>
-            <p class="large">
-                Stay tuned to the latest news from our core team, community and partners
-            </p>
+            <p class="large">Stay tuned to the latest news from our core team, community and partners</p>
         </div>
     </div>
+</div>
 </div>
 
 
