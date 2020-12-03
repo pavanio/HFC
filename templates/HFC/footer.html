@@ -8,25 +8,24 @@
                 <p class="large bold">Subscribe to our newsletter</p>
             </div>
             <div class="subscription__right">
+                <form class="subscription__form" action="https://ctsc-india.us7.list-manage.com/subscribe/post"
+                    method="POST" target="formaReturning">
+                    <input type="hidden" name="u" value="1a02ab21f5eb63b797a40e347">
+                    <input type="hidden" name="id" value="72baea4f04">
+                    <input type="email" placeholder="Enter your email" value="" name="EMAIL" id="mce-EMAIL">
+                    <input type="submit" value="Subscribe" id="mc-embedded-subscribe">
+                </form>
 
-                <form
-                    action="https://ctsc-india.us7.list-manage.com/subscribe/post?u=1a02ab21f5eb63b797a40e347&amp;id=72baea4f04"
-                    method="post" target="_blank" id="mc-embedded-subscribe-form" class="subscription__form" novalidate>
-                    <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL"><input type="submit"
-                        id="mc-embedded-subscribe" value="Subscribe">
-                    <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>
+                <iframe name="formaReturning" style="display:none !important;" frameborder="0"></iframe>
+                <!--End mc_embed_signup-->
             </div>
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                    name="b_1a02ab21f5eb63b797a40e347_72baea4f04" tabindex="-1" value=""></div>
-        </div>
 
-        </form>
+            </form>
+        </div>
+        <div id="thankYouMessage" style="display:none;margin-left:400px;">
+            <p>Thank you for subscribing!</p>
+        </div>
     </div>
-</div>
 </div>
 </div>
 
@@ -65,7 +64,8 @@
                 <ul>
                     <li><a href="https://www.facebook.com/HackForChange"><img width="30"
                                 src="{% static 'images/facebook-icon.svg' %}" alt="Icon"></a></li>
-                    <li><a href="https://www.instagram.com/hackforchange/"><img width="35" src="{% static 'images/insta-icon.svg' %}" alt="Icon"></a></li>
+                    <li><a href="https://www.instagram.com/hackforchange/"><img width="35"
+                                src="{% static 'images/insta-icon.svg' %}" alt="Icon"></a></li>
                     <li><a href="https://www.linkedin.com/showcase/hack-for-change"><img width="31"
                                 src="{% static 'images/linkedin-icon.svg' %}" alt="Icon"></a></li>
                 </ul>
@@ -81,9 +81,35 @@
         </footer>
     </div>
 </div>
+
 <!--footer end -->
 {% block js%}
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-<script
-    type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+<script type="text/javascript" src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+<script>
+    jQuery('.subscription__form').submit(function (e) {
+        var $this = jQuery(this);
+        jQuery.ajax({
+            type: "GET",
+            url: "https://ctsc-india.us7.list-manage.com/subscribe/post-json?c=?",
+            data: $this.serialize(),
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            error: function (err) {
+                alert("Could not connect to the registration server.");
+            },
+            success: function (data) {
+                if (data.result != "success") {
+                    jQuery('#thankYouMessage').css("display", "block");
+                    jQuery('#thankYouMessage').text(data.msg.substr(0, data.msg.indexOf('<')));
+                } else {
+                    jQuery('subscription__form').hide();
+                    jQuery('#thankYouMessage').css("display", "block");
+                    jQuery('#thankYouMessage').text(data.msg);
+
+                }
+            }
+        });
+        return false;
+    });
+</script>
 {%endblock%}

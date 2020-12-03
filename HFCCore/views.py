@@ -41,6 +41,7 @@ class Home(View):
 class ProblemStatementsView(generic.ListView):
     def get(self, request):
         problems_list = Problem_Statement.objects.all()
+        print(problems_list)
         return render(request, 'HFC/problem_statements.html', {'problems_list': problems_list})
 
 class ProblemsWithIssueareaView(generic.ListView):
@@ -76,7 +77,7 @@ def load_area_of_expertise(request):
 class MentorSignup(View):
     def get(self,request):
         form=Mentor_form()
-        mentors = Community_Member.objects.all()
+        mentors = Community_Member.objects.filter(type  ='Mentor')[:3]
         return render(request,'HFC/mentor_signup.html',{'form':form,'mentors':mentors})
     def post(self,request):
         form=Mentor_form(request.POST)
@@ -92,7 +93,8 @@ class MentorSignup(View):
             email=mentor.email
             print(email)
             try:
-                screeninglink_mail(email)
+                #screeninglink_mail(email)
+                print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Mentor')
             #messages.success(request,"Volunteer Registration Form Submitted Successfully")
@@ -128,7 +130,8 @@ class ChapterContributorSignup(View):
         form=Chapter_contributor_form()
         print(hfc_chapter_slug)
         chapter = Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
-        return render(request,'HFC/chapter_contributor_signup.html',{'form':form,'chapter':chapter}) 
+        contributors = Community_Member.objects.filter(type  ='Contributor')
+        return render(request,'HFC/chapter_contributor_signup.html',{'form':form,'chapter':chapter,'contributors':contributors}) 
     def post(self,request,hfc_chapter_slug):
         form=Chapter_contributor_form(request.POST)
         community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
@@ -147,7 +150,8 @@ class ChapterContributorSignup(View):
             email=contributor.email
             print(email)
             try:
-                screeninglink_mail(email)
+                #screeninglink_mail(email)
+                print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})
@@ -218,7 +222,7 @@ class ContactView(View):
         sender_email=data['email']
         subject="New contact us  message"
         #From_mail=settings.EMAIL_HOST_USER
-        to_list=['sambit@ctsc-india.org',] 
+        to_list=['contact@hackforchange.co',] 
         message = "{0} has sent you a new message:\n\n{1} and his email is {2}".format(sender_name, data['message'],sender_email)
         #content =data[message]
         #send_mail(subject,content,From_mail,to_list,fail_silently=False)

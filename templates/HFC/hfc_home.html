@@ -1,13 +1,15 @@
-
 {% extends "andablog/base.html" %}
 {% load static from staticfiles %}
 {% load andablog_tags %}
-<!DOCTYPE html>
-<html>
-
-    <head>
-        {% block title %}Home | Hack For Change{% endblock %}
-    </head>
+{% block meta_tags %}
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.hackforchange.co/static/images/hfc.png">
+<meta property="og:url" content="">
+{% endblock %}
+{% block title %}Home | Hack For Change{% endblock %}
 
 {% block main %}
 <!--Banner start -->
@@ -15,13 +17,16 @@
     <div class="content-width">
         <div class="home-banner">
             <div class="home-banner__right">
-                <img src="{% static 'images/developer-team-2043022-0.svg' %}" srcset="images/developer-team-2043022-0@2x.png 2x, images/developer-team-2043022-0@3x.png 3x " alt="Pic">
+                <img src="{% static 'images/developer-team-2043022-0.svg' %}" srcset="images/developer-team-2043022-0@2x.png 2x, images/developer-team-2043022-0@3x.png 3x "
+                    alt="Pic">
             </div>
             <div class="home-banner__left">
                 <h1>Lets join hands to create a lasting social change</h1>
-                <p class="large sbold">Our approach to empowerment is to design technology-driven systemic solutions for present-day social challenges</p>
+                <p class="large sbold">Our approach to empowerment is to design technology-driven systemic solutions
+                    for present-day social challenges</p>
                 <div class="banner__btn">
-                    <a class="btn btn--info" href="{% url 'about' %}#ourMission">Our Mission</a><a class="btn btn--border" href="{% url 'donate' %}">Donate</a>
+                    <a class="btn btn--info" href="{% url 'about' %}#ourMission">Our Mission</a><a class="btn btn--border"
+                        href="{% url 'donate' %}">Donate</a>
                 </div>
             </div>
         </div>
@@ -36,8 +41,8 @@
             <div class="solution__inner">
                 <div class="solution__right">
                     <h2>Our focus areas</h2>
-                    <p>Our primary focus is on empowering lasting social change by improving ones' relationship with the government and also with his community as a whole.
-                    </p>
+                    <p> Our primary focus is on empowering lasting social change by improving ones' relationship with
+                        the government and also with his community as a whole.</p>
                     <a class="btn btn--border" href="{% url 'projects' %}">Read More</a>
                 </div>
             </div>
@@ -49,14 +54,17 @@
         <div class="contribute__main">
             <div class="contribute__top">
                 <h2 class="underline">How can you contribute?</h2>
-                <p>Join our community of coders, designers and experienced mentors to work on specific problem statements</p>
+                <p>Join our community of coders, designers and experienced mentors to work on specific problem
+                    statements</p>
+
             </div>
             <div class="contribute__outer">
                 <div class="contribute__sec">
                     <div class="contribute__info">
                         <h4>Coders</h4>
-                        <p>Develop robust and scalable software applications based on product roadmaps</p>
-                        <img src="{% static 'images/undraw_code_typing_7jnv.svg' %}" srcset="images/undraw_code_typing_7jnv@2x.png 2x, images/undraw_code_typing_7jnv@3x.png 3x" alt="Pic">
+                        <p> Develop robust and scalable software applications based on product roadmaps</p>
+                        <img src="{% static 'images/undraw_code_typing_7jnv.svg' %}" srcset="images/undraw_code_typing_7jnv@2x.png 2x, images/undraw_code_typing_7jnv@3x.png 3x"
+                            alt="Pic">
                     </div>
                 </div>
                 <div class="contribute__sec">
@@ -65,12 +73,13 @@
                         <p>Ideate and design solutions for some of the pressing social problems of today</p>
                         <img width="238" src="{% static 'images/contribute-img2.svg' %}" alt="Pic">
                     </div>
-                    </div>
+                </div>
                 <div class="contribute__sec">
                     <div class="contribute__info">
                         <h4>Mentors</h4>
                         <p>Guide our community of developers from various city chapters and colleges</p>
-                        <img src="{% static 'images/undraw_online_learning_ao11.svg' %}" srcset="images/undraw_online_learning_ao11@2x.png 2x, images/undraw_online_learning_ao11@3x.png 3x" alt="Pic">
+                        <img src="{% static 'images/undraw_online_learning_ao11.svg' %}" srcset="images/undraw_online_learning_ao11@2x.png 2x, images/undraw_online_learning_ao11@3x.png 3x"
+                            alt="Pic">
                     </div>
                 </div>
             </div>
@@ -92,40 +101,40 @@
     <div class="content-width">
         <div class="we-work__main">
             <h2 class="underline">Our brothers in arms</h2>
-            <p class="large">A few of the governmental, non-governmental and social organisations who have partned with us, to scale their mission, using our community of developers and designers</p>
+            <p class="large">A few of the governmental, non-governmental and social organisations who have partned with
+                us, to scale their mission, using our community of developers and designers </p>
             <div class="we-work__sec">
                 <div class="we-work__fig"><img src="{% static 'images/faq-logo.svg' %}" srcset="images/faq-logo@2x.png 2x, images/faq-logo@3x.png 3x"></div>
                 <div class="we-work__fig"><img src="{% static 'images/fdr-logo.svg' %}" srcset="images/fdr-logo@2x.png 2x, images/fdr-logo@3x.png 3x"></div>
                 <div class="we-work__fig"><img src="{% static 'images/md-logo.svg' %}" srcset="images/md-logo@2x.png 2x, images/md-logo@3x.png 3x"></div>
             </div>
-            <p>Reach out to us, if you think your organization can leverage our help? <a href="{% url 'contact' %}">Send us a note</a></p>
+            <p>Reach out to us, if you think your organization can leverage our help? <a href="{% url 'contact' %}">Send
+                    us a note</a></p>
         </div>
     </div>
 </div>
 
 {% block andablog_content %}
 <div class="home-blog-wrap">
-        <div class="contribute__top">
-            <h2 class="underline">Our Latest Updates</h2>
+    <div class="contribute__top">
+        <h2 class="underline">Our Latest Updates</h2>
+    </div>
+
+    <div class="content-width blog-list home-update">
+        {% for entry in entries %}
+        <div class="post-block">
+            <div class="post-img">
+                <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }}" alt="Preview image for {{ entry.title }}"></a>
+            </div>
+            <div class="post-info">
+                <p>{{ entry.published_timestamp|date:"DATE_FORMAT" }} </p>
+                <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h4>
+                <a href="{{entry.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
+            </div>
         </div>
-       
-        <div class="content-width blog-list home-update">
-            {% for entry in entries %}
-                <div class="post-block">
-                    <div class="post-img">
-                        <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }}" alt="Preview image for {{ entry.title }}"></a>
-                    </div>
-                    <div class="post-info">
-                        <p>{{ entry.published_timestamp|date:"DATE_FORMAT" }} </p>
-                        <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h4>
-                        <a href="{{entry.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
-                    </div> 
-                </div>
-                {% endfor%}  
-        </div>
-        
+        {% endfor%}
+    </div>
 </div>
-                
-<!--main end -->
 {% endblock %}
+<!--main end -->
 {% endblock%}

@@ -1,10 +1,14 @@
 {% extends 'HFC/layout.html' %}
 {% load static from staticfiles %}
-
-<head>
-    {% block title %} Problem Statements | Hack For Change {% endblock %}
-</head>
-
+{% block meta_tags %}
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.hackforchange.co/static/images/hfc.png">
+<meta property="og:url" content="">
+{% endblock %}
+{% block title %} Problem Statements | Hack For Change {% endblock %}
 
 {% block main %}
 <!--Banner start -->
@@ -12,12 +16,12 @@
     <div class="content-width sm-content-width">
         <div class="banner__main">
             <h1>Problem Statements</h1>
-            <p class="large">
-                Explore Problem Statements submitted by various govermental, non-governmental and social organizations
-            </p>
-            <a class="btn btn--info" href="#">Suggest a Problem Statement</a>
+            <p class="large">Explore Problem Statements submitted by various govermental, non-governmental and social
+                organizations</p>
+            <a class="btn btn--info" href="{% url 'problem_statements_submit' %}">Suggest a Problem Statement</a>
         </div>
     </div>
+</div>
 </div>
 <!--Banner end -->
 <!--main start -->
@@ -87,7 +91,11 @@
 {% endblock %}
 
 
-
+{%block js%}
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script
+    type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+{%endblock%}
 
 
 

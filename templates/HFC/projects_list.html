@@ -1,5 +1,14 @@
 {% extends 'HFC/layout.html' %}
 {% load static %}
+{% block meta_tags %}
+
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.hackforchange.co/static/images/hfc.png">
+<meta property="og:url" content="">
+{% endblock %}
 
 {% block title %} Projects | Hack For Change {% endblock %}
 
@@ -9,11 +18,10 @@
     <div class="content-width sm-content-width">
         <div class="banner__main">
             <h1>Projects</h1>
-            <p class="large">
-                Ongoing solutions designed and developed to empower citizens
-            </p>
+            <p class="large">Ongoing solutions designed and developed to empower citizens</p>
         </div>
     </div>
+</div>
 </div>
 <!--Banner end -->
 <!--main start -->
@@ -69,3 +77,10 @@
 </div>
 
 {% endblock %}
+
+
+{%block js%}
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script
+    type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+{%endblock%}
