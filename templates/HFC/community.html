@@ -1,5 +1,4 @@
 {% extends 'HFC/layout.html' %}
-{% load static %}
 {% block meta_tags %}
 <meta content="" name="keywords">
 <meta property="og:title" content="">
@@ -136,37 +135,4 @@
     </div>
 </div>
 <!--main end -->
-{% endblock %}
-
-{% block css %}
-<style>
-    #profileImage {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: #512DA8;
-        font-size: 30px;
-        color: #fff;
-        text-align: center;
-        line-height: 80px;
-        margin: 10px 0;
-
-    }
-</style>
-{% endblock %}
-
-{% block js %}
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        if (window.location.hash) {
-            if ($(window.location.hash).length > 0) {
-                $('.tab-sec li').removeClass('active');
-                $('a[href="' + window.location.hash + '"]').parent().addClass('active');
-
-                $('.hfc-outer section').removeClass('active');
-                $(window.location.hash).addClass('active');
-            }
-        }
-    });
-</script>
 {% endblock %}
