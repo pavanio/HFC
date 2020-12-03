@@ -31,16 +31,15 @@ DEBUG = True
 """SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True"""
 
-ALLOWED_HOSTS = ['staging.hackforchange.co',
-                'hackforchange.co',
-                'www.hackforchange.co',
-                'hackforchange-staging.herokuapp.com',
-                'hackforchange-production.herokuapp.com',
-                '127.0.0.1',
-                'www.staging.hackforchange.co'
-
+ALLOWED_HOSTS = [
+    'staging.hackforchange.co',
+    'hackforchange.co',
+    'www.hackforchange.co',
+    'hackforchange-staging.herokuapp.com',
+    'hackforchange-production.herokuapp.com',
+    '127.0.0.1',
+    'www.staging.hackforchange.co'
 ]
-
 
 # Application definition
 
@@ -58,8 +57,6 @@ INSTALLED_APPS = [
     'storages',
     'andablog',
     'taggit',
-    
-
 ]
 
 SITE_ID = 1
@@ -73,7 +70,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
 ]
 
 ROOT_URLCONF = 'HFC.urls'
@@ -95,7 +91,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'HFC.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -151,29 +146,25 @@ STATICFILES_DIRS = [
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 #AWS_STORAGE_BUCKET_NAME = 'hackforchange-development-files'
 AWS_STORAGE_BUCKET_NAME = 'hackforchange-staging-files'
 #AWS_STORAGE_BUCKET_NAME = 'hackforchange-production-files'
 AWS_S3_SIGNATURE_VERSION = 's3v4'
-AWS_S3_REGION_NAME='ap-south-1'
+AWS_S3_REGION_NAME = 'ap-south-1'
 #AWS_LOCATION = 'static'
 #STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_S3_FILE_OVERWRITE=False
+AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
-#email
-EMAIL_USE_TLS=True
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER='sambitblog999@gmail.com'
-EMAIL_HOST_PASSWORD ='0701229124'
-EMAIL_PORT=587
-
-
-
-
+# email
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sambitblog999@gmail.com'
+EMAIL_HOST_PASSWORD = '0701229124'
+EMAIL_PORT = 587
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
