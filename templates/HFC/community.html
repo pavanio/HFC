@@ -1,148 +1,139 @@
 {% extends 'HFC/layout.html' %}
 {% load static %}
 {% block meta_tags %}
-
 <meta content="" name="keywords">
 <meta property="og:title" content="">
 <meta name="description" property="og:description" content="">
-<meta property="og:type" content="article" >    
+<meta property="og:type" content="article">
 <meta property="og:image" content="https://www.hackforchange.co/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
 {% block title %} Community | Hack For Change {% endblock %}
+
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
-        <div class="content-width sm-content-width">
-            <div class="banner__main banner__main--upper banner__main--community">
-                <h1>Community</h1>
-                <p class="large">Our community of contributors across various colleges and cities</p>
-            </div>
+    <div class="content-width sm-content-width">
+        <div class="banner__main banner__main--upper banner__main--community">
+            <h1>Community</h1>
+            <p class="large">Our community of contributors across various colleges and cities</p>
         </div>
+    </div>
 </div>
 <!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main-wrap--pdb">
-        <div class="content-width">
-            <ul class="tab-sec">
-                <li ><a href="#hfcCentres"><img width="27" src="{% static 'images/hfc-icon1.svg' %}" alt="ICON"><img width="27" src="{% static 'images/hfc-icon1-alt.svg' %}" alt="ICON"><span>HFC Centres</span></a></li>
-                <li><a href="#hfcChapters"><img width="48" src="{% static 'images/hfc-icon2.svg' %}" alt="ICON"><img width="48" src="{% static 'images/hfc-icon2-alt.svg' %}" alt="ICON"><span>HFC Chapters</span></a></li>
-                <li class="active"><a href="#hfcLeaderboard"><img width="23" src="{% static 'images/hfc-icon3.svg' %}" alt="ICON"><img width="23" src="{% static 'images/hfc-icon3-alt.svg' %}" alt="ICON"><span>Leaderboard</span></a></li>
-            </ul>
-            <div class="hfc-outer">
-                    <section  id="hfcCentres">
-                        <div class="main main--community">
-                            {% for center in hfc_centers %}
-                            <div class="main__community-outer">
-                                <div class="main__community-fig squre-radius"><img width="85" src={{center.logo.url}} alt="Logo"></div>
-                                <div class="main__community-sec">
-                                    <p class="large sbold">{{center.organization_name}}</p>
-                                    <p>11 Projects, {{center.community_member_set.count}} Members</p>
-                                    <p class="fz16">Member since 2019</p>
-                                </div>
-                            </div>
-                            {% endfor %}
+    <div class="content-width">
+        <ul class="tab-sec">
+            <li><a href="#hfcCentres"><img width="27" src="{% static 'images/hfc-icon1.svg' %}" alt="ICON"><img
+                        width="27" src="{% static 'images/hfc-icon1-alt.svg' %}" alt="ICON"><span>HFC Centres</span></a>
+            </li>
+            <li><a href="#hfcChapters"><img width="48" src="{% static 'images/hfc-icon2.svg' %}" alt="ICON"><img
+                        width="48" src="{% static 'images/hfc-icon2-alt.svg' %}" alt="ICON"><span>HFC
+                        Chapters</span></a></li>
+            <li class="active"><a href="#hfcLeaderboard"><img width="23" src="{% static 'images/hfc-icon3.svg' %}"
+                        alt="ICON"><img width="23" src="{% static 'images/hfc-icon3-alt.svg' %}"
+                        alt="ICON"><span>Leaderboard</span></a></li>
+        </ul>
+        <div class="hfc-outer">
+            <section id="hfcCentres">
+                <div class="main main--community">
+                    {% for center in hfc_centers %}
+                    <div class="main__community-outer">
+                        <div class="main__community-fig squre-radius"><img width="85" src={{center.logo.url}}
+                                alt="Logo"></div>
+                        <div class="main__community-sec">
+                            <p class="large sbold">{{center.organization_name}}</p>
+                            <p>11 Projects, {{center.community_member_set.count}} Members</p>
+                            <p class="fz16">Member since 2019</p>
                         </div>
-                        <div class="hfc-card">
-                                <div class="hfc-card__fig"><img width="111" src="{% static 'images/hfc-img.jpg' %}" alt="Pic"></div>
-                                <div class="hfc-card__info">
-                                    <h3>Want to set up HFC Centre in your college?</h3>
-                                    <p class="small">Lorem ipsum dolor sit amet, affert qualisque efficiendvim at, per cuagam eruditi. Ius an duis</p>
-                                    <a href="{% url 'contact' %}" class="btn btn--info">Contact Us</a>
-                                </div>
-                        </div>    
-                    </section>
-                    <section id="hfcChapters">
-                        <div class="main main--community">
-                            {% for chapter in hfc_chapters %}
-                            <div class="main__community-outer">
-                                <div class="main__community-fig squre-radius"><img width="85" src={{chapter.logo.url}} alt="Logo"></div>
-                                <div class="main__community-sec">
-                                    <p class="large sbold">{{chapter.organization_name}}</p>
-                                    <p>11 Projects, {{chapter.community_member_set.count}} Members</p>
-                                    <a href="{{chapter.organization_name_slug}}/signup" class="btn btn--border">Join as a Contributor</a>
-                                </div>
-                            </div>
-                            {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="hfc-card">
+                    <div class="hfc-card__fig"><img width="111" src="{% static 'images/hfc-img.jpg' %}" alt="Pic"></div>
+                    <div class="hfc-card__info">
+                        <h3>Want to set up HFC Centre in your college?</h3>
+                        <p class="small">Lorem ipsum dolor sit amet, affert qualisque efficiendvim at, per cuagam
+                            eruditi. Ius an duis</p>
+                        <a href="{% url 'contact' %}" class="btn btn--info">Contact Us</a>
+                    </div>
+                </div>
+            </section>
+            <section id="hfcChapters">
+                <div class="main main--community">
+                    {% for chapter in hfc_chapters %}
+                    <div class="main__community-outer">
+                        <div class="main__community-fig squre-radius"><img width="85" src={{chapter.logo.url}}
+                                alt="Logo"></div>
+                        <div class="main__community-sec">
+                            <p class="large sbold">{{chapter.organization_name}}</p>
+                            <p>11 Projects, {{chapter.community_member_set.count}} Members</p>
+                            <a href="{{chapter.organization_name_slug}}/signup" class="btn btn--border">Join as a
+                                Contributor</a>
                         </div>
-                    </section>
-                    <section class="active" id="hfcLeaderboard">
-                        <div class="unborder-table__outer">
-                            <table class="unborder-table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Centre/Chapter</th>
-                                        <th>Projects</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                        {% for contributor in contributors_list %}
-                                    <tr>
-                                        <td>
-                                            <div class="table-sec">
-                                                
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <section class="active" id="hfcLeaderboard">
+                <div class="unborder-table__outer">
+                    <table class="unborder-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Centre/Chapter</th>
+                                <th>Projects</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for contributor in contributors_list %}
+                            <tr>
+                                <td>
+                                    <div class="table-sec">
 
-                                                <div class="table-fig" id="profileImage">{{contributor.name.0}}</div>
-                                                <div class="table-info" style="padding-left: 20px;">
-                                                    <p class="large"><span id="firstName" >{{contributor.name}}</p></span>
-                                                    
-                                                        
-                                                    
-                                                    <div class="comment-count"><img width="16" src="{% static 'images/badge-icon.svg' %}" alt="Icon">No. of Commits</div>
-                                                    <p>Member since 2019</p>
-                                                </div>
+
+                                        <div class="table-fig" id="profileImage">{{contributor.name.0}}</div>
+                                        <div class="table-info" style="padding-left: 20px;">
+                                            <p class="large"><span id="firstName">{{contributor.name}}</p></span>
+
+
+
+                                            <div class="comment-count"><img width="16"
+                                                    src="{% static 'images/badge-icon.svg' %}" alt="Icon">No. of Commits
                                             </div>
-                                        </td>
-                                        <td>
-                                            <p class="large sbold">{{contributor.organization_id}}</p>
-                                        </td>
-                                        <td>
-                                            <p class="large sbold">India By Numbers, OpenGov</p>
-                                        </td>
-                                    </tr>
-                                        {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                     <!----  <div class="lead-more-btn">
+                                            <p>Member since 2019</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="large sbold">{{contributor.organization_id}}</p>
+                                </td>
+                                <td>
+                                    <p class="large sbold">India By Numbers, OpenGov</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!----  <div class="lead-more-btn">
                             <a href="#" class="btn btn--border">Load More Leaders</a>
                         </div>-->
-                        <div class="hfc-card hfc-card--wide">
-                            <div class="hfc-card__fig"><img src="{% static 'images/undraw_proud_coder_7ain.png' %}" srcset="images/undraw_proud_coder_7ain@2x.png 2x, images/undraw_proud_coder_7ain@3x.png 3x" alt="Pic"></div>
-                            <div class="hfc-card__info">
-                                <h3>Want to set up HFC Centre in your college?</h3>
-                                <p class="small">Lorem ipsum dolor sit amet, affert qualisque efficiendvim at, per cuagam eruditi. Ius an duis</p>
-                                <a href="{% url 'contact' %}" class="btn btn--info">Contact Us</a>
-                            </div>
-                        </div>
-                    </section>
+                <div class="hfc-card hfc-card--wide">
+                    <div class="hfc-card__fig"><img src="{% static 'images/undraw_proud_coder_7ain.png' %}"
+                            srcset="images/undraw_proud_coder_7ain@2x.png 2x, images/undraw_proud_coder_7ain@3x.png 3x"
+                            alt="Pic"></div>
+                    <div class="hfc-card__info">
+                        <h3>Want to set up HFC Centre in your college?</h3>
+                        <p class="small">Lorem ipsum dolor sit amet, affert qualisque efficiendvim at, per cuagam
+                            eruditi. Ius an duis</p>
+                        <a href="{% url 'contact' %}" class="btn btn--info">Contact Us</a>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
-        <!--main end -->
-
+    </div>
+</div>
+<!--main end -->
 {% endblock %}
-{% block css %}
-<style>
-#profileImage {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #512DA8;
-    font-size: 30px;
-    color: #fff;
-    text-align: center;
-    line-height: 80px;
-    margin: 10px 0;
-    
-  }
-  </style>
-
-{% endblock %}
-
-{% block js %}
-
-
-{% endblock %}
-

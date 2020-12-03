@@ -1,54 +1,58 @@
 {% extends 'HFC/layout.html'%}
 {% load static %}
 {% block meta_tags %}
-
 <meta content="" name="keywords">
 <meta property="og:title" content="">
 <meta name="description" property="og:description" content="">
-<meta property="og:type" content="article" >    
+<meta property="og:type" content="article">
 <meta property="og:image" content="https://www.hackforchange.co/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
 {% block title %} Donate | Hack For Change {% endblock %}
+
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap banner-wrap--dotInside">
-        <div class="content-width sm-content-width">
-            <div class="banner__main banner__main--upper banner__main--donate">
-                <h1>Make a Donation</h1>
-                <p class="large"> Help us sustain the development and adoption of solutions built by the HFC community</p>
-            </div>
+    <div class="content-width sm-content-width">
+        <div class="banner__main banner__main--upper banner__main--donate">
+            <h1>Make a Donation</h1>
+            <p class="large">
+                Help us sustain the development and adoption of solutions built by the HFC community
+            </p>
         </div>
+    </div>
 </div>
 <!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main__reverse">
-        <div class="content-width">
-            <div class="main main--contact">
-                <section class="main__contact-form">
-                    <form class="site-form site-form--fixWidth" action="">
-                        <div class="form-field">
-                            <label for="">Full Name</label>
-                            <input type="text" placeholder="Enter your name">
-                        </div>
-                        <div class="form-field">
-                            <label for="">Email</label>
-                            <input type="email" placeholder="Enter your email id">
-                        </div>
-                        <div class="form-field">
-                            <label for="">Donation Amount</label>
-                            <input type="text" placeholder="Enter donation amount">
-                        </div>
-                        <div class="btn-outer">
-                            <input class="btn btn--info btn--full" type="submit"  value="Donate">
-                        </div>
-                    </form>
-                </section><!--contents -->
-                <aside class="main__contact-sidebar">
-                    <div class="contact-sidebar__fig"><img src="{% static 'images/donate-fig.jpg' %}" alt="Pic"></div>
-                </aside><!--sidebar -->
-            </div>
+    <div class="content-width">
+        <div class="main main--contact">
+            <section class="main__contact-form">
+                <form class="site-form site-form--fixWidth" action="">
+                    <div class="form-field">
+                        <label for="">Full Name</label>
+                        <input type="text" placeholder="Enter your name">
+                    </div>
+                    <div class="form-field">
+                        <label for="">Email</label>
+                        <input type="email" placeholder="Enter your email id">
+                    </div>
+                    <div class="form-field">
+                        <label for="">Donation Amount</label>
+                        <input type="text" placeholder="Enter donation amount">
+                    </div>
+                    <div class="btn-outer">
+                        <input class="btn btn--info btn--full" type="submit" value="Donate">
+                    </div>
+                </form>
+            </section>
+            <!--contents -->
+            <aside class="main__contact-sidebar">
+                <div class="contact-sidebar__fig"><img src="{% static 'images/donate-fig.jpg' %}" alt="Pic"></div>
+            </aside>
+            <!--sidebar -->
         </div>
     </div>
-    <!--main end -->
+</div>
+<!--main end -->
 {% endblock %}

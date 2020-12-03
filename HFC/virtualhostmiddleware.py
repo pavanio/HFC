@@ -1,17 +1,15 @@
 virtual_hosts = {
     "hackforchange.co": "HFCCore.urls",
-    "www.hackforchange.co":"HFCCore.urls",
-    "staging.hackforchange.co":"HFCCore.urls" ,
+    "www.hackforchange.co": "HFCCore.urls",
+    "staging.hackforchange.co": "HFCCore.urls",
     "forchange.in": "TFC.urls",
-    "staging.forchange.in":"TFC.urls",
-    "*.staging.forchange.in":"TFC.urls",
-    "dev.hackforchange.co:8000":"HFCCore.urls",
-    #local setup
-    "www.staging.forchange.in:8000":"TFC.urls",
-    "www.staging.hackforchange.co:8000":"HFCCore.urls",
-    
-    
+    "staging.forchange.in": "TFC.urls",
+    "*.staging.forchange.in": "TFC.urls",
+    # local setup
+    "dev.toolsforchange.co:8000": "TFC.urls",
+    "dev.hackforchange.co:8000": "HFCCore.urls",
 }
+
 
 class VirtualHostMiddleware:
     def __init__(self, get_response):
@@ -23,7 +21,7 @@ class VirtualHostMiddleware:
         #print('hostname=', host)
         request.urlconf = virtual_hosts.get(host)
         #print('urlgoes to=', request.urlconf)
-    
+
         response = self.get_response(request)
-        #print(response)
+        # print(response)
         return response

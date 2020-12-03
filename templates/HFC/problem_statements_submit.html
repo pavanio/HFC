@@ -1,11 +1,10 @@
 {% extends 'HFC/layout.html'%}
 {% load static %}
 {% block meta_tags %}
-
 <meta content="" name="keywords">
 <meta property="og:title" content="">
 <meta name="description" property="og:description" content="">
-<meta property="og:type" content="article" >    
+<meta property="og:type" content="article">
 <meta property="og:image" content="https://www.hackforchange.co/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
@@ -13,83 +12,81 @@
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
-        <div class="content-width sm-content-width">
-            <div class="banner__main">
-                <h1>Suggest a Problem Statement</h1>
-                <p class="large">Suggest any problem statements in the areas of governance, civic engagement, social enterprise and disaster management</p>
-            </div>
+    <div class="content-width sm-content-width">
+        <div class="banner__main">
+            <h1>Suggest a Problem Statement</h1>
+            <p class="large">Suggest any problem statements in the areas of governance, civic engagement, social
+                enterprise and disaster management</p>
         </div>
+    </div>
 </div>
-    <!--Banner end -->
+</div>
+<!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main__large-pd">
-        <div class="content-width">
-            <div class="main">
-                <section id="contents">
-                    <form class="site-form" action="" method="post">
-                            {%csrf_token%}
-                            <div class="form-field">
-                                <label for="">Title</label>
-                                {{form.title}}
-                            </div>
-                            <div class="form-field">
-                                <label for="">Summary</label>
-                                {{form.summary}}
-                            </div>
-                            <div class="form-field">
-                                <label for="">Background Information</label>
-                                {{form.background_info}}
-                            </div>
-                            <div class="form-field">
-                            <label for="">Proposed Solution</label>
-                                {{form.proposed_solution}}
-                            </div>
+    <div class="content-width">
+        <div class="main">
+            <section id="contents">
+                <form class="site-form" action="" method="post">
+                    {%csrf_token%}
+                    <div class="form-field">
+                        <label for="">Title</label>
+                        {{form.title}}
+                    </div>
+                    <div class="form-field">
+                        <label for="">Summary</label>
+                        {{form.summary}}
+                    </div>
+                    <div class="form-field">
+                        <label for="">Background Information</label>
+                        {{form.background_info}}
+                    </div>
+                    <div class="form-field">
+                        <label for="">Proposed Solution</label>
+                        {{form.proposed_solution}}
+                    </div>
 
-                            <div class="form-field">
-                                <label for="">Related Links</label>
-                                {{form.related_link}}
-                            </div>
-                            <div class="form-field">
-                                <label for="">Issue Area</label>
-                                {{form.issue_area}}
-                            </div>
-                            
-                        
-                            
-                            
-                            
-                        <div class="btn-outer">
-                            <input class="btn btn--info btn--full"  type ="submit" value="Submit">
-                        </div>
-                    </form>
-                </section>
-                <aside id="sidebar">
-                        <div class="sidebar__list">
-                            <p>Explore problem statements across various issue areas</p>
-                            <ul>
-                                    {% for problem in all_problems %}
-                                <li><a href="{% url 'problem_statements_with_issuearea' problem.issue_area_slug %}">{{problem.issue_area}}</a></li>
-                                    {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="newsletter">
-                            <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
-                            <form action="#" class="newsletter__form">
-                                <p class="large bold">Get Latest Updates!</p>
-                                <input type="email" placeholder="Enter your email">
-                                <input class="btn btn--info" type="submit" value="Subscribe">
-                            </form>
-                        </div>
-                    </aside><!--sidebar -->
+                    <div class="form-field">
+                        <label for="">Related Links</label>
+                        {{form.related_link}}
+                    </div>
+                    <div class="form-field">
+                        <label for="">Issue Area</label>
+                        {{form.issue_area}}
+                    </div>
+                    <div class="btn-outer">
+                        <input class="btn btn--info btn--full" type="submit" value="Submit">
+                    </div>
+                </form>
+            </section>
+            <aside id="sidebar">
+                <div class="sidebar__list">
+                    <p>Explore problem statements across various issue areas</p>
+                    <ul>
+                        {% for problem in all_problems %}
+                        <li><a
+                                href="{% url 'problem_statements_with_issuearea' problem.issue_area_slug %}">{{problem.issue_area}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-            </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form action="#" class="newsletter__form">
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </aside>
+            <!--sidebar -->
         </div>
-        <!--main end -->
-        
-
-                
+    </div>
+</div>
+<!--main end -->
 {%endblock%}
 {%block js%}
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-{%endblock%}           
-    
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script
+    type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+{%endblock%}
