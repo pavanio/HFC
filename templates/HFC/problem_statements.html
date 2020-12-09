@@ -28,16 +28,14 @@
     <div class="content-width">
         <div class="main">
             <section id="contents">
-                {% for prob_list in problems_list  %}
+                {% for prob_list in problems_list %}
                 <article class="post-blog">
                     <h4><a href="{% url 'problem_discription' prob_list.title_slug %}">{{prob_list.title}}</a></h4>
-                    <div class="badge-sec"><strong>Submitted By : </strong><span
-                            class="badge badge--yellow">{% if prob_list.partner_id %}{{prob_list.partner_id}}{%endif%}</span>
-                        <strong>Issue Area : </strong><span class="badge badge--pink"></span>{{prob_list.issue_area}}
+                    <div class="badge-sec"><strong>Submitted By : </strong><span class="badge badge--yellow">{% if prob_list.partner_id %}{{prob_list.partner_id}}{%endif%}</span>
+                        <strong>Issue Area : </strong><span  class="badge badge--pink" ></span><span style="text-transform: capitalize;"> {{prob_list.issue_area}}</span>
                     </div>
                     <p>{{prob_list.summary}}</p>
-                    <div class="badge-sec badge-sec__alt"><strong>Status : </strong><span
-                            class="badge">{{prob_list.status}}</span></div>
+                    <div class="badge-sec badge-sec__alt"><strong>Status : </strong><span class="badge">{{prob_list.status}}</span></div>
                     <a class="btn btn--border" href="{% url 'problem_discription' prob_list.title_slug %}">View
                         Details</a>
                 </article>
@@ -50,28 +48,26 @@
                     <ul>
                         {% for prob_list in problems_list %}
 
-                        <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}"
-                                style="text-transform: capitalize;">{{prob_list.issue_area}}</a></li>
-                            {% endfor %}
+                        <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}" style="text-transform: capitalize;">{{prob_list.issue_area}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
-               <div class="newsletter">
-                        <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
-                        <form
-                            action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
-                            method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
-                            novalidate>
-                            <p class="large bold">Get Latest Updates!</p>
-                            <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
-                            <input class="btn btn--info" type="submit" value="Subscribe">
-                            <div id="mce-responses" class="clear">
-                                <div class="response" id="mce-error-response" style="display:none"></div>
-                                <div class="response" id="mce-success-response" style="display:none"></div>
-                            </div>
-                        </form>
-                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
+                        method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                        novalidate>
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                    </form>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d108098b91660a39ebfc4dd46_878602ff9c"
+                            tabindex="-1" value=""></div>
                 </div>
         </div>
     </div>

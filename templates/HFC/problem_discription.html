@@ -19,7 +19,7 @@
         	<section id="contents">
                 <div class="blog-single">
                     <h3>{{problem.title}}</h3>
-                    <div class="single__author-sec">
+                    <div class="single__author-sec" style="margin-bottom: 30px;">
                         <div class="author__left">
                             {% if partner.name %}
                             <img width="87" src={{partner.logo.url}}  alt="Partner logo">
@@ -58,7 +58,7 @@
                     <p>Explore problem statements across various issue areas</p>
                     <ul>
                             {% for prob_list in all_problems %}
-                        <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}">{{prob_list.issue_area}}</a></li>
+                        <li><a href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}" style="text-transform: capitalize;">{{prob_list.issue_area}}</a></li>
                             {% endfor %}
                     </ul>
                 </div>

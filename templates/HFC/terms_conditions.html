@@ -117,7 +117,7 @@
                     <ul>
                         {% for problem in problem_statements %}
                         <li><a
-                                href="{% url 'problem_statements_with_issuearea' problem.issue_area_slug %}">{{problem.issue_area}}</a>
+                                href="{% url 'problem_statements_with_issuearea' problem.issue_area_slug %}" style="text-transform: capitalize;">{{problem.issue_area}}</a>
                         </li>
                         {% endfor %}
                     </ul>
