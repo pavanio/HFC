@@ -5,9 +5,9 @@ virtual_hosts = {
     "staging.hackforchange.co.in": "HFCCore.urls",
 
     # Production
-    "*.forchange.in:8000": "TFC.urls",
-    "www.toolsforchange.co.in:8000": "TFC.urls",
-    "www.hackforchange.co.in:8000": "HFCCore.urls",
+    "*.forchange.in": "TFC.urls",
+    "www.toolsforchange.co.in": "TFC.urls",
+    "www.hackforchange.co.in": "HFCCore.urls",
 
     # Local Dev
     "*.dev.forchange.in:8000": "TFC.urls",
