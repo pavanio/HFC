@@ -1,13 +1,18 @@
 virtual_hosts = {
-    "hackforchange.co": "HFCCore.urls",
-    "www.hackforchange.co": "HFCCore.urls",
-    "staging.hackforchange.co": "HFCCore.urls",
-    "forchange.in": "TFC.urls",
-    "staging.forchange.in": "TFC.urls",
+    # Staging env
     "*.staging.forchange.in": "TFC.urls",
-    # local setup
-    "dev.toolsforchange.co:8000": "TFC.urls",
-    "dev.hackforchange.co:8000": "HFCCore.urls",
+    "staging.toolsforchange.co.in": "TFC.urls",
+    "staging.hackforchange.co.in": "HFCCore.urls",
+
+    # Production
+    "*.forchange.in:8000": "TFC.urls",
+    "www.toolsforchange.co.in:8000": "TFC.urls",
+    "www.hackforchange.co.in:8000": "HFCCore.urls",
+
+    # Local Dev
+    "*.dev.forchange.in:8000": "TFC.urls",
+    "dev.toolsforchange.co.in:8000": "TFC.urls",
+    "dev.hackforchange.co.in:8000": "HFCCore.urls",
 }
 
 
