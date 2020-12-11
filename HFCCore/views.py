@@ -222,7 +222,7 @@ class ContactView(View):
         sender_email=data['email']
         subject="New contact us  message"
         #From_mail=settings.EMAIL_HOST_USER
-        to_list=['contact@hackforchange.co',] 
+        to_list=['sambit@ctsc-india.org',] 
         message = "{0} has sent you a new message:\n\n{1} and his email is {2}".format(sender_name, data['message'],sender_email)
         #content =data[message]
         #send_mail(subject,content,From_mail,to_list,fail_silently=False)
