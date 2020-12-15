@@ -23,7 +23,8 @@ def screeninglink_mail(email):
     screeninguuid=screening.screening_uuid
     print(screeninguuid)
     email=candidate.email
-    from_email=settings.EMAIL_HOST_USER
+    #from_email=settings.EMAIL_HOST_USER
+    from_email='noreply@hackforchange.co.in'
     to=[email]
     subject="Screening Link"
     msg = MIMEMultipart('alternative')
@@ -31,6 +32,7 @@ def screeninglink_mail(email):
     msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
     msg.attach_alternative(html_content, "text/html")
     msg.send(fail_silently=True)
+    print("Mail sended successfully")
 def thanks(request):
     return render(request,'HFC/thanks.html')
 class Home(View):
@@ -222,7 +224,7 @@ class ContactView(View):
         sender_email=data['email']
         subject="New contact us  message"
         #From_mail=settings.EMAIL_HOST_USER
-        to_list=['sambit@ctsc-india.org',] 
+        to_list=['sambit@ctsc-india.org','contact@hackforchange.co.in'] 
         message = "{0} has sent you a new message:\n\n{1} and his email is {2}".format(sender_name, data['message'],sender_email)
         #content =data[message]
         #send_mail(subject,content,From_mail,to_list,fail_silently=False)
