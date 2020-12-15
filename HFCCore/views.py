@@ -226,7 +226,8 @@ class ContactView(View):
         message = "{0} has sent you a new message:\n\n{1} and his email is {2}".format(sender_name, data['message'],sender_email)
         #content =data[message]
         #send_mail(subject,content,From_mail,to_list,fail_silently=False)
-        send_mail('New Enquiry', message, sender_email,to_list)
+        #send_mail('New Enquiry', message, sender_email,to_list)
+        send_mail('New Enquiry', message,sender_email,to_list)
         return render(request, 'HFC/thanks.html',{'text':text})
 class DonateView(View):
     def get(self,request):
