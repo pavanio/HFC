@@ -34,7 +34,7 @@
                 {% for question in questions %}
                 {%for i in question.question.all%}
                 <div class="form-field">
-                    <label for="">{{i.question}}</label>
+                    <label for="" >{{forloop.parentloop.counter}}. {{i.question}}</label>
                 </div>
                 <input type="radio" id={{i.question_id}} name={{question.id}} value="option_1">
                 <label for="option_1">{{i.option_1}}</label><br>
@@ -46,11 +46,8 @@
                 <label for="option_4">{{i.option_4}}</label><br><br>
                 {%endfor%}
                 {%endfor%}
-
-
-
-          <!----<button formaction="screening_preview/{{screening_uuid}}">Preview&Save</button>-->
-          <input type="submit" class="btn btn-success" value="Save & Preview">
+             <!----<button formaction="screening_preview/{{screening_uuid}}">Preview&Save</button>-->
+          <input type="submit" class="btn btn-succes btn-block" value="Save & Preview">
         </form>
         </section>
         <!--contents -->

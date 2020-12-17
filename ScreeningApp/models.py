@@ -155,7 +155,7 @@ class Screenings(models.Model):
         #questions=Question.objects.filter(expertise__in=Expertises)
         questions_list=Question.objects.filter(category_of_expertise=category_of_expertise).filter(level=
         level).filter(expertise__in=Expertises).values_list('question_id', flat=True)
-        random_question_id_list = random.sample(list(questions_list), min(len(questions_list), 5))
+        random_question_id_list = random.sample(list(questions_list), min(len(questions_list), 10))
         questions = Question.objects.filter(question_id__in=random_question_id_list)
       
         

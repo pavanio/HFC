@@ -10,23 +10,23 @@ from email.mime.text import MIMEText
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
-import uuid 
+import uuid
+from HFCCore.models import Community_Member
 # Create your views here.
 def screening_result(email,name,screening_status):
-    from_email=settings.EMAIL_HOST_USER
-    to=[email]
-    subject="Screening Result"
-    msg = MIMEMultipart('alternative')
-    html_content = render_to_string('HFC/screen_result_email.html', {'name':name,'screening_status':screening_status})
-    msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
-    msg.attach_alternative(html_content, "text/html")
-    msg.send(fail_silently=False)
-    print("email sent")  
+    #from_email=settings.EMAIL_HOST_USER
+	from_email='noreply@hackforchange.co.in'
+	to=[email]
+	subject="Screening Result"
+	msg = MIMEMultipart('alternative')
+	html_content = render_to_string('HFC/screen_result_email.html', {'name':name,'screening_status':screening_status})
+	msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
+	msg.attach_alternative(html_content, "text/html")
+	msg.send(fail_silently=False)
+	print("email sent")  
 	
-
-
-
 def screening(request, screening_uuid):
+	mentors = Community_Member.objects.filter(type  ='Mentor')[:6]
 	screening_uuid = screening_uuid
 	screen = Screenings.objects.get(screening_uuid=screening_uuid)
 	if screen.status=="Passed" or screen.status=="Failed":
@@ -101,10 +101,11 @@ def screening(request, screening_uuid):
 
 		return redirect('screening_preview', screening_uuid)
 
-	return render(request, 'ScreeningApp/screening.html', {'questions': questions, 'screening_uuid': screening_uuid})
+	return render(request, 'ScreeningApp/screening.html', {'questions': questions, 'screening_uuid': screening_uuid,'mentors':mentors})
 
 
 def screening_preview(request, screening_uuid):
+	mentors = Community_Member.objects.filter(type  ='Mentor')[:6]
 	screening_uuid = screening_uuid
 	screen = Screenings.objects.get(screening_uuid=screening_uuid)
 	screening_id = screen.screening_id
@@ -138,4 +139,4 @@ def screening_preview(request, screening_uuid):
 		return render(request, 'ScreeningApp/thanks.html')
 		
 
-	return render(request, 'ScreeningApp/screening_submission.html', {'questions': questions})
+	return render(request, 'ScreeningApp/screening_submission.html', {'questions': questions,'mentors':mentors})

@@ -95,8 +95,8 @@ class MentorSignup(View):
             email=mentor.email
             print(email)
             try:
-                #screeninglink_mail(email)
-                print("Screening email not send for now")
+                screeninglink_mail(email)
+                #print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Mentor')
             #messages.success(request,"Volunteer Registration Form Submitted Successfully")
@@ -152,8 +152,8 @@ class ChapterContributorSignup(View):
             email=contributor.email
             print(email)
             try:
-                #screeninglink_mail(email)
-                print("Screening email not send for now")
+                screeninglink_mail(email)
+                #print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})
