@@ -44,14 +44,16 @@ class ProblemStatementsView(generic.ListView):
     def get(self, request):
         problems_list = Problem_Statement.objects.all()
         print(problems_list)
-        return render(request, 'HFC/problem_statements.html', {'problems_list': problems_list})
+        issue_areas = Issue_Area.objects.all()
+        return render(request, 'HFC/problem_statements.html', {'problems_list': problems_list,'issue_areas':issue_areas})
 
 class ProblemsWithIssueareaView(generic.ListView):
     def get(self, request, issue_area_slug):
-        problems_list = Problem_Statement.objects.filter(issue_area_slug=issue_area_slug)
+        issue_area = Issue_Area.objects.get(issue_area_slug = issue_area_slug)
+        problems_list = Problem_Statement.objects.filter(issue_area=issue_area)
         print( problems_list)
-        all_problems = Problem_Statement.objects.all()
-        return render(request, 'HFC/problem_statements_with_issue_area.html', {'problems_list': problems_list, 'all_problems': all_problems})
+        issue_areas = Issue_Area.objects.all()
+        return render(request, 'HFC/problem_statements_with_issue_area.html', {'problems_list': problems_list,'issue_areas': issue_areas})
 
 class ProblemDiscriptionView(View):
     def get(self, request, title_slug):
@@ -66,8 +68,8 @@ class ProblemDiscriptionView(View):
             focus_areas = partner.focus_area.split(',')
         except:
             focus_areas =' '
-        all_problems = Problem_Statement.objects.all()
-        return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas,'all_problems': all_problems,'partner':partner})
+        issue_areas = Issue_Area.objects.all()
+        return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas,'issue_areas': issue_areas,'partner':partner})
 
 def load_area_of_expertise(request):
     expertise_area_id = request.GET.get('profession')
@@ -161,8 +163,8 @@ class ChapterContributorSignup(View):
 class ProjectsView(generic.ListView):
     def get(self, request):
         projects_list = Project.objects.all()
-        problem_statements=Problem_Statement.objects.all()
-        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list, 'problem_statements':problem_statements})
+        issue_areas = Issue_Area.objects.all()
+        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list,'issue_areas': issue_areas})
 
 class CommunityView(View):
     def get(self, request):
@@ -188,8 +190,8 @@ class CommunityView(View):
 class ProblemStatementsSubmitView(View):
     def get(self,request):
         form=Problem_Statement_form()
-        all_problems = Problem_Statement.objects.all()
-        return render(request,'HFC/problem_statements_submit.html',{'form':form,'all_problems': all_problems})
+        issue_areas = Issue_Area.objects.all()
+        return render(request,'HFC/problem_statements_submit.html',{'form':form,'issue_areas': issue_areas})
     def post(self,request):
         form=Problem_Statement_form(request.POST)
         print(request.POST)
@@ -205,12 +207,12 @@ class AboutView(View):
         return render(request,'HFC/about.html')
 class PrivacyPolicyView(View):
     def get(self,request):
-        problem_statements=Problem_Statement.objects.all()
-        return render(request,'HFC/privacy_policy.html',{'problem_statements':problem_statements})
+        issue_areas = Issue_Area.objects.all()
+        return render(request,'HFC/privacy_policy.html',{'issue_areas': issue_areas})
 class TermsAndConditionView(View):
     def get(self,request):
-        problem_statements=Problem_Statement.objects.all()
-        return render(request,'HFC/terms_conditions.html',{'problem_statements':problem_statements})
+        issue_areas = Issue_Area.objects.all()
+        return render(request,'HFC/terms_conditions.html',{'issue_areas': issue_areas})
 class ContactView(View):
     def get(self,request):
         return render(request,'HFC/contact.html')

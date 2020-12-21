@@ -84,7 +84,10 @@ class Chapter_contributor_form(forms.ModelForm):
         elif self.instance.pk:
             self.fields['area_of_expertise'].queryset = self.instance.expertise_area.expertise_set
 class Problem_Statement_form(forms.ModelForm):
-	class Meta:
-            model=Problem_Statement
-            fields = '__all__'
-            exclude=('status','partner_id')
+    issue_area = forms.ModelMultipleChoiceField(queryset=Issue_Area.objects.all(),
+    widget=forms.CheckboxSelectMultiple)
+    class Meta:
+        model=Problem_Statement
+        fields = '__all__'
+        exclude=('status','partner_id')
+    

@@ -13,6 +13,11 @@ EXPERIENCE=(
     ('15+ years','15+ years'),
     ('20+ years','20+ years'),
 )
+class Issue_Area(models.Model):
+    issue_area = models.CharField(max_length=100)
+    issue_area_slug =AutoSlugField(populate_from='issue_area')
+    def __str__(self):
+        return self.issue_area 
 
 class Partner(Organization):
     def __str__(self):
@@ -37,12 +42,14 @@ class Problem_Statement(models.Model):
     proposed_solution = models.TextField(blank=True)
     partner_id = models.ForeignKey(Partner, on_delete=models.CASCADE,blank=True,null=True)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES)
-    issue_area=models.CharField(max_length=100)
     title_slug=AutoSlugField(populate_from='title')
-    issue_area_slug=AutoSlugField(populate_from='issue_area')
+    issue_area = models.ManyToManyField('Issue_Area')
+    
 
     def __str__(self):
         return self.title
+    def issuearea(self):
+        return ",".join([issue_area.issue_area for issue_area  in self.issue_area.all()])
     class Meta:
         verbose_name = "Problem_Statement"
         verbose_name_plural = "Problem_Statements"

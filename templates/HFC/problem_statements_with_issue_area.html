@@ -35,7 +35,7 @@
                     <h4><a href="{% url 'problem_discription' prob_list.title_slug %}">{{prob_list.title}}</a></h4>
                     <div class="badge-sec"><strong>Submitted By : </strong><span
                             class="badge badge--yellow">{{prob_list.partner_id}}</span>
-                        <strong>Issue Area : </strong><span class="badge badge--pink"></span><span style="text-transform: capitalize;">{{prob_list.issue_area}}</span>
+                        <strong>Issue Area : </strong><span class="badge badge--pink"></span><span style="text-transform: capitalize;">{{prob_list.issuearea}}</span>
                     </div>
                     <p>{{prob_list.summary}}</p>
                     <div class="badge-sec badge-sec__alt"><strong>Status : </strong><span
@@ -50,10 +50,8 @@
                 <div class="sidebar__list">
                     <p>Explore problem statement across various issue areas</p>
                     <ul>
-                        {% for prob_list in all_problems %}
-                        <li><a
-                                href="{% url 'problem_statements_with_issuearea' prob_list.issue_area_slug %}" style="text-transform: capitalize;">{{prob_list.issue_area}}</a>
-                        </li>
+                        {% for issue_area in issue_areas %}
+                    <li><a href="{% url 'problem_statements_with_issuearea' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
                         {% endfor %}
                     </ul>
 

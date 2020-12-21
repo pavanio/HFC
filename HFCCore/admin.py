@@ -3,6 +3,10 @@ from .models import *
 from TFC.admin import Team_MemberInline
 from .models import Community_Organization, Project, Problem_Statement, Community_Member
 
+class Issue_Area_Admin(admin.ModelAdmin):
+	list_display = ('issue_area','issue_area_slug')
+	class meta:
+		model=Issue_Area
 class Problem_StatementInline(admin.TabularInline):
 	model = Problem_Statement
 	extra=0
@@ -13,7 +17,7 @@ class PartnerAdmin(admin.ModelAdmin):
 		model=Partner
 
 class Problem_StatementAdmin(admin.ModelAdmin):
-	list_display = ('title', 'summary', 'background_info', 'related_link','partner_id', 'status','issue_area','title_slug')
+	list_display = ('title', 'summary', 'background_info', 'related_link','partner_id', 'status','issuearea','title_slug')
 	"""def has_module_permission(self, request):
 		return False"""
 	class Meta:
@@ -47,4 +51,5 @@ admin.site.register(Problem_Statement, Problem_StatementAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Community_Organization, Community_OrganizationAdmin)
 admin.site.register(Community_Member, Community_MemberAdmin)
+admin.site.register(Issue_Area,Issue_Area_Admin)
 
