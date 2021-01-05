@@ -17,6 +17,7 @@ from django.apps import apps
 Entry = apps.get_model('andablog', 'Entry')
 # Create your views here.
 def screeninglink_mail(email):
+    debug_flag = settings.DEBUG
     candidate=Candidate.objects.get(email=email)
     name=candidate.name
     screening=Screenings.objects.create(candidate_id=candidate)
@@ -28,7 +29,7 @@ def screeninglink_mail(email):
     to=[email]
     subject="Screening Link"
     msg = MIMEMultipart('alternative')
-    html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name})
+    html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name,'debug_flag':debug_flag})
     msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
     msg.attach_alternative(html_content, "text/html")
     msg.send(fail_silently=True)

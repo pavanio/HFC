@@ -43,13 +43,13 @@ DEBUG = True
 SECURE_SSL_REDIRECT = True"""
 
 ALLOWED_HOSTS = [
-    'staging.hackforchange.co',
-    'hackforchange.co',
-    'www.hackforchange.co',
+    'staging.hackforchange.co.in',
+    'hackforchange.co.in',
+    'www.hackforchange.co.in',
     'hackforchange-staging.herokuapp.com',
     'hackforchange-production.herokuapp.com',
     '127.0.0.1',
-    'www.staging.hackforchange.co'
+    'www.staging.hackforchange.co.in'
 ]
 
 # Application definition
