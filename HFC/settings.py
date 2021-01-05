@@ -35,12 +35,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%q9#g6m-+#uj78gxwghng(l&2#xhf04y@jmh^7#t#77dox5*xm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
-"""SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True"""
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = [
     'staging.hackforchange.co.in',
@@ -161,8 +161,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 #AWS_STORAGE_BUCKET_NAME = 'hackforchange-development-files'
-AWS_STORAGE_BUCKET_NAME = 'hackforchange-staging-files'
-#AWS_STORAGE_BUCKET_NAME = 'hackforchange-production-files'
+#AWS_STORAGE_BUCKET_NAME = 'hackforchange-staging-files'
+AWS_STORAGE_BUCKET_NAME = 'hackforchange-production-files'
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_REGION_NAME = 'ap-south-1'
 #AWS_LOCATION = 'static'
