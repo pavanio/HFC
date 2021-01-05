@@ -73,9 +73,7 @@ class ProblemDiscriptionView(View):
 
 def load_area_of_expertise(request):
     expertise_area_id = request.GET.get('profession')
-    print(expertise_area_id)
     expertises=Expertise.objects.filter(category_of_expertise=expertise_area_id)
-    print(expertises)
     return render(request,'TFC/areaofexpertise.html',{'expertises':expertises})
 
 class MentorSignup(View):
@@ -124,11 +122,8 @@ class CenterContributorSignup(View):
                 screeninglink_mail(email)
             except:
                 print('Error in sending email screening link to Contributor')
-            
             return render(request, 'HFC/thanks.html',{'text':text})
 
-
-        #return render(request, 'HFC/problem_discription.html', {'problem': problem, 'focus_areas': focus_areas, 'partner':partner})
 class ChapterContributorSignup(View):
     def get(self,request,hfc_chapter_slug):
         form=Chapter_contributor_form()
@@ -148,7 +143,6 @@ class ChapterContributorSignup(View):
             contributor=form.save(commit=False)
             contributor.type="Contributor"
             contributor.organization_id=community_org
-
             contributor.save()
             form.save_m2m()
             email=contributor.email
@@ -182,7 +176,6 @@ class CommunityView(View):
         print(centre_count)
         for chapter in hfc_chapters:
             print(chapter.community_member_set.count())
-           
         mentors_list = Community_Member.objects.filter(type='Mentor')
         contributors_list = Community_Member.objects.filter(type='Contributor')
         return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list})
