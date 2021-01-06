@@ -1,6 +1,7 @@
 from django.urls import path
 from HFCCore import views
 from django.conf.urls import include
+from django.http import HttpResponse
 
 #app_name="HFCCore"
 urlpatterns = [
@@ -22,6 +23,6 @@ urlpatterns = [
     path('contact',views.ContactView.as_view(),name = 'contact'),
     path('donate',views.DonateView.as_view(),name = 'donate'),
     path('blog/',include('andablog.urls',namespace='andablog')),
-
+    path('robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow:", content_type="text/plain"), name="robots_file"),
     path('', include('ScreeningApp.urls')),
 ]

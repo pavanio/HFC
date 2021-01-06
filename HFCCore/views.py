@@ -14,6 +14,11 @@ import uuid
 from django.core.mail import send_mail
 from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member
 from django.apps import apps
+import requests
+import operator
+headers = {
+    'Accept': 'application/vnd.github.v3+json',
+}
 Entry = apps.get_model('andablog', 'Entry')
 # Create your views here.
 def screeninglink_mail(email):
@@ -179,7 +184,15 @@ class CommunityView(View):
             print(chapter.community_member_set.count())
         mentors_list = Community_Member.objects.filter(type='Mentor')
         contributors_list = Community_Member.objects.filter(type='Contributor')
-        return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list})
+        try:
+            response1 = requests.get('https://api.github.com/repos/ansible/ansible/contributors', headers=headers)
+        except:
+            response1 = requests.get('https://api.github.com/repos/ansible/ansible/contributors', headers=headers)
+        jsonResponse1=response1.json()
+        dict1={}
+        for item in jsonResponse1:
+            dict1[item['login']]= item['contributions']
+        return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list,'dict1':dict1})
 
 class ProblemStatementsSubmitView(View):
     def get(self,request):

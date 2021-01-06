@@ -88,20 +88,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for contributor in contributors_list %}
+                            {% for key,value in dict1.items %}
                             <tr>
                                 <td>
                                     <div class="table-sec">
-
-
-                                        <div class="table-fig" id="profileImage">{{contributor.name.0}}</div>
+                                        <div class="table-fig" id="profileImage">{{key.0}}</div>
                                         <div class="table-info" style="padding-left: 20px;">
-                                            <p class="large"><span id="firstName">{{contributor.name}}</p></span>
-
-
-
+                                            <p class="large"><span id="firstName">{{key}}</p></span>
                                             <div class="comment-count"><img width="16"
-                                                    src="{% static 'images/badge-icon.svg' %}" alt="Icon">No. of Commits
+                                                    src="{% static 'images/badge-icon.svg' %}" alt="Icon">No. of Commits : {{value}}
                                             </div>
                                             <p>Member since 2019</p>
                                         </div>
