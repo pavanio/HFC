@@ -4,14 +4,17 @@
 
 <head>
     <title></title>
-
 </head>
 
 <body>
     <div>
         <p> Dear {{name}}, </p>
-        <p> You have been invited by Hack For Change to attend the screening test.Please click on the below link to take
+        <p> You have been invited by Hack For Change to take the screening. Please click on the below link to take
             the test.
+        </p>
+        <p>
+            Best,
+            HFC Core Team
         </p>
         {% if debug_flag %}
         http://staging.hackforchange.co.in/screenings/{{screeninguuid}} <br>
