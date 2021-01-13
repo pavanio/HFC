@@ -92,7 +92,7 @@ class MentorSignup(View):
         print(request.POST)
         text = "Thanks for signing up as a Mentor"
         if form.is_valid():
-            #form.save()
+            print(form.is_valid())
             area_of_expertise=request.POST.getlist('area_of_expertise')
             mentor=form.save(commit=False)
             mentor.type="Mentor"
@@ -142,7 +142,7 @@ class ChapterContributorSignup(View):
         community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(request.POST)
         print(form.is_valid())
-        text = "Thanks for signing up as a contributor"
+        text = "Thanks for signing up as a contributor."
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
@@ -185,9 +185,9 @@ class CommunityView(View):
         mentors_list = Community_Member.objects.filter(type='Mentor')
         contributors_list = Community_Member.objects.filter(type='Contributor')
         try:
-            response1 = requests.get('https://api.github.com/repos/ansible/ansible/contributors', headers=headers)
+            response1 = requests.get('https://api.github.com/repos/CTSC/HFC/contributors', headers=headers)
         except:
-            response1 = requests.get('https://api.github.com/repos/ansible/ansible/contributors', headers=headers)
+            response1 = requests.get('https://api.github.com/repos/CTSC/OpenGov/contributors', headers=headers)
         jsonResponse1=response1.json()
         dict1={}
         for item in jsonResponse1:

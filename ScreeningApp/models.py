@@ -93,8 +93,8 @@ class Candidate(models.Model):
     name = models.CharField(max_length=500)
     email = models.EmailField()
     contact_number = models.CharField(max_length=20)
-    gender = models.CharField(choices=GENDER,max_length=50) 
-    dob = models.DateField() 
+    gender = models.CharField(choices=GENDER,max_length=50,blank=True,null=True) 
+    dob = models.DateField(blank=True,null=True) 
     highest_education = models.CharField(choices=EDUCATION,max_length=50) 
     level_of_expertise = models.CharField(
         choices=LEVEL_OF_EXPERTISE, max_length=100)
@@ -108,7 +108,7 @@ class Candidate(models.Model):
     def __str__(self):
         return self.name
     def areaofexpertise(self):
-        return " ".join([area.expertise for area in self.area_of_expertise.all()])
+        return ",".join([area.expertise for area in self.area_of_expertise.all()])
 
 
 

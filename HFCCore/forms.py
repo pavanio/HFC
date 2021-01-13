@@ -23,12 +23,12 @@ class Mentor_form(forms.ModelForm):
     	exclude=('level_of_expertise','organization_id','type')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['gender']=forms.ChoiceField(choices=GENDER)
+        #self.fields['gender']=forms.ChoiceField(choices=GENDER)
         self.fields['highest_education']=forms.ChoiceField(choices=EDUCATION)
         self.fields['years_of_experience']=forms.ChoiceField(choices=EXPERIENCE)
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
-        self.fields['dob'] = forms.DateField(widget = DateInput)
+        #self.fields['dob'] = forms.DateField(widget = DateInput)
         if 'profession'in self.data:
             try:
                 expertise_area_id = int(self.data.get('profession'))

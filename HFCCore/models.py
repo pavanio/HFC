@@ -38,7 +38,7 @@ class Problem_Statement(models.Model):
     title = models.CharField(max_length=500)
     summary = models.TextField()
     background_info = models.TextField()
-    related_link = models.URLField(blank=True)
+    related_link = models.TextField(blank=True)
     proposed_solution = models.TextField(blank=True)
     partner_id = models.ForeignKey(Partner, on_delete=models.CASCADE,blank=True,null=True)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES)
