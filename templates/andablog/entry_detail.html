@@ -20,26 +20,54 @@
 {% block andablog_content %}
 {% load static %}
 
-<!-- main starts -->
-<div class="content-width">
-    <div class="procuding">
-        <h3>{{entry.title}} </h3>
-        <div class="proceedings-text" style="margin-bottom: 20px;">
-            <div class="procuding-img bloge-img" id="profileImage"></div>
-            <div class="foucs bloge"><span id="firstName">{% if entry.author %}{{ entry.author|authordisplay}}
-            {{ entry.author.last_name }}{%endif%}</span><br>{{entry.published_timestamp|date:"DATE_FORMAT" }}
+<div id="main-wrap" class="main__md-pd">
+    <div class="content-width">
+            <div class="main">
+                <section id="contents">
+                    <div class="blog-single">
+                        <h3>{{entry.title}} </h3>
+                        <div class="proceedings-text" style="margin-bottom: 10px;">
+                                <div class="procuding-img bloge-img" id="profileImage"></div>
+                                 <div class="foucs bloge"><span id="firstName">{% if entry.author %}{{ entry.author|authordisplay }} {{ entry.author.last_name }}{% endif %}</span><br>
+                                 {{entry.published_timestamp|date:"DATE_FORMAT" }}
+                                 </div>
+                        </div>
+                        {% if entry.preview_image %}
+                        <div class="blog-main-img">
+                            <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }} " alt="Preview image for {{ entry.title }}"></a> 
+                        </div>
+                        {% endif %}
+                        <div class="blog-single__content">
+                            <p style="text-align:justify;">{{ entry.content }}</p>  
+                        </div>
+                    </div>
+                </section>
+                <aside id="sidebar">
+                    <div class="sidebar__list">
+                        
+                    </div>
+                    <div class="newsletter">
+                        <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                        <form
+                                action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
+                                method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                                novalidate>
+                                <p class="large bold">Get Latest Updates!</p>
+                                <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
+                                <input class="btn btn--info" type="submit" value="Subscribe">
+                                <div id="mce-responses" class="clear">
+                                    <div class="response" id="mce-error-response" style="display:none"></div>
+                                    <div class="response" id="mce-success-response" style="display:none;font-size: 8px;"></div>
+                                </div>
+                            </form>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
+                    </div>
+                </aside><!--sidebar -->
             </div>
         </div>
-        {% if entry.preview_image %}
-        <div class="blog-main-img">
-            <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }} " alt="Preview image for {{ entry.title }}"></a>
-        </div>
-        {% endif %}
     </div>
-    <div class="blog-info">
-        {{ entry.content }}
-    </div>
-</div>
 
 {% include "andablog/comments_snippet.html" with comment_object=entry %}
 {%endblock%}
