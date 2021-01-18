@@ -13,78 +13,78 @@
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
-  <div class="content-width sm-content-width">
-      <div class="banner__main">
-          <h1>Signup as a Mentor</h1>
-          <p class="large"> Inviting technology leaders with hands-on sofware engineering expertise to adopt a project
-              and guide our community of coders
-          </p>
-      </div>
-  </div>
+    <div class="content-width sm-content-width">
+        <div class="banner__main">
+            <h1>Lets get to know you better</h1>
+            <p class="large">
+                Please take a minute to answer the following questions, so that we can understand your level of
+                expertise.
+        </div>
+    </div>
 </div>
 <!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main__large-pd">
-  <div class="content-width">
-      <div class="main">
-          <section id="contents">
-            <h2> Answer all the questions</h2><br>
-            <form class="site-form" method="post">
-                {%csrf_token%}
-                {% for question in questions %}
-                {%for i in question.question.all%}
-                <div class="form-field">
-                    <label for="" >{{forloop.parentloop.counter}}. {{i.question}}</label>
-                </div>
-                <input type="radio" id={{i.question_id}} name={{question.id}} value="option_1">
-                <label for="option_1">{{i.option_1}}</label><br>
-                <input type="radio" id={{i.question_id}} name={{question.id}} value="option_2">
-                <label for="option_2">{{i.option_2}}</label><br>
-                <input type="radio" id={{i.question_id}} name={{question.id}} value="option_3">
-                <label for="option_1">{{i.option_3}}</label><br>
-                <input type="radio" id={{i.question_id}} name={{question.id}} value="option_4">
-                <label for="option_4">{{i.option_4}}</label><br><br>
-                {%endfor%}
-                {%endfor%}
-             <!----<button formaction="screening_preview/{{screening_uuid}}">Preview&Save</button>-->
-          <input type="submit" class="btn btn-succes btn-block" value="Save & Preview">
-        </form>
-        </section>
-        <!--contents -->
-        <aside id="sidebar">
-            <div class="sidebar__member-sec">
-                <p class="sbold">Our Top Mentors</p>
-                <ul class="sidebar__member">
-                    {% for mentor in mentors%}
-                    {% if mentor.image %}
-                    <li><img src={{mentor.image.url}} alt="Pic"></li>
-                    {% endif %}
-                    {%endfor%}
-                </ul>
-            </div>
-            <div class="newsletter">
-                <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
-                <form
-                    action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
-                    method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
-                    novalidate>
-                    <p class="large bold">Get Latest Updates!</p>
-                    <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
-                    <input class="btn btn--info" type="submit" value="Subscribe">
-                    <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
+    <div class="content-width">
+        <div class="main">
+            <section id="contents">
+                <h2> Answer all the questions</h2><br>
+                <form class="site-form" method="post">
+                    {%csrf_token%}
+                    {% for question in questions %}
+                    {%for i in question.question.all%}
+                    <div class="form-field">
+                        <label for="">{{forloop.parentloop.counter}}. {{i.question}}</label>
                     </div>
-            </div>
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                    name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
+                    <input type="radio" id={{i.question_id}} name={{question.id}} value="option_1">
+                    <label for="option_1">{{i.option_1}}</label><br>
+                    <input type="radio" id={{i.question_id}} name={{question.id}} value="option_2">
+                    <label for="option_2">{{i.option_2}}</label><br>
+                    <input type="radio" id={{i.question_id}} name={{question.id}} value="option_3">
+                    <label for="option_1">{{i.option_3}}</label><br>
+                    <input type="radio" id={{i.question_id}} name={{question.id}} value="option_4">
+                    <label for="option_4">{{i.option_4}}</label><br><br>
+                    {%endfor%}
+                    {%endfor%}
+                    <!----<button formaction="screening_preview/{{screening_uuid}}">Preview&Save</button>-->
+                    <input type="submit" class="btn btn-succes btn-block" value="Save & Preview">
+                </form>
+            </section>
+            <!--contents -->
+            <aside id="sidebar">
+                <div class="sidebar__member-sec">
+                    <p class="sbold">Our Top Mentors</p>
+                    <ul class="sidebar__member">
+                        {% for mentor in mentors%}
+                        {% if mentor.image %}
+                        <li><img src={{mentor.image.url}} alt="Pic"></li>
+                        {% endif %}
+                        {%endfor%}
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form
+                        action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
+                        method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                        novalidate>
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
+        </div>
+        </form>
     </div>
-    </form>
+    </aside>
+    <!--sidebar -->
 </div>
-</aside>
-<!--sidebar -->
-    </div>
-  </div>
+</div>
 </div>
 {%endblock%}
