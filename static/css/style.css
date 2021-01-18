@@ -155,7 +155,7 @@ ______________________*/
 	margin: 0 auto;
 }
 .content-width.md-content-width{
-	max-width: 872px;
+	max-width:872px;
 }
 .content-width.sm-content-width{
 	max-width: 510px;
@@ -1546,7 +1546,7 @@ ______________________*/
 	text-align: center;
 }
 .thanku-heading{
-	max-width: 379px;
+	max-width: 400px;
 	margin: 0 auto;
 }
 .thanku-main h3{
@@ -1567,7 +1567,7 @@ ______________________*/
 .subscription-wrap{
 	margin-bottom: -43px;
 	position: relative;
-	z-index: 1;
+	z-index: 1;	
 }
 .subscription-section{
 	background: #ffbe55;

@@ -14,3 +14,4 @@ django-autoslug==1.9.6
 django-andablog
 Markdown
 sentry-sdk
+requests
