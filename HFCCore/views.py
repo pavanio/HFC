@@ -85,7 +85,7 @@ def load_area_of_expertise(request):
 class MentorSignup(View):
     def get(self,request):
         form=Mentor_form()
-        mentors = Community_Member.objects.filter(type  ='Mentor')[:3]
+        mentors = Community_Member.objects.filter(type  ='Mentor')[:6]
         return render(request,'HFC/mentor_signup.html',{'form':form,'mentors':mentors})
     def post(self,request):
         form=Mentor_form(request.POST)
