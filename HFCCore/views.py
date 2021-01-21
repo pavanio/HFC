@@ -183,16 +183,9 @@ class CommunityView(View):
         for chapter in hfc_chapters:
             print(chapter.community_member_set.count())
         mentors_list = Community_Member.objects.filter(type='Mentor')
-        contributors_list = Community_Member.objects.filter(type='Contributor')
-        try:
-            response1 = requests.get('https://api.github.com/repos/CTSC/HFC/contributors', headers=headers)
-        except:
-            response1 = requests.get('https://api.github.com/repos/CTSC/OpenGov/contributors', headers=headers)
-        jsonResponse1=response1.json()
-        dict1={}
-        for item in jsonResponse1:
-            dict1[item['login']]= item['contributions']
-        return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list,'dict1':dict1})
+        contributors_list = Community_Member.objects.filter(type='Contributor').order_by('-commit')
+        
+        return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list,})
 
 class ProblemStatementsSubmitView(View):
     def get(self,request):

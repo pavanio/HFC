@@ -57,11 +57,11 @@ class Problem_Statement(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=500)
     project_link = models.URLField()
-    project_icon = models.ImageField()
+    project_icon = models.ImageField(blank=True,null=True)
     project_desc = models.TextField()
     website_link = models.URLField()
-    goal = models.TextField()
-    funded_by = models.CharField(max_length=300)
+    goal = models.TextField(blank=True,null=True)
+    funded_by = models.CharField(max_length=300,blank=True,null=True)
 
     def __str__(self):
         return self.name
@@ -99,10 +99,13 @@ MEMBER_TYPE_CHOICE = [
 class Community_Member(Candidate):
     type = models.CharField(max_length=50, choices=MEMBER_TYPE_CHOICE, default="Contributor")
     years_of_experience=models.CharField(choices=EXPERIENCE,max_length=200)
-    coder_profile = models.URLField()
-    linkedin_profile = models.URLField()
+    coder_profile = models.URLField(blank=True,null=True)
+    linkedin_profile = models.URLField(blank=True,null=True)
     organization_id=models.ForeignKey(Community_Organization, on_delete=models.CASCADE,blank=True,null=True)
     image = models.ImageField(blank=True,null=True)
+    commit = models.IntegerField(blank=True,null=True)
+    avatar_url= models.URLField(blank=True,null=True)
+    project = models.ForeignKey(Project,on_delete=models.CASCADE,blank=True,null=True)
     def __str__(self):
         return self.name
     class Meta:

@@ -87,27 +87,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for key,value in dict1.items %}
+                            {% for contributor in contributors_list %}
+                                {% if contributor.commit%}
                             <tr>
                                 <td>
                                     <div class="table-sec">
-                                        <div class="table-fig" id="profileImage">{{key.0}}</div>
+                                        <div class="table-fig" id="profileImage">{{contributor.community_member.name.0}}</div>
                                         <div class="table-info" style="padding-left: 20px;">
-                                            <p class="large"><span id="firstName">{{key}}</p></span>
+                                            <p class="large"><span id="firstName">{{contributor.community_member.name}}</p></span>
                                             <div class="comment-count"><img width="16"
                                                     src="{% static 'images/badge-icon.svg' %}" alt="Icon">No. of Commits
-                                                : {{value}}
+                                                : {{contributor.commit}}
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="large sbold">{{contributor.organization_id}}</p>
+                                    <p class="large sbold">{% if contributor.organization_id %} {{contributor.organization_id}}  {%endif%}</p>
                                 </td>
                                 <td>
-                                    <p class="large sbold">India By Numbers, OpenGov</p>
+                                    <p class="large sbold">{{contributor.project}}</p>
                                 </td>
                             </tr>
+                            {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>
