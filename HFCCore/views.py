@@ -108,24 +108,30 @@ class MentorSignup(View):
             #messages.success(request,"Volunteer Registration Form Submitted Successfully")
             return render(request, 'HFC/thanks.html',{'text':text})
 class CenterContributorSignup(View):
-    def get(self,request):
+    def get(self,request,hfc_center_slug):
         form=Center_contributor_form()
-        return render(request,'HFC/center_contributor_signup.html',{'form':form}) 
-    def post(self,request):
+        center = Community_Organization.objects.get(organization_name_slug=hfc_center_slug)
+        contributors = Community_Member.objects.filter(type  ='Contributor')
+        return render(request,'HFC/center_contributor_signup.html',{'form':form,'contributors':contributors,'center':center}) 
+    def post(self,request,hfc_center_slug):
         form=Center_contributor_form(request.POST)
+        community_org=Community_Organization.objects.get(organization_name_slug=hfc_center_slug)
         print(request.POST)
-        text = "Thanks for signing up as a contributor"
+        print(form.is_valid())
+        text = "Thanks for signing up as a contributor."
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
             contributor=form.save(commit=False)
             contributor.type="Contributor"
+            contributor.organization_id=community_org
             contributor.save()
             form.save_m2m()
             email=contributor.email
             print(email)
             try:
                 screeninglink_mail(email)
+                #print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})

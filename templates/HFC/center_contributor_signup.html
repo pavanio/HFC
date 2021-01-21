@@ -1,5 +1,13 @@
 {% extends 'HFC/layout.html' %}
 {% load static %}
+{% block meta_tags %}
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
+<meta property="og:url" content="">
+{% endblock %}
 {% block title %} Contributor Signup | Hack For Change {% endblock %}
 
 {% block main %}
@@ -9,7 +17,7 @@
         <div class="banner__main">
             <h1>Signup as a Contributor</h1>
             <p class="large">
-                Inviting students from various colleges, including their alumni to join college specific chapters
+                Inviting students from {{center.organization_name}} to join college specific centres
             </p>
         </div>
     </div>
@@ -20,6 +28,11 @@
     <div class="content-width">
         <div class="main">
             <section id="contents">
+                <div class="uni-chapter"><img width="84px" src={{center.logo.url}}
+                        srcset="images/dit_university_logo@2x.jpg 2x, images/dit_university_logo@3x.jpg 3x">
+                    <h2>{{center.organization_name}}</h2>
+                </div>
+
                 <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
                     {%csrf_token%}
                     <div class="form-control">
@@ -38,26 +51,11 @@
                             {{form.contact_number}}
                         </div>
                         <div class="form-field">
-                            <label for="">Date of Birth</label>
-
-                            {{form.dob}}
-
-
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <div class="form-field">
-                            <label for="">Gender</label>
-                            <div class="form-field__select">
-                                {{form.gender}}
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                        <div class="form-field">
                             <label for="">LinkedIn Profile</label>
                             {{form.linkedin_profile}}
                         </div>
                     </div>
+                    
                     <div class="form-control">
                         <div class="form-field">
                             <label for="">GitHub Profile</label>
@@ -74,7 +72,10 @@
                     <div class="form-control">
                         <div class="form-field">
                             <label for="">Profession</label>
-                            {{form.profession}}
+                            <div class="form-field__select">
+                                {{form.profession}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
                         </div>
                         <div class="form-field">
                             <label for="">Years of Experience</label>
@@ -85,13 +86,14 @@
                         </div>
                     </div>
                     <div class="form-control">
-
-                        <label for="" style="padding-left:20px;"><b>Area of Expertise</b></label>
-                        <div style="margin-left:-120px;padding-top:50px;width: 200px;">
+                        <div class="form-field">
+                            <label for="">Area of Expertise</label>
+                        </div>
+                    </div>
+                        <div style="position:relative;padding-top:0px;width:700px;font-family:'Nunito Sans';margin-right:20px;">
                             {{form.area_of_expertise}}
                         </div>
 
-                    </div>
 
                     <div class="btn-outer">
                         <input class="btn btn--info btn--full" type="submit" value="Register">
@@ -104,30 +106,40 @@
                 <div class="sidebar__member-sec">
                     <p class="sbold">Our Top Contributors</p>
                     <ul class="sidebar__member">
-                        <li><img src="{% static 'images/c-member-img1.jpg' %}" alt="Pic"></li>
-                        <li><img src="{% static 'images/c-member-img2.jpg' %}" alt="Pic"></li>
-                        <li><img src="{% static 'images/c-member-img3.jpg' %}" alt="Pic"></li>
-                        <li><img src="{% static 'images/c-member-img1.jpg' %}" alt="Pic"></li>
-                        <li><img src="{% static 'images/c-member-img2.jpg' %}" alt="Pic"></li>
-                        <li><img src="{% static 'images/c-member-img3.jpg' %}" alt="Pic"></li>
+                        {% for contributor in contributors%}
+                        {% if contributor.image %}
+                        <li><img src={{contributor.image.url}} alt="Pic" style="width:100%;height:90%;"></li>
+                        {% endif %}
+                        {%endfor%}
                     </ul>
                 </div>
                 <div class="newsletter">
                     <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
-                    <form action="#" class="newsletter__form">
+                    <form
+                        action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
+                        method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                        novalidate>
                         <p class="large bold">Get Latest Updates!</p>
-                        <input type="email" placeholder="Enter your email">
+                        <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
                         <input class="btn btn--info" type="submit" value="Subscribe">
-                    </form>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none;font-size: 8px;"></div>
+                        </div>
                 </div>
-            </aside>
-            <!--sidebar -->
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
         </div>
+        </form>
     </div>
+    </aside>
+    <!--sidebar -->
+</div>
+</div>
 </div>
 
 {%endblock%}
-
 {% block js %}
 <script>
     $("#id_profession").change(function () {
