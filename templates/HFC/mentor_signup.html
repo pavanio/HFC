@@ -96,12 +96,12 @@
                         </div>
                     </div>
                     <div class="form-control">
-                        <div class="form-field">
+                        <div class="form-field" style="margin-bottom: 5px;">
                             <label for="">Area of Expertise</label>
                         </div>
 
                     </div>
-                    <div style=" position:relative;padding-top:0px;width: 700px;font-family: 'Nunito Sans';">
+                    <div style=" position:relative;padding-top:0px;width: 700px;font-family: Nunito Sans;">
                         {{form.area_of_expertise}}
                     </div>
 
@@ -119,7 +119,7 @@
                     <ul class="sidebar__member">
                         {% for mentor in mentors%}
                         {% if mentor.image %}
-                        <li><img src={{mentor.image.url}} alt="Pic"></li>
+                        <li><a href="{{mentor.linkedin_profile}}" target="_blank"><img src={{mentor.image.url}} alt="{{mentor.name}}"></a></li>
                         {% endif %}
                         {%endfor%}
                     </ul>

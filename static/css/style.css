@@ -95,6 +95,18 @@ a:hover{}
 	color: #fff;
 	background: #0068ff;
 }
+.btn.btn--hfc{
+	border: 1px solid #FFBE55;
+	background: #fff;
+	color: #262626;
+	line-height: 38px;
+	box-shadow: none;
+}
+.btn.btn--hfc:hover{
+	color: #fff;
+	background: #FFBE55;
+}
+
 
 
 /* p, blockquote, address
