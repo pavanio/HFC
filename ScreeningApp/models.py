@@ -34,6 +34,12 @@ STATUS=(
     ('Passed','Passed'),
     ('Failed','Failed'),
 )
+OPTION=(
+    ('option_1','option_1'),
+    ('option_2','option_2'),
+    ('option_3','option_3'),
+    ('option_4','option_4'),
+)
 class Expertise_Area(models.Model):
     expertise_area_id = models.AutoField(primary_key=True)
     area_of_expertise = models.CharField(max_length=300)#eng
@@ -76,7 +82,7 @@ class Question(models.Model):
     option_2 = models.TextField(blank=True)
     option_3 = models.TextField(blank=True)
     option_4 = models.TextField(blank=True)
-    answer = models.TextField(blank=True)
+    answer = answer = models.CharField(choices=OPTION, max_length=100)
 
     class Meta:
         verbose_name = "Question"

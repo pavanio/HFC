@@ -96,6 +96,7 @@ a:hover{}
 	background: #0068ff;
 }
 
+
 /* p, blockquote, address
 ______________________*/
 p{}
@@ -802,6 +803,7 @@ ______________________*/
 .main__community-sec .btn{
 	margin-top: 14px;
 }
+
 .main__community-sec .fz16{
 	letter-spacing: 0.32px;
 }

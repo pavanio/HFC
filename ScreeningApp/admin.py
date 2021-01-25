@@ -1,6 +1,7 @@
 # Register your models here.
 from django.contrib import admin
 from .models import *
+from django.forms import TextInput, Textarea
 # Register your models here.
 class ExpertiseInline(admin.TabularInline):
 	model=Expertise
@@ -57,6 +58,10 @@ admin.site.register(Expertise_Area,Expertise_AreaAdmin)
 
 class QuestionAdmin(admin.ModelAdmin):
 	list_display=('category_of_expertise','expertise','level','topic','qtype','question','option_1','option_2','option_3','option_4','answer')
+	formfield_overrides = {
+        models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':60})},
+        }
+	list_filter = ('category_of_expertise', 'expertise', 'level', )
 	class meta:
 		model=Question
 admin.site.register(Question,QuestionAdmin)
