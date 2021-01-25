@@ -108,7 +108,7 @@
                                     <p class="large sbold">{% if contributor.organization_id %} {{contributor.organization_id}}  {%endif%}</p>
                                 </td>
                                 <td>
-                                    <p class="large sbold">{% if community.project %} {{contributor.project}} {%endif%}</p>
+                                    <p class="large sbold">{% if contributor.get_project %} {{contributor.get_project}} {%endif%}</p>
                                 </td>
                             </tr>
                             {% endif %}
