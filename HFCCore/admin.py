@@ -39,7 +39,7 @@ class Community_OrganizationAdmin(admin.ModelAdmin):
 		model = Community_Organization
 
 class Community_MemberAdmin(admin.ModelAdmin):
-	list_display = ('name', 'email', 'level_of_expertise', 'areaofexpertise', 'type', 'coder_profile', 'linkedin_profile','image', 'organization_id','commit','project')
+	list_display = ('name', 'email', 'level_of_expertise', 'areaofexpertise', 'type', 'coder_profile', 'linkedin_profile','image', 'organization_id','commit','get_project')
 	#def has_module_permission(self, request):
 		#return False
 	class Meta:

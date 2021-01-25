@@ -105,9 +105,11 @@ class Community_Member(Candidate):
     image = models.ImageField(blank=True,null=True)
     commit = models.IntegerField(blank=True,null=True)
     avatar_url= models.URLField(blank=True,null=True)
-    project = models.ForeignKey(Project,on_delete=models.CASCADE,blank=True,null=True)
+    project = models.ManyToManyField('Project',blank=True,null=True)
     def __str__(self):
         return self.name
+    def get_project(self):
+        return ",".join([project.name for project  in self.project.all()])
     class Meta:
         verbose_name = "Community_Member"
         verbose_name_plural = "Community_Members"
