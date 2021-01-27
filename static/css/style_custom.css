@@ -11,4 +11,13 @@
 }
 input[type="checkbox"]{
     margin: 0 5px 0 5px;
-  }
+    width: 15px; /*Desired width*/
+    height: 15px;
+    
+    
+}
+
+
+
+  
+  

@@ -93,8 +93,10 @@
                             <label for="">Area of Expertise</label>
                         </div>
                     </div>
-                        <div style="position:relative;padding-top:0px;width:700px;font-family:Nunito Sans;margin-right:20px;">
-                            {{form.area_of_expertise}}
+                        <div style="position:relative;padding-top:0px;width:700px;font-family:'Nunito Sans';"  >
+                        
+                            {{form.area_of_expertise }}
+                            
                         </div>
 
 
@@ -111,7 +113,7 @@
                     <ul class="sidebar__member">
                         {% for contributor in contributors%}
                         {% if contributor.image %}
-                        <li><img src={{contributor.image.url}} alt="Pic" style="width:100%;height:90%;"></li>
+                        <li><img src={{contributor.image.url}} alt="Pic" style="width:100%;height:100%;"></li>
                         {% endif %}
                         {%endfor%}
                     </ul>
