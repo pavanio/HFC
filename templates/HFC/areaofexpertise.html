@@ -2,12 +2,14 @@
 <html>
     
 <body>
+    
     {% for expertise in expertises %}
-    <input type="checkbox" name="area_of_expertise"  value="{{expertise.pk}}" id="id_area_of_expertise" />
-    <label for="checkbox"  >{{expertise.expertise }}</label>
-
+    <div style="display: block;">
+    <input type="checkbox" name="area_of_expertise" style="display: inline;"  value="{{expertise.pk}}" id="id_area_of_expertise" />
+    <label for="checkbox" style="display:inline;"   >{{expertise.expertise }}</label>
+    </div>
     {%endfor%}
-
+    
 </body>
 
 </html>

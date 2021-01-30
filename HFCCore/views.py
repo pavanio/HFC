@@ -80,7 +80,7 @@ class ProblemDiscriptionView(View):
 def load_area_of_expertise(request):
     expertise_area_id = request.GET.get('profession')
     expertises=Expertise.objects.filter(category_of_expertise=expertise_area_id)
-    return render(request,'TFC/areaofexpertise.html',{'expertises':expertises})
+    return render(request,'HFC/areaofexpertise.html',{'expertises':expertises})
 
 class MentorSignup(View):
     def get(self,request):
