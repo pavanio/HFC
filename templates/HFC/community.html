@@ -46,7 +46,8 @@
                         <div class="main__community-sec">
                             <p class="large sbold">{{center.organization_name}}</p>
                             <p>11 Projects, {{center.community_member_set.count}} Members</p>
-                            <a href="center/{{center.organization_name_slug}}/signup"  class="btn btn--hfc" id ="center_contrib"  >Join as a
+                            <a href="center/{{center.organization_name_slug}}/signup" class="btn btn--hfc"
+                                id="center_contrib">Join as a
                                 Contributor</a>
                         </div>
                     </div>
@@ -55,9 +56,9 @@
                 <div class="hfc-card">
                     <div class="hfc-card__fig"><img width="111" src="{% static 'images/hfc-img.jpg' %}" alt="Pic"></div>
                     <div class="hfc-card__info">
-                        <h3>Want to set up HFC Centre in your college?</h3>
-                        <p class="small">Lorem ipsum dolor sit amet, affert qualisque efficiendvim at, per cuagam
-                            eruditi. Ius an duis</p>
+                        <h3>Want to set up centre in your college?</h3>
+                        <p class="small">Reach out to us directly to open a new
+                            centre of excellence at your own college premises.</p>
                         <a href="{% url 'contact' %}" class="btn btn--info">Contact Us</a>
                     </div>
                 </div>
@@ -77,6 +78,15 @@
                     </div>
                     {% endfor %}
                 </div>
+                <div class="hfc-card">
+                    <div class="hfc-card__fig"><img width="111" src="{% static 'images/hfc-img.jpg' %}" alt="Pic"></div>
+                    <div class="hfc-card__info">
+                        <h3>Don't see a chapter in your city?</h3>
+                        <p class="small">Lets create one, and get your city involved. As always, you can always join the
+                            nearest city chapter as well.</p>
+                        <a href="{% url 'contact' %}" class="btn btn--info">Contact Us</a>
+                    </div>
+                </div>
             </section>
             <section id="hfcLeaderboard">
                 <div class="unborder-table__outer">
@@ -90,13 +100,15 @@
                         </thead>
                         <tbody>
                             {% for contributor in contributors_list %}
-                                {% if contributor.commit%}
+                            {% if contributor.commit%}
                             <tr>
                                 <td>
                                     <div class="table-sec">
-                                        <div class="table-fig" id="profileImage">{{contributor.community_member.name.0}}</div>
+                                        <div class="table-fig" id="profileImage">{{contributor.community_member.name.0}}
+                                        </div>
                                         <div class="table-info" style="padding-left: 20px;">
-                                            <p class="large"><span id="firstName">{{contributor.community_member.name}}</p></span>
+                                            <p class="large"><span id="firstName">{{contributor.community_member.name}}
+                                            </p></span>
                                             <div class="comment-count"><img width="16"
                                                     src="{% static 'images/badge-icon.svg' %}" alt="Icon">No. of Commits
                                                 : {{contributor.commit}}
@@ -105,10 +117,12 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="large sbold">{% if contributor.organization_id %} {{contributor.organization_id}}  {%endif%}</p>
+                                    <p class="large sbold">{% if contributor.organization_id %}
+                                        {{contributor.organization_id}} {%endif%}</p>
                                 </td>
                                 <td>
-                                    <p class="large sbold">{% if contributor.get_project %} {{contributor.get_project}} {%endif%}</p>
+                                    <p class="large sbold">{% if contributor.get_project %} {{contributor.get_project}}
+                                        {%endif%}</p>
                                 </td>
                             </tr>
                             {% endif %}
@@ -119,21 +133,9 @@
                 <!----  <div class="lead-more-btn">
                             <a href="#" class="btn btn--border">Load More Leaders</a>
                         </div>-->
-                <div class="hfc-card hfc-card--wide">
-                    <div class="hfc-card__fig"><img src="{% static 'images/undraw_proud_coder_7ain.png' %}"
-                            srcset="images/undraw_proud_coder_7ain@2x.png 2x, images/undraw_proud_coder_7ain@3x.png 3x"
-                            alt="Pic"></div>
-                    <div class="hfc-card__info">
-                        <h3>Want to set up a HFC Centre in your college?</h3>
-                        <p class="small">Reach out to us directly to open a new HFC
-                            Centre at your own college premises.</p>
-                        <a href="{% url 'contact' %}" class="btn btn--info">Contact Us</a>
-                    </div>
-                </div>
             </section>
         </div>
     </div>
 </div>
 <!--main end -->
 {% endblock %}
-
