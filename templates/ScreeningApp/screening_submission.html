@@ -33,7 +33,7 @@
                 {%csrf_token%}
                 {% for question in questions %}
                 {%for i in question.question.all%}
-                <div class="form-field">
+                <div class="form-field" style="margin-bottom: 5px;">
                   <label for="" >{{forloop.parentloop.counter}}. {{i.question}}</label>
               </div>
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_1" {% if question.candidate_ans == "option_1" %} checked{% endif %}  />
@@ -87,3 +87,4 @@
 </div>
 </div>
 {%endblock%}
+

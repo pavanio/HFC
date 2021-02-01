@@ -88,12 +88,13 @@ def screening(request, screening_uuid):
 			org_admin=Team_Member.objects.filter(organization=org).filter(role='Admin').values('member_email')
 			print(org_admin)
 			print(org_admin[0]['member_email'])
-			screening_result(candidate_email,candidate_name,screening_status)
+			#screening_result(candidate_email,candidate_name,screening_status)
 		except:
 			print(candidate_email)
 			print(candidate_name)
 			try:
-				screening_result(candidate_email,candidate_name,screening_status)
+				#screening_result(candidate_email,candidate_name,screening_status)
+				pass
 			except:
 				print("Error in sending Screening Result to Mentor/Contributor ")
 
@@ -136,6 +137,16 @@ def screening_preview(request, screening_uuid):
 				obj.answer_correctness=False
 				obj.save()
 				#print(ques.answer_correctness)
+		screen_obj=Screenings.objects.get(screening_id = screening_id)
+		cand_id=screen_obj.candidate_id.candidate_id
+		candidate_obj=Candidate.objects.get(candidate_id=cand_id)
+		candidate_email=candidate_obj.email
+		candidate_name=candidate_obj.name
+		screening_status=screen_obj.status
+		try:
+			screening_result(candidate_email,candidate_name,screening_status)
+		except:
+			print("Error in sending Screening Result to Mentor/Contributor ")
 		return render(request, 'ScreeningApp/thanks.html')
 		
 
