@@ -103,7 +103,7 @@ class MentorSignup(View):
             try:
                 screeninglink_mail(email)
                 message = "A new Mentor signed up"
-                to_list=['']
+                to_list=['srini@hackforchange.co.in',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
@@ -135,7 +135,7 @@ class CenterContributorSignup(View):
             try:
                 screeninglink_mail(email)
                 message = "A new contributor signed up to {0} center".format(community_org.organization_name)
-                to_list=['']
+                to_list=['srini@hackforchange.co.in',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
@@ -169,7 +169,7 @@ class ChapterContributorSignup(View):
                 screeninglink_mail(email)
                 #print("Screening email not send for now")
                 message = "A new contributor signed up to {0} chapter".format(community_org.organization_name)
-                to_list=['sambit@ctsc-india.org',]
+                to_list=['srini@hackforchange.co.in',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
             except:
                 print('Error in sending email screening link to Contributor')

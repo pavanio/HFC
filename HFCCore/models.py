@@ -83,10 +83,13 @@ class Community_Organization(models.Model):
     coordinator_email = models.EmailField()
     coordinator_mobile = models.IntegerField()
     organization_name_slug = AutoSlugField(populate_from='organization_name',blank=True,null=True)
+    project = models.ManyToManyField('Project',blank=True,null=True)
 
 
     def __str__(self):
         return self.organization_name
+    def get_project(self):
+        return ",".join([project.name for project  in self.project.all()])
 
     class Meta:
         verbose_name = "Community_Organization"
