@@ -102,6 +102,9 @@ class MentorSignup(View):
             print(email)
             try:
                 screeninglink_mail(email)
+                message = "A new Mentor signed up"
+                to_list=['']
+                send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Mentor')
@@ -131,6 +134,9 @@ class CenterContributorSignup(View):
             print(email)
             try:
                 screeninglink_mail(email)
+                message = "A new contributor signed up to {0} center".format(community_org.organization_name)
+                to_list=['']
+                send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Contributor')
@@ -162,6 +168,9 @@ class ChapterContributorSignup(View):
             try:
                 screeninglink_mail(email)
                 #print("Screening email not send for now")
+                message = "A new contributor signed up to {0} chapter".format(community_org.organization_name)
+                to_list=['sambit@ctsc-india.org',]
+                send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})
