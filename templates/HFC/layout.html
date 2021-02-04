@@ -48,18 +48,16 @@
                     </div>
                     <div class="header__right">
                         <ul class="main-menu">
-                            <li><a href="{% url 'home' %}" {% if 'home' in request.path %}class="active" {% endif
-                                    %}>Home</a></li>
-                            <li><a href="{% url 'problem_statements' %}" {% if 'problem_statements' in request.path
-                                    %}class="active" {% endif %}>Problem
-                                    Statements</a></li>
-                            <li><a href="{% url 'projects' %}" {% if 'projects' in request.path %}class="active" {%
-                                    endif %}>Projects</a></li>
-                            <li><a href="{% url 'community' %}" {% if 'community' in request.path %}class="active" {%
-                                    endif %}>Community</a></li>
-                            <li><a href="{% url 'andablog:entrylist' %}" {% if 'andablog:entrylist' in request.path
-                                    %}class="active" {% endif %}>Blog</a>
-                            </li>
+                            <li><a href="{% url 'home' %}"
+                                    class="{% if request.path == url %} active {% endif %}">Home</a></li>
+                            <li><a href="{% url 'problem_statements' %}"
+                                    class="{% if request.path == url %} active {% endif %}">Problem Statements</a></li>
+                            <li><a href="{% url 'projects' %}"
+                                    class="{% if request.path == url %} active {% endif %}">Projects</a></li>
+                            <li><a href="{% url 'community' %}"
+                                    class="{% if request.path == url %} active {% endif %}">Community</a></li>
+                            <li><a href="{% url 'andablog:entrylist' %}"
+                                    class="{% if request.path == url %} active {% endif %}">Blog</a></li>
                             <li class="menu__hasChild"><a href="{% url 'about' %}">About</a>
                                 <div class="sub-menu__outer">
                                     <ul class="sub-menu">
