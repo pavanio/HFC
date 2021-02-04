@@ -1,4 +1,4 @@
-{% load static  %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -19,6 +19,16 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/android-chrome-192x192.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6W54SJ12NV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6W54SJ12NV');
+    </script>
 </head>
 
 <body>
@@ -38,17 +48,17 @@
                     </div>
                     <div class="header__right">
                         <ul class="main-menu">
-                            <li><a href="{% url 'home' %}" {% if 'home' in  request.path %}class="active"
-                                    {% endif %}>Home</a></li>
-                            <li><a href="{% url 'problem_statements' %}"
-                                    {% if 'problem_statements' in  request.path %}class="active" {% endif %}>Problem
+                            <li><a href="{% url 'home' %}" {% if 'home' in request.path %}class="active" {% endif
+                                    %}>Home</a></li>
+                            <li><a href="{% url 'problem_statements' %}" {% if 'problem_statements' in request.path
+                                    %}class="active" {% endif %}>Problem
                                     Statements</a></li>
-                            <li><a href="{% url 'projects' %}" {% if 'projects' in  request.path %}class="active"
-                                    {% endif %}>Projects</a></li>
-                            <li><a href="{% url 'community' %}" {% if 'community' in  request.path %}class="active"
-                                    {% endif %}>Community</a></li>
-                            <li><a href="{% url 'andablog:entrylist' %}"
-                                    {% if 'andablog:entrylist' in  request.path %}class="active" {% endif %}>Blog</a>
+                            <li><a href="{% url 'projects' %}" {% if 'projects' in request.path %}class="active" {%
+                                    endif %}>Projects</a></li>
+                            <li><a href="{% url 'community' %}" {% if 'community' in request.path %}class="active" {%
+                                    endif %}>Community</a></li>
+                            <li><a href="{% url 'andablog:entrylist' %}" {% if 'andablog:entrylist' in request.path
+                                    %}class="active" {% endif %}>Blog</a>
                             </li>
                             <li class="menu__hasChild"><a href="{% url 'about' %}">About</a>
                                 <div class="sub-menu__outer">
