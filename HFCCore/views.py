@@ -11,7 +11,7 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 import uuid 
-from django.core.mail import send_mail
+from django.core.mail import send_mail,EmailMessage
 from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member
 from django.apps import apps
 import requests
@@ -33,10 +33,11 @@ def screeninglink_mail(email):
     from_email='noreply@hackforchange.co.in'
     to=[email]
     subject="Screening Link"
-    msg = MIMEMultipart('alternative')
+    #msg = MIMEMultipart('alternative')
     html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name,'debug_flag':debug_flag})
-    msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
-    msg.attach_alternative(html_content, "text/html")
+    #msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
+    msg = EmailMessage(subject, html_content, from_email , [to])
+    msg.content_subtype = "html"
     msg.send(fail_silently=True)
     print("Mail sended successfully")
 def thanks(request):
@@ -101,7 +102,7 @@ class MentorSignup(View):
             email=mentor.email
             print(email)
             try:
-                screeninglink_mail(email)
+                #screeninglink_mail(email)
                 message = "A new Mentor signed up"
                 to_list=['srini@hackforchange.co.in',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
@@ -169,7 +170,7 @@ class ChapterContributorSignup(View):
                 screeninglink_mail(email)
                 #print("Screening email not send for now")
                 message = "A new contributor signed up to {0} chapter".format(community_org.organization_name)
-                to_list=['srini@hackforchange.co.in',]
+                to_list=['sambit@ctsc-india.org',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
