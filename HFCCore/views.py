@@ -104,7 +104,7 @@ class MentorSignup(View):
             try:
                 #screeninglink_mail(email)
                 message = "A new Mentor signed up"
-                to_list=['srini@hackforchange.co.in',]
+                to_list=['team@hackforchange.co.in',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
@@ -136,7 +136,7 @@ class CenterContributorSignup(View):
             try:
                 screeninglink_mail(email)
                 message = "A new contributor signed up to {0} center".format(community_org.organization_name)
-                to_list=['srini@hackforchange.co.in',]
+                to_list=['team@hackforchange.co.in',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
@@ -170,7 +170,7 @@ class ChapterContributorSignup(View):
                 screeninglink_mail(email)
                 #print("Screening email not send for now")
                 message = "A new contributor signed up to {0} chapter".format(community_org.organization_name)
-                to_list=['srini@hackforchange.co.in',]
+                to_list=['team@hackforchange.co.in',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
@@ -252,5 +252,41 @@ class ContactView(View):
 class DonateView(View):
     def get(self,request):
         return render(request,'HFC/donate.html')
+
+class CommunityMemberSignup(View):
+    def get(self,request):
+        form=Community_member_form()
+        contributors = Community_Member.objects.filter(type  ='Contributor')
+        return render(request,'HFC/community_member.html',{'form':form,'contributors':contributors}) 
+    def post(self,request):
+        form=Chapter_contributor_form(request.POST)
+        #community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
+        print(request.POST)
+        print(form.is_valid())
+        text = "Thanks for signing up as a community member."
+        if form.is_valid():
+            #form.save()
+            area_of_expertise=request.POST.getlist('area_of_expertise')
+            city = request.POST.get('city')
+            print(city)
+            community_org = Community_Organization.objects.get(city=city)
+            print(community_org)
+            contributor=form.save(commit=False)
+            contributor.type="Contributor"
+            contributor.organization_id=community_org
+            contributor.save()
+            form.save_m2m()
+            email=contributor.email
+            print(email)
+            try:
+                #screeninglink_mail(email)
+                #print("Screening email not send for now")
+                message = "A new community member signed up to {0} chapter".format(community_org.organization_name)
+                to_list=['team@ctsc-india.org',]
+                send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
+            except:
+                print('Error in sending email screening link to Contributor')
+            return render(request, 'HFC/thanks.html',{'text':text})
+
 
 

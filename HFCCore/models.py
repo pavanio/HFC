@@ -13,6 +13,7 @@ EXPERIENCE=(
     ('15+ years','15+ years'),
     ('20+ years','20+ years'),
 )
+
 class Issue_Area(models.Model):
     issue_area = models.CharField(max_length=100)
     issue_area_slug =AutoSlugField(populate_from='issue_area')
@@ -84,6 +85,7 @@ class Community_Organization(models.Model):
     coordinator_mobile = models.IntegerField()
     organization_name_slug = AutoSlugField(populate_from='organization_name',blank=True,null=True)
     project = models.ManyToManyField('Project',blank=True,null=True)
+    city = models.CharField(max_length=50,blank=True,null=True)
 
 
     def __str__(self):

@@ -11,6 +11,7 @@ urlpatterns = [
     path('problem-statements/issue-area/<issue_area_slug>', views.ProblemsWithIssueareaView.as_view(), name='problem_statements_with_issuearea'),
     path('mentor/signup', views.MentorSignup.as_view(), name='mentor_signup'),
     path('center/<hfc_center_slug>/signup', views.CenterContributorSignup.as_view(), name='center_signup'),
+    path('community/signup', views.CommunityMemberSignup.as_view(), name='community_member_signup'),
     path('<hfc_chapter_slug>/signup', views.ChapterContributorSignup.as_view(), name='chapter_signup'),
     path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),
     path('thanks',views.thanks,name='thanks'),
