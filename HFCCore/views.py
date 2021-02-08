@@ -30,7 +30,7 @@ def screeninglink_mail(email):
     print(screeninguuid)
     email=candidate.email
     #from_email=settings.EMAIL_HOST_USER
-    from_email='noreply@hackforchange.co.in'
+    from_email='Hack For Change<noreply@hackforchange.co.in>'
     to=[email]
     subject="Screening Link"
     #msg = MIMEMultipart('alternative')
@@ -137,7 +137,7 @@ class CenterContributorSignup(View):
                 screeninglink_mail(email)
                 message = "A new contributor signed up to {0} center".format(community_org.organization_name)
                 to_list=['team@hackforchange.co.in',]
-                send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
+                send_mail('New signup ', message,'Hack for change<noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Contributor')
@@ -171,7 +171,7 @@ class ChapterContributorSignup(View):
                 #print("Screening email not send for now")
                 message = "A new contributor signed up to {0} chapter".format(community_org.organization_name)
                 to_list=['team@hackforchange.co.in',]
-                send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
+                send_mail('New signup ', message,'Hack for change<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})
@@ -282,8 +282,8 @@ class CommunityMemberSignup(View):
                 #screeninglink_mail(email)
                 #print("Screening email not send for now")
                 message = "A new community member signed up to {0} chapter".format(community_org.organization_name)
-                to_list=['team@ctsc-india.org',]
-                send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
+                to_list=['team@hackforchange.co.in',]
+                send_mail('New signup ', message,'Hack for change<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})

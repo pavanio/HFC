@@ -50,7 +50,7 @@ class Problem_Statement(models.Model):
     def __str__(self):
         return self.title
     def issuearea(self):
-        return ",".join([issue_area.issue_area for issue_area  in self.issue_area.all()])
+        return " , ".join([issue_area.issue_area for issue_area  in self.issue_area.all()])
     class Meta:
         verbose_name = "Problem_Statement"
         verbose_name_plural = "Problem_Statements"

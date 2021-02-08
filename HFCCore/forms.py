@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 from ScreeningApp.models import *
+from django.forms import  Textarea
 
 EXPERIENCE=(
     ('No Experience', 'No Experience'),
@@ -90,6 +91,13 @@ class Problem_Statement_form(forms.ModelForm):
         model=Problem_Statement
         fields = '__all__'
         exclude=('status','partner_id')
+        widgets = {
+          'summary': Textarea(attrs={'rows':5,'cols':15}),
+          'background_info':Textarea(attrs={'rows':5,'cols':15}),
+          'proposed_solution':Textarea(attrs={'rows':5,'cols':15}),
+          'related_link':Textarea(attrs={'rows':5,'cols':15}),
+        }
+
 class Community_member_form(forms.ModelForm):
     field_order=['name','email','contact_number','highest_education','city','linkedin_profile',
         'years_of_experience','profession','area_of_expertise']
