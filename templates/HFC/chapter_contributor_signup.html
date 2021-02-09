@@ -113,7 +113,7 @@
                     <ul class="sidebar__member">
                         {% for contributor in contributors%}
                         {% if contributor.image %}
-                        <li><img src={{contributor.image.url}} alt="Pic" ></li>
+                        <li><a href="{{contributor.linkedin_profile}}" target="_blank"><img src={{contributor.image.url}} alt="{{contributor.name}}" ></a></li>
                         {% endif %}
                         {%endfor%}
                     </ul>
@@ -147,6 +147,9 @@
 {%endblock%}
 {% block js %}
 <script>
+    $(function () {
+    $("#id_profession").change();
+    });
     $("#id_profession").change(function () {
         var url = $("#volform").attr("sub-change-url");
         console.log(url)

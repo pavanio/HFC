@@ -30,6 +30,7 @@ class Mentor_form(forms.ModelForm):
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
         #self.fields['dob'] = forms.DateField(widget = DateInput)
+        self.fields['profession'].empty_label = None
         if 'profession'in self.data:
             try:
                 expertise_area_id = int(self.data.get('profession'))
@@ -53,6 +54,7 @@ class Center_contributor_form(forms.ModelForm):
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
         #self.fields['dob'] = forms.DateField(widget = DateInput)
+        self.fields['profession'].empty_label = None
         if 'profession'in self.data:
             try:
                 expertise_area_id = int(self.data.get('profession'))
@@ -75,6 +77,7 @@ class Chapter_contributor_form(forms.ModelForm):
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
         #self.fields['dob'] = forms.DateField(widget = DateInput)
+        self.fields['profession'].empty_label = None
         
         if 'profession'in self.data:
             try:
@@ -114,6 +117,7 @@ class Community_member_form(forms.ModelForm):
         self.fields['area_of_expertise'].queryset=Expertise.objects.none()
         #self.fields['city'].queryset = Community_Organization.objects.filter('chapter').values_list('city',flat=True)
         self.fields['city'].empty_label = None
+        self.fields['profession'].empty_label = None
         if 'profession'in self.data:
             try:
                 expertise_area_id = int(self.data.get('profession'))

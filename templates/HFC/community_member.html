@@ -15,7 +15,7 @@
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
         <div class="banner__main">
-            <h1>Signup as a Community Member</h1>
+            <h1>Signup as a member</h1>
             <p class="large">
                 Inviting working professionals from various cities to join our community
             </p>
@@ -29,7 +29,7 @@
         <div class="main">
             <section id="contents">
                 <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
-                    <h2>Join Our Community</h2>
+                    <h2>Join our community</h2>
                 </div>
 
                 <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
@@ -112,7 +112,7 @@
                     <ul class="sidebar__member">
                         {% for contributor in contributors%}
                         {% if contributor.image %}
-                        <li><img src={{contributor.image.url}} alt="Pic" ></li>
+                        <li><a href="{{contributor.linkedin_profile}}" target="_blank"><img src={{contributor.image.url}} alt="{{contributor.name}}" ></a></li>
                         {% endif %}
                         {%endfor%}
                     </ul>
@@ -146,6 +146,9 @@
 {%endblock%}
 {% block js %}
 <script>
+    $(function () {
+    $("#id_profession").change();
+    });
     $("#id_profession").change(function () {
         var url = $("#volform").attr("sub-change-url");
         console.log(url)
