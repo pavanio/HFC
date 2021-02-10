@@ -24,12 +24,10 @@
     <div class="content-width">
             <div class="main">
                 <section id="contents">
-                    <div class="blog-single">
-                        <h3>{{entry.title}} </h3>
-                        <div class="proceedings-text" style="margin-bottom: 10px;">
-                                <div class="procuding-img bloge-img" id="profileImage"></div>
-                                 <div class="foucs bloge"><span id="firstName">{% if entry.author %}{{ entry.author|authordisplay }} {{ entry.author.last_name }}{% endif %}</span><br>
-                                 {{entry.published_timestamp|date:"DATE_FORMAT" }}
+                    <div class="blog-single" >
+                        <h3 style="margin-bottom:3px;">{{entry.title}} </h3>
+                        <div class="proceedings-text" style="margin-bottom:5px;">
+                                 <div class="foucs bloge" style="margin-left:4px;">{{entry.published_timestamp|date:"D, dS M, Y" }}
                                  </div>
                         </div>
                         {% if entry.preview_image %}
@@ -91,13 +89,6 @@
 {% endblock %}
 
 {% block js %}
-<script>
-    $(document).ready(function () {
-        var firstName = $('#firstName').text();
-        var intials = firstName.charAt(0);
-        var profileImage = $('#profileImage').text(intials);
-    });
-    console.log(firstName)
-</script>
+
 
 {% endblock %}

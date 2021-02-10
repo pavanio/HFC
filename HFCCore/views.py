@@ -30,13 +30,14 @@ def screeninglink_mail(email):
     print(screeninguuid)
     email=candidate.email
     #from_email=settings.EMAIL_HOST_USER
-    from_email='Hack For Change<noreply@hackforchange.co.in>'
+    from_email='HackForChange Team<noreply@hackforchange.co.in>'
     to=[email]
     subject="Screening Link"
+    headers = {'Reply-To': 'suman@hackforchange.co.in'}
     #msg = MIMEMultipart('alternative')
     html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name,'debug_flag':debug_flag})
     #msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
-    msg = EmailMessage(subject, html_content, from_email , [to])
+    msg = EmailMessage(subject, html_content, from_email , [to],headers=headers)
     msg.content_subtype = "html"
     msg.send(fail_silently=True)
     print("Mail sended successfully")
@@ -137,7 +138,7 @@ class CenterContributorSignup(View):
                 screeninglink_mail(email)
                 message = "A new contributor signed up to {0} center".format(community_org.organization_name)
                 to_list=['team@hackforchange.co.in',]
-                send_mail('New signup ', message,'Hack for change<noreply@hackforchange.co.in',to_list)
+                send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Contributor')
@@ -171,7 +172,7 @@ class ChapterContributorSignup(View):
                 #print("Screening email not send for now")
                 message = "A new contributor signed up to {0} chapter".format(community_org.organization_name)
                 to_list=['team@hackforchange.co.in',]
-                send_mail('New signup ', message,'Hack for change<noreply@hackforchange.co.in>',to_list)
+                send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})
@@ -283,7 +284,7 @@ class CommunityMemberSignup(View):
                 #print("Screening email not send for now")
                 message = "A new community member signed up to {0} chapter".format(community_org.organization_name)
                 to_list=['team@hackforchange.co.in',]
-                send_mail('New signup ', message,'Hack for change<noreply@hackforchange.co.in>',to_list)
+                send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})
