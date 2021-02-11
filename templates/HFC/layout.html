@@ -48,16 +48,17 @@
                     </div>
                     <div class="header__right">
                         <ul class="main-menu">
-                            <li><a href="{% url 'home' %}"
-                                    class="{% if request.path == url %} active {% endif %}">Home</a></li>
-                            <li><a href="{% url 'problem_statements' %}"
-                                    class="{% if request.path == url %} active {% endif %}">Problem Statements</a></li>
-                            <li><a href="{% url 'projects' %}"
-                                    class="{% if request.path == url %} active {% endif %}">Projects</a></li>
-                            <li><a href="{% url 'community' %}"
-                                    class="{% if request.path == url %} active {% endif %}">Community</a></li>
-                            <li><a href="{% url 'andablog:entrylist' %}"
-                                    class="{% if request.path == url %} active {% endif %}">Blog</a></li>
+                            {% with url_name=request.resolver_match.url_name %}
+                            <li class="{% if url_name == 'home' %} active {% endif %}">
+                                <a href="{% url 'home' %}">Home</a></li>
+                            <li class="{% if url_name == 'problem_statements' %}active{% endif %}">
+                                <a href="{% url 'problem_statements' %}">Problem Statements</a></li>
+                            <li class="{% if url_name == 'projects' %}active{% endif %}">
+                                <a href="{% url 'projects' %}">Projects</a></li>
+                            <li class="{% if url_name == 'community' %}active{% endif %}">
+                                <a href="{% url 'community' %}">Community</a></li>
+                            <li class="{% if url_name == 'andablog' %}active{% endif %}">
+                                <a href="{% url 'andablog:entrylist' %}">Blog</a></li>
                             <li class="menu__hasChild"><a href="{% url 'about' %}">About</a>
                                 <div class="sub-menu__outer">
                                     <ul class="sub-menu">
@@ -70,7 +71,7 @@
                                 </div>
                             </li>
                             <li><a class="btn btn--info" href="{% url 'community_member_signup' %}">Signup as a Member</a></li>
-                        </ul>
+                        </ul>{% endwith %}
                     </div>
                 </header>
             </div>

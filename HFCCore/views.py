@@ -31,13 +31,13 @@ def screeninglink_mail(email):
     email=candidate.email
     #from_email=settings.EMAIL_HOST_USER
     from_email='HackForChange Team<noreply@hackforchange.co.in>'
-    to=[email]
+    to_list=[email,]
     subject="Screening Link"
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
     #msg = MIMEMultipart('alternative')
     html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name,'debug_flag':debug_flag})
     #msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
-    msg = EmailMessage(subject, html_content, from_email , [to],headers=headers)
+    msg = EmailMessage(subject, html_content, from_email ,to_list,headers=headers)
     msg.content_subtype = "html"
     msg.send(fail_silently=True)
     print("Mail sended successfully")
