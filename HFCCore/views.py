@@ -16,6 +16,7 @@ from .models import Problem_Statement, Partner, Project, Community_Organization,
 from django.apps import apps
 import requests
 import operator
+from .utils import SendSubscribeMail
 headers = {
     'Accept': 'application/vnd.github.v3+json',
 }
@@ -278,12 +279,13 @@ class CommunityMemberSignup(View):
             contributor.save()
             form.save_m2m()
             email=contributor.email
+            SendSubscribeMail(email)
             print(email)
             try:
                 #screeninglink_mail(email)
                 #print("Screening email not send for now")
                 message = "A new community member signed up to {0} chapter".format(community_org.organization_name)
-                to_list=['team@hackforchange.co.in',]
+                to_list=['',]
                 send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
