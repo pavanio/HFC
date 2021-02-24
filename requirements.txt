@@ -15,3 +15,4 @@ django-andablog
 Markdown
 sentry-sdk
 requests
+mailchimp==2.0.9
