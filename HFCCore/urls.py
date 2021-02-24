@@ -3,6 +3,7 @@ from HFCCore import views
 from django.conf.urls import include
 from django.http import HttpResponse
 
+
 #app_name="HFCCore"
 urlpatterns = [
     path('',views.Home.as_view(),name='home'),

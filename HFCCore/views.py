@@ -42,8 +42,10 @@ def screeninglink_mail(email):
     msg.content_subtype = "html"
     msg.send(fail_silently=True)
     print("Mail sended successfully")
+
 def thanks(request):
     return render(request,'HFC/thanks.html')
+
 class Home(View):
     def get(self, request):
         entries = Entry.objects.all()[:3]
@@ -103,6 +105,7 @@ class MentorSignup(View):
             form.save_m2m()
             email=mentor.email
             print(email)
+            SendSubscribeMail(email)
             try:
                 #screeninglink_mail(email)
                 message = "A new Mentor signed up"
@@ -134,6 +137,7 @@ class CenterContributorSignup(View):
             contributor.save()
             form.save_m2m()
             email=contributor.email
+            SendSubscribeMail(email)
             print(email)
             try:
                 screeninglink_mail(email)
@@ -167,6 +171,7 @@ class ChapterContributorSignup(View):
             contributor.save()
             form.save_m2m()
             email=contributor.email
+            SendSubscribeMail(email)
             print(email)
             try:
                 screeninglink_mail(email)
@@ -223,14 +228,17 @@ class ProblemStatementsSubmitView(View):
 class AboutView(View):
     def get(self,request):
         return render(request,'HFC/about.html')
+
 class PrivacyPolicyView(View):
     def get(self,request):
         issue_areas = Issue_Area.objects.all()
         return render(request,'HFC/privacy_policy.html',{'issue_areas': issue_areas})
+
 class TermsAndConditionView(View):
     def get(self,request):
         issue_areas = Issue_Area.objects.all()
         return render(request,'HFC/terms_conditions.html',{'issue_areas': issue_areas})
+
 class ContactView(View):
     def get(self,request):
         return render(request,'HFC/contact.html')
@@ -251,6 +259,7 @@ class ContactView(View):
         #send_mail('New Enquiry', message, sender_email,to_list)
         send_mail('New Enquiry', message,sender_email,to_list)
         return render(request, 'HFC/thanks.html',{'text':text})
+        
 class DonateView(View):
     def get(self,request):
         return render(request,'HFC/donate.html')

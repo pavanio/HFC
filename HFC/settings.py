@@ -176,7 +176,8 @@ EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
-
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
+MAILCHIMP_SUBSCRIBE_LIST_ID=os.environ.get('MAILCHIMP_SUBSCRIBE_LIST_ID')
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
