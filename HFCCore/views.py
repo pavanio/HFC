@@ -16,14 +16,14 @@ from .models import Problem_Statement, Partner, Project, Community_Organization,
 from django.apps import apps
 import requests
 import operator
-from .utils import SendSubscribeMail
+from .utils import SendSubscribeMail,mentor_signup_mail
 headers = {
     'Accept': 'application/vnd.github.v3+json',
 }
 Entry = apps.get_model('andablog', 'Entry')
 # Create your views here.
 def screeninglink_mail(email):
-    debug_flag = settings.DEBUG
+    base_url = settings.BASE_URL
     candidate=Candidate.objects.get(email=email)
     name=candidate.name
     screening=Screenings.objects.create(candidate_id=candidate)
@@ -36,7 +36,7 @@ def screeninglink_mail(email):
     subject="Screening Link"
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
     #msg = MIMEMultipart('alternative')
-    html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name,'debug_flag':debug_flag})
+    html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name,'base_url':base_url})
     #msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
     msg = EmailMessage(subject, html_content, from_email ,to_list,headers=headers)
     msg.content_subtype = "html"
@@ -107,13 +107,13 @@ class MentorSignup(View):
             print(email)
             SendSubscribeMail(email)
             try:
-                #screeninglink_mail(email)
+                mentor_signup_mail(email)
                 message = "A new Mentor signed up"
-                to_list=['team@hackforchange.co.in',]
+                to_list=['',]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
                 #print("Screening email not send for now")
             except:
-                print('Error in sending email screening link to Mentor')
+                print('Error in sending  welcome email to Mentor')
             #messages.success(request,"Volunteer Registration Form Submitted Successfully")
             return render(request, 'HFC/thanks.html',{'text':text})
 class CenterContributorSignup(View):
@@ -177,7 +177,7 @@ class ChapterContributorSignup(View):
                 screeninglink_mail(email)
                 #print("Screening email not send for now")
                 message = "A new contributor signed up to {0} chapter".format(community_org.organization_name)
-                to_list=['team@hackforchange.co.in',]
+                to_list=['',]
                 send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
