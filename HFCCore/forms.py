@@ -127,3 +127,9 @@ class Community_member_form(forms.ModelForm):
         elif self.instance.pk:
             self.fields['area_of_expertise'].queryset = self.instance.expertise_area.expertise_set
     
+class SendEmailForm(forms.Form):
+    subject = forms.CharField(widget=forms.TextInput(attrs={'placeholder': ('Subject'),'size': '60'}))
+    message = forms.CharField(widget=forms.Textarea(attrs={'rows':8, 'cols':60}))
+    users = forms.ModelMultipleChoiceField(label="To",
+                                           queryset=Community_Member.objects.all(),
+                                           widget=forms.SelectMultiple())

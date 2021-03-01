@@ -17,6 +17,8 @@ from django.apps import apps
 import requests
 import operator
 from .utils import SendSubscribeMail,mentor_signup_mail
+from django.views.generic.edit import FormView 
+from django.urls import reverse_lazy
 headers = {
     'Accept': 'application/vnd.github.v3+json',
 }
@@ -300,5 +302,23 @@ class CommunityMemberSignup(View):
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/thanks.html',{'text':text})
 
+class SendUserEmails(FormView):
+    template_name = 'HFC/admin_email_form.html'
+    form_class = SendEmailForm
+    success_url = reverse_lazy('admin:HFCCore_community_member_changelist')
+
+    def form_valid(self, form):
+        users = form.cleaned_data['users']
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        from_email='HackForChange Team<noreply@hackforchange.co.in>'
+        headers = {'Reply-To': 'suman@hackforchange.co.in'}
+        for user in users:
+            msg = MIMEMultipart('alternative')
+            html_content = render_to_string('HFC/invitation_email.html', {'message':message,'name':user.name})
+            msg = EmailMessage(subject, html_content, from_email ,[user.email,],headers=headers)
+            msg.content_subtype = "html"
+            msg.send(fail_silently=True)
+        return super(SendUserEmails, self).form_valid(form)
 
 

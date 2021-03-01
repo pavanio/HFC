@@ -2,6 +2,15 @@ from django.contrib import admin
 from .models import *
 from TFC.admin import Team_MemberInline
 from .models import Community_Organization, Project, Problem_Statement, Community_Member
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
+from django.core.mail import send_mail,EmailMessage
+from .forms import SendEmailForm
+from django.shortcuts import render
 
 class Issue_Area_Admin(admin.ModelAdmin):
 	list_display = ('issue_area','issue_area_slug')
@@ -40,10 +49,25 @@ class Community_OrganizationAdmin(admin.ModelAdmin):
 
 class Community_MemberAdmin(admin.ModelAdmin):
 	list_display = ('name', 'email', 'level_of_expertise', 'areaofexpertise', 'type', 'coder_profile', 'linkedin_profile','image', 'organization_id','commit','get_project')
-	#def has_module_permission(self, request):
-		#return False
+	actions = ['send_email']
 	class Meta:
 		model = Community_Member
+	"""def send_invite(self, request, queryset):
+		from_email='HackForChange Team<noreply@hackforchange.co.in>'
+		subject="Welcome to HFC"
+		headers = {'Reply-To': 'suman@hackforchange.co.in'}
+		for profile in queryset:
+			to_list=[profile.email,]
+			html_content = render_to_string('HFC/admin_email.html', {'name':profile.name})
+			msg = EmailMessage(subject, html_content, from_email ,to_list,headers=headers)
+			msg.content_subtype = "html"
+			msg.send(fail_silently=True)
+			print("Mail sended successfully")
+	send_invite.short_description = "Send invitation"""
+	def send_email(self, request, queryset):
+		form = SendEmailForm(initial={'users': queryset})
+		return render(request, 'HFC/admin_email_form.html', {'form': form})
+	send_email.short_description = "Send invitation email"
 
 
 admin.site.register(Partner,PartnerAdmin)

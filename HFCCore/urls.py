@@ -27,4 +27,5 @@ urlpatterns = [
     path('blog/',include('andablog.urls',namespace='andablog')),
     path('robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow:", content_type="text/plain"), name="robots_file"),
     path('', include('ScreeningApp.urls')),
+    path('email-users/',views.SendUserEmails.as_view(),name='email'),
 ]
