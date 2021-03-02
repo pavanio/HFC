@@ -1,0 +1,45 @@
+{% extends 'HFC/email_layout.html' %}
+{% block main %}
+<!-- START CENTERED WHITE CONTAINER -->
+<span class="preheader"></span>
+<table role="presentation" class="main">
+
+  <!-- START MAIN CONTENT AREA -->
+  <tr>
+    <td class="wrapper">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>
+            <p>Dear {{name}},</p>
+            <p>Thank you for signing up to become a mentor. One of our core team members, 
+                will review your profile and reach out to you directly.</p>
+            <p>In the meanwhile we encourage you to review our ongoing projects and also related documentation.</p>
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+              <tbody>
+                  <tr>
+                       <td align="left">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                           <tbody>
+                              <tr>
+                              <td> <a href="" target="_blank">Link to our projects</a> </td>
+                                    
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Best,<br>
+                    Suman Tyaagi<br>
+                    For HackForChange</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      <!-- END MAIN CONTENT AREA -->
+      </table>
+  {% endblock %}
+                                    

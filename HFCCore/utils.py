@@ -46,3 +46,18 @@ def mentor_signup_mail(email):
     msg.content_subtype = "html"
     msg.send(fail_silently=True)
     print("Mail sended successfully")
+
+def community_member_signup_mail(email):
+    candidate=Candidate.objects.get(email=email)
+    name=candidate.name
+    email=candidate.email
+    from_email='HackForChange Team<noreply@hackforchange.co.in>'
+    to_list=[email,]
+    subject="Welcome to HackForChange"
+    headers = {'Reply-To': 'suman@hackforchange.co.in'}
+    html_content = render_to_string('HFC/mentor_welcome_email.html', {'name':name})
+    msg = EmailMessage(subject, html_content, from_email ,to_list,headers=headers)
+    msg.content_subtype = "html"
+    msg.send(fail_silently=True)
+    print("Mail sended successfully")
+

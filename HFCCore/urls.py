@@ -2,6 +2,7 @@ from django.urls import path
 from HFCCore import views
 from django.conf.urls import include
 from django.http import HttpResponse
+from .feeds import LatestBlogEntries
 
 
 #app_name="HFCCore"
@@ -28,4 +29,5 @@ urlpatterns = [
     path('robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow:", content_type="text/plain"), name="robots_file"),
     path('', include('ScreeningApp.urls')),
     path('email-users/',views.SendUserEmails.as_view(),name='email'),
+    path('latest/entries/', LatestBlogEntries(), name='blog-entry-feed'),
 ]
