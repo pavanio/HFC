@@ -8,22 +8,22 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from django.template.loader import render_to_string
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives,EmailMessage
 from django.conf import settings
 import uuid
 from HFCCore.models import Community_Member
 # Create your views here.
 def screening_result(email,name,screening_status):
     #from_email=settings.EMAIL_HOST_USER
-	from_email='noreply@hackforchange.co.in'
-	to=[email]
+	from_email='HackForChange Team<noreply@hackforchange.co.in>'
+	to=[email,]
 	subject="Screening Result"
-	msg = MIMEMultipart('alternative')
+	headers = {'Reply-To': 'suman@hackforchange.co.in'}
 	html_content = render_to_string('HFC/screen_result_email.html', {'name':name,'screening_status':screening_status})
-	msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
-	msg.attach_alternative(html_content, "text/html")
-	msg.send(fail_silently=False)
-	print("email sent")  
+	msg = EmailMessage(subject, html_content, from_email ,to,headers=headers)
+	msg.content_subtype = "html"
+	msg.send(fail_silently=True)
+	print("Mail sended successfully")  
 	
 def screening(request, screening_uuid):
 	mentors = Community_Member.objects.filter(type  ='Mentor')[:6]

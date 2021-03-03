@@ -10,7 +10,7 @@
 </div>
 {% endblock %}
 {% block content %}
-<p><b>{% blocktrans %} Write your message here{% endblocktrans %}</b></p>
+<p><b>{% blocktrans %} Write your email here{% endblocktrans %}</b></p>
      
 <form method="POST" action="{% url 'email' %}">{% csrf_token %}
     <div>
@@ -39,7 +39,7 @@
             <p>{{ form.message }}</p>
         </div>
         <input type="submit" value="Send Email" />
-        <a href="{% url 'admin:HFCCore_community_member_changelist' %}" class="button cancel-link">{% trans "No, take me back" %}</a>
+        <a href="{% url 'admin:HFCCore_community_member_changelist' %}" class="button cancel-link">{% trans "Cancel" %}</a>
     </div>
 </form>
 {% endblock %}

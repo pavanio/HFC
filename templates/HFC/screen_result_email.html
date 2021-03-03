@@ -1,24 +1,40 @@
-{% include 'header.html'%}
-<!DOCTYPE html>
-<html>
+{% extends 'HFC/email_layout.html' %}
+{% block main %}
+<!-- START CENTERED WHITE CONTAINER -->
+<span class="preheader"></span>
+<table role="presentation" class="main">
 
-<head>
-    <title></title>
-</head>
+  <!-- START MAIN CONTENT AREA -->
+  <tr>
+    <td class="wrapper">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>
+            <p>Dear {{name}},</p>
+            <p>Your screening result is here.</p>
+            <p>Screening Status - {{screening_status}}</p>
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+              <tbody>
+                  <tr>
+                       <td align="left">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                           <tbody>
+                              <tr>  
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Best,<br>
+                  HFC Core Team</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-<body>
-    <div>
-        <p> Dear {{name}}, </p>
-        <p> Your screening result is here, </p>
-        <p> Screening Status - {{screening_status}}</p>
-        <p>
-            Please reach out to us directly incase you have any concerns or queries.
-            <br>
-            Best,
-            HFC Core Team
-        </p>
-
-    </div>
-</body>
-
-</html>
+      <!-- END MAIN CONTENT AREA -->
+      </table>
+  {% endblock %}

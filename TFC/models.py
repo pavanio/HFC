@@ -42,7 +42,7 @@ class Organization(models.Model):
     partner_desc = models.TextField()
     phone_number = models.CharField(max_length=20)
     email = models.EmailField() 
-    logo = models.ImageField( null=True, blank=True)
+    logo = models.ImageField()
     address = models.TextField()
     city = models.CharField(max_length = 100)
     state = models.CharField(max_length = 100)

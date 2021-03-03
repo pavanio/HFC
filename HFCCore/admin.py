@@ -68,7 +68,7 @@ class Community_MemberAdmin(admin.ModelAdmin):
 	def send_email(self, request, queryset):
 		form = SendEmailForm(initial={'users': queryset})
 		return render(request, 'HFC/admin_email_form.html', {'form': form})
-	send_email.short_description = "Send invitation email"
+	send_email.short_description = "Send email"
 
 
 admin.site.register(Partner,PartnerAdmin)

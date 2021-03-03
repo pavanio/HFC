@@ -45,8 +45,11 @@
                         <p class="large sbold">Background Information</p>
                         <p style="text-align:justify;">{{problem.background_info}}</p>
                         <p class="large sbold">Related Links</p>
+                        {% if problem.related_link %}
                         <p><a href={{problem.related_link}} >{{problem.related_link}}</a></p>
-                        
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
                         <p class="large sbold">Proposed Solution</p>
                         <p style="text-align:justify;">{{problem.proposed_solution}}</p>
                     </div>
