@@ -40,6 +40,10 @@ OPTION=(
     ('option_3','option_3'),
     ('option_4','option_4'),
 )
+PUBLISH=(
+    ('True','True'),
+    ('False','False'),
+)
 class Expertise_Area(models.Model):
     expertise_area_id = models.AutoField(primary_key=True)
     area_of_expertise = models.CharField(max_length=300)#eng
@@ -52,12 +56,11 @@ class Expertise_Area(models.Model):
     def __str__(self):
         return self.area_of_expertise
 
-
-
 class Expertise(models.Model):
     expertise_id = models.AutoField(primary_key=True)
     expertise = models.CharField(max_length=300)
     category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
+    is_published = models.CharField(choices=PUBLISH, max_length=10,blank=True,null=True)
 
     class Meta:
         verbose_name = "Expertise"
@@ -65,7 +68,6 @@ class Expertise(models.Model):
 
     def __str__(self):
         return self.expertise
-
 
 class Question(models.Model):
     category_of_expertise = models.ForeignKey(Expertise_Area, on_delete=models.CASCADE)
@@ -77,12 +79,12 @@ class Question(models.Model):
     question_id = models.AutoField(primary_key=True)
     qtype = models.CharField(choices=QUESTION_TYPE, max_length=100)
     question = models.TextField()
-   
-    option_1 = models.TextField(blank=True)
-    option_2 = models.TextField(blank=True)
-    option_3 = models.TextField(blank=True)
-    option_4 = models.TextField(blank=True)
-    answer = answer = models.CharField(choices=OPTION, max_length=100)
+    option_1 = models.TextField(blank=True,null=True)
+    option_2 = models.TextField(blank=True,null=True)
+    option_3 = models.TextField(blank=True,null=True)
+    option_4 = models.TextField(blank=True,null=True)
+    answer = models.CharField(choices=OPTION, max_length=100,blank=True,null=True)
+    question_img = models.URLField(blank=True,null=True)
 
     class Meta:
         verbose_name = "Question"
@@ -116,14 +118,10 @@ class Candidate(models.Model):
     def areaofexpertise(self):
         return ",".join([area.expertise for area in self.area_of_expertise.all()])
 
-
-
 def generateUuid(self):
     candidate_id = self.candidate_id
     name = Candidate.objects.get(candidate_id=candidate_id)
-
     candidate_name = name.name
-
     uuid_list = []
     uuid_list.append(candidate_name[0].upper())
     for i in range(1, len(candidate_name) - 1):
@@ -136,10 +134,6 @@ def generateUuid(self):
     uuid_name = "SCRNG"+"".join(uuid_list)
     uuid = uuid_name+str('%02d' % screen_count)
     return uuid
-
-
-
-
 
 class Screenings(models.Model):
     screening_id = models.AutoField(primary_key=True)
@@ -162,14 +156,8 @@ class Screenings(models.Model):
         questions_list=Question.objects.filter(category_of_expertise=category_of_expertise).filter(level=
         level).filter(expertise__in=Expertises).values_list('question_id', flat=True)
         random_question_id_list = random.sample(list(questions_list), min(len(questions_list), 10))
-        questions = Question.objects.filter(question_id__in=random_question_id_list)
-      
-        
-
-
-            
+        questions = Question.objects.filter(question_id__in=random_question_id_list)   
         print('candidate screening questions', questions)
-
         screen = Screenings.objects.last()
         #print(screen)
         for question in questions:
@@ -178,10 +166,6 @@ class Screenings(models.Model):
             screening_question.question.add(question)
             screening_question.correct_ans = question.answer
             screening_question.save()
-
-        """for ques in questions:
-            screening_question.question.add(ques)"""
-        #screening_question.question.set(question)
 
     def get_questions(self, screening_id):
         questions = Screenings_Questions.objects.filter(

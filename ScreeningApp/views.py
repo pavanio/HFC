@@ -31,7 +31,6 @@ def screening(request, screening_uuid):
 	screen = Screenings.objects.get(screening_uuid=screening_uuid)
 	if screen.status=="Passed" or screen.status=="Failed":
 		return render(request, 'ScreeningApp/screening_error.html')
-
 	screening_id = screen.screening_id
 	questions = Screenings_Questions.objects.filter(screening_id=screening_id)
 	ques_list = []
@@ -52,7 +51,7 @@ def screening(request, screening_uuid):
 			obj.candidate_ans=ans
 			obj.save()
 			print(obj.screening_id)
-			if (obj.correct_ans == obj.candidate_ans):
+			""""if (obj.correct_ans == obj.candidate_ans):
 				obj.answer_correctness=True
 				obj.save()
 				true_count=true_count+1
@@ -96,9 +95,7 @@ def screening(request, screening_uuid):
 				#screening_result(candidate_email,candidate_name,screening_status)
 				pass
 			except:
-				print("Error in sending Screening Result to Mentor/Contributor ")
-
-		
+				print("Error in sending Screening Result to Mentor/Contributor ")"""
 
 		return redirect('screening_preview', screening_uuid)
 
@@ -114,13 +111,9 @@ def screening_preview(request, screening_uuid):
 	#print (questions)
 	ques_list = []
 	user_ans_list = []
-
-	for question in questions:
-		ques_list.append(question)
-
 	if request.method == 'POST':
 		data = request.POST.dict()
-
+		print(data)
 		if 'csrfmiddlewaretoken' in data:
 			del data['csrfmiddlewaretoken']
 		true_count=false_count=0
@@ -128,16 +121,25 @@ def screening_preview(request, screening_uuid):
 			obj=Screenings_Questions.objects.get(pk=qid)
 			obj.candidate_ans=ans
 			obj.save()
-			
 			if (obj.correct_ans == obj.candidate_ans):
 				obj.answer_correctness=True
 				obj.save()
-				#print(ques.answer_correctness)
+				true_count=true_count+1
+				print(obj.answer_correctness)
 			else:
 				obj.answer_correctness=False
 				obj.save()
-				#print(ques.answer_correctness)
-		screen_obj=Screenings.objects.get(screening_id = screening_id)
+				print(obj.answer_correctness)
+				false_count=false_count+1
+		total=true_count+false_count
+		percentage=int((true_count/total)*100)
+		screeningid=obj.screening_id.screening_id 
+		screening_obj=Screenings.objects.filter(screening_id = screeningid).update(screening_result=percentage)
+		if (percentage >=70):
+			screening_obj=Screenings.objects.filter(screening_id = screeningid).update(status='Passed')
+		else:
+			screening_obj=Screenings.objects.filter(screening_id = screeningid).update(status='Failed')
+		screen_obj=Screenings.objects.get(screening_id = screeningid)
 		cand_id=screen_obj.candidate_id.candidate_id
 		candidate_obj=Candidate.objects.get(candidate_id=cand_id)
 		candidate_email=candidate_obj.email
@@ -146,7 +148,7 @@ def screening_preview(request, screening_uuid):
 		try:
 			screening_result(candidate_email,candidate_name,screening_status)
 		except:
-			print("Error in sending Screening Result to Mentor/Contributor ")
+			print("Error in sending Screening Result to Contributor ")
 		return render(request, 'ScreeningApp/thanks.html')
 		
 
