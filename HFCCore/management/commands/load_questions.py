@@ -8,7 +8,7 @@ class Command(BaseCommand):
         load_questions()
 
 def load_questions():
-    with open(r'questions.yaml', 'r',encoding = "utf8",errors = "ignore") as file:
+    with open(r'management\commands\questions.yaml', 'r',encoding = "utf8",errors = "ignore") as file:
         print("file accessed")
         main_dict = yaml.load(file, Loader = yaml.FullLoader)
     category_of_expertise = Expertise_Area.objects.get(area_of_expertise = "Engineering")
