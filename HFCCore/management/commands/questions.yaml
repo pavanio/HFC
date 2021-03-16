@@ -5872,7 +5872,7 @@ Google Analytics:
   option_4: directly before the </body> tag
   question: When configuring the global site tag, where in the HTML should it be placed?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/google-analytics/https://i.imgur.com/LZzFesL.png
-- ans: option_2
+- ans: option_3
   option_1: Configure calculated metrics.
   option_2: Use a custom import.
   option_3: This functionality is not possible.
