@@ -44,8 +44,10 @@ def parse_expertise(expertise_page_html,url):
         question = re.sub('^.*?. ',' ',raw_question).strip()
         question_dict['question'] = question
         all_option_html = question_block.find_next("ul")
-        all_option = all_option_html.find_all('li')
-        i=1
+        try:
+            all_option = all_option_html.find_all('li')
+        except:
+            continue
         try:
             question_dict['option_1'] = all_option[0].text
             question_dict['option_2'] = all_option[1].text
