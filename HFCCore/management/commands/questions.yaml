@@ -15651,7 +15651,7 @@ Python (Programming Language):
   option_3: a generic object class with iterable parameter fields
   option_4: a tuple subclass with non-iterable parameter fields
   question: What does calling namedtuple on a collection type return?
-- ans: option_1
+- ans: option_2
   option_1: a stacks adds items to one side and removes items from the other side.
   option_2: a stacks adds items to the top and removes items from the top.
   option_3: a stacks adds items to the top and removes items from anywhere in the
