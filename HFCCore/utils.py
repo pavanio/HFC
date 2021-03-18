@@ -11,6 +11,7 @@ from django.core.mail import send_mail,EmailMessage
 from .models import Problem_Statement, Partner, Project, Community_Organization, Community_Member
 from django.apps import apps
 import requests
+from django.conf import settings
 
 
 def SendSubscribeMail(email):
@@ -25,7 +26,6 @@ def SendSubscribeMail(email):
     try:
         r = requests.post(url = API_ENDPOINT,headers=headers,data=json.dumps(data))
         print("added to mailchimp")
-        print(r)
     except:
         return False
 
@@ -48,6 +48,7 @@ def mentor_signup_mail(email):
     print("Mail sended successfully")
 
 def community_member_signup_mail(email):
+    base_url = settings.BASE_URL
     candidate=Candidate.objects.get(email=email)
     name=candidate.name
     email=candidate.email
@@ -55,7 +56,7 @@ def community_member_signup_mail(email):
     to_list=[email,]
     subject="Welcome to HackForChange"
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
-    html_content = render_to_string('HFC/community_member_welcome_email.html', {'name':name})
+    html_content = render_to_string('HFC/community_member_welcome_email.html', {'name':name,'base_url':base_url})
     msg = EmailMessage(subject, html_content, from_email ,to_list,headers=headers)
     msg.content_subtype = "html"
     msg.send(fail_silently=True)

@@ -16,7 +16,7 @@ from .models import Problem_Statement, Partner, Project, Community_Organization,
 from django.apps import apps
 import requests
 import operator
-from .utils import SendSubscribeMail,mentor_signup_mail
+from .utils import SendSubscribeMail,mentor_signup_mail,community_member_signup_mail
 from django.views.generic.edit import FormView 
 from django.urls import reverse_lazy
 headers = {
@@ -35,7 +35,7 @@ def screeninglink_mail(email):
     #from_email=settings.EMAIL_HOST_USER
     from_email='HackForChange Team<noreply@hackforchange.co.in>'
     to_list=[email,]
-    subject="Screening Link"
+    subject="Thank you for joining HackForChange"
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
     #msg = MIMEMultipart('alternative')
     html_content = render_to_string('HFC/screening_email.html', {'screeninguuid':screeninguuid,'name':name,'base_url':base_url})
@@ -293,13 +293,12 @@ class CommunityMemberSignup(View):
             SendSubscribeMail(email)
             print(email)
             try:
-                #screeninglink_mail(email)
-                #print("Screening email not send for now")
+                community_member_signup_mail(email)
                 message = "A new community member signed up to {0} chapter".format(community_org.organization_name)
                 to_list=['',]
                 send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
-                print('Error in sending email screening link to Contributor')
+                print('Error in sending welcome email to community member')
             return render(request, 'HFC/thanks.html',{'text':text})
 
 class SendUserEmails(FormView):

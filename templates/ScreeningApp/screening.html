@@ -35,6 +35,9 @@
                     {%for i in question.question.all%}
                     <div class="form-field" style="margin-bottom: 5px;">
                         <label for="">{{forloop.parentloop.counter}}. {{i.question}}</label>
+                        {% if i.question_img %}
+                        <img src="{{i.question_img}}" alt="image">
+                        {% endif%}
                     </div>
                     <input type="radio" id={{i.question_id}} name={{question.id}} value="option_1">
                     <label for="option_1">{{i.option_1}}</label><br>

@@ -137,19 +137,22 @@ def screening_preview(request, screening_uuid):
 		screening_obj=Screenings.objects.filter(screening_id = screeningid).update(screening_result=percentage)
 		if (percentage >=70):
 			screening_obj=Screenings.objects.filter(screening_id = screeningid).update(status='Passed')
+			screen_obj=Screenings.objects.get(screening_id = screeningid)
+			cand_id=screen_obj.candidate_id.candidate_id
+			candidate_obj=Candidate.objects.get(candidate_id=cand_id)
+			name=candidate_obj.name
+			screening_status=screen_obj.status
+			return render(request, 'ScreeningApp/screening_result_pass.html',{'name':name,'screening_status':screening_status})
+
 		else:
 			screening_obj=Screenings.objects.filter(screening_id = screeningid).update(status='Failed')
-		screen_obj=Screenings.objects.get(screening_id = screeningid)
-		cand_id=screen_obj.candidate_id.candidate_id
-		candidate_obj=Candidate.objects.get(candidate_id=cand_id)
-		candidate_email=candidate_obj.email
-		candidate_name=candidate_obj.name
-		screening_status=screen_obj.status
-		try:
-			screening_result(candidate_email,candidate_name,screening_status)
-		except:
-			print("Error in sending Screening Result to Contributor ")
-		return render(request, 'ScreeningApp/thanks.html')
+			screen_obj=Screenings.objects.get(screening_id = screeningid)
+			cand_id=screen_obj.candidate_id.candidate_id
+			candidate_obj=Candidate.objects.get(candidate_id=cand_id)
+			name=candidate_obj.name
+			screening_status=screen_obj.status
+			return render(request, 'ScreeningApp/screening_result_fail.html',{'name':name,'screening_status':screening_status})
+		
 		
 
 	return render(request, 'ScreeningApp/screening_submission.html', {'questions': questions,'mentors':mentors})
