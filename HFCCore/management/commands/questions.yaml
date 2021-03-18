@@ -1550,6 +1550,335 @@ Adobe Photoshop:
   option_4: B
   question: Where do you click to adjust the blending mode for a Smart Filter?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-photoshop/images/015.png?raw=true
+Adobe Premiere Pro:
+- option_1: Nothing, the nest duration remains the same in the original sequence.
+  option_2: The duration of the nest changes and an overwrite edit pushes the remaining
+    clips to make room.
+  option_3: The clips change speed to match the duration of the nest.
+  option_4: The duration of the nest changes and a ripple edit pushes the remaining
+    clips to make room.
+  question: You open a nested sequence in order to trim the length of a clip. You
+    make the total duration of the clips longer. What happens to the duration of the
+    nest in the main sequence?
+- option_1: Nesting improves playback performance.
+  option_2: Nesting makes it easier to reduce clutter in the Project panel, saving
+    time and potentially project budget.
+  option_3: Nesting allows a single effect to be applied to everything that is inside
+    the nest, like a color correction or a video limiter.
+  option_4: Nesting helps Adobe Premiere Pro render faster.
+  question: What is a good reason to use a nested sequence?
+- option_1: Nothing, since a subclip does not create a new media file on your hard
+    drive.
+  option_2: A pointer file is created on your hard drive.
+  option_3: A new master clip is created on your hard drive and added to the project.
+  option_4: A new media file is created next to the original media.
+  question: What happens on your hard drive when you create a subclip?
+- option_1: Adobe Premiere can directly export files.
+  option_2: You can encode sequences into one or more formats with Adobe Media Encoder.
+  option_3: While using Adobe Media Encoder, you can keep working on the same sequence
+    in Adobe Premiere Pro.
+  option_4: When you click Export, Adobe Premiere Pro will encode the file in the
+    background and let you continue editing.
+  question: Which statement is false regarding exporting media from Adobe Premiere
+    Pro?
+- option_1: Select File > Adobe Dynamic Link > Import After Effects Composition.
+  option_2: Import a project from After Effects and choose Match project size when
+    importing.
+  option_3: Select File > Adobe Dynamic Link > New After Effects Composition.
+  option_4: Switch to After Effects and manually set up the project for accuracy.
+  question: While working in Premiere Pro, how can you quickly create a new After
+    Effects composition with settings that match the current sequence?
+- option_1: Narration
+  option_2: SFX
+  option_3: Ambience
+  option_4: Music
+  question: Which is NOT a tag available in the Essential Sound panel?
+- option_1: B, C, D
+  option_2: A, B, C
+  option_3: B, D, E
+  option_4: A, C, E
+  question: HSL secondary color correction allows you to adjust which of the following?
+    (Select three items.)
+- option_1: Program Monitor panel
+  option_2: Source Monitor panel
+  option_3: Timeline panel
+  option_4: Media Browser panel
+  question: What is the only panel in which the Rate Stretch tool can modify a clip?
+- option_1: Select the Mask with Shape option.
+  option_2: Select Responsive Design and Pin To the text layer.
+  option_3: Select Responsive Design and Pin To the Video Frame.
+  option_4: Use the Align and Transform controls.
+  question: What can you do to make the shape layer automatically adjust size as the
+    text layer changes?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/001.png
+- option_1: Timeline panel
+  option_2: Media Browser panel
+  option_3: Capture panel
+  option_4: Source Monitor panel
+  question: In which panel do you assemble media in order to create sequence?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/001.png
+- option_1: Effects panel
+  option_2: Timeline panel
+  option_3: Source Monitor panel
+  option_4: Effect Controls panel
+  question: Which panel allows you to modify video effects after they have been applied
+    to a clip?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/001.png
+- option_1: Exclude Unused Clips
+  option_2: Consolidate and Transcode
+  option_3: Collect Files and Copy to New Location
+  option_4: Create New Trimmed Project
+  question: Suppose your clips link to media files stored in multiple locations. You
+    want to have the media files in a single location in their current format. Which
+    option should you choose in the Project Manager?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/001.png
+- option_1: film dissolve
+  option_2: additive dissolve
+  option_3: cross dissolve
+  option_4: impact dissolve
+  question: What is the default video transition in Adobe Premiere Pro?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/001.png
+- option_1: container
+  option_2: format
+  option_3: compressor
+  option_4: codec
+  question: Which term describes the algorithm that is used to encode and decode a
+    video file?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/001.png
+- option_1: in the Media Browser, mark in and out points on a clip, and then import.
+  option_2: Mark in and out points on the clip in the Program Monitor and select choose
+    Clip > Make Subclip.
+  option_3: Mark in and out points on a clip in the Timeline panel and then drag it
+    back into a bin.
+  option_4: Mark in and out points on the clip in the Source Monitor and select Clip
+    > Make Subclip.
+  question: You want to save a short portion of a longer clip for easy access. How
+    can you do this?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/002.png
+- option_1: Intensity
+  option_2: Contrast
+  option_3: Sharpen
+  option_4: Clarity
+  question: What adjustment can help return edge detail to video footage?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/002.png
+- option_1: Effects panel
+  option_2: Project panel
+  option_3: Effect Controls panel
+  option_4: Program Monitor panel
+  question: Where can you adjust the duration of a transition?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/002.png
+- option_1: '2'
+  option_2: '12'
+  option_3: '20'
+  option_4: '24'
+  question: You are working with a new project and have been editing for two hours.
+    What is the number of backup projects you would expect to find?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/003.png
+- option_1: Library
+  option_2: Effects
+  option_3: Project
+  option_4: Media Browser
+  question: Which panel would you use to browse and import assets for maximum compatibility
+    with Premiere Pro?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/003.png
+- option_1: The transition would slide to the right.
+  option_2: You would extend only the right side of the transition.
+  option_3: You would perform a ripple edit and extend the duration of the first clip.
+  option_4: The transition would grow on both sides.
+  question: A transition is set to center aligned. What would be the result of dragging
+    with the tool selected, to the right?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/004.png
+- option_1: Adobe Photoshop
+  option_2: Adobe Premiere Pro
+  option_3: Adobe Audition
+  option_4: Adobe After Effects
+  question: Which application does NOT support Dynamic Link?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/004.png
+- option_1: Media
+  option_2: Playback
+  option_3: General
+  option_4: Timeline
+  question: Which preference pane includes the Video Transition Default Duration and
+    Audio Transition Default Duration?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/004.png
+- option_1: audio
+  option_2: template
+  option_3: transition
+  option_4: preset
+  question: If an effect has a star next to its icon, what type of effect is it?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/004.png
+- option_1: Hue vs. Luma
+  option_2: Saturation vs. Saturation
+  option_3: Hue vs. Saturation
+  option_4: Luma vs. Saturation
+  question: How was this clip manipulated using a Curves adjustment?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/005.png
+- option_1: Essential Graphics panel
+  option_2: Effects panel
+  option_3: alpha channel
+  option_4: assembly edit
+  question: Where is transparency data stored when compositing media?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/005.png
+- option_1: source monitor
+  option_2: alpha channel
+  option_3: opacity effect
+  option_4: alpha effect
+  question: When part of your footage is transparent, where is the transparency information
+    stored in the file?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/005.png
+- option_1: Use Previews
+  option_2: Use Frame Blending
+  option_3: Use Maximum Render Quality
+  option_4: Match Sequence Settings
+  question: Which option allows you to reuse previously created render files for an
+    export?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/005.png
+- option_1: Trim In
+  option_2: Trim Out
+  option_3: Ripple Trim In
+  option_4: Ripple Trim Out
+  question: In the scenario shown below, you want to extend the end of the red clip
+    in the Timeline and not change the duration of the adjacent clip. Which is the
+    most appropriate trim choice to accomplish this?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/006.png
+- option_1: A, B, C
+  option_2: A, C, E
+  option_3: B, C, D
+  option_4: B, D, E
+  question: Which formats does Adobe Media Encoder support? (Select three items.)
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/006.png
+- option_1: A, B, C
+  option_2: A, C, E
+  option_3: B, C, D
+  option_4: B, D, E
+  question: Which video file format can you export with Adobe Media Encoder? (Select
+    three items.)
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/006.png
+- option_1: red
+  option_2: blue
+  option_3: yellow
+  option_4: green
+  question: If you have placed a GPU-accelerated effect on a clip in the Timeline
+    and have not rendered it, what color appears at the top of your Timeline?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/006.png
+- option_1: The default brightness is the halfway position between darker and lighter.
+  option_2: You can set the top bar of windows to a custom accent color.
+  option_3: You can adjust the intensity of the Focus Indicator to help easily identify
+    which window is active.
+  option_4: You can change the highlight color.
+  question: Which statement is true about the Appearance preferences?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/006.png
+- option_1: Premiere will insert white to fill the needed handles.
+  option_2: Premiere will insert black to fill the needed handles.
+  option_3: There is not enough media (handles) to cover the duration of the transition.
+  option_4: The transition is automatically shortened to use only the available media
+    and the area under the diagonal lines will have no transitions applied.
+  question: What can you tell about this transition?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/007.png
+- option_1: Deselect the unwanted sequences in the Sequence area.
+  option_2: Select Create New Trimmed Project.
+  option_3: Select Consolidate and Transcode.
+  option_4: Choose Collect Files and Copy to New Location.
+  question: Your project has several sequences that are no longer needed. How would
+    you use the Project Manager to produce a new version of the project that excludes
+    the unwanted sequences?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/007.png
+- option_1: Select the clip in the Timeline and choose File > Adobe Dynamic Link >
+    Import After Effects Composition.
+  option_2: Select the clip in the Timeline and choose File > Adobe Dynamic Link >
+    Replace with After Effects Composition.
+  option_3: Select the clip in the Timeline and choose File > Adobe Dynamic Link >
+    New After Effects Composition.
+  option_4: Select the clip in the Timeline and choose Edit > Copy. Switch to After
+    Effects and choose Edit > Paste.
+  question: You want to take a partial clip that’s used in your Timeline and send
+    it to After Effects for additional processing using Dynamic Link. Which method
+    best accomplishes this?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/007.png
+- option_1: Hue vs. Saturation
+  option_2: RGB Curves
+  option_3: Luma vs. Saturation
+  option_4: Hue vs. Luma
+  question: You want to pull down the saturation in just the clouds shown below. Which
+    Curves adjustment makes this easiest?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/008.png
+- option_1: A, B, C
+  option_2: A, C, E
+  option_3: B, C, E
+  option_4: B, D, E
+  question: Which is a new graphic layer type? (Select three items.)
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/008.png
+- option_1: Choose Fill from the Appearance controls.
+  option_2: Choose Stroke from the Appearance controls.
+  option_3: Choose Background from the Appearance controls.
+  option_4: Choose Shadow from the Appearance controls.
+  question: Which option can create a color field that automatically adjusts size
+    as you add or subtract from a text layer?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/009.png
+- option_1: Shadows
+  option_2: Contrast
+  option_3: Midtones
+  option_4: Blacks
+  question: If you want to lighten just the darkest areas of an image, which slider
+    should you adjust in the Lumetri effect?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/009.png
+- option_1: Blacks
+  option_2: Contrast
+  option_3: Whites
+  option_4: Exposure
+  question: Looking at the histogram below, which single adjustment slider could create
+    this change?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/010.png
+- option_1: Sequence
+  option_2: File
+  option_3: Edit
+  option_4: Clip
+  question: Under which drop-down menu can you remove effects?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/010.png
+- option_1: Creative Look
+  option_2: Faded Film
+  option_3: Input LUT
+  option_4: Intensity
+  question: Which adjustment can you use to quickly convert log footage using recommended
+    settings by a camera manufacturer?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/010.png
+- option_1: Touch
+  option_2: Latch
+  option_3: Write
+  option_4: Read
+  question: Which Audio Mixer automation mode allows an automation to return to the
+    previous state after any adjustments are made?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/010.png
+- option_1: Transcode
+  option_2: Copy and Create Proxies
+  option_3: Create Proxies
+  option_4: Copy
+  question: You want Premiere Pro to create a second instance of your media files
+    and add an additional version at a draft resolution. Which option works best in
+    the ingest settings?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/010.png
+- option_1: Convert Image Sequences to Clips
+  option_2: Convert After Effects Compositions to Clips
+  option_3: Include Preview Files
+  option_4: Consolidate and Transcode
+  question: If you’ve imported several time-lapse sequences into your project as image
+    sequences, which option in the Project Manager is most useful for archiving the
+    project?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/010.png
+- option_1: Show Audio Time Units
+  option_2: Rectified Audio Waveform
+  option_3: Large Audio Waveforms
+  option_4: Logarithmic Keyframe Scaling
+  question: Which option is enabled to affect the view of the audio waveforms as shown
+    below?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/011.png
+- option_1: Undock Panel
+  option_2: Undock Frame
+  option_3: Maximize Panel
+  option_4: Maximize Frame
+  question: You want to float the History panel independently to position it on another
+    monitor as a floating window. Which option in the panel’s submenu should you select?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/adobe-premiere-pro//linkedin-skill-assessments-quizzes/adobe-premiere-pro/images/011.png
 Agile Methodologies:
 - ans: option_3
   option_1: the Product Owner with help from Operations
@@ -5543,7 +5872,7 @@ Google Analytics:
   option_4: directly before the </body> tag
   question: When configuring the global site tag, where in the HTML should it be placed?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/google-analytics/https://i.imgur.com/LZzFesL.png
-- ans: option_2
+- ans: option_3
   option_1: Configure calculated metrics.
   option_2: Use a custom import.
   option_3: This functionality is not possible.
@@ -8760,7 +9089,7 @@ Linux:
 - ans: option_3
   option_1: 3(pattern)
   option_2: '{0,3}(pattern}'
-  option_3: OccurＲence quantifiers are not supported in Bash’s version of extended
+  option_3: Occurrence quantifiers are not supported in Bash’s version of extended
     globs, so this is not possible.
   option_4: '{3}(pattern})'
   question: In an extended regular expression, you would use (pattern){3} to match
@@ -13571,7 +13900,7 @@ MySQL:
   option_4: NOT FOUND handler
   question: When working with MySQL cursor, what must you also declare?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q61.png
-- ans: option_1
+- ans: option_3
   option_1: snapshot
   option_2: logical
   option_3: differential
@@ -15273,7 +15602,7 @@ Python (Programming Language):
   option_3: " def sales_tax(amount):\n  '''Calculates the sales tax of a purchase.\
     \ Takes in a float representing the subtotal as an argument and returns a float\
     \ representing the sales tax.'''\n \n"
-  option_4: " def calculate_sales_tax(subtotal):\n  pass`\n \n"
+  option_4: " def calculate_sales_tax(subtotal):\n  pass\n \n"
   question: What is the most self-descriptive way to define a function that calculates
     sales tax on a purchase?
 - ans: option_3
@@ -15322,7 +15651,7 @@ Python (Programming Language):
   option_3: a generic object class with iterable parameter fields
   option_4: a tuple subclass with non-iterable parameter fields
   question: What does calling namedtuple on a collection type return?
-- ans: option_1
+- ans: option_2
   option_1: a stacks adds items to one side and removes items from the other side.
   option_2: a stacks adds items to the top and removes items from the top.
   option_3: a stacks adds items to the top and removes items from anywhere in the
@@ -15332,13 +15661,33 @@ Python (Programming Language):
     from a stack?
 - ans: option_1
   option_1: A base case is the condition that allows the algorithm to stop recursing.
-    It is usually a problem that is small enough to solve  directly.
+    It is usually a problem that is small enough to solve directly.
   option_2: The base case is summary of the overall problem that needs to be solved.
   option_3: The base case is passed in as an argument to a function whose body makes
     use of recursion.
   option_4: The base case is similar to a base class, in that it can be inherited
     by another object.
-  question: what is a base case in a recursive function?
+  question: What is a base case in a recursive function?
+- ans: option_4
+  option_1: The with keyword lets you choose which application to open the file in.
+  option_2: The with keyword acts like a for loop, and lets you access each line in
+    the file one by one.
+  option_3: There is no benefit to using the with keyword for opening a file in Python.
+  option_4: When you open a file using the with keyword in Python, Python will make
+    sure the file gets closed, even if an exception or error is thrown.
+  question: Why is it considered good practice to open a file from within a Python
+    script by using the with keyword?
+- ans: option_1
+  option_1: Virtual environments create a “bubble” around your project so that any
+    libraries or packages you install within it don’t affect your entire machine.
+  option_2: Teams with remote employees use virtual environments so they can share
+    code, do code reviews, and collaorate remotely.
+  option_3: Virtual environments were common in Python 2 because they augmented missing
+    features in the language. Virtual environments are not necessary in Python 3 due
+    to advancements in the language.
+  option_4: Virtual environments are tied to your GitHub or Bitbucket account, allowing
+    you to access any of your repos virtually from any machine.
+  question: Why would you use a virtual environment?
 QuickBooks:
 - option_1: Create two deductions called Sick and Vacation. Use these when you pay
     your employees.
@@ -17193,25 +17542,25 @@ SharePoint:
   question: Which permission allows a user to create lists and document libraries,
     edit pages, apply themes?
 - ans: option_3
-  option_1: It is permanently deleted
-  option_2: It appears in the second-stage Recycle Bin
-  option_3: It appears in the Sharepoint Recycle Bin
-  option_4: It remains on the list, but is marked as deleted
-  question: What happens when a file is deleted in Sharepoint?
+  option_1: It is permanently deleted.
+  option_2: It appears in the second-stage Recycle Bin.
+  option_3: It appears in the SharePoint Recycle Bin.
+  option_4: It remains on the list, but is marked as deleted.
+  question: What happens when a file is deleted in SharePoint?
 - ans: option_2
   option_1: Basic Search Centre
   option_2: Business Intelligence Centre
   option_3: Records Centre
   option_4: Enterprise Search Centre
-  question: You are creating a new Sharepoint subsite. From the following image, which
+  question: You are creating a new SharePoint subsite. From the following image, which
     template would you select to create a site that features scorecards, dashboards
     and access to PerformancePoint Services content?
 - ans: option_3
-  option_1: the ability to search accross any web app
-  option_2: the ability to search accross multiple site collections
+  option_1: the ability to search across any web app
+  option_2: the ability to search across multiple site collections
   option_3: the ability to search both cloud and on-premises SharePoint sites
-  option_4: the ability to search Sharepoint and OneDrive
-  question: You have enabled cloud hybrid search in your organisation. What capability
+  option_4: the ability to search SharePoint and OneDrive
+  question: You have enabled cloud hybrid search in your organization. What capability
     does this feature enable?
 - ans: option_1
   option_1: 1. In the OneDrive web app, select the file 2. Select Move to from the
@@ -17222,13 +17571,13 @@ SharePoint:
     site 3. Select the destination folder 4. Select Move to from the ribbon
   option_4: 1. In the OneDrive web app, select the file 2. Select the destination
     site 3. Select the destination folder
-  question: A user wants to place a OneDrive document into Sharepoint. How can the
+  question: A user wants to place a OneDrive document into SharePoint. How can the
     user accomplish this?
 - ans: option_3
-  option_1: Indicate who should see the draft items in this document library
-  option_2: Require documents to be checked out before they can be edited
-  option_3: Open behaviour for browser-enabled documents is the default
-  option_4: Require content approval for submitted items
+  option_1: Indicate who should see the draft items in this document library.
+  option_2: Require documents to be checked out before they can be edited.
+  option_3: Open behavior for browser-enabled documents is the default.
+  option_4: Require content approval for submitted items.
   question: A user wants to know what options are available when versioning is enabled.
     Which choice is not a versioning option?
 - ans: option_1
@@ -17236,20 +17585,20 @@ SharePoint:
   option_2: Create a new task list as a part of the workflow
   option_3: Assign security permissions for the workflow
   option_4: Allow a workflow to automatically start
-  question: You are building a workflow between applications in a Sharepoint site.
+  question: You are building a workflow between applications in a SharePoint site.
     How do you test a workflow functionality?
 - ans: option_2
   option_1: file templates
   option_2: folder and file permissions
   option_3: versioning
   option_4: folder-assigned metadata
-  question: In Sharepoint what unique feature does a Document Set provide?
+  question: In SharePoint what unique feature does a Document Set provide?
 - ans: option_3
   option_1: Windows Server
   option_2: Azure Active Directory
   option_3: Microsoft 365 admin centre
   option_4: Microsoft 365 Security
-  question: In a Sharepoint online subscription, where is a users identity managed?
+  question: In a SharePoint online subscription, where is a user’s identity managed?
 - ans: option_4
   option_1: Get -SPUserSettingsProviderManager -Web 'https://sharepoint.contoso.com'
     -Group 'Viewers'
@@ -17258,40 +17607,40 @@ SharePoint:
     'Viewers'
   option_4: Get -SPUser -Web 'https://sharepoint.contoso.com' -Group 'Viewers'
   question: You want to use powershell to retrieve a list of users that are members
-    of the Viewers group in a Sharepoint site. Which command do you use?
+    of the Viewers group in a SharePoint site. Which command do you use?
 - ans: option_3
-  option_1: not confirgured
+  option_1: not configured
   option_2: optional
   option_3: required
   option_4: disabled
-  question: What is the default state of a document checkout in a Sharepoint library?
+  question: What is the default state of a document checkout in a SharePoint library?
 - ans: option_4
   option_1: Forms
-  option_2: InfoPath DEPRECATED
+  option_2: InfoPath
   option_3: Delve
   option_4: Power Automate
-  question: Which cloud based tool can you use to add form responses to Sharepoint
+  question: Which cloud based tool can you use to add form responses to a SharePoint
     list?
 - ans: option_3
   option_1: The app is not configured properly through list settings and needs to
     be re-created
-  option_2: The default issue tracking app does not support Outlook synchronisation
-    and needs to be customised
+  option_2: The default issue tracking app does not support Outlook synchronization
+    and needs to be customized
   option_3: The SharePoint version is not version 2013 or newer, which is required
     to support this feature
   option_4: The app is not configured properly through list settings and needs to
     be modified
   question: You have created a workflow using the default issue tracking app. Unlike
-    the tasks list, items are not being synchronised to Outlook tasks. Which statement
+    the tasks list, items are not being synchronized to Outlook tasks. Which statement
     explains the cause and remedy?
 - ans: option_3
-  option_1: 1. In the ribbon, select the Calendar tab. 2. Select the calendar in Sharepoint.
+  option_1: 1. In the ribbon, select the Calendar tab. 2. Select the calendar in SharePoint.
     3. Select Connect to Outlook 4. Confirm the connection to the calendar.
-  option_2: 1. Select the calendar in Sharepoint. 2. Select Connect to Outlook. 3.
+  option_2: 1. Select the calendar in SharePoint. 2. Select Connect to Outlook. 3.
     In the ribbon, select the Calendar tab. 4. Confirm the connection to the calendar.
-  option_3: 1. Select the calendar in Sharepoint. 2. In the ribbon, select the Calendar
+  option_3: 1. Select the calendar in SharePoint. 2. In the ribbon, select the Calendar
     tab 3. Select Connect to Outlook. 4. Confirm the connection to the calendar.
-  option_4: 1. Select the calendar in Sharepoint. 2. In the ribbon, select the Calendar
+  option_4: 1. Select the calendar in SharePoint. 2. In the ribbon, select the Calendar
     tab. 3. Confirm the connection to the calendar. 4. Select Connect to Outlook.
   question: You are creating a new calendar list item in a SharePoint site. You want
     all users of this calendar to use the offline sync feature with the Outlook client.
@@ -17306,15 +17655,15 @@ SharePoint:
 - ans: option_4
   option_1: library
   option_2: calendar
-  option_3: RSS viewer web part
+  option_3: RSS Viewer web part
   option_4: list
-  question: Which SharePoint component can use values such as text, choice, currency
+  question: Which SharePoint component can use values such as text, choice, currency,
     and lookup?
 - ans: option_4
-  option_1: Enable documents to be available when online
-  option_2: Select Always keep on this device
-  option_3: Sign in to OnDrive.com
-  option_4: Sign in to OneDrive
+  option_1: Enable documents to be available when online.
+  option_2: Select Always keep on this device.
+  option_3: Sign in to OneDrive.com.
+  option_4: Sign in to OneDrive.
   question: What must you do when syncing a document library to the local computer?
 - ans: option_4
   option_1: feature
@@ -17332,7 +17681,7 @@ SharePoint:
 - ans: option_3
   option_1: Time Site members
   option_2: Time Site visitors
-  option_3: Everyone NOT SURE
+  option_3: Everyone
   option_4: Everyone except external users
   question: When you create a user in Office365 to which SharePoint permissions group
     is the user automatically added as a member?
@@ -17344,26 +17693,14 @@ SharePoint:
   question: You need to customize the navigation for a site to include a link to a
     new library. Which area do you need to edit?
 - ans: option_3
-  option_1: The app is not configured properly through list settings and needs to
-    be re-created
-  option_2: The default issue tracking app does not support Outlook synchronisation
-    and needs to be customised
-  option_3: The SharePoint version is not version 2013 or newer, which is required
-    to support this feature
-  option_4: The app is not configured properly through list settings and needs to
-    be modified
-  question: You have created a workflow using the default issue tracking app. Unlike
-    the tasks list, items are not being synchronised to Outlook tasks. Which statement
-    explains the cause and remedy?
-- ans: option_3
-  option_1: A site collection can exist in multile databases, however one content
-    database can hold only one site collection
+  option_1: A site collection can exist in multiple databases, however one content
+    database can hold only one site collection.
   option_2: A site collection can exist in only one content database and one content
-    database can hold only one site collection
+    database can hold only one site collection.
   option_3: A site collection can exist in only one content database, however one
-    content database can hold multiple site collections
-  option_4: A site collection can exist in multile databases and one content database
-    can hold multiple site collections
+    content database can hold multiple site collections.
+  option_4: A site collection can exist in multiple databases and one content database
+    can hold multiple site collections.
   question: Which statement is true about SharePoint site collections?
 - ans: option_1
   option_1: Library settings > Advanced settings
@@ -17373,18 +17710,18 @@ SharePoint:
   question: A user has requested that a group of documents be hidden from a SharePoint
     site’s search capabilities. How do you access this setting?
 - ans: option_1
-  option_1: Change item-level permissions NOT SURE
-  option_2: Allow management of content types
-  option_3: Change the list of experience type
-  option_4: Set automatic index management
-  question: According to a user a SharePoint list is performing slowly and search
+  option_1: Change item-level permissions.
+  option_2: Allow management of content types.
+  option_3: Change the list of experience type.
+  option_4: Set automatic index management.
+  question: According to a user, a SharePoint list is performing slowly and search
     results are not accurate. How can you assist in improving the list?
 - ans: option_3
   option_1: Contribute
   option_2: Design
   option_3: Edit
   option_4: Limited
-  question: A new user in your organisation needs the most restrictive SharePoint
+  question: A new user in your organization needs the most restrictive SharePoint
     permissions available, with the exception of being able to add, edit and delete
     lists, view, add, update and delete list items and documents. Which permissions
     level do you grant the user?
@@ -17402,13 +17739,195 @@ SharePoint:
   option_4: Get-SPWebApplication | Get-SPSite -Limit All | Format-Table -property
     URL,ContentDatabase
   question: Which command do you use to view all SharePoint site collection with PowerShell?
+- ans: option_2
+  option_1: The site does not allow for external content.
+  option_2: The user’s permissions are not correct.
+  option_3: The SharePoint External System Events feature is not enabled.
+  option_4: SharePoint Business Connectivity Services need to be configured.
+  question: 'When trying to add an External Content app to a SharePoint site, a user
+    receives this message: “External Content Types are not available. Contact your
+    system administrator.” What is the most likely issue?'
+- ans: option_2
+  option_1: A
+  option_2: The user’s permissions are not correct.
+  option_3: The SharePoint External System Events feature is not enabled.
+  option_4: SharePoint Business Connectivity Services need to be configured.
+  question: You have implemented a workflow for a document from a template, and have
+    outlined the steps taken to create the workflow. Which order of steps is correct?
+- ans: option_2
+  option_1: Create a custom app.
+  option_2: Change object permissions.
+  option_3: Use a group of site columns.
+  option_4: Change user permissions for lists.
+  question: How can you standardize lists (including the data types, the format, and
+    more) within your organization?
+- ans: option_2
+  option_1: In the list’s advanced settings, under Create and edit access, select
+    Create and edit all items.
+  option_2: In the list’s advanced settings, under Create and edit access, select
+    Create items and edit items that were created by the user.
+  option_3: In the list’s advanced settings, under Create and edit access, select
+    None.
+  option_4: In the list’s advanced settings, under Create and edit access, select
+    Create items that were created by the user.
+  question: How can you stop users from editing list items that other members created?
+- ans: option_2
+  option_1: by site levels
+  option_2: by sites
+  option_3: by groups
+  option_4: by users
+  question: What is the easiest way to assign permissions to multiple SharePoint sites
+    for multiple users?
+- ans: option_2
+  option_1: an object alert
+  option_2: a document alert
+  option_3: a site alert
+  option_4: a library alert
+  question: A user wants to be notified when a certain file changes. What can achieve
+    this?
+- ans: option_2
+  option_1: site template
+  option_2: document template
+  option_3: versioning
+  option_4: audience targeting
+  question: When a user tries to create a new document in a SharePoint library, the
+    default option is not Microsoft Word. What setting do you need to change in the
+    library?
+Spring Framework:
 - ans: option_4
-  option_1: Forms
-  option_2: Delve
-  option_3: InfoPath
-  option_4: Power Automate
-  question: Which cloud-based tool can you use to add form response to a SharePoint
-    List?
+  option_1: Filters are called before a request hits the DispatcherServlet.They allow
+    for interception-style, chained processing of web requests for security, timeouts,
+    and other purposes.
+  option_2: Filters are used with a checksum algorithm that will filter invalid bytes
+    out of a byte stream request body and allow for processing of HTTP requests from
+    the DispatcherRequestServlet.
+  option_3: Filters are used with a checksum algorithm that will filter invalid bytes
+    out of an octet stream a multipart upload and allow for chained processing of
+    WebDispatcherServlet requests.
+  option_4: Filters are used to validate request parameters out of the byte stream
+    request body and allow for processing of requests from the DispatcherRequestServlet.
+  question: How filters are used in Spring Web?
+- ans: option_2
+  option_1: A resource is the actual String literal that composes a URI that is accessed
+    on a RESTful web service.
+  option_2: It is an abstract concept that represents a typed object, data, relationships,
+    and a set of methods that operate on it that is accessed via a URI.
+  option_3: A REST service has a pool of resources composed of allocations of memory
+    that allow a request to be processed.
+  option_4: A resource for a REST service is an explicit allocation of a thread or
+    CPU cycles to allow a request to be processed.
+  question: How is a resource defined in the context of a REST service?
+- ans: option_2
+  option_1: '@AfterError'
+  option_2: '@AfterReturning'
+  option_3: '@AfterException'
+  option_4: '@AfterExecution'
+  question: Which of these is a valid Advice annotation?
+- ans: option_2
+  option_1: It supports internationalization of web applications by detecting a user’s
+    locale.
+  option_2: It generates a view by mapping a logical view name returned by a controller
+    method to a view technology.
+  option_3: It creates a unique view determined by the uers’s browser type,supporting
+    cross-browser compatibility.
+  option_4: It maps custom parameters to SQL views in the database, allowing for dynamic
+    content to be created in the response.
+  question: What does a ViewResolver do?
+- ans: option_2
+  option_1: Spring automatically generated code for you based on your YAML config
+    that defined a MethodInterceptor chain that intercept calls to the instance and
+    computed SQL on the fly.
+  option_2: A JDK proxy instance is created, which backs the repository interface,
+    and a MethodInterceptor intercepts calls to the instance and routes as required.
+  option_3: The Spring JDK proxy creates a separate runtime process that acts as an
+    intermediary between the database and the Web server, and intercepts calls to
+    the instance and handles requests.
+  option_4: Spring automatically generated code for you based on your XML config files
+    that define a SpringMethodAutoGeneration factory that intercepts calls to the
+    instance and creates dynamic method that computer SQL on the fly.
+  question: How are Spring Data repositories implemented by Spring at runtime?
+- ans: option_2
+  option_1: SpEL(Spring Expression Language) runs in the JVM and can act as a drop-in
+    replacement for Groovy or other languages.
+  option_2: SpEL(Spring Expression Language) supports boolean and relational operators
+    and regular expressions, and is used for querying a graph of objects at runtime.
+  option_3: SpEL(Spring Expression Language) allows you to build, configure,and execute
+    tasks such as building artifacts and downloading object dependencies.
+  option_4: SpEL(Spring Expression Language) natively transpiles one JVM language
+    to another, allowing for greater flexibility.
+  question: What is SpEL and how is it used in Spring?
+- ans: option_3
+  option_1: dynamic chaining
+  option_2: banding
+  option_3: weaving
+  option_4: interleaving
+  question: The process of linking aspects with other objects to create an advised
+    object is called
+- ans: option_1
+  option_1: JDK Dynamic proxy can proxy only interface, so it is used if the target
+    implements at least one interface. A CGLIB proxy can create a proxy by subclassing
+    and is used if the target does not implement an interface.
+  option_2: Only JDK Dynamic proxies are used in the Spring Bean Lifecycle. CGLIB
+    proxies are used only for integrating with other frameworks.
+  option_3: Only CGLIB proxies are used in the Spring Bean Lifecycle. JDK Dynamic
+    proxies are used only for integrating with other frameworks.
+  option_4: JDK Dynamic proxy can only using an abstract class extended by a target.
+    A CGLIB proxy can create a proxy through bytecode interweaving and is used if
+    the target does not extend an abstract class.
+  question: How are JDK Dynamic proxies and CGLIB proxies used in Spring?
+- ans: option_2
+  option_1: getArgs()
+  option_2: getExceptions()
+  option_3: getSignature()
+  option_4: getTarget()
+  question: Which of these is not a valid method on the JoinPoint interface?
+- ans: option_2
+  option_1: "1. afterPropertiesSet()\n     2. init-method\n     3. @PostConstruct"
+  option_2: "1. @PostConstruct\n     2. afterPropertiesSet()\n     3. init-method"
+  option_3: "1. init-method\n     2. afterPropertiesSet()\n     3. @PostConstruct"
+  option_4: You cannot use these methods together-you must choose only one.
+  question: In what order do the @PostConstruct annotated method, the init-method
+    parameter method on beans and the afterPropertiesSet() method execute?
+- ans: option_3
+  option_1: It’s a transaction attribute configured by spring.security.transactions.xml
+    config file that uses Spring’s transaction implementation and validation code.
+  option_2: It’s a transaction must actively validate by the bytecode of a transaction
+    using Spring’s TransactionBytecodeValidator class. Default Transaction behavior
+    rolls back on validation exception but commits on proper validation
+  option_3: It creates a proxy that implements the same interface(s) as the annotated
+    class, allowing Spring to inject behaviors before, after, or around method calls
+    into the object being proxied.
+  option_4: It’s a transaction that must be actively validated by Spring’s TransactionValidator
+    class using Spring’s transaction validation code. Default Transaction behavior
+    rolls back on validation exception.
+  question: What is the function of the @Transactional annotation at the class level?
+- ans: option_1
+  option_1: Nothing will print
+  option_2: "startup\n     init"
+  option_3: init
+  option_4: startup
+  question: Which is a valid example of the output from this code (ignoring logging
+    statements) ?
+- ans: option_1
+  option_1: formatter.getClass()
+  option_2: context.getClass()
+  option_3: context.getBean(“formatter”).getClass()
+  option_4: context.containsBean(“formatter”)
+  question: Which println statement would you remove to stop this code throwing a
+    null pointer exception?
+- ans: option_4
+  option_1: SpringInitContainer
+  option_2: ResourceLoader
+  option_3: ApplicationEventPublisher
+  option_4: BeanFactory
+  question: What is the root interface for accessing a Spring bean container?
+- ans: option_1
+  option_1: '@Secured'
+  option_2: '@RequiresRole'
+  option_3: '@RestrictedTo'
+  option_4: '@SecurePath'
+  question: Which annotation can be used within Spring Security to apply method level
+    security?
 Swift:
 - ans: option_1
   option_1: an error
@@ -17981,7 +18500,7 @@ Transact-SQL (T-SQL):
   option_3: error
   option_4: abc def
   question: What is the result of this query?
-- ans: option_3
+- ans: option_1
   option_1: SELECT TOP(1) first_name, last_name FROM Students ORDER BY NEWID();
   option_2: SELECT TOP(1) RAND(first_name, last_name) FROM Student;
   option_3: SELECT TOP(1) first_name, last_name FROM Student;
@@ -18330,35 +18849,41 @@ Visual Basic for Applications (VBA):
   option_4: A class describes the design of an object. An object is an instance of
     that design.
   question: What is the principal difference between a class and an object?
-- option_1: '2'
+- ans: option_3
+  option_1: '2'
   option_2: '10'
   option_3: First arg
   option_4: '3.1416'
   question: What value does the MsgBox statement display?
-- option_1: associated standard code module
+- ans: option_3
+  option_1: associated standard code module
   option_2: UserForm
   option_3: associated class module
   option_4: userForm class
   question: What object is needed to put a userform module in a VBA project?
-- option_1: '3'
+- ans: option_3
+  option_1: '3'
   option_2: '0'
   option_3: '9'
   option_4: '6'
   question: What is the output?
-- option_1: Driver x
+- ans: option_3
+  option_1: Driver x
   option_2: call Driver(x)
   option_3: call Driver x
   option_4: Driver (X)
   question: The Driver subroutine is declared by Sub Driver (Y). Which statement results
     in a compile error?
-- option_1: Frame
+- ans: option_3
+  option_1: Frame
   option_2: multipage
   option_3: TabStrip
   option_4: ListBox
   question: You have several variables to display on a user form, and there are too
     many variables to display at once. Which control best enables the user to see
     all the variables?
-- option_1: "sub Area()\n    Dim Result As Long, Side As Integer\nSide = 5\nResult\
+- ans: option_3
+  option_1: "sub Area()\n    Dim Result As Long, Side As Integer\nSide = 5\nResult\
     \ = Squarelt(Side)\nEnd Sub\n \n"
   option_2: "Sub Area()\n    Dim Result As Long, Side\nSide = 5\nResult = SquareIt(Cint(Side))\n\
     End Sub\n \n"
@@ -18366,17 +18891,18 @@ Visual Basic for Applications (VBA):
   option_4: ListBox
   question: Below is a function named SquareIt. Which version of the subroutine named
     Area results in a compile error?
-- option_1: 10 rows and 10 columns
+- ans: option_3
+  option_1: 10 rows and 10 columns
   option_2: 10 rows and 1 column
   option_3: 10 rows and 0 columns
   option_4: 1 row and 10 columns
   question: EmailAddress() is an array. It is declared by Dim EmailAddress(10) As
     String, and option Base 1 is in effect. How many rows and columns are in EmailAddress()?
-- ans: option_2
+- ans: ''
   option_1: F5
   option_2: F3
   option_3: B3
-  option_4: E3
+  option_4: "E3\n    Q12. Which variable name is valid in VBA?\n"
   question: Which cell is selected if you run this code?
 Windows Server:
 - ans: option_1
