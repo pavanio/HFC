@@ -29,7 +29,7 @@ EDUCATION = (
 
 )
 STATUS=(
-    ('New','New'),
+    ('Open','Open'),
     ('Closed','Closed'),
     ('Passed','Passed'),
     ('Failed','Failed'),
@@ -140,7 +140,7 @@ class Screenings(models.Model):
     #screening_id = models.IntegerField(null=True,blank=True)
     screening_uuid = models.CharField(max_length=50, blank=True)
     candidate_id = models.ForeignKey(Candidate, on_delete=models.CASCADE,verbose_name='Candidate Name')
-    status=models.CharField(choices=STATUS, max_length=50,default='New')
+    status=models.CharField(choices=STATUS, max_length=50,default='Open')
     screening_result=models.CharField(max_length=50, blank=True)
     @classmethod
     def create(cls,candidate_id):
