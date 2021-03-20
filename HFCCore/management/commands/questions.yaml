@@ -7036,22 +7036,23 @@ JSON:
   option_4: required
   question: Which key name is used to specify properties that must be included for
     JSON to be valid?
-- ans: ''
-  option_1: " {\n  photo: {\n  width: 1600,\n  height: 900,\n  binaries: {\n  url:\
-    \ 'https://www.example.com/images/34097349843',\n  thumbnail: 'https://www.example.com/images/thumbs/34097349843'\n\
-    \  },\n  animated: false,\n  tags: [116, 943, 234, 38793],\n  }\n}\n \n"
-  option_2: " {\n\t'photo': {\n\t'width': 1600,\n\t'height': 900,\n\t'binaries': {\n\
+- ans: option_4
+  option_1: " {\n\t'photo': {\n\t'width': 1600,\n\t'height': 900,\n\t'binaries': {\n\
     \t'url': 'https://www.example.com/images/34097349843',\n\t'thumbnail': 'https://www.example.com/images/thumbs/34097349843'\n\
     \t},\n\t'animated': 'false',\n\t'tags': [116, 943, 234, 38793],\n\t}\n}\n \n"
-  option_3: " {\n\tphoto: {\n\twidth: 1600,\n\theight: 900,\n\tbinaries: {\n\turl:\
+  option_2: " {\n\tphoto: {\n\twidth: 1600,\n\theight: 900,\n\tbinaries: {\n\turl:\
     \ 'https://www.example.com/images/34097349843',\n\tthumbnail: 'https://www.example.com/images/thumbs/34097349843'\n\
     \t},\n\tanimated: false,\n\ttags: [116, 943, 234, 38793],\n\t}\n}\n \n"
-  option_4: " {\n\t\"photo\": {\n\t\"width\": 1600,\n\t\"height\": 900,\n\t\"binaries\"\
+  option_3: " {\n\t\"photo\": {\n\t\"width\": 1600,\n\t\"height\": 900,\n\t\"binaries\"\
     : {\n\t\"url\": \"https://www.example.com/images/34097349843\",\n\t\"thumbnail\"\
     : \"https://www.example.com/images/thumbs/34097349843\"\n\t},\n\t\"animated\"\
     : false,\n\t\"tags\": [116, 943, 234, 38793],\n\t}\n}\n \n"
-  question: Which is the valid JSON equivalent of the data shown? *** MISSING OPTIONS
-    & “DATA SHOWN”
+  option_4: " {\n\t\"photo\": {\n\t\"width\": \"1600\",\n\t\"height\": \"900\",\n\t\
+    \"binaries\": {\n\t\"url\": \"https://www.example.com/images/34097349843\",\n\t\
+    \"thumbnail\": \"https://www.example.com/images/thumbs/34097349843\"\n\t},\n\t\
+    \"animated\": \"false\",\n\t\"tags\": [\"116\", \"943\", \"234\", \"38793\"],\n\
+    \t}\n}\n \n"
+  question: Which is the valid JSON equivalent of the data shown?
 - ans: option_1
   option_1: Escape all whitespaces expect space characters.
   option_2: Escape line breaks.
@@ -7069,12 +7070,12 @@ JSON:
   option_2: 'loggedIn: “true”'
   option_3: '“loggedIn”: true'
   option_4: 'loggedIn: {true}'
-  question: If you need to store the loggedin status of a user in JSON as a boolean,
+  question: If you need to store the loggedIn status of a user in JSON as a boolean,
     what is the correct syntax?
 - ans: option_3
-  option_1: an  element
+  option_1: an <origin> element
   option_2: a header request
-  option_3: 'the '
+  option_3: the <script> element
   option_4: the XMLHttpRequest object
   question: What does JSON with padding (JSON-P) use to make a request?
 - ans: option_4
@@ -7210,34 +7211,14 @@ JSON:
 - ans: option_3
   option_1: JSON should be wrapped with curly braces.
   option_2: JSON.parse() is missing an argument.
-  option_3: The value supplied to JSON.parse() is not a string. ««—-Correct
+  option_3: The value supplied to JSON.parse() is not a string.
   option_4: Nothing is wrong with it.
   question: What’s wrong with this JavaScript?
 - ans: option_1
-  option_1: '
-
-    not null
-
-    null
-
-    not null
-
-    '
-  option_2: 'null
-
-    null
-
-    not null'
-  option_3: 'not null
-
-    null
-
-    null'
-  option_4: 'null
-
-    null
-
-    null'
+  option_1: "A\n    not null\nnull\nnot null\n \n"
+  option_2: "B\n    null\nnull\nnot null\n \n"
+  option_3: "C\n    not null\nnull\nnull\n \n"
+  option_4: "D\n    null\nnull\nnull\n \n"
   question: What does this JavaScript code print?
 - ans: option_1
   option_1: JSONLint
@@ -7252,12 +7233,12 @@ JSON:
   option_4: single quotes
   question: What characters denote strings in JSON?
 - ans: option_1
-  option_1: '“constant”: “6.022E23”'
-  option_2: '“constant”: “6.022\E23”'
+  option_1: '"constant": "6.022E23"'
+  option_2: '"constant": "6\.022\E23"'
   option_3: 'constant: 6.022E23'
-  option_4: 'constant: “6.022E23”'
-  question: Which code is a valid JSON equivalent of the key/value pair shown that
-    also preserves the data type?
+  option_4: 'constant: "6.022E23"'
+  question: 'Which code is a valid JSON equivalent of the key/value pair shown that
+    also preserves the data type? constant: 6.022E23'
 - ans: option_2
   option_1: <object>
   option_2: <script>
@@ -7271,35 +7252,14 @@ JSON:
   option_4: Because it is derived from SGML.
   question: Why do so many APIs use JSON?
 - ans: option_1
-  option_1: "\n{\n\"avengers\": [\n  \"iron man\",\n  \"hulk\",\n  \"thor\",\n  \"\
-    black widow\",\n  \"ant man\",\n  \"spider man\"\n]\n}\n"
-  option_2: '
-
-    {
-
-    ''avengers'': [
-
-    {''iron man'',
-
-    ''hulk'',
-
-    ''thor'',
-
-    ''black widow'',
-
-    ''ant man'',
-
-    ''spider man''}
-
-    ]
-
-    }
-
-    '
-  option_3: "\n{\n'avengers': [\n  'iron man',\n  'hulk',\n  'thor',\n  'black widow',\n\
-    \  'ant man',\n  'spider man'\n]\n}\n\n"
-  option_4: "\n{\n\"avengers\": {[\n  \"iron man\",\n  \"hulk\",\n  \"thor\",\n  \"\
-    black widow\",\n  \"ant man\",\n  \"spider man\"\n]}\n}\n\n"
+  option_1: "A\n    {\n\"avengers\": [\n  \"iron man\",\n  \"hulk\",\n  \"thor\",\n\
+    \  \"black widow\",\n  \"ant man\",\n  \"spider man\"\n]\n}\n \n"
+  option_2: "B\n    {\n'avengers': [\n{'iron man',\n'hulk',\n'thor',\n'black widow',\n\
+    'ant man',\n'spider man'}\n]\n}\n \n"
+  option_3: "C\n    {\n'avengers': [\n  'iron man',\n  'hulk',\n  'thor',\n  'black\
+    \ widow',\n  'ant man',\n  'spider man'\n]\n}\n \n"
+  option_4: "D\n    {\n\"avengers\": {[\n  \"iron man\",\n  \"hulk\",\n  \"thor\"\
+    ,\n  \"black widow\",\n  \"ant man\",\n  \"spider man\"\n]}\n}\n \n"
   question: You need to assemble a list of members, but your JSON is not parsing correctly.
     How do you change it?
 - ans: option_1
@@ -7347,12 +7307,10 @@ JSON:
   option_4: Leave the number as is.
   question: How do you assign a number value in JSON?
 - ans: option_1
-  option_1: '“lastVisit”: “nul1”'
+  option_1: '“lastVisit”: “null”'
   option_2: 'lastVisit: null'
   option_3: '“lastVisit”: 0'
-  option_4: '“lastVisit”: undefined
-
-    NONE OF THESE ARE CORRECT A CORRECT ANSWER WOULD LOOK LIKE "lastVisit": null'
+  option_4: '“lastVisit”: undefined'
   question: Which code uses the correct JSON syntax for encoding a key/value pair
     with a null value?
 - ans: option_3
@@ -7433,6 +7391,20 @@ JSON:
   option_3: No, emojis should never be enclosed with double quotes.
   option_4: Yes, emojis are valid characters because JSON strings are unicode.
   question: Is the JSON code shown here valid?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/json//linkedin-skill-assessments-quizzes/json/images/Q51/Q51.jpeg
+- ans: option_2
+  option_1: list
+  option_2: array
+  option_3: struct
+  option_4: indexed hash
+  question: What data structure do you use to encode ordered information?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/json//linkedin-skill-assessments-quizzes/json/images/Q51/Q51.jpeg
+- ans: option_4
+  option_1: arrays, strings, numbers, true/false
+  option_2: hashes, arrays, strings, numbers, booleans, null
+  option_3: arrays, objects, lists, strings, numbers, booleans
+  option_4: objects, arrays, strings, numbers, booleans, null
+  question: What are valid values in JSON?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/json//linkedin-skill-assessments-quizzes/json/images/Q51/Q51.jpeg
 Java:
 - ans: option_2
