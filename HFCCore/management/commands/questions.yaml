@@ -6145,10 +6145,10 @@ Google Analytics:
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/google-analytics/https://i.imgur.com/LZzFesL.png
 Google Cloud Platform (GCP):
 - ans: option_3
-  option_1: Create a Cloud Function with a targer of HTTP
-  option_2: Create a Cloud Scheduler job with a targer of HTTP
-  option_3: Create a Cloud Function with a targer of Cloud Pub/Sub
-  option_4: Create a Cloud Scheduler job with a targer of Cloud Pub/Sub
+  option_1: Create a Cloud Function with a target of HTTP
+  option_2: Create a Cloud Scheduler job with a target of HTTP
+  option_3: Create a Cloud Function with a target of Cloud Pub/Sub
+  option_4: Create a Cloud Scheduler job with a target of Cloud Pub/Sub
   question: You want to schedule a cron job to send a message to a Cloud Pub/Sub topic
     hourly. What do you do?
 - ans: option_4
@@ -6160,7 +6160,7 @@ Google Cloud Platform (GCP):
     configure?
 - ans: option_2
   option_1: Temporary
-  option_2: Free Tier- free trail doesnt have the organization
+  option_2: Free Tier
   option_3: Local
   option_4: Organizational
   question: GCP Organizations are not available in your GCP project. What type of
@@ -6271,9 +6271,9 @@ Google Cloud Platform (GCP):
   question: You want to set a notification for service spend in GCP. What do you do,
     and who will be notified?
 - ans: option_4
-  option_1: Radis and Oracle
+  option_1: Redis and Oracle
   option_2: MySQL and Oracle
-  option_3: Radis and PostgreSQL
+  option_3: Redis and PostgreSQL
   option_4: MySQL and PostgreSQL
   question: Cloud SQL supports which two relational databases?
 - ans: option_2
@@ -6352,6 +6352,95 @@ Google Cloud Platform (GCP):
   option_4: gcloud createfamily my-table cf1
   question: Which command adds a column family named cf1 to your Bigtable table named
     my-table?
+- ans: option_3
+  option_1: gcloud ssh compute [instance_name] --zone=[zone]
+  option_2: compute ssh connect [instance_name] --zone=[zone]
+  option_3: gcloud compute ssh [instance_name] --zone=[zone]
+  option_4: compute connect ssh [instance_name] --zone=[zone]
+  question: Which command do you use to connect to a running Compute Engine instance
+    with SSH?
+- ans: option_2
+  option_1: Segment the objects into two buckets. For the CORS objects, set the CORS
+    policy at the bucket level.
+  option_2: Segment the objects into two buckets. For the CORS objects, set the CORS
+    policy at the bucket level. Add client-side code to handle the requests.
+  option_3: Leave the objects in one bucket. Set the CORS policy at the object level.
+  option_4: Leave the objects in one bucket. Set the CORS policy at the object level.
+    Add client-side code to handle the requests.
+  question: You need to set CORS for some objects in a bucket for a client-side application.
+    What do you do?
+- ans: option_2
+  option_1: Cloud Functions and Cloud Spanner
+  option_2: Cloud Functions and Cloud Pub/Sub
+  option_3: Cloud Run and Cloud Pub/Sub
+  option_4: Cloud Run and Cloud Spanner
+  question: For your application, you are building a CI/CD pipeline that logs information
+    when a message is sent to a queue. Which services should you select?
+- ans: option_2
+  option_1: instance templates
+  option_2: instance groups
+  option_3: snapshots
+  option_4: instances
+  question: You need to create instances with identical configurations that cannot
+    be changed. Which Compute Engine feature do yo use?
+- ans: option_2
+  option_1: Google Container Registry
+  option_2: GitLab
+  option_3: Artifactory
+  option_4: Docker Hub
+  question: You want to automatically perform security scans on user-developed containers.
+    Where should you advise your users to host their containers?
+- ans: option_2
+  option_1: Configure firewall rules.
+  option_2: Configure VPC Network Peering.
+  option_3: Configure routes.
+  option_4: Configure external IP addresses.
+  question: You need to control incoming and outgoing traffic to a Compute Engine
+    instance. What do yo do?
+- ans: option_2
+  option_1: group
+  option_2: folder
+  option_3: project
+  option_4: organization
+  question: Which object is a container for GCP services instances?
+- ans: option_2
+  option_1: GCP VMs
+  option_2: GCP buckets
+  option_3: GCP credentials
+  option_4: GCP users
+  question: What is needed to access GCP APIs in your project?
+- ans: option_2
+  option_1: organization
+  option_2: billing account
+  option_3: folder
+  option_4: payment account
+  question: Which object is used to hold payment information for a GCP project?
+- ans: option_2
+  option_1: Cloud DNS
+  option_2: Cloud NAT
+  option_3: Cloud CDN
+  option_4: Cloud Load Balancing
+  question: You need to cache your HTTP and HTTPS static content closer to users,
+    so that you can get faster delivery and reduce serving costs. Which service do
+    you set up?
+- ans: option_2
+  option_1: Use a private key for each device. Keep the private key secret.
+  option_2: Use a public key for each device. Keep the public key secret.
+  option_3: Use a public private key pair for each device. Keep the public key secret.
+  option_4: Use a public private key pair for each device. Keep the private key secret.
+  question: You are designing security for an IoT device application. What best practices
+    should you include in your design?
+- ans: option_2
+  option_1: Configure and launch the WordPress HA deployment template from the GCP
+    Marketplace.
+  option_2: Configure and launch the WordPress HA deployment template from the WordPress
+    Marketplace.
+  option_3: Create, configure, and launch a WordPress HA deployment template on Compute
+    Engine.
+  option_4: Create, configure, and launch a WordPress HA deployment template on Google
+    Kubernetes Engine.
+  question: You need to set a WordPress site with high availability on GCP using the
+    fewest steps. What do you do?
 HTML:
 - ans: option_4
   option_1: The <track> tag is used for specifying subtitles. It is typically applied
@@ -13431,7 +13520,7 @@ MySQL:
   option_1: row level
   option_2: database level
   option_3: column level
-  option_4: function leve
+  option_4: function level
   question: You must ensure the accuracy and reliability of the data in your database.
     You assign some constraints to limit the type of data that can go into a table.
     What type of constraints are you assigning?
@@ -13444,7 +13533,7 @@ MySQL:
     description of the program’s different options?
 - ans: option_3
   option_1: DIR
-  option_2: HOМЕ
+  option_2: HOME
   option_3: PATH
   option_4: MYSQL_HOME
   question: MySQL uses environment variables in some of the programs and command-line
@@ -13489,7 +13578,7 @@ MySQL:
 - ans: option_2
   option_1: USE db
   option_2: SELECT column FROM tbl
-  option_3: SHOW COLUMNS FROM tb1
+  option_3: SHOW COLUMNS FROM tbl
   option_4: SHOW TABLES
   question: Which query would NOT be used to administer a MySQL server?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q09.jpg
@@ -13736,7 +13825,7 @@ MySQL:
   option_1: inefficient for storing json documents
   option_2: cannot be indexed directly
   option_3: documents cannot be validated when stored in json columns
-  option_4: cannot be normalized — no
+  option_4: cannot be normalized
   question: later versions of mysql support the native json data type for storing
     json documents. What is a drawback of json columns?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q09.jpg
@@ -13772,7 +13861,7 @@ MySQL:
   option_2: if exists (invalid not a trigger; IF function + EXISTS clause)
   option_3: before insert
   option_4: cross join (valid for a check but not a trigger)
-  question: tables in the diagram. Make sure that any record added to the purchase
+  question: See tables in the diagram. Make sure that any record added to the purchase
     table consists of a customerId, which exists in the customer table and a carId,
     which exists in the car table. You decide to use a trigger to do the validation.
     Which one?
@@ -13807,6 +13896,13 @@ MySQL:
 
     '
   question: Which is the correct syntax of an extended insert statement?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q43.jpg
+- ans: option_4
+  option_1: create table
+  option_2: clone table
+  option_3: insert into
+  option_4: show create table
+  question: You need an exact copy of a table with all columns and indexes. How?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q43.jpg
 - ans: option_2
   option_1: Run the server as normal user
@@ -13881,13 +13977,13 @@ MySQL:
   option_1: primary key;
   option_2: secondary key;
   option_3: foreign key;
-  option_4: alternet key;
+  option_4: alternate key;
   question: 'Management has requested that you build an employee database. You need
     to include each employee’s current position and salary, as well as all prior positions
     and salaries with the company. You decide to use a one-to-many structure: an employee
     table with the main information such as name and address, and an employment table
-    with position and salary history. You can use the employeelD field to connect
-    them. What is employment.employeelD an example of?'
+    with position and salary history. You can use the employeeID field to connect
+    them. What is employment.employeeID an example of?'
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q43.jpg
 - ans: option_4
   option_1: WITH (SELECT id FROM users) as cte, SELECT …
@@ -13925,7 +14021,7 @@ MySQL:
   option_1: It will stop and issue an error when it encounters a row that is referenced
     by a row in a child table.
   option_2: It always first drops, then re-creates a new table.
-  option_3: It deletes rows one by one on tables with foreign key contraints.
+  option_3: It deletes rows one by one on tables with foreign key constraints.
   option_4: It does not invoke the DELETE triggers associated with the table.
   question: Which statement about the TRUNCATE TABLE statement is true?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q43.jpg
@@ -13933,7 +14029,7 @@ MySQL:
   option_1: SELECT state, COUNT(*) FROM customers WHERE ID IN (SELECT customerID FROM
     purchases) GROUP BY state;
   option_2: SELECT state, COUNT(*) FROM customers c LEFT JOIN purchases p ON c.ID
-    = p.ustomerID GROUP BY state;
+    = p.customerID GROUP BY state;
   option_3: SELECT state, COUNT(*) FROM customers c, purchases p WHERE c.ID = p.customerID
     GROUP BY state;
   option_4: SELECT state, COUNT(*) FROM customers GROUP BY state;
@@ -13974,7 +14070,7 @@ MySQL:
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q61.png
 - ans: option_2
   option_1: SELECT city FROM json_data;
-  option_2: SELECT city-»’$.name’ city FROM json_data; <= best answer
+  option_2: SELECT city-»’$.name’ city FROM json_data;
   option_3: SELECT city.name city FROM json_data;
   option_4: SELECT city->’$.name’ city FROM json_data; <= this is valid too but the
     results will be enclosed with quotation marks
@@ -14002,6 +14098,36 @@ MySQL:
   question: You are working with the table in this diagram. You want to use full-text
     search to find the customers who live on a street or a drive. What is the command
     to do that?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q61.png
+- ans: option_1
+  option_1: SHOW DATABASES;
+  option_2: LIST ALL DATABASES;
+  option_3: LIST DATABASES;
+  option_4: SHOW DB;
+  question: Which query lists the databases on the current server?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q61.png
+- ans: option_1
+  option_1: all tables, columns, data types, indexes and their relationships
+  option_2: a list of entities, their relationship, and constraints
+  option_3: all tables and their names, which are needed to implement the logical
+    model
+  option_4: a list of entities, their relationship, constraints, data types, and cardinalities
+  question: What is the product of the database designing phase?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q61.png
+- ans: option_1
+  option_1: INOUT
+  option_2: IN
+  option_3: OUT
+  option_4: IN OUT
+  question: Which choice is not a valid mode for a stored procedure parameter?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q61.png
+- ans: option_1
+  option_1: The temporary table will be dropped when the database is restarted.
+  option_2: Temporary tables can be shared among clients, which makes them more usable
+    in group development environments.
+  option_3: The temporary table will be dropped as soon as your session disconnects.
+  option_4: Creating a temporary table does not require any special privileges.
+  question: What is the advantage of using a temporary table instead of a heap table?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/mysql//linkedin-skill-assessments-quizzes/mysql/images/mysql_q61.png
 NoSQL:
 - ans: option_1
