@@ -7036,22 +7036,23 @@ JSON:
   option_4: required
   question: Which key name is used to specify properties that must be included for
     JSON to be valid?
-- ans: ''
-  option_1: " {\n  photo: {\n  width: 1600,\n  height: 900,\n  binaries: {\n  url:\
-    \ 'https://www.example.com/images/34097349843',\n  thumbnail: 'https://www.example.com/images/thumbs/34097349843'\n\
-    \  },\n  animated: false,\n  tags: [116, 943, 234, 38793],\n  }\n}\n \n"
-  option_2: " {\n\t'photo': {\n\t'width': 1600,\n\t'height': 900,\n\t'binaries': {\n\
+- ans: option_4
+  option_1: " {\n\t'photo': {\n\t'width': 1600,\n\t'height': 900,\n\t'binaries': {\n\
     \t'url': 'https://www.example.com/images/34097349843',\n\t'thumbnail': 'https://www.example.com/images/thumbs/34097349843'\n\
     \t},\n\t'animated': 'false',\n\t'tags': [116, 943, 234, 38793],\n\t}\n}\n \n"
-  option_3: " {\n\tphoto: {\n\twidth: 1600,\n\theight: 900,\n\tbinaries: {\n\turl:\
+  option_2: " {\n\tphoto: {\n\twidth: 1600,\n\theight: 900,\n\tbinaries: {\n\turl:\
     \ 'https://www.example.com/images/34097349843',\n\tthumbnail: 'https://www.example.com/images/thumbs/34097349843'\n\
     \t},\n\tanimated: false,\n\ttags: [116, 943, 234, 38793],\n\t}\n}\n \n"
-  option_4: " {\n\t\"photo\": {\n\t\"width\": 1600,\n\t\"height\": 900,\n\t\"binaries\"\
+  option_3: " {\n\t\"photo\": {\n\t\"width\": 1600,\n\t\"height\": 900,\n\t\"binaries\"\
     : {\n\t\"url\": \"https://www.example.com/images/34097349843\",\n\t\"thumbnail\"\
     : \"https://www.example.com/images/thumbs/34097349843\"\n\t},\n\t\"animated\"\
     : false,\n\t\"tags\": [116, 943, 234, 38793],\n\t}\n}\n \n"
-  question: Which is the valid JSON equivalent of the data shown? *** MISSING OPTIONS
-    & “DATA SHOWN”
+  option_4: " {\n\t\"photo\": {\n\t\"width\": \"1600\",\n\t\"height\": \"900\",\n\t\
+    \"binaries\": {\n\t\"url\": \"https://www.example.com/images/34097349843\",\n\t\
+    \"thumbnail\": \"https://www.example.com/images/thumbs/34097349843\"\n\t},\n\t\
+    \"animated\": \"false\",\n\t\"tags\": [\"116\", \"943\", \"234\", \"38793\"],\n\
+    \t}\n}\n \n"
+  question: Which is the valid JSON equivalent of the data shown?
 - ans: option_1
   option_1: Escape all whitespaces expect space characters.
   option_2: Escape line breaks.
@@ -7069,12 +7070,12 @@ JSON:
   option_2: 'loggedIn: “true”'
   option_3: '“loggedIn”: true'
   option_4: 'loggedIn: {true}'
-  question: If you need to store the loggedin status of a user in JSON as a boolean,
+  question: If you need to store the loggedIn status of a user in JSON as a boolean,
     what is the correct syntax?
 - ans: option_3
-  option_1: an  element
+  option_1: an <origin> element
   option_2: a header request
-  option_3: 'the '
+  option_3: the <script> element
   option_4: the XMLHttpRequest object
   question: What does JSON with padding (JSON-P) use to make a request?
 - ans: option_4
@@ -7210,34 +7211,14 @@ JSON:
 - ans: option_3
   option_1: JSON should be wrapped with curly braces.
   option_2: JSON.parse() is missing an argument.
-  option_3: The value supplied to JSON.parse() is not a string. ««—-Correct
+  option_3: The value supplied to JSON.parse() is not a string.
   option_4: Nothing is wrong with it.
   question: What’s wrong with this JavaScript?
 - ans: option_1
-  option_1: '
-
-    not null
-
-    null
-
-    not null
-
-    '
-  option_2: 'null
-
-    null
-
-    not null'
-  option_3: 'not null
-
-    null
-
-    null'
-  option_4: 'null
-
-    null
-
-    null'
+  option_1: "A\n    not null\nnull\nnot null\n \n"
+  option_2: "B\n    null\nnull\nnot null\n \n"
+  option_3: "C\n    not null\nnull\nnull\n \n"
+  option_4: "D\n    null\nnull\nnull\n \n"
   question: What does this JavaScript code print?
 - ans: option_1
   option_1: JSONLint
@@ -7252,12 +7233,12 @@ JSON:
   option_4: single quotes
   question: What characters denote strings in JSON?
 - ans: option_1
-  option_1: '“constant”: “6.022E23”'
-  option_2: '“constant”: “6.022\E23”'
+  option_1: '"constant": "6.022E23"'
+  option_2: '"constant": "6\.022\E23"'
   option_3: 'constant: 6.022E23'
-  option_4: 'constant: “6.022E23”'
-  question: Which code is a valid JSON equivalent of the key/value pair shown that
-    also preserves the data type?
+  option_4: 'constant: "6.022E23"'
+  question: 'Which code is a valid JSON equivalent of the key/value pair shown that
+    also preserves the data type? constant: 6.022E23'
 - ans: option_2
   option_1: <object>
   option_2: <script>
@@ -7271,35 +7252,14 @@ JSON:
   option_4: Because it is derived from SGML.
   question: Why do so many APIs use JSON?
 - ans: option_1
-  option_1: "\n{\n\"avengers\": [\n  \"iron man\",\n  \"hulk\",\n  \"thor\",\n  \"\
-    black widow\",\n  \"ant man\",\n  \"spider man\"\n]\n}\n"
-  option_2: '
-
-    {
-
-    ''avengers'': [
-
-    {''iron man'',
-
-    ''hulk'',
-
-    ''thor'',
-
-    ''black widow'',
-
-    ''ant man'',
-
-    ''spider man''}
-
-    ]
-
-    }
-
-    '
-  option_3: "\n{\n'avengers': [\n  'iron man',\n  'hulk',\n  'thor',\n  'black widow',\n\
-    \  'ant man',\n  'spider man'\n]\n}\n\n"
-  option_4: "\n{\n\"avengers\": {[\n  \"iron man\",\n  \"hulk\",\n  \"thor\",\n  \"\
-    black widow\",\n  \"ant man\",\n  \"spider man\"\n]}\n}\n\n"
+  option_1: "A\n    {\n\"avengers\": [\n  \"iron man\",\n  \"hulk\",\n  \"thor\",\n\
+    \  \"black widow\",\n  \"ant man\",\n  \"spider man\"\n]\n}\n \n"
+  option_2: "B\n    {\n'avengers': [\n{'iron man',\n'hulk',\n'thor',\n'black widow',\n\
+    'ant man',\n'spider man'}\n]\n}\n \n"
+  option_3: "C\n    {\n'avengers': [\n  'iron man',\n  'hulk',\n  'thor',\n  'black\
+    \ widow',\n  'ant man',\n  'spider man'\n]\n}\n \n"
+  option_4: "D\n    {\n\"avengers\": {[\n  \"iron man\",\n  \"hulk\",\n  \"thor\"\
+    ,\n  \"black widow\",\n  \"ant man\",\n  \"spider man\"\n]}\n}\n \n"
   question: You need to assemble a list of members, but your JSON is not parsing correctly.
     How do you change it?
 - ans: option_1
@@ -7347,12 +7307,10 @@ JSON:
   option_4: Leave the number as is.
   question: How do you assign a number value in JSON?
 - ans: option_1
-  option_1: '“lastVisit”: “nul1”'
+  option_1: '“lastVisit”: “null”'
   option_2: 'lastVisit: null'
   option_3: '“lastVisit”: 0'
-  option_4: '“lastVisit”: undefined
-
-    NONE OF THESE ARE CORRECT A CORRECT ANSWER WOULD LOOK LIKE "lastVisit": null'
+  option_4: '“lastVisit”: undefined'
   question: Which code uses the correct JSON syntax for encoding a key/value pair
     with a null value?
 - ans: option_3
@@ -7433,6 +7391,20 @@ JSON:
   option_3: No, emojis should never be enclosed with double quotes.
   option_4: Yes, emojis are valid characters because JSON strings are unicode.
   question: Is the JSON code shown here valid?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/json//linkedin-skill-assessments-quizzes/json/images/Q51/Q51.jpeg
+- ans: option_2
+  option_1: list
+  option_2: array
+  option_3: struct
+  option_4: indexed hash
+  question: What data structure do you use to encode ordered information?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/json//linkedin-skill-assessments-quizzes/json/images/Q51/Q51.jpeg
+- ans: option_4
+  option_1: arrays, strings, numbers, true/false
+  option_2: hashes, arrays, strings, numbers, booleans, null
+  option_3: arrays, objects, lists, strings, numbers, booleans
+  option_4: objects, arrays, strings, numbers, booleans, null
+  question: What are valid values in JSON?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/json//linkedin-skill-assessments-quizzes/json/images/Q51/Q51.jpeg
 Java:
 - ans: option_2
@@ -11717,7 +11689,7 @@ Microsoft Power BI:
   option_2: B or D
   option_3: B orC
   option_4: A or B
-  question: How do you create a chart visual in Power Bl Desktop Report view? (Select
+  question: How do you create a chart visual in Power BI Desktop Report view? (Select
     all that apply.)
 - ans: option_3
   option_1: running total sales in each month that starts over each month
@@ -11730,7 +11702,7 @@ Microsoft Power BI:
   option_2: a custom column
   option_3: an indexed column
   option_4: a parameter
-  question: You are creating a report in Power Bl Desktop and want to restrict the
+  question: You are creating a report in Power BI Desktop and want to restrict the
     data to records where Country=”Canada”. To accomplish this, what do you need to
     create?
 - ans: option_2
@@ -11745,7 +11717,7 @@ Microsoft Power BI:
   option_2: the next billing cycle
   option_3: you empty the Recycle Bin
   option_4: the report has been saved
-  question: In Power Bl service, deleted pages are available after deletion until
+  question: In Power BI service, deleted pages are available after deletion until
 - ans: option_1
   option_1: Click the color in the visual (e.g., the bars) and right-click to select
     the color.
@@ -11765,37 +11737,37 @@ Microsoft Power BI:
   option_2: written to an OLAP cube
   option_3: assigned a data type
   option_4: sorted by primary key
-  question: Consider the Power Bl extract, transform, and load process (ETL). During
+  question: Consider the Power BI extract, transform, and load process (ETL). During
     this process, data is read and then
 - ans: option_4
   option_1: A,C
   option_2: C
   option_3: A, B, C
   option_4: A, B, C, D
-  question: Power Bl’s Publish to Web option allows you to embed visualizations within
-    _. (Select all that apply.)
+  question: Power BI’s Publish to Web option allows you to embed visualizations within
+    _____. (Select all that apply.)
 - ans: option_2
   option_1: B, C, D
   option_2: A, B, C, D proof link
   option_3: A, B, D
   option_4: A, B, C
-  question: 'What can you do within the Power Bl Desktop #### Query Settings pane?
+  question: 'What can you do within the Power BI Desktop #### Query Settings pane?
     (Select all that apply.)'
-- ans: option_2
+- ans: option_4
   option_1: filter and group
   option_2: sort and filter
   option_3: sort, filter, and group
   option_4: sort and group
-  question: 'After you enter text in the #### Q&A box or O&A visual, Power Bl will
+  question: 'After you enter text in the #### Q&A box or O&A visual, Power BI will
     \_ your data to create a list of appropriate visualizations.'
 - ans: option_1
   option_1: "Press Ctrl+Z. \n proof link1\nlink2"
   option_2: Select Undo from the toolbar.
   option_3: You cannot undo the deletion of a dashboard.
   option_4: Recover it from the Recycle Bin.
-  question: You just deleted a dashboard in the Power Bl service and want to get it
+  question: You just deleted a dashboard in the Power BI service and want to get it
     back. What should you do?
-- ans: option_1
+- ans: option_3
   option_1: dimension; fact
   option_2: lookup; data
   option_3: data; lookup
@@ -11803,7 +11775,7 @@ Microsoft Power BI:
   question: You have a sales data source and want to relate the tables. The table
     that contains sales transactions is a _____ table that contains product information
     is a _ table .
-- ans: option_1
+- ans: option_2
   option_1: B,C
   option_2: A, C, D
   option_3: C,D
@@ -11815,7 +11787,7 @@ Microsoft Power BI:
   option_2: The dataset is already being used in a published app.
   option_3: A report contains data from that dataset.
   option_4: The dataset is in your workspace.
-  question: You want to delete a dataset but the Power Bl service will not let you.
+  question: You want to delete a dataset but the Power BI service will not let you.
     What is the most likely cause?
 - ans: option_2
   option_1: Replace values
@@ -11836,31 +11808,31 @@ Microsoft Power BI:
   option_2: Power Query Editor
   option_3: dashboard
   option_4: data modeler
-  question: What tool can you use in Power Bl Desktop to reduce data?
+  question: What tool can you use in Power BI Desktop to reduce data?
 - ans: option_3
   option_1: Azure data
   option_2: file data
   option_3: relationships data
   option_4: database data
-  question: What is NOT a valid data connection type for Power Bl Desktop?
+  question: What is NOT a valid data connection type for Power BI Desktop?
 - ans: option_4
   option_1: Excel files
   option_2: comma-separated value (CSV) files
-  option_3: Power Bl Desktop files
+  option_3: Power BI Desktop files
   option_4: all of these answers
   question: Which data type can be uploaded directly to powerbi.com?
 - ans: option_3
-  option_1: Power Bl Report Server
+  option_1: Power BI Report Server
   option_2: report sharing without a per-user licens
   option_3: all of these answers
   option_4: dedicated capacity for your company
-  question: What does Power Bl Premium provide?
+  question: What does Power BI Premium provide?
 - ans: option_1
   option_1: views
   option_2: filters
   option_3: bookmarks
   option_4: slicers
-  question: You have a report in Power Bl service and want to save the state of a
+  question: You have a report in Power BI service and want to save the state of a
     report page for easy access. What feature helps you do this?
 - ans: option_1
   option_1: running total sales in each month that starts over each month
@@ -11888,20 +11860,20 @@ Microsoft Power BI:
   option_3: Magnify
   option_4: None of the answers
   question: What should you use to highlight a specific visualization in a report?
-- ans: option_1
+- ans: option_4
   option_1: Visualizations and a fields list
   option_2: Toolbars and preferences
   option_3: Workbooks and visualizations
   option_4: Dashboards and reports
   question: What does My Workspace on powerbi.com include?
-- ans: option_1
+- ans: option_4
   option_1: Drill up
   option_2: Drill down
   option_3: Expand to next level
   option_4: Collapse
   question: You want to access the underlying data for a specific data point in a
     visualization. What should you choose?
-- ans: option_1
+- ans: option_3
   option_1: Visual level
   option_2: Page level
   option_3: Drillthrough
@@ -11909,6 +11881,90 @@ Microsoft Power BI:
   question: You have a treemap visualization that groups by sales territory. To allow
     users to further analyze data for a specific territory, what filter should you
     apply?
+- ans: option_1
+  option_1: online services
+  option_2: Wiki data sources
+  option_3: database data sources
+  option_4: File data sources
+  question: Facebook, Twilio, GitHub, and MailChimp are all examples of Power BI _____.
+- ans: option_3
+  option_1: everyone in your environment
+  option_2: anyone on the internet
+  option_3: everyone in your organization
+  option_4: only you
+  question: When you use Publish to Web in the Power BI service, who can view your
+    published content?
+- ans: option_3
+  option_1: for Power BI mobile apps
+  option_2: in Power BI service rather than Power BI desktop
+  option_3: in the context of a record
+  option_4: for very large datasets
+  question: The iterator functions SUMX and AVERAGEX are used to perform calculations
+    _____.
+- ans: option_3
+  option_1: Right Outer Join
+  option_2: Left Outer Join
+  option_3: Left Inner Join
+  option_4: Right Inner Join
+  question: In Power BI Desktop Model view, what type of join will yield all results
+    from Table 1 and any matching results from Table 2?
+- ans: option_1
+  option_1: Power KPI
+  option_2: funnel chart
+  option_3: waterfall chart
+  option_4: ArcGIS map
+  question: What is NOT a built-in Power BI visual?
+- ans: option_2
+  option_1: B, C
+  option_2: A, B, C
+  option_3: A, B, D
+  option_4: B, C, D
+  question: You want to combine several CSV files into a single data file after you
+    connect a folder. What must be true about these CSV data files? (Select all that
+    apply.)
+- ans: option_2
+  option_1: They will be stored as static dashboards and reports.
+  option_2: They will be deleted.
+  option_3: They will be converted to image files.
+  option_4: Nothing—they will be unchanged.
+  question: If you delete a dateset in the Power BI service, what happens to the dashboards
+    and reports supported by the dataset?
+- ans: option_3
+  option_1: COMPARE
+  option_2: FINDUNIQUE
+  option_3: EXCEPT
+  option_4: SWITCH
+  question: Which DAX function compares a column of values in Table A with a similar
+    column in Table B, and returns the values the are not found in Table B?
+- ans: option_1
+  option_1: Orders; DISTINCTCOUNT
+  option_2: Customers; COUNT
+  option_3: Orders; COUNT
+  option_4: Customers; DISTINCTCOUNT
+  question: Your data model includes two related tables, Customers and Orders. To
+    determine the number of customers that have placed orders, create a measure on
+    the ___ table using the ___ function.
+- ans: option_2
+  option_1: short and wide
+  option_2: long and skinny
+  option_3: short and skinny
+  option_4: long and wide
+  question: Power BI works best with tables that are _____,
+- ans: option_1
+  option_1: bar chart
+  option_2: bubble chart
+  option_3: line chart
+  option_4: scatter chart
+  question: You have two columns of numerical data and want to create a visual to
+    help determine if there is a relationship between them. What kind of chart is
+    designed to do this?
+- ans: option_2
+  option_1: Add more information to a visualization.
+  option_2: All of these tasks can be done with drag and drop.
+  option_3: Create a new visualization.
+  option_4: Rearrange and resize visualizations.
+  question: In the report editor, which task can you NOT accomplish using drag and
+    drop?
 Microsoft PowerPoint:
 - ans: option_2
   option_1: Blank
@@ -18596,7 +18652,8 @@ Transact-SQL (T-SQL):
     schema
   question: What role does “inventory” play?
 Visio:
-- option_1: Double-click the timeline, change the Finish date, and then click OK.
+- ans: option_4
+  option_1: Double-click the timeline, change the Finish date, and then click OK.
   option_2: Select the timeline shape, then drag the control handle on the right end
     of the timeline to the right.
   option_3: Re-create the timeline using the updated finish date.
@@ -18605,7 +18662,8 @@ Visio:
   question: You’ve created a timeline by using the Timeline template in the Schedule
     template category. You’ve just learned that project has been extended by another
     month. How do you change the end date on the timeline?
-- option_1: A
+- ans: option_4
+  option_1: A
   option_2: Select the timeline shape, then drag the control handle on the right end
     of the timeline to the right.
   option_3: Re-create the timeline using the updated finish date.
@@ -18613,7 +18671,8 @@ Visio:
     date, and then click OK.
   question: What is the correct order of the three basic steps required to create
     nearly all diagrams?
-- option_1: The tools on the Mini Toolbar draw shapes with red borders.
+- ans: option_4
+  option_1: The tools on the Mini Toolbar draw shapes with red borders.
   option_2: The tools on the Home tab automatically revert to the Pointer tool after
     drawing one shape.
   option_3: The tools on the Home tab draw shapes with dashed-line borders.
@@ -18621,25 +18680,29 @@ Visio:
     after drawing one shape.
   question: What is the difference between the Drawing tools in the Tools group on
     the Home tab and the Drawing tools on the Mini Toolbar?
-- option_1: Microsoft Outlook tasks list
+- ans: option_1
+  option_1: Microsoft Outlook tasks list
   option_2: Microsoft Access database
   option_3: Microsoft SQL Server database
   option_4: Microsoft SharePoint Foundation list
   question: Which of these is not one of the standard data sources that is available
     when running the Data Selector Wizard?
-- option_1: two-dimensional drawing
+- ans: option_1
+  option_1: two-dimensional drawing
   option_2: units drawing
   option_3: metric drawing
   option_4: scaled drawing
   question: A rack diagram is an example of a ___, one in which the size of the shapes
     on the page is dependent on the size and scale of the page itself.
-- option_1: ShapeSheet
+- ans: option_1
+  option_1: ShapeSheet
   option_2: variable list
   option_3: workspace
   option_4: Master
   question: What do you call the spreadsheet-like data store that exists behind every
     object in Visio?
-- option_1: Select all shapes on the page, then on the Org Chart tab, in the Picture
+- ans: option_1
+  option_1: Select all shapes on the page, then on the Org Chart tab, in the Picture
     group, click Show/Hide.
   option_2: Ensure that no shapes are selected, then on the Org Chart tab, in the
     Picture group, click Show/Hide.
@@ -18648,48 +18711,56 @@ Visio:
   option_4: Right-click the Executive shape, select Picture, and then select Hide.
   question: You’ve created a one-page organization chart but would like to remove
     the picture placeholders from all of the org chart shapes. How do you do it?
-- option_1: a visual boundary around sets of objects that also builds logical relationships
+- ans: option_4
+  option_1: a visual boundary around sets of objects that also builds logical relationships
   option_2: a container that maintains an ordered relationship among its members
   option_3: a shape that is glued to others to add comments
   option_4: a one-dimensional shape that is used to connect two shapes
   question: What is a connector in Visio?
-- option_1: A
+- ans: option_4
+  option_1: A
   option_2: a container that maintains an ordered relationship among its members
   option_3: a shape that is glued to others to add comments
   option_4: a one-dimensional shape that is used to connect two shapes
   question: Which flowchart shape indicates a question or branch in the process flow?
-- option_1: Message Flow
+- ans: option_4
+  option_1: Message Flow
   option_2: Association
   option_3: Data Object
   option_4: Text Annotation
   question: Some Business Process Model Notation (BPMN) shapes are further annotated
     by attaching a callout shape. Which option is associated with a callout shape?
-- option_1: the center of the page
+- ans: option_2
+  option_1: the center of the page
   option_2: the shape’s pin position
   option_3: the shape’s center of gravity
   option_4: the origin on the rulers
   question: When a shape is rotated in Visio, what does it rotate around?
-- option_1: Engineering
+- ans: option_2
+  option_1: Engineering
   option_2: Software and Database
   option_3: Maps and Floor Plans
   option_4: Science
   question: Which is one of the template categories in the Visio Standard desktop
     app?
-- option_1: Belt shape
+- ans: option_2
+  option_1: Belt shape
   option_2: hidden subordinates
   option_3: synchronized copy
   option_4: executive position
   question: What does the icon in the lower-right corner of the organizational shape
     indicate?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: detailed network diagram
+- ans: option_1
+  option_1: detailed network diagram
   option_2: rack diagram
   option_3: baseline
   option_4: wiring schematic
   question: You need to create a diagram showing many servers, switches, and other
     devices in a large corporate environment. Which diagram should you use?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: Use the Container Tools Format tab and under Membership, use Select Contents
+- ans: option_3
+  option_1: Use the Container Tools Format tab and under Membership, use Select Contents
     to add the shapes.
   option_2: Center the container over the top of the shapes.
   option_3: Select all the shapes to be added, right-click, and select Container >
@@ -18700,55 +18771,63 @@ Visio:
     are in the container, but when you move the container, the shapes do not move.
     How do you give the container and shapes a specific relationship?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: layer
+- ans: option_2
+  option_1: layer
   option_2: z-order
   option_3: x-coordinate
   option_4: y-coordinate
   question: Which of these defines the relative front-to-back position of the shape
     of a drawing?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: manager
+- ans: option_4
+  option_1: manager
   option_2: executive
   option_3: associate
   option_4: assistant
   question: On a Visio organization chart, which is not one of the standard shapes?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: .vsdm
+- ans: option_4
+  option_1: .vsdm
   option_2: .vstx
   option_3: .vssx
   option_4: .vsdx
   question: You need to save a Visio drawing that contains a VBA macro. Which file
     format do you use?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: Alt
+- ans: option_4
+  option_1: Alt
   option_2: Ctrl
   option_3: Tab
   option_4: Shift
   question: If you want to move a shape using the mouse, which key should you hold
     down so that the movement is restricted to being only horizontal or vertical?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: Hold down the Shift key while dragging the selection handle.
+- ans: option_1
+  option_1: Hold down the Shift key while dragging the selection handle.
   option_2: Hold down the Ctrl key while dragging the selection handle.
   option_3: Hold down the Tab key while dragging the selection handle.
   option_4: Hold down the Shift key while dragging the selection handle.
   question: How do you constrain the Rectangle and Ellipse tools so they draw only
     squares or circles?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: Press Shift+F7.
+- ans: option_4
+  option_1: Press Shift+F7.
   option_2: Press Shift+F5.
   option_3: Press F7.
   option_4: Press F5.
   question: How do you view a Visio diagram in full-screen view, i.e., with no ribbon
     or windows?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: Network Equipment
+- ans: option_1
+  option_1: Network Equipment
   option_2: Network Device
   option_3: PC Report
   option_4: Inventory
   question: Which report would you run to provide equipment shape text, network name,
     network description, building, room, and asset number?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: Z-Order
+- ans: option_2
+  option_1: Z-Order
   option_2: Type
   option_3: Name
   option_4: Master
@@ -18756,7 +18835,8 @@ Visio:
     shape. Which of these attributes of the target shape must you specify as part
     of the hyperlink?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: insertion bar
+- ans: option_2
+  option_1: insertion bar
   option_2: data bar
   option_3: text callout
   option_4: icon set
@@ -18764,14 +18844,16 @@ Visio:
     hire date and years of service separately from the shape data. Which data graphic
     should you use to show this data?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/005.png
-- option_1: Auto Align
+- ans: option_1
+  option_1: Auto Align
   option_2: Auto Space
   option_3: Align Center
   option_4: Align Right
   question: Which of these options is available when you select some shapes and then
     click the arrow on the Position button in the Arrange group on the Home tab?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/006.png
-- option_1: to simply show data in the form of text, or to show text plus other symbols
+- ans: option_2
+  option_1: to simply show data in the form of text, or to show text plus other symbols
     related to data, such as currency symbols
   option_2: to show conditions; to visualize data in grouped percentages, amounts,
     or degrees; and simply to represent data in yes-or-no format
@@ -18781,7 +18863,8 @@ Visio:
     all shapes of a color as “on” and different colored shapes as “off”
   question: Why would you use an icon set in your drawing?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/006.png
-- option_1: On the View tab, in the Visual Aids group, clear the AutoConnect check
+- ans: option_4
+  option_1: On the View tab, in the Visual Aids group, clear the AutoConnect check
     box.
   option_2: On the File tab, open the Options dialog. In the Advanced group, clear
     Enable AutoConnect.
@@ -18791,7 +18874,8 @@ Visio:
     here” area.
   question: Which is not a way to disable AutoConnect with the Quick Shapes menu?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/006.png
-- option_1: From the Insert tab, in the Pages group, click the New Page button.
+- ans: option_3
+  option_1: From the Insert tab, in the Pages group, click the New Page button.
   option_2: Right-click the page name tab, click Page Setup, enter a new name in the
     Name box, and select Foreground.
   option_3: Right-click the page name tab, click Insert, and on the Page Properties
@@ -18801,21 +18885,24 @@ Visio:
   question: How do you add a foreground page immediately after the current foreground
     page?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/006.png
-- option_1: remove preview picture
+- ans: option_2
+  option_1: remove preview picture
   option_2: compress shape data
   option_3: remove unused themes, data graphics, and styles
   option_4: remove unused master shapes
   question: Which is not one of the standard options for reducing the file size of
     a drawing?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/006.png
-- option_1: Press Ctrl+F6.
+- ans: option_1
+  option_1: Press Ctrl+F6.
   option_2: Press Shift+F6.
   option_3: Press Ctrl+Shift+F6.
   option_4: On the View tab, in the Window group, click the Next Window button.
   question: How do you move among multiple documents when you have them all open in
     the same instance of Visio?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/006.png
-- option_1: A
+- ans: option_1
+  option_1: A
   option_2: Press Shift+F6.
   option_3: Press Ctrl+Shift+F6.
   option_4: On the View tab, in the Window group, click the Next Window button.
@@ -18823,7 +18910,8 @@ Visio:
     an office layout diagram, but it is not the correct width. Which method can you
     not use to set the width of the table?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/visio//linkedin-skill-assessments-quizzes/visio/images/006.png
-- option_1: Ctrl+Home
+- ans: option_3
+  option_1: Ctrl+Home
   option_2: Ctrl+W
   option_3: Ctrl+Shift+W
   option_4: Esc
@@ -20374,3 +20462,62 @@ jQuery:
   option_4: jQuery code to perform DOM manipulation is shorter and easier to write,
     but does not make DOM operations faster.
   question: Which describes how jQuery makes working with the DOM faster?
+- ans: option_3
+  option_1: The .css() method accepts only an object, not two separate arguments.
+    This will trigger an exception that should be caught.
+  option_2: The $('.item') selection is being made several times. This should be cached
+    in a variable for (however slightly) better performance and easier maintainability.
+  option_3: The call to .parents() is in an inefficient place.
+  option_4: All the calls to $('.item') should be chained together as a single executable
+    line for better performance.
+  question: There are some issues with this snippet of jQuery. First, it is manipulating
+    CSS directly, rather than manipulating classes and leaving the CSS in stylesheets.
+    What else in this code is best to avoid?
+- ans: option_2
+  option_1: var $p = $('p'); console.log($p.length);
+  option_2: $('p').find('a').children('li');
+  option_3: $('p > a > li');
+  option_4: $('p'); $('a'); $('li');
+  question: Which choice is an example of statement chaining?
+- ans: option_1
+  option_1: $('.element').attr('class', 'active')
+  option_2: $('.element').with('.active')
+  option_3: $('.element').hasClass('active')
+  option_4: $('.active').then()
+  question: How can you ensure that some code executes only when a class active appears
+    on an element?
+- ans: option_1
+  option_1: $('#load-me').get('source.html#one');
+  option_2: '$(''#load-me'').get(''source.html #one'');'
+  option_3: '$(''#load-me'').load(''source.html #one'');'
+  option_4: $('#load-me').load('source.html', '#one');
+  question: 'jQuery has a main function for handling AJAX, and several shorthand function
+    including load() that make calling that main function easier. Given this HTML
+    snippet, how can you insert only the second snippet from the source.html file
+    (div#one) into the #load-me div on-demand via AJAX?'
+- ans: option_1
+  option_1: '.closest() returns .leaf and #main-menu; .parents() returns #main-menu
+    and #sub-menu.'
+  option_2: '.closest() returns .leaf and #sub-menu; .parents() returns #main-menu
+    and #sub-menu.'
+  option_3: '.closest() returns only #main-menu; .parents() returns #main-menu and
+    #sub-menu.'
+  option_4: '.closest() returns only #sub-menu; .parents() returns #main-menu and
+    #sub-menu.'
+  question: Given this HTML list and subsequent two lines of jQuery, what is the difference
+    in the behavior of .closest() and .parents()?
+- ans: option_1
+  option_1: selects the first list item inside all unordered lists on the page
+  option_2: selects the first list item inside the first unordered list on the page
+  option_3: selects the first element inside any list items on the page
+  option_4: creates a predefined CSS selector that can be reused later
+  question: What does this line of code do?
+- ans: option_1
+  option_1: $('.clickable-list).click(listResponder);
+  option_2: $('.clickable-list).on('click', 'li', listResponder);
+  option_3: $('.clickable-list).on('click, append', listResponder);
+  option_4: $('.clickable-list).each(function() { $(this).click(listResponder); });
+  question: Below is a list of items that you want to be clickable and an event handler
+    function. How can you assign the event handler to every item in the list in a
+    way that is most performant, and also that ensures that the handler is called
+    even if more items are added to the list programmatically?
