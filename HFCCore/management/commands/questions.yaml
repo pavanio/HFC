@@ -18346,7 +18346,7 @@ Swift:
   option_4: This code is invalid.
   question: What is the base class in this code?
 - ans: option_1
-  option_1: About to set userLocation to Work… userLocation updated to new value!
+  option_1: About to set userLocation to Work… userLocation updated with new value!
   option_2: About to set userLocation to Work… userLocation already set to that value…
   option_3: About to set userLocation to Home… userLocation updated to new value!
   option_4: ERROR
