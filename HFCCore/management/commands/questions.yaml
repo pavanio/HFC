@@ -2968,6 +2968,37 @@ Amazon Web Services (AWS):
     automate server formation and maintenance. Which tool is not an efficient choice
     for the orchestration of a large infrastructure?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/aws//linkedin-skill-assessments-quizzes/aws/images/002.png
+- ans: option_2
+  option_1: RDS will automatically increase the allocated space by 10% and will send
+    the AWS root account an email with resolution steps.  Allocate more space to avoid
+    overage charges.
+  option_2: The database instance will report a STORAGE_FULL status and become inaccessible
+    if the instance does not have enough remaining storage to operate.  Allocate more
+    space to the instance.
+  option_3: SQL Server will close all existing connections to the databases and attempt
+    to shrink its log files to reclaim storage space.
+  option_4: RDS will automatically increase the allocated space by 5% and will continue
+    to allocate new space up to 50% of the orginal allocated space.  When storage
+    space has increase 50%, RDS will automatically stop the instance to preserve data
+    integrity.
+  question: What happens to a SQL Server RDS instance if the databases increase in
+    size and go over the allocated space?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/aws//linkedin-skill-assessments-quizzes/aws/images/002.png
+- ans: option_2
+  option_1: Use a Network Load Balancer to distribute the traffic across your servers.
+    Use UDP health checks to determine if the server is available to receive traffic.
+  option_2: Use Route 53 with HTTP health checks.  Create an application on the server
+    to report the readiness status of the vendor-provided server software to Route
+    53 via HTTP.
+  option_3: Use Route 53 with UDP health checks. As you scale up, Route 53 wiwll route
+    the traffic to the new servers if they pass the health checks.
+  option_4: Use Application Load Balancer to distribute the traffic across your servers.
+  question: You have a fleet of IoT devices that send telemetry to a server-side application
+    provided by your IoT vendor for decoding a proprietary messaging format.  The
+    devices are provisioned to send telemetry reports to your server via UDP on port
+    6339.  What is the best way scale this server as more Iot devices are added to
+    your fleet?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/aws//linkedin-skill-assessments-quizzes/aws/images/002.png
 Android:
 - ans: option_1
   option_1: AndroidManifest.xml
@@ -5020,7 +5051,7 @@ Git:
   option_4: Only updated files are staged
   question: Which of the following is true you when you use the following command?
 - ans: option_1
-  option_1: A list of remote repositories you are connected to
+  option_1: A list of remote repositories and their URLs
   option_2: The current git version you’re running
   option_3: An inline editor for modifying remote repositories
   option_4: The last 5 git versions you’ve installed
@@ -5034,12 +5065,12 @@ Git:
     master branch
   question: Looking at the following commands, describe what is happening.
 - ans: option_4
-  option_1: Delete all previous commits and reset the repository history back to its
-    initial state.
-  option_2: Resets the working branch to the first commit.
-  option_3: Keeps the HEAD at the current commit, but clears all previous commits.
-  option_4: Undoes the last commit in the working branch and sets the HEAD back one
-    commit.
+  option_1: It deletes all previous commits and reset the repository history back
+    to its initial state.
+  option_2: It resets the working branch to the first commit.
+  option_3: It keeps the HEAD at the current commit, but clears all previous commits.
+  option_4: It sets HEAD to the previous commit and leaves changes from the undone
+    commit in the stage/index.
   question: What does the following command do to the git repository?
 - ans: option_4
   option_1: Manually backtrack through your commit history.
