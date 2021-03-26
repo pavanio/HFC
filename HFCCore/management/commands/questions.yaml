@@ -2999,6 +2999,21 @@ Amazon Web Services (AWS):
     6339.  What is the best way scale this server as more Iot devices are added to
     your fleet?
   question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/aws//linkedin-skill-assessments-quizzes/aws/images/002.png
+- ans: option_2
+  option_1: The outbound rules block UDP port 53, so the server will not be able to
+    resolve any DNS lookups.
+  option_2: The outbound rules do not allow for HTTP traffic to leave the instance,
+    so inbound HTTP requests will fail because the clients will never get HTTP responses.
+  option_3: The incoming SSH port should not be open to the public.  Limit SSH to
+    a single IP address or IP range of controlled addressed, or use a VPN to access
+    the VPC for this server.
+  option_4: The all incoming TCP ports are exposed, which overrides the HTTP and SSH
+    rules and exposes all TCP ports to the public internet.
+  question: the outbound rules of a security group only allow traffic going to 0.0.0.0/0
+    on TCP Port 22 (SSH) and TCP port 3306 (MySQL).  Review the inbound rules listed
+    in the image below.  What is the most important issue to fix with this security
+    group configuration, for an Ubuntu EC2 instance acting as a web server?
+  question_img: https://ebazhanov.github.io//linkedin-skill-assessments-quizzes/aws/https://user-images.githubusercontent.com/8637045/112515574-c077e780-8d6c-11eb-96a6-11f27a0547cf.png
 Android:
 - ans: option_1
   option_1: AndroidManifest.xml
