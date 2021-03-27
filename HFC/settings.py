@@ -68,6 +68,9 @@ INSTALLED_APPS = [
     'storages',
     'andablog',
     'taggit',
+    'django_celery_beat',
+    'django_celery_results',
+    
 ]
 
 SITE_ID = 1
@@ -176,10 +179,20 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
-MAILCHIMP_SUBSCRIBE_LIST_ID=os.environ.get('MAILCHIMP_SUBSCRIBE_LIST_ID')
+MAILCHIMP_SUBSCRIBE_LIST_ID = os.environ.get('MAILCHIMP_SUBSCRIBE_LIST_ID')
 BASE_URL=os.environ.get('BASE_URL')
+CELERY_BROKER_URL = os.environ.get('REDIS_URL')
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_IMPORTS = (
+    'HFCCore.tasks',
+    
+)
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
 
 # Overwrite settings
 try:

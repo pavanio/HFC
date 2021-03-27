@@ -1,7 +1,8 @@
 from django.db import models
 import itertools
 import random
-
+import datetime
+from datetime import timedelta
 # Create your models here.
 
 
@@ -140,8 +141,12 @@ class Screenings(models.Model):
     #screening_id = models.IntegerField(null=True,blank=True)
     screening_uuid = models.CharField(max_length=50, blank=True)
     candidate_id = models.ForeignKey(Candidate, on_delete=models.CASCADE,verbose_name='Candidate Name')
-    status=models.CharField(choices=STATUS, max_length=50,default='Open')
-    screening_result=models.CharField(max_length=50, blank=True)
+    status = models.CharField(choices=STATUS, max_length=50,default='Open')
+    screening_result = models.CharField(max_length=50, blank=True)
+    created_on = models.DateField(blank =True,null= True,default=datetime.date.today)
+    first_reminder_date = models.DateField(blank =True,null= True)
+    second_reminder_date = models.DateField(blank =True,null= True)
+    third_reminder_date = models.DateField(blank =True,null= True)
     @classmethod
     def create(cls,candidate_id):
         print('candidate id',candidate_id)
@@ -178,6 +183,9 @@ class Screenings(models.Model):
     def save(self, *args, **kwargs):
         self.screening_uuid = generateUuid(self.candidate_id)
         print(self.screening_uuid)
+        self.first_reminder_date = self.created_on + timedelta(7)
+        self.second_reminder_date = self.created_on + timedelta(14)
+        self.third_reminder_date = self.created_on + timedelta(21)
         super(Screenings, self).save(*args, **kwargs)
         self.create(self.candidate_id)
 

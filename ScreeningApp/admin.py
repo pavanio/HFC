@@ -70,7 +70,7 @@ admin.site.register(Question,QuestionAdmin)
 
 
 class ScreeningAdmin(admin.ModelAdmin):
-	list_display=('screening_uuid','candidate_id','status','screening_result')
+	list_display=('screening_uuid','candidate_id','first_reminder_date','second_reminder_date','third_reminder_date','status','screening_result')
 	readonly_fields=('screening_uuid','status','screening_result')
 	inlines=[Screenings_Questions_Inline]
 	class meta:
