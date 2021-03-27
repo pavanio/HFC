@@ -18627,7 +18627,7 @@ Transact-SQL (T-SQL):
   option_1: SELECT Students.first_name, Students.last_name, Departments.office_location
     FROM Students, Departments;
   option_2: SELECT Students.first_name, Students.last_name, Departments.office_location
-    FROM Students ON Students JOIN Departments ON Students.department = Departments.department;
+    FROM Students JOIN Departments ON Students.department = Departments.department;
   option_3: SELECT Students.first_name, Students.last_name, Departments.office_location
     FROM Students JOIN Departments;
   option_4: SELECT Students.first_name, Students.last_name, Departments.office_location
@@ -18722,7 +18722,7 @@ Transact-SQL (T-SQL):
   option_3: tinyint
   option_4: bigint
   question: which data type will most efficiently store a person’s age in years?
-- ans: option_2
+- ans: option_1
   option_1: abc\def
   option_2: abcdef
   option_3: error
