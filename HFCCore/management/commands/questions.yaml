@@ -16711,6 +16711,50 @@ REST APIs:
   option_4: 'Cache-Control: no-store'
   question: Which response header tells the client and intermediaries that the response
     is not to be cached anywhere?
+- ans: option_4
+  option_1: common knowledge
+  option_2: URLs
+  option_3: no versioning
+  option_4: the Accept header
+  question: The textbook approach to api versioning is to use _____.
+- ans: option_2
+  option_1: URL parameter
+  option_2: Authorisation header
+  option_3: Base64 encoding
+  option_4: Basic Auth
+  question: Which is the most secure method to transmit an API key?
+- ans: option_3
+  option_1: client
+  option_2: not specified
+  option_3: authorisation server
+  option_4: resource server
+  question: Within Oauth, what component validates the user’s identity?
+- ans: option_3
+  option_1: inbound traffic
+  option_2: 'north-south traffic '
+  option_3: 'internal traffic '
+  option_4: east-west traffic
+  question: API traffic  that is entirely internal to your organisation is normally
+    called __?
+- ans: option_4
+  option_1: Add .json to the URL.
+  option_2: APIs do not use XML.
+  option_3: Use the Content-Type header.
+  option_4: Use the Accept header.
+  question: What is the best approach for requesting JSON instead of XML from an API?
+- ans: option_3
+  option_1: '403'
+  option_2: '404'
+  option_3: '401'
+  option_4: '405'
+  question: When a user attempts to access a record that is not their own, whitch
+    HTTP response code is the most appropriate?
+- ans: option_4
+  option_1: HTTP verbs
+  option_2: JSON payloads
+  option_3: HTTP response codes
+  option_4: rate limiting/throttling
+  question: Which is a benefit of using an API gateway?
 React.js:
 - ans: option_4
   option_1: import React.Component from 'react'
