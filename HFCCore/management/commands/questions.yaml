@@ -7910,7 +7910,7 @@ Java:
   option_4: You don’t have to decide the type of an ArrayList when you first make
     it.
   question: Why are ArrayLists better than arrays?
-- ans: option_4
+- ans: option_3
   option_1: int pi = 3.141;
   option_2: decimal pi = 3.141;
   option_3: double pi = 3.141;
