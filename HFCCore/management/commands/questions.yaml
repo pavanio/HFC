@@ -7910,7 +7910,7 @@ Java:
   option_4: You don’t have to decide the type of an ArrayList when you first make
     it.
   question: Why are ArrayLists better than arrays?
-- ans: option_4
+- ans: option_3
   option_1: int pi = 3.141;
   option_2: decimal pi = 3.141;
   option_3: double pi = 3.141;
@@ -7984,6 +7984,26 @@ Java:
   option_4: Consumer, Predicate, Supplier
   question: Which functional interfaces does Java provide to serve as data types for
     lambda expressions?
+- ans: option_2
+  option_1: encrypting user passwords
+  option_2: deciding if two instances of a class are equal
+  option_3: enabling HashMap to find matches faster
+  option_4: moving objects from a List to a HashMap
+  question: What is a valid use of the hashCode() method?
+- ans: option_2
+  option_1: uses-a
+  option_2: is-a
+  option_3: has-a
+  option_4: was-a
+  question: What kind of relationship does “extends” denote?
+- ans: option_2
+  option_1: Set object to null and call Runtime.gc()
+  option_2: Set object to null and call System.gc()
+  option_3: Set object to null and call Runtime.getRuntime().runFinalization()
+  option_4: 'There is no way to force an object to be garbage collected
+
+    Reference'
+  question: How do you force an object to be garbage collected?
 JavaScript:
 - ans: option_4
   option_1: <>
@@ -17145,7 +17165,6 @@ Ruby on Rails:
 - option_1: '<%= render partial: "nav", selected: "about"}%>'
   option_2: '<%= render partial: "nav", local_variables: {selected: "about"} %>'
   option_3: '<%= render partial: "nav", locals: {selected: "about"}'
-  option_4: '<%= render partial: "nav", locals: {selected: "about"}'
   question: When rendering a partial in a view, how would you pass local variables
     for rendering?
 - ans: option_2
