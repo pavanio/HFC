@@ -1560,7 +1560,7 @@ ______________________*/
 	text-align: center;
 }
 .thanku-heading{
-	max-width: 400px;
+	max-width: 600px;
 	margin: 0 auto;
 }
 .thanku-main h3{
@@ -1705,7 +1705,7 @@ ______________________*/
 	margin-bottom: 20px;
 }
 .footer__right li + li{
-	margin-left: 14px;
+	margin-left: 10px;
 }
 .footer__right li a:hover{
 	opacity: 0.8;

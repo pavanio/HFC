@@ -163,7 +163,7 @@ class ChapterContributorSignup(View):
         community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(request.POST)
         print(form.is_valid())
-        text = "Thanks for signing up as a contributor."
+        chapter_name = community_org.organization_name
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
@@ -183,7 +183,7 @@ class ChapterContributorSignup(View):
                 send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
-            return render(request, 'HFC/thanks.html',{'text':text})
+            return render(request, 'HFC/chapter_signup_thanks.html',{'chapter_name':chapter_name})
 
 class ProjectsView(generic.ListView):
     def get(self, request):
@@ -201,9 +201,6 @@ class CommunityView(View):
         for centre in hfc_centers:
             print(centre.community_member_set.count())
             centre_count[centre.organization_name]=centre.community_member_set.count()
-        
-            #centre_count = centre_count.count()
-        print("<<<<<<<<<<<<<<<<<<")
         print(centre_count)
         for chapter in hfc_chapters:
             print(chapter.community_member_set.count())
@@ -249,18 +246,17 @@ class ContactView(View):
         if 'csrfmiddlewaretoken' in data:
             del data['csrfmiddlewaretoken']
         print(data)
-        text ="Thanks for contacting us."
         sender_name = data['name']
         sender_email=data['email']
         subject="New contact us  message"
         #From_mail=settings.EMAIL_HOST_USER
-        to_list=['sambit@ctsc-india.org','contact@hackforchange.co.in'] 
+        to_list=['contact@hackforchange.co.in',] 
         message = "{0} has sent you a new message:\n\n{1} and his email is {2}".format(sender_name, data['message'],sender_email)
         #content =data[message]
         #send_mail(subject,content,From_mail,to_list,fail_silently=False)
         #send_mail('New Enquiry', message, sender_email,to_list)
         send_mail('New Enquiry', message,sender_email,to_list)
-        return render(request, 'HFC/thanks.html',{'text':text})
+        return render(request, 'HFC/contact_thanks.html')
         
 class DonateView(View):
     def get(self,request):
@@ -276,7 +272,6 @@ class CommunityMemberSignup(View):
         #community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(request.POST)
         print(form.is_valid())
-        text = "Thanks for signing up as a community member."
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
@@ -299,7 +294,7 @@ class CommunityMemberSignup(View):
                 send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending welcome email to community member')
-            return render(request, 'HFC/thanks.html',{'text':text})
+            return render(request, 'HFC/community_signup_thanks.html')
 
 class SendUserEmails(FormView):
     template_name = 'HFC/admin_email_form.html'

@@ -29,7 +29,9 @@ def screening(request, screening_uuid):
 	mentors = Community_Member.objects.filter(type  ='Mentor')[:6]
 	screening_uuid = screening_uuid
 	screen = Screenings.objects.get(screening_uuid=screening_uuid)
-	if screen.status=="Passed" or screen.status=="Failed":
+	if screen.status == 'Passed' or screen.status == 'Failed':
+		return render(request, 'ScreeningApp/screening_completed.html')
+	if screen.status=="Closed":
 		return render(request, 'ScreeningApp/screening_error.html')
 	screening_id = screen.screening_id
 	questions = Screenings_Questions.objects.filter(screening_id=screening_id)
@@ -106,6 +108,8 @@ def screening_preview(request, screening_uuid):
 	mentors = Community_Member.objects.filter(type  ='Mentor')[:6]
 	screening_uuid = screening_uuid
 	screen = Screenings.objects.get(screening_uuid=screening_uuid)
+	if screen.status == 'Passed' or screen.status == 'Failed':
+		return render(request, 'ScreeningApp/screening_completed.html')
 	screening_id = screen.screening_id
 	questions = Screenings_Questions.objects.filter(screening_id=screening_id)
 	#print (questions)
@@ -142,7 +146,7 @@ def screening_preview(request, screening_uuid):
 			candidate_obj=Candidate.objects.get(candidate_id=cand_id)
 			name=candidate_obj.name
 			screening_status=screen_obj.status
-			return render(request, 'ScreeningApp/screening_result_pass.html',{'name':name,'screening_status':screening_status})
+			return redirect('result',screening_uuid)
 
 		else:
 			screening_obj=Screenings.objects.filter(screening_id = screeningid).update(status='Failed')
@@ -151,8 +155,15 @@ def screening_preview(request, screening_uuid):
 			candidate_obj=Candidate.objects.get(candidate_id=cand_id)
 			name=candidate_obj.name
 			screening_status=screen_obj.status
-			return render(request, 'ScreeningApp/screening_result_fail.html',{'name':name,'screening_status':screening_status})
-		
-		
+			return redirect('result',screening_uuid)
 
 	return render(request, 'ScreeningApp/screening_submission.html', {'questions': questions,'mentors':mentors})
+
+def result(request,screening_uuid):
+	screen_obj = Screenings.objects.get(screening_uuid = screening_uuid)
+	if screen_obj.status == 'Passed':
+		return render(request, 'ScreeningApp/screening_result_pass.html')
+	if screen_obj.status == 'Failed':
+		return render(request, 'ScreeningApp/screening_result_fail.html')
+
+

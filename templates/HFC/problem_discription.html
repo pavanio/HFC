@@ -12,6 +12,18 @@
 {% block title %} Problem Description | Hack For Change {% endblock %}
 
 {% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main">
+                <h1>Problem Statements</h1>
+                <p class="large">Explore various problem statements suggested by organizations with deep domain expertise</p>
+                <a class="btn btn--info" href="{% url 'problem_statements_submit' %}">Suggest a problem statement</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main__md-pd">
 	<div class="content-width">
@@ -34,10 +46,6 @@
                             </div>
                             {% endif %}
                         </div>
-                        
-                        
-                        
-                        
                     </div>
                     <div class="blog-single__content">
                         <p class="large sbold">Summary</p>

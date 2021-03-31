@@ -11,6 +11,16 @@
 {% endblock %}
 {% block title %} Thanks | Hack For Change {% endblock %}
 {% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main">
+                <h1>Result</h1>  
+            </div>
+        </div>
+    </div>
+</div>
+<!--Banner end -->
 <!-- Main starts -->
 <div class="content-width">
         <div class="thanku-main">
@@ -18,10 +28,11 @@
                 <img src="{% static 'images/thank-you-img.svg' %}">
             </div>
             <div class="thanku-heading">
-                <h3>Dear {{name}}<br>
-               <h3>We are sorry to say that you have not cleared the test.<br>
-                If you still want to contribute then reach us directly</h3>
-               <a class="btn btn--info" href="{% url 'home' %}">Go Home</a> 
+               <h3>Unfortunately, you did not clear our screening test. We understand that you want to contribute to social change. 
+                   If you are still very keen to contribute, please checkout our <a href="https://www.hackforchange.co.in/projects" target="_blank"> projects </a> page.
+               </h3>
+                <h3>Or, if you have concerns regarding your screening, you can reach out to us <a href="https://www.hackforchange.co.in/contact" target="_blank"> here.</a></h3>
+                
            </div>
         </div>
     </div>
