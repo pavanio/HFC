@@ -16,7 +16,7 @@ app = Celery('HFC')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
-app.conf.beat_scheduler = 'django_celery_beat.schedulers.DatabaseScheduler'
+#app.conf.beat_scheduler = 'django_celery_beat.schedulers.DatabaseScheduler'
 from celery.schedules import crontab
 app.conf.beat_schedule = {
     'send-first-reminder-contrab': {
