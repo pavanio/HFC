@@ -38,13 +38,6 @@ class Screenings_Questions_Inline(admin.TabularInline):
 	def has_delete_permission(self, request, obj=None):
 		return False
 
-
-
-	
-
-
-
-
 class Expertise_AreaAdmin(admin.ModelAdmin):
 	list_display = ('area_of_expertise',)
 	inlines =[ExpertiseInline]
@@ -52,7 +45,11 @@ class Expertise_AreaAdmin(admin.ModelAdmin):
 		model=Expertise_Area
 admin.site.register(Expertise_Area,Expertise_AreaAdmin)
 
-
+class ExpertiseAdmin(admin.ModelAdmin):
+	list_display = ('expertise','category_of_expertise')
+	class meta:
+		model=Expertise
+admin.site.register(Expertise,ExpertiseAdmin)
 
 
 

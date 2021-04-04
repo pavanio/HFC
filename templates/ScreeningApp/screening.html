@@ -40,13 +40,13 @@
                         {% endif%}
                     </div>
                     <input type="radio" id={{i.question_id}} name={{question.id}} value="option_1">
-                    <label for="option_1">{{i.option_1}}</label><br>
+                    <label for="option_1">{{i.option_1|linebreaksbr}}</label><br>
                     <input type="radio" id={{i.question_id}} name={{question.id}} value="option_2">
-                    <label for="option_2">{{i.option_2}}</label><br>
+                    <label for="option_2">{{i.option_2|linebreaksbr}}</label><br>
                     <input type="radio" id={{i.question_id}} name={{question.id}} value="option_3">
-                    <label for="option_1">{{i.option_3}}</label><br>
+                    <label for="option_3">{{i.option_3|linebreaksbr}}</label><br>
                     <input type="radio" id={{i.question_id}} name={{question.id}} value="option_4">
-                    <label for="option_4">{{i.option_4}}</label><br><br>
+                    <label for="option_4">{{i.option_4|linebreaksbr}}</label><br><br>
                     {%endfor%}
                     {%endfor%}
                     <!----<button formaction="screening_preview/{{screening_uuid}}">Preview&Save</button>-->

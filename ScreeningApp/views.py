@@ -123,8 +123,8 @@ def screening_preview(request, screening_uuid):
 		true_count=false_count=0
 		for qid,ans in data.items():
 			obj=Screenings_Questions.objects.get(pk=qid)
-			obj.candidate_ans=ans
-			obj.save()
+			#obj.candidate_ans=ans
+			#obj.save()
 			if (obj.correct_ans == obj.candidate_ans):
 				obj.answer_correctness=True
 				obj.save()

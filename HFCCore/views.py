@@ -129,7 +129,7 @@ class CenterContributorSignup(View):
         community_org=Community_Organization.objects.get(organization_name_slug=hfc_center_slug)
         print(request.POST)
         print(form.is_valid())
-        text = "Thanks for signing up as a contributor."
+        center_name = community_org.organization_name
         if form.is_valid():
             #form.save()
             area_of_expertise=request.POST.getlist('area_of_expertise')
@@ -149,7 +149,7 @@ class CenterContributorSignup(View):
                 #print("Screening email not send for now")
             except:
                 print('Error in sending email screening link to Contributor')
-            return render(request, 'HFC/thanks.html',{'text':text})
+            return render(request, 'HFC/center_signup_thanks.html',{'center_name':center_name})
 
 class ChapterContributorSignup(View):
     def get(self,request,hfc_chapter_slug):
