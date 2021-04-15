@@ -13,7 +13,6 @@ from django.apps import apps
 import requests
 from django.conf import settings
 
-
 def SendSubscribeMail(email):
     API_KEY = settings.MAILCHIMP_API_KEY
     LIST_ID = settings.MAILCHIMP_SUBSCRIBE_LIST_ID
@@ -22,43 +21,41 @@ def SendSubscribeMail(email):
             "email_address":email,
             "status":"subscribed"
             }
-    headers={'Authorization':API_KEY }
+    headers = {'Authorization':API_KEY }
     try:
-        r = requests.post(url = API_ENDPOINT,headers=headers,data=json.dumps(data))
+        r = requests.post(url = API_ENDPOINT,headers = headers,data = json.dumps(data))
         print("added to mailchimp")
     except:
         return False
 
 def mentor_signup_mail(email):
     base_url = settings.BASE_URL
-    candidate=Candidate.objects.get(email=email)
-    name=candidate.name
-    email=candidate.email
+    candidate = Candidate.objects.get(email = email)
+    name = candidate.name
+    email = candidate.email
     #from_email=settings.EMAIL_HOST_USER
-    from_email='HackForChange Team<noreply@hackforchange.co.in>'
-    to_list=[email,]
-    subject="Welcome to HackForChange"
+    from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
+    to_list = [email,]
+    subject = "Welcome to HackForChange"
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
-    #msg = MIMEMultipart('alternative')
     html_content = render_to_string('HFC/mentor_welcome_email.html', {'name':name,'base_url':base_url})
-    #msg = EmailMultiAlternatives(subject, html_content, from_email , [to])
-    msg = EmailMessage(subject, html_content, from_email ,to_list,headers=headers)
+    msg = EmailMessage(subject, html_content, from_email ,to_list,headers = headers)
     msg.content_subtype = "html"
-    msg.send(fail_silently=True)
+    msg.send(fail_silently = True)
     print("Mail sended successfully")
 
 def community_member_signup_mail(email):
     base_url = settings.BASE_URL
-    candidate=Candidate.objects.get(email=email)
-    name=candidate.name
-    email=candidate.email
-    from_email='HackForChange Team<noreply@hackforchange.co.in>'
-    to_list=[email,]
-    subject="Welcome to HackForChange"
+    candidate = Candidate.objects.get(email = email)
+    name = candidate.name
+    email = candidate.email
+    from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
+    to_list = [email,]
+    subject = "Welcome to HackForChange"
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
     html_content = render_to_string('HFC/community_member_welcome_email.html', {'name':name,'base_url':base_url})
-    msg = EmailMessage(subject, html_content, from_email ,to_list,headers=headers)
+    msg = EmailMessage(subject, html_content, from_email ,to_list,headers = headers)
     msg.content_subtype = "html"
-    msg.send(fail_silently=True)
+    msg.send(fail_silently = True)
     print("Mail sended successfully")
 
