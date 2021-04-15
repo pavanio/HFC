@@ -22,8 +22,6 @@ def load_leader_board():
         response = requests.get('https://api.github.com/repos/CTSC/'+project_repo+'/contributors', headers=headers).json()
         for item in response:
             contribution_count[item['login']].append(str(item['contributions']))
-        
-        #contribution_list.append(contribution_count)
         count=0
     print(contribution_count)
     for key in contribution_count:
