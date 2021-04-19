@@ -159,9 +159,7 @@
     $("#id_profession").change(function () {
         var url = $("#volform").attr("sub-change-url");
         console.log(url)
-
         var expertise_area_id = $(this).val();
-
         $.ajax({
             url: url,
             data: {
@@ -174,7 +172,6 @@
         });
     });
 </script>
-
 
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 <script
