@@ -9,7 +9,6 @@
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
-
 {% block title %} Projects | Hack For Change {% endblock %}
 
 {% block main %}
@@ -47,7 +46,6 @@
                     <li><a href="{% url 'problem_statements_with_issuearea' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
                         {% endfor %}
                     </ul>
-
                 </div>
                 <div class="newsletter">
                     <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
@@ -76,8 +74,6 @@
 </div>
 
 {% endblock %}
-
-
 {%block js%}
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 <script
