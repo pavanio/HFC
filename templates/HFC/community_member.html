@@ -31,7 +31,6 @@
                 <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
                     <h2>Join our community</h2>
                 </div>
-
                 <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
                     {%csrf_token%}
                     <div class="form-control">
@@ -56,8 +55,7 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div> 
                     <div class="form-control">
                         <div class="form-field">
                             <label for="">LinkedIn Profile</label>
@@ -93,16 +91,11 @@
                         </div>
                     </div>
                         <div style="position:relative;padding-top:0px;width:700px;font-family:'Nunito Sans';"  >
-                        
-                            {{form.area_of_expertise }}
-                            
+                            {{form.area_of_expertise }}  
                         </div>
-
-
                     <div class="btn-outer">
                         <input class="btn btn--info btn--full" type="submit" value="Register">
                     </div>
-
                 </form>
             </section>
             <!--contents -->
@@ -142,8 +135,8 @@
 </div>
 </div>
 </div>
-
 {%endblock%}
+
 {% block js %}
 <script>
     $(function () {
@@ -152,9 +145,7 @@
     $("#id_profession").change(function () {
         var url = $("#volform").attr("sub-change-url");
         console.log(url)
-
         var expertise_area_id = $(this).val();
-
         $.ajax({
             url: url,
             data: {
