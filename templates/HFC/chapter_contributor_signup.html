@@ -9,7 +9,6 @@
 <meta property="og:url" content="">
 {% endblock %}
 {% block title %} Contributor Signup | Hack For Change {% endblock %}
-
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
@@ -32,7 +31,6 @@
                         srcset="images/dit_university_logo@2x.jpg 2x, images/dit_university_logo@3x.jpg 3x">
                     <h2>{{chapter.organization_name}}</h2>
                 </div>
-
                 <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
                     {%csrf_token%}
                     <div class="form-control">
@@ -52,13 +50,9 @@
                         </div>
                         <div class="form-field">
                             <label for="">LinkedIn Profile</label>
-
                             {{form.linkedin_profile}}
-
-
                         </div>
                     </div>
-                    
                     <div class="form-control">
                         <div class="form-field">
                             <label for=""style="font-weight:350;">GitHub Profile</label>
@@ -94,16 +88,11 @@
                         </div>
                     </div>
                         <div style="position:relative;padding-top:0px;width:700px;font-family:'Nunito Sans';"  >
-                        
-                            {{form.area_of_expertise }}
-                            
+                            {{form.area_of_expertise }}  
                         </div>
-
-
                     <div class="btn-outer">
                         <input class="btn btn--info btn--full" type="submit" value="Register">
                     </div>
-
                 </form>
             </section>
             <!--contents -->
@@ -135,16 +124,16 @@
                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
                         name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
-        </div>
+            </div>
         </form>
     </div>
-    </aside>
+</aside>
     <!--sidebar -->
 </div>
 </div>
 </div>
-
 {%endblock%}
+
 {% block js %}
 <script>
     $(function () {
@@ -153,9 +142,7 @@
     $("#id_profession").change(function () {
         var url = $("#volform").attr("sub-change-url");
         console.log(url)
-
         var expertise_area_id = $(this).val();
-
         $.ajax({
             url: url,
             data: {
