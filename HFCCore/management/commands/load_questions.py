@@ -16,7 +16,6 @@ def load_questions():
     marketing = ['Search Engine Optimization (SEO)','Microsoft Word','Microsoft Project','Microsoft PowerPoint','Microsoft Power BI','Microsoft Outlook',
     'Microsoft Excel','Microsoft Access Assessment','Google Analytics']
     management = ['Agile Methodologies',]
-
     for expertise,questions in main_dict.items():
         if expertise in design_expertise:
             category_of_expertise = Expertise_Area.objects.get(area_of_expertise = "Design")
@@ -54,4 +53,3 @@ def load_questions():
                 option_1 = question.get('option_1'), option_2 = question.get('option_2') , option_3 = question.get('option_3') , 
                 option_4 = question.get('option_4'),answer = question.get('ans'),question_img = question.get('question_img'))
             print(expertise + "questions are added")
-
