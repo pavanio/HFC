@@ -32,7 +32,6 @@
                         srcset="images/dit_university_logo@2x.jpg 2x, images/dit_university_logo@3x.jpg 3x">
                     <h2>{{center.organization_name}}</h2>
                 </div>
-
                 <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
                     {%csrf_token%}
                     <div class="form-control">
@@ -55,7 +54,6 @@
                             {{form.linkedin_profile}}
                         </div>
                     </div>
-                    
                     <div class="form-control">
                         <div class="form-field" >
                             <label for="" style="font-weight:350;">GitHub Profile</label>
@@ -93,12 +91,9 @@
                         <div style="position:relative;padding-top:0px;width:700px;font-family:'Nunito Sans';margin-right:20px;">
                             {{form.area_of_expertise}}
                         </div>
-
-
                     <div class="btn-outer">
                         <input class="btn btn--info btn--full" type="submit" value="Register">
                     </div>
-
                 </form>
             </section>
             <!--contents -->
@@ -138,8 +133,8 @@
 </div>
 </div>
 </div>
-
 {%endblock%}
+
 {% block js %}
 <script>
     $(function () {
@@ -148,9 +143,7 @@
     $("#id_profession").change(function () {
         var url = $("#volform").attr("sub-change-url");
         console.log(url)
-
         var expertise_area_id = $(this).val();
-
         $.ajax({
             url: url,
             data: {
