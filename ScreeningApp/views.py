@@ -15,26 +15,26 @@ from HFCCore.models import Community_Member
 # Create your views here.
 def screening_result(email,name,screening_status):
     #from_email=settings.EMAIL_HOST_USER
-	from_email='HackForChange Team<noreply@hackforchange.co.in>'
-	to=[email,]
-	subject="Screening Result"
+	from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
+	to = [email,]
+	subject = "Screening Result"
 	headers = {'Reply-To': 'suman@hackforchange.co.in'}
 	html_content = render_to_string('HFC/screen_result_email.html', {'name':name,'screening_status':screening_status})
-	msg = EmailMessage(subject, html_content, from_email ,to,headers=headers)
+	msg = EmailMessage(subject, html_content, from_email ,to,headers = headers)
 	msg.content_subtype = "html"
-	msg.send(fail_silently=True)
+	msg.send(fail_silently = True)
 	print("Mail sended successfully")  
 	
 def screening(request, screening_uuid):
-	mentors = Community_Member.objects.filter(type  ='Mentor')[:6]
+	mentors = Community_Member.objects.filter(type  = 'Mentor')[:6]
 	screening_uuid = screening_uuid
-	screen = Screenings.objects.get(screening_uuid=screening_uuid)
+	screen = Screenings.objects.get(screening_uuid = screening_uuid)
 	if screen.status == 'Passed' or screen.status == 'Failed':
 		return render(request, 'ScreeningApp/screening_completed.html')
-	if screen.status=="Closed":
+	if screen.status == "Closed":
 		return render(request, 'ScreeningApp/screening_error.html')
 	screening_id = screen.screening_id
-	questions = Screenings_Questions.objects.filter(screening_id=screening_id)
+	questions = Screenings_Questions.objects.filter(screening_id = screening_id)
 	ques_list = []
 	user_ans_list = []
 	for question in questions:
