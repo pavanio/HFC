@@ -20,25 +20,20 @@
     </div>
 </div>
 </div>
-
-
 {% block andablog_meta %}
 <meta name="description" content="Latest blog entries">
 {% endblock %}
 
 {% block andablog_page_title %}
-
 {% endblock %}
 
 {% block andablog_content %}
 {% load static %}
 <main>
     <link rel="stylesheet" href="{% static 'css/andablog.css' %}">
-
     <div class="content-width blog-list">
         {% for entry in entries %}
         <div class="post-block">
-
             <div class="post-img">
                 {% if entry.preview_image %}
                 <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }}"
@@ -50,12 +45,9 @@
                 <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h4>
                 <a href="{{ entry.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
             </div>
-
         </div>
         {% endfor %}
     </div><br><br>
-
-
     <!---- <div class="last-Updates">
         <div class="learn-more"><a href=""></a></div>
     </div>-->
