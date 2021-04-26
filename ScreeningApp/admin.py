@@ -12,10 +12,10 @@ class ScreeningInline(admin.TabularInline):
 	extra = 0
 	readonly_fields = ('screening_uuid','status','screening_result')
 	show_change_link = True
-	def has_add_permission(self, request):
-		return False
-	def has_delete_permission(self, request, obj=None):
-		return False
+	"""def has_add_permission(self, request):
+		return False"""
+	"""def has_delete_permission(self, request, obj=None):
+		return False"""
 
 class Screenings_Questions_Inline(admin.TabularInline):
 	model = Screenings_Questions
@@ -28,10 +28,10 @@ class Screenings_Questions_Inline(admin.TabularInline):
 	get_questions.short_description = 'question'
 	def get_correct_ans(self,obj):
 		pass
-	def has_add_permission(self, request):
-		return False
-	def has_delete_permission(self, request, obj = None):
-		return False
+	"""def has_add_permission(self, request):
+		return False"""
+	"""def has_delete_permission(self, request, obj = None):
+		return False"""
 
 class Expertise_AreaAdmin(admin.ModelAdmin):
 	list_display = ('area_of_expertise',)

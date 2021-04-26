@@ -23,6 +23,7 @@ sentry_sdk.init(
     # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
 )
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -66,10 +67,10 @@ INSTALLED_APPS = [
     'ScreeningApp',
     'django.contrib.sites',
     'storages',
-    'andablog',
-    'taggit',
     'django_celery_beat',
     'django_celery_results',
+    'blog',
+    'django_summernote'
     
 ]
 

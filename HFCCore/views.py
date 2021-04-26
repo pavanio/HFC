@@ -19,10 +19,11 @@ import operator
 from .utils import SendSubscribeMail,mentor_signup_mail,community_member_signup_mail
 from django.views.generic.edit import FormView 
 from django.urls import reverse_lazy
+from blog.models import Post
 headers = {
     'Accept': 'application/vnd.github.v3+json',
 }
-Entry = apps.get_model('andablog', 'Entry')
+#Entry = apps.get_model('andablog', 'Entry')
 # Create your views here.
 def load_area_of_expertise(request):
     expertise_area_id = request.GET.get('profession')
@@ -51,8 +52,8 @@ def thanks(request):
 
 class Home(View):
     def get(self, request):
-        entries = Entry.objects.all()[:3]
-        return render(request,'HFC/hfc_home.html',{'entries':entries})
+        blogs = Post.objects.all()[:3]
+        return render(request,'HFC/hfc_home.html',{'blogs':blogs})
 
 class ProblemStatementsView(generic.ListView):
     def get(self, request):

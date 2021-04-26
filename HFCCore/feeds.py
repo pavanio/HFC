@@ -1,16 +1,13 @@
-from django.contrib.syndication.views import Feed
+"""from django.contrib.syndication.views import Feed
 from django.urls import reverse
 from django.template.defaultfilters import truncatewords_html
 from django.apps import apps
-Entry = apps.get_model('andablog', 'Entry')
+#Entry = apps.get_model('andablog', 'Entry')
 
 from django.urls import reverse_lazy
 
 class LatestEntriesFeed(Feed):
-    """
-    This is just a base class for a blog entry field.
-    It should be sub-classed and further refined before use.
-    """
+    
     MAX_ENTRIES = 10
 
     title = 'Latest blog entries'
@@ -36,4 +33,4 @@ class LatestBlogEntries(LatestEntriesFeed):
     feed_copyright = 'HackForChange'
     title = 'Latest Blog Entries'
     description = 'Updates on the latest blog entries from hackforchange.co.in'
-    link = reverse_lazy('andablog:entrylist')
+    link = reverse_lazy('andablog:entrylist')"""

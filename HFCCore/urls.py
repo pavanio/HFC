@@ -2,7 +2,7 @@ from django.urls import path
 from HFCCore import views
 from django.conf.urls import include
 from django.http import HttpResponse
-from .feeds import LatestBlogEntries
+#from .feeds import LatestBlogEntries
 
 
 #app_name="HFCCore"
@@ -25,9 +25,9 @@ urlpatterns = [
     path('terms-conditions/',views.TermsAndConditionView.as_view(),name = 'terms_conditions'),
     path('contact/',views.ContactView.as_view(),name = 'contact'),
     path('donate/',views.DonateView.as_view(),name = 'donate'),
-    path('blog/',include('andablog.urls',namespace='andablog')),
+    path('blog/',include('blog.urls')),
     path('robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow:", content_type="text/plain"), name="robots_file"),
     path('', include('ScreeningApp.urls')),
     path('email-users/',views.SendUserEmails.as_view(),name='email'),
-    path('latest/entries/', LatestBlogEntries(), name='blog-entry-feed'),
+    #path('latest/entries/', LatestBlogEntries(), name='blog-entry-feed'),
 ]

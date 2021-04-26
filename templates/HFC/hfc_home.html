@@ -1,10 +1,10 @@
-{% extends "andablog/base.html" %}
-{% load static from staticfiles %}
-{% load andablog_tags %}
+{% extends "HFC/layout.html" %}
+{% load static  %}
+
 {% block meta_tags %}
 <meta content="" name="keywords">
 <meta property="og:title" content="">
-<meta name="description" property="og:description" content="">
+<meta property="og:description" name="description"  content="">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="">
@@ -116,27 +116,27 @@
     </div>
 </div>
 
-{% block andablog_content %}
+
 <div class="home-blog-wrap">
     <div class="contribute__top">
         <h2 class="underline">Our Latest Updates</h2>
     </div>
 
     <div class="content-width blog-list home-update">
-        {% for entry in entries %}
+        {% for blog in blogs %}
         <div class="post-block">
             <div class="post-img">
-                <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }}" alt="Preview image for {{ entry.title }}"></a>
+                <a href="{{ blog.get_absolute_url }}"><img src="{{ blog.image.url }}" alt="Preview image for {{ blog.title }}"></a>
             </div>
             <div class="post-info">
-                <p>{{ entry.published_timestamp|date:"DATE_FORMAT" }} </p>
-                <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h4>
-                <a href="{{entry.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
+                <p>{{ blog.created_on|date:"DATE_FORMAT" }} </p>
+                <h4><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h4>
+                <a href="{{blog.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
             </div>
         </div>
         {% endfor%}
     </div>
 </div>
-{% endblock %}
+
 <!--main end -->
 {% endblock%}

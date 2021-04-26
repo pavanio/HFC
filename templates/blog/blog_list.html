@@ -1,5 +1,5 @@
-{% extends "andablog/base.html" %}
-{% load static % }
+{% extends "HFC/layout.html" %}
+{% load static %}
 {% block meta_tags %}
 <meta content="" name="keywords">
 <meta property="og:title" content="">
@@ -8,7 +8,7 @@
 <meta property="og:image" content="https://www.hackforchange.co/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
-{% load andablog_tags %}
+{% block title %} Blog | Hack For Change {% endblock %}
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
@@ -20,30 +20,21 @@
     </div>
 </div>
 </div>
-{% block andablog_meta %}
-<meta name="description" content="Latest blog entries">
-{% endblock %}
 
-{% block andablog_page_title %}
-{% endblock %}
-
-{% block andablog_content %}
-{% load static %}
 <main>
-    <link rel="stylesheet" href="{% static 'css/andablog.css' %}">
     <div class="content-width blog-list">
-        {% for entry in entries %}
+        {% for blog in page_obj.object_list %}
         <div class="post-block">
             <div class="post-img">
-                {% if entry.preview_image %}
-                <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }}"
-                        alt="Preview image for {{ entry.title }}"></a>
+                {% if blog.image %}
+                <a href="{{ blog.get_absolute_url }}"><img src="{{ blog.image.url }}"
+                        alt="Preview image for {{ blog.title }}"></a>
                 {% endif %}
             </div>
             <div class="post-info">
-                <p> {{ entry.published_timestamp|date:"DATE_FORMAT" }}</p>
-                <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h4>
-                <a href="{{ entry.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
+                <p> {{ blog.created_on|date:"DATE_FORMAT" }}</p>
+                <h4><a href="{{ blog.get_absolute_url }}">{{ blog.title|striptags|truncatewords:10 }}</a></h4>
+                <a href="{{ blog.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
             </div>
         </div>
         {% endfor %}
@@ -53,4 +44,4 @@
     </div>-->
 </main>
 {% endblock%}
-{% endblock%}
+

@@ -1,24 +1,15 @@
-{% extends "andablog/base.html" %}
-{% load andablog_tags %}
-{% block meta_tags %}
-<meta content="" name="keywords">
-<meta property="og:title" content="{{entry.title}}">
-<meta name="description" property="og:description" content=" {{ entry.content|striptags|truncatewords:20 }}">
-<meta property="og:type" content="article">
-<meta property="og:image" content="{{ entry.preview_image.url }}">
-<meta property="og:url" content="{{ entry.get_absolute_url }}">
-{% endblock %}
-{% block title %}{{entry.title}}| Hack For Change{% endblock %}
-{% block main %}
-{% block andablog_meta %}
-<meta name="description" content="{{ entry.title }}">
-<meta name="author" content="{{ entry.author.first_name }}">
-{% endblock %}
-{% block andablog_page_title %}
-{% endblock %}
-
-{% block andablog_content %}
+{% extends "HFC/layout.html" %}
 {% load static %}
+{% block meta_tags %}
+<meta  name="keywords" content="{{blog.keyword}}">
+<meta property="og:title" content="{{blog.title}}">
+<meta property="og:description" name="description"  content=" {{ blog.body|striptags|truncatewords:20 }}">
+<meta property="og:type" content="article">
+<meta property="og:image" content="{{ blog.image.url }}">
+<meta property="og:url" content="{{ blog.get_absolute_url }}">
+{% endblock %}
+{% block title %}{{blog.title}}| Hack For Change{% endblock %}
+{% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
@@ -34,18 +25,18 @@
             <div class="main">
                 <section id="contents">
                     <div class="blog-single" >
-                        <h3 style="margin-bottom:3px;">{{entry.title}} </h3>
+                        <h3 style="margin-bottom:3px;">{{blog.title}} </h3>
                         <div class="proceedings-text" style="margin-bottom:5px;">
-                                 <div class="foucs bloge" style="margin-left:4px;">{{entry.published_timestamp|date:"D, dS M, Y" }}
+                                 <div class="foucs bloge" style="margin-left:4px;">{{blog.created_on|date:"D, dS M, Y" }}
                                  </div>
                         </div>
-                        {% if entry.preview_image %}
+                        {% if blog.image %}
                         <div class="blog-main-img">
-                            <a href="{{ entry.get_absolute_url }}"><img src="{{ entry.preview_image.url }} " alt="Preview image for {{ entry.title }}"></a> 
+                            <a href="{{ blog.get_absolute_url }}"><img src="{{ blog.image.url }} " alt="Preview image for {{ blog.title }}"></a> 
                         </div>
                         {% endif %}
                         <div class="blog-single__content">
-                            <p style="text-align:justify;">{{ entry.content }}</p>  
+                            <p style="text-align:justify;">{{ blog.body |safe }}</p>  
                         </div>
                     </div>
                 </section>
@@ -75,8 +66,8 @@
         </div>
     </div>
 
-{% include "andablog/comments_snippet.html" with comment_object=entry %}
-{%endblock%}
+
+
 {%endblock%}
 {% block css %}
 <style>
@@ -96,5 +87,5 @@
 
 {% endblock %}
 
-{% block js %}
-{% endblock %}
+
+
