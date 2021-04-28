@@ -194,7 +194,7 @@ CELERY_IMPORTS = (
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
-
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Overwrite settings
 try:
     from .local_settings import *
