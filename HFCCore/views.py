@@ -259,7 +259,7 @@ class CommunityMemberSignup(View):
             try:
                 community_member_signup_mail(email)
                 message = "A new community member signed up to {0} chapter".format(community_org.organization_name)
-                to_list=['',]
+                to_list=['team@hackforchange.co.in',]
                 send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending welcome email to community member')

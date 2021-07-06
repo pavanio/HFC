@@ -12,6 +12,7 @@ from django.core.mail import send_mail,EmailMessage
 from .forms import SendEmailForm
 from django.shortcuts import render
 from .views import screeninglink_mail
+from django.contrib import messages
 
 class Issue_Area_Admin(admin.ModelAdmin):
 	list_display = ('issue_area','issue_area_slug')
@@ -56,7 +57,11 @@ class Community_MemberAdmin(admin.ModelAdmin):
 		model = Community_Member
 	def send_screening_invitation(self, request, queryset):
 		for profile in queryset:
-			screeninglink_mail(profile.email)
+			try:
+				screeninglink_mail(profile.email)
+				messages.success(request,"Email send successfully")
+			except:
+				message.error(request,"Email sending failed")
 	send_screening_invitation.short_description = "Send screening invitation"
 	def send_email(self, request, queryset):
 		form = SendEmailForm(initial = {'users': queryset})
