@@ -282,3 +282,7 @@ class SendUserEmails(FormView):
             msg.content_subtype = "html"
             msg.send(fail_silently = True)
         return super(SendUserEmails, self).form_valid(form)
+
+def admin_redirect(request):
+    response = redirect(settings.ADMIN_LINK)
+    return response
