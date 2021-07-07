@@ -200,3 +200,4 @@ try:
     from .local_settings import *
 except:
     pass
+ADMIN_LINK = os.environ.get('ADMIN_LINK')
