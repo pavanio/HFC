@@ -284,5 +284,4 @@ class SendUserEmails(FormView):
         return super(SendUserEmails, self).form_valid(form)
 
 def admin_redirect(request):
-    response = redirect(settings.ADMIN_LINK)
-    return response
+    return redirect(settings.ADMIN_LINK)

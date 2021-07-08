@@ -30,5 +30,6 @@ urlpatterns = [
     path('', include('ScreeningApp.urls')),
     path('email-users/',views.SendUserEmails.as_view(),name='email'),
     #path('latest/entries/', LatestBlogEntries(), name='blog-entry-feed'),
-    path('admin/',views.admin_redirect),
+    path('hfcadmin/',views.admin_redirect),
+    
 ]
