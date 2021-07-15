@@ -1,0 +1,98 @@
+{% extends 'HFC/layout.html' %}
+{% block meta_tags %}
+
+<meta content="" name="keywords">
+<meta property="og:title" content="{{problem.title}}">
+<meta name="description" property="og:description" content="{{problem.summary|striptags|truncatewords:20}}">
+<meta property="og:type" content="article" >    
+<meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
+<meta property="og:url" content="https://hackforchange.co/problem-statements/{{problem.title_slug}}">
+{% endblock %}
+{% load static  %}
+{% block title %} Issue Areas | Hack For Change {% endblock %}
+
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+        <div class="content-width sm-content-width">
+            <div class="banner__main">
+                <h1>Issue Areas</h1>
+                <p class="large">Explore various problem statements suggested by organizations with deep domain expertise</p>
+                <a class="btn btn--info" href="{% url 'problem_statements_submit' %}">Suggest a problem statement</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Banner end -->
+<!--main start -->
+<div id="main-wrap" class="main__md-pd">
+	<div class="content-width">
+        <div class="main">
+        	<section id="contents">
+                <div class="blog-single">
+                    <h3>{{problem.title}}</h3>
+                    <div class="single__author-sec" style="margin-bottom: 30px;">
+                        <div class="author__left">
+                            {% if partner.name %}
+                            <img width="87" src={{partner.logo.url}}  alt="Partner logo">
+                        </div>
+                        <div class="author__right">
+                            <div class="badge-sec"><strong>Submitted By: </strong><span class="badge badge--yellow">{{partner.name}}</span></div>
+                            <div class="badge-sec"><strong>Focus Area: </strong>
+                                {% for focus_area in focus_areas %}
+                            <span class="badge">{{focus_area}}</span>
+                                {% endfor %}    
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="blog-single__content">
+                        <p class="large sbold">Summary</p>
+                        <p style="text-align:justify;">{{problem.summary}}</p>
+                        <p class="large sbold">Background Information</p>
+                        <p style="text-align:justify;">{{problem.background_info}}</p>
+                        <p class="large sbold">Related Links</p>
+                        {% if problem.related_link %}
+                        <p><a href={{problem.related_link}} >{{problem.related_link}}</a></p>
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
+                        <p class="large sbold">Proposed Solution</p>
+                        <p style="text-align:justify;">{{problem.proposed_solution}}</p>
+                    </div>
+                </div>
+            </section>
+            
+            <aside id="sidebar">
+                <div class="sidebar__list">
+                    <p>Explore problem statements across various issue areas</p>
+                    <ul>
+                        {% for issue_area in issue_areas %}
+                    <li><a href="{% url 'problem_statements_with_issuearea' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form
+                            action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
+                            method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                            novalidate>
+                            <p class="large bold">Get Latest Updates!</p>
+                            <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
+                            <input class="btn btn--info" type="submit" value="Subscribe">
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none;font-size: 8px;"></div>
+                            </div>
+                        </form>
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                            name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
+                </div>
+            </aside><!--sidebar -->
+        </div>
+    </div>
+</div>
+<!--main end -->
+{% endblock %}
