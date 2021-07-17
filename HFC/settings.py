@@ -191,6 +191,7 @@ CELERY_IMPORTS = (
     'HFCCore.tasks',
     
 )
+ADMIN_LINK = os.environ.get('ADMIN_LINK')
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
@@ -200,4 +201,4 @@ try:
     from .local_settings import *
 except:
     pass
-ADMIN_LINK = os.environ.get('ADMIN_LINK')
+

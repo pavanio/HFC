@@ -32,6 +32,11 @@ MEMBER_TYPE_CHOICE = [
 class Issue_Area(models.Model):
     issue_area = models.CharField(max_length = 100)
     issue_area_slug = AutoSlugField(populate_from = 'issue_area')
+    issue_brief = models.TextField(blank = True, help_text ='This text is used for SEO purpose')
+    issue_overview = models.TextField(blank = True)
+    context = models.TextField(blank = True)
+    technology_intervention = models.TextField(blank = True)
+    related_information = models.TextField(blank = True)
     def __str__(self):
         return self.issue_area 
 

@@ -17,7 +17,7 @@ class Post(models.Model):
     image = models.ImageField(null=True, blank=True)
     created_on = models.DateField(blank = True,null = True,default = datetime.date.today)
     status = models.CharField(choices = STATUS, max_length = 10,default = 'Draft')
-    keyword = models.TextField()
+    keywords = models.TextField()
     class Meta:
         verbose_name = "Post"
         verbose_name_plural = "Posts"

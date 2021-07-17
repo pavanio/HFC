@@ -3,7 +3,8 @@ from HFCCore import views
 from django.conf.urls import include
 from django.http import HttpResponse
 #from .feeds import LatestBlogEntries
-
+handler404 = 'HFCCore.views.error_404'
+handler500 = 'HFCCore.views.error_500'
 
 #app_name="HFCCore"
 urlpatterns = [
@@ -31,5 +32,8 @@ urlpatterns = [
     path('email-users/',views.SendUserEmails.as_view(),name='email'),
     #path('latest/entries/', LatestBlogEntries(), name='blog-entry-feed'),
     path('hfcadmin/',views.admin_redirect),
+    path('issue-areas/<issue_area_slug>',views.IssueAreaView.as_view(),name = 'issue_area'),
+    path('editor/', include('django_summernote.urls')),
+
     
 ]

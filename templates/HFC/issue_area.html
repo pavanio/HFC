@@ -16,8 +16,8 @@
 <div class="banner-wrap">
         <div class="content-width sm-content-width">
             <div class="banner__main">
-                <h1>Issue Areas</h1>
-                <p class="large">Explore various problem statements suggested by organizations with deep domain expertise</p>
+                <h1>{{issue.issue_area}}</h1>
+                <p class="large">{{issue.issue_brief}}</p>
                 <a class="btn btn--info" href="{% url 'problem_statements_submit' %}">Suggest a problem statement</a>
             </div>
         </div>
@@ -30,35 +30,22 @@
         <div class="main">
         	<section id="contents">
                 <div class="blog-single">
-                    <h3>{{problem.title}}</h3>
-                    <div class="single__author-sec" style="margin-bottom: 30px;">
-                        <div class="author__left">
-                            {% if partner.name %}
-                            <img width="87" src={{partner.logo.url}}  alt="Partner logo">
-                        </div>
-                        <div class="author__right">
-                            <div class="badge-sec"><strong>Submitted By: </strong><span class="badge badge--yellow">{{partner.name}}</span></div>
-                            <div class="badge-sec"><strong>Focus Area: </strong>
-                                {% for focus_area in focus_areas %}
-                            <span class="badge">{{focus_area}}</span>
-                                {% endfor %}    
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
+                    <h3>{{issue.issue_area}}</h3>
                     <div class="blog-single__content">
-                        <p class="large sbold">Summary</p>
-                        <p style="text-align:justify;">{{problem.summary}}</p>
-                        <p class="large sbold">Background Information</p>
-                        <p style="text-align:justify;">{{problem.background_info}}</p>
-                        <p class="large sbold">Related Links</p>
-                        {% if problem.related_link %}
-                        <p><a href={{problem.related_link}} >{{problem.related_link}}</a></p>
+                        <p class="large sbold">Overview</p>
+                        <p style="text-align:justify;">{{issue.issue_overview}}</p>
+                        <p class="large sbold">{{issue.issue_area}} in Indian Context</p>
+                        <p style="text-align:justify;">{{issue.context}}</p>
+                        <p class="large sbold">Technology and {{issue.issue_area}}</p>
+                        <p style="text-align:justify;">{{issue.technology_intervention }}</p>
+                        <p class="large sbold">Related Informations</p>
+                        {% if issue.related_information %}
+                        <p><a href={{issue.related_information}} >{{issue.related_information}}</a></p>
                         {% else %}
                         <p>_</p>
                         {% endif %}
-                        <p class="large sbold">Proposed Solution</p>
-                        <p style="text-align:justify;">{{problem.proposed_solution}}</p>
+                        <p class="large sbold"></p>
+                        <p style="text-align:justify;"></p>
                     </div>
                 </div>
             </section>

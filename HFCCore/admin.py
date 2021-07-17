@@ -13,9 +13,11 @@ from .forms import SendEmailForm
 from django.shortcuts import render
 from .views import screeninglink_mail
 from django.contrib import messages
+from django_summernote.admin import SummernoteModelAdmin
 
-class Issue_Area_Admin(admin.ModelAdmin):
-	list_display = ('issue_area','issue_area_slug')
+class Issue_Area_Admin(SummernoteModelAdmin):
+	list_display = ('issue_area','issue_brief','issue_overview','context','technology_intervention','related_information')
+	summernote_fields = ('issue_overview','context','technology_intervention',)
 	class meta:
 		model = Issue_Area
 
