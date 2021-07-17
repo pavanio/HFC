@@ -33,14 +33,14 @@
                     <h3>{{issue.issue_area}}</h3>
                     <div class="blog-single__content">
                         <p class="large sbold">Overview</p>
-                        <p style="text-align:justify;">{{issue.issue_overview}}</p>
+                        <p style="text-align:justify;">{{issue.issue_overview |safe}}</p>
                         <p class="large sbold">{{issue.issue_area}} in Indian Context</p>
-                        <p style="text-align:justify;">{{issue.context}}</p>
+                        <p style="text-align:justify;">{{issue.context |safe}}</p>
                         <p class="large sbold">Technology and {{issue.issue_area}}</p>
-                        <p style="text-align:justify;">{{issue.technology_intervention }}</p>
+                        <p style="text-align:justify;">{{issue.technology_intervention |safe}}</p>
                         <p class="large sbold">Related Informations</p>
                         {% if issue.related_information %}
-                        <p><a href={{issue.related_information}} >{{issue.related_information}}</a></p>
+                        <p><a href={{issue.related_information}} >{{issue.related_information |safe}}</a></p>
                         {% else %}
                         <p>_</p>
                         {% endif %}
