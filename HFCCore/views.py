@@ -298,7 +298,7 @@ class IssueAreaView(View):
     def get(self, request, issue_area_slug):
         issue = Issue_Area.objects.get(issue_area_slug = issue_area_slug)
         issue_areas = Issue_Area.objects.all()
-        return render(request, 'HFC/issue_area.html', {'issue':issue,'issue_areas': issue_areas})
+        return render(request, 'HFC/issue_area_detail.html', {'issue':issue,'issue_areas': issue_areas})
 
 class ProjectDetailView(View):
     def get(self, request, issue_area_slug):
@@ -306,4 +306,7 @@ class ProjectDetailView(View):
         issue_areas = Issue_Area.objects.all()
         return render(request, 'HFC/issue_area.html', {'issue':issue,'issue_areas': issue_areas})
 
-
+class IssueAreaListView(View):
+    def get(self, request):
+        issue_areas = Issue_Area.objects.all()
+        return render(request, 'HFC/issue_area.html', {'issue_areas':issue_areas})

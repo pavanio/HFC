@@ -33,6 +33,7 @@ urlpatterns = [
     #path('latest/entries/', LatestBlogEntries(), name='blog-entry-feed'),
     path('hfcadmin/',views.admin_redirect),
     path('issue-areas/<issue_area_slug>',views.IssueAreaView.as_view(),name = 'issue_area'),
+    path('issue-areas/',views.IssueAreaListView.as_view(),name = 'issue_areas'),
     path('editor/', include('django_summernote.urls')),
 
     
