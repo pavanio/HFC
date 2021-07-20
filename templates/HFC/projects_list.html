@@ -33,7 +33,7 @@
                 <article class="post-blog">
                     <h4>{{projects_list.name}}</h4>
                     <p>{{projects_list.project_desc}}</p>
-                    <a class="btn btn--border" href={{projects_list.website_link}} target="_blank">Learn More</a>
+                    <a class="btn btn--border" href="{% url 'project_detail' projects_list.project_slug  %}">Learn More</a>
                 </article>
                 {% endfor %}
             </section>

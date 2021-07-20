@@ -29,6 +29,13 @@ MEMBER_TYPE_CHOICE = [
     ('Mentor', 'Mentor')
 ]
 
+PROJECT_INVOLVEMENT = [
+    ('Funding','Funding'),
+    ('Execution','Execution'),
+    ('Adoption','Adoption'),
+    ('Promotion','Promotion')
+]
+
 class Issue_Area(models.Model):
     issue_area = models.CharField(max_length = 100)
     issue_area_slug = AutoSlugField(populate_from = 'issue_area')
@@ -71,9 +78,10 @@ class Project(models.Model):
     project_link = models.URLField()
     project_icon = models.ImageField(blank = True,null = True)
     project_desc = models.TextField()
-    website_link = models.URLField()
+    website_link = models.URLField(blank = True,null = True)
     goal = models.TextField(blank = True,null = True)
-    funded_by = models.CharField(max_length = 300,blank = True,null = True)
+    project_slug = AutoSlugField(populate_from = 'name',blank = True,null = True)
+
     def __str__(self):
         return self.name
     class Meta:
@@ -127,3 +135,10 @@ class Community_Member(Candidate):
         else:
             self.level_of_expertise = "Expert"
         super(Community_Member,self).save(*args, **kwargs) 
+
+class Project_Partner(models.Model):
+    project_id = models.ForeignKey(Project, on_delete = models.CASCADE,verbose_name ="Project")
+    partner = models.ManyToManyField('Partner',blank = True)
+    project_involvement = models.CharField(max_length = 50, choices = PROJECT_INVOLVEMENT)
+    def get_partner(self):
+        return ",".join([ partner.name for  partner  in self. partner.all()])

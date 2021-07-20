@@ -294,17 +294,23 @@ def error_500(request,*args, **argv):
         data = {}
         return render(request,'HFC/500.html', data)
 
+class ProjectDetailView(View):
+    def get(self, request, project_slug):
+        project = Project.objects.get(project_slug = project_slug)
+        print(project.id)
+        funding = Project_Partner.objects.filter(project_id = project.id,project_involvement = 'Funding')
+        adoption = Project_Partner.objects.filter(project_id = project.id ).filter(project_involvement = 'Adoption')
+        execution = Project_Partner.objects.filter(project_id = project.id ).filter(project_involvement = 'Execution')
+        promotion = Project_Partner.objects.filter(project_id = project.id ).filter(project_involvement = 'Promotion')
+        issue_areas = Issue_Area.objects.all()
+        partners = {'funding':funding,'adoption':adoption,'execution':execution,'promotion':promotion}
+        return render(request, 'HFC/project_detail.html', {'project':project,'issue_areas': issue_areas,'partners':partners})
+
 class IssueAreaView(View):
     def get(self, request, issue_area_slug):
         issue = Issue_Area.objects.get(issue_area_slug = issue_area_slug)
         issue_areas = Issue_Area.objects.all()
         return render(request, 'HFC/issue_area_detail.html', {'issue':issue,'issue_areas': issue_areas})
-
-class ProjectDetailView(View):
-    def get(self, request, issue_area_slug):
-        issue = Issue_Area.objects.get(issue_area_slug = issue_area_slug)
-        issue_areas = Issue_Area.objects.all()
-        return render(request, 'HFC/issue_area.html', {'issue':issue,'issue_areas': issue_areas})
 
 class IssueAreaListView(View):
     def get(self, request):

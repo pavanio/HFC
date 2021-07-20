@@ -37,7 +37,7 @@ class Problem_StatementAdmin(admin.ModelAdmin):
 		model = Problem_Statement
 
 class ProjectAdmin(admin.ModelAdmin):
-	list_display = ('name', 'project_link', 'project_icon', 'project_desc', 'website_link', 'goal', 'funded_by')
+	list_display = ('name', 'project_link', 'project_icon', 'project_desc', 'website_link', 'goal','project_slug')
 	class Meta:
 		model = Project
 
@@ -63,12 +63,17 @@ class Community_MemberAdmin(admin.ModelAdmin):
 				screeninglink_mail(profile.email)
 				messages.success(request,"Email send successfully")
 			except:
-				message.error(request,"Email sending failed")
+				messages.error(request,"Email sending failed")
 	send_screening_invitation.short_description = "Send screening invitation"
 	def send_email(self, request, queryset):
 		form = SendEmailForm(initial = {'users': queryset})
 		return render(request, 'HFC/admin_email_form.html', {'form': form})
 	send_email.short_description = "Send email"
+
+class Project_PartnerAdmin(admin.ModelAdmin):
+	list_display = ('project_id','get_partner','project_involvement')
+	class Meta:
+		model = Project_Partner
 
 admin.site.register(Partner,PartnerAdmin)
 admin.site.register(Problem_Statement, Problem_StatementAdmin)
@@ -76,3 +81,4 @@ admin.site.register(Project, ProjectAdmin)
 admin.site.register(Community_Organization, Community_OrganizationAdmin)
 admin.site.register(Community_Member, Community_MemberAdmin)
 admin.site.register(Issue_Area,Issue_Area_Admin)
+admin.site.register(Project_Partner,Project_PartnerAdmin)

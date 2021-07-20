@@ -8,14 +8,14 @@
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
-{% block title %} Issue Areas | Hack For Change {% endblock %}
+{% block title %} Focus Areas | Hack For Change {% endblock %}
 
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
         <div class="banner__main">
-            <h1>Issue Areas</h1>
+            <h1>Focus Areas</h1>
             <p class="large">Explore various issue areas on which we are focusing.
             </p>
             <a class="btn btn--info" href="{% url 'problem_statements_submit' %}">Suggest a problem statement</a>
@@ -30,7 +30,7 @@
             <section id="contents">
                 {% for issue in issue_areas %}
                 <article class="post-blog">
-                    <h4><a href="{% url 'issue_area' issue.issue_area_slug %}">{{issue.issue_area}}</a></h4>
+                    <h4>{{issue.issue_area}}</h4>
                     <p>{{issue.issue_brief}}</p>
                     {% if issue.issue_brief %}
                     <a class="btn btn--border" href="{% url 'issue_area' issue.issue_area_slug %}">View
@@ -42,10 +42,10 @@
             <!--contents -->
             <aside id="sidebar">
                 <div class="sidebar__list">
-                    <p>Explore problem statements across various issue areas</p>
+                    <p>Explore various issue across focus areas</p>
                     <ul>
                         {% for issue_area in issue_areas %}
-                    <li><a href="{% url 'problem_statements_with_issuearea' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
+                    <li><a href="{% url 'issue_area' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

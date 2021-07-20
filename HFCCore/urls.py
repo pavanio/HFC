@@ -32,9 +32,10 @@ urlpatterns = [
     path('email-users/',views.SendUserEmails.as_view(),name='email'),
     #path('latest/entries/', LatestBlogEntries(), name='blog-entry-feed'),
     path('hfcadmin/',views.admin_redirect),
-    path('issue-areas/<issue_area_slug>',views.IssueAreaView.as_view(),name = 'issue_area'),
-    path('issue-areas/',views.IssueAreaListView.as_view(),name = 'issue_areas'),
+    path('focus-areas/<issue_area_slug>',views.IssueAreaView.as_view(),name = 'issue_area'),
+    path('focus-areas/',views.IssueAreaListView.as_view(),name = 'issue_areas'),
     path('editor/', include('django_summernote.urls')),
+    path('project/<project_slug>',views.ProjectDetailView.as_view(),name = 'project_detail'),
 
     
 ]
