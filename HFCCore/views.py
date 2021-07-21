@@ -298,7 +298,7 @@ class ProjectDetailView(View):
     def get(self, request, project_slug):
         project = Project.objects.get(project_slug = project_slug)
         print(project.id)
-        funding = Project_Partner.objects.filter(project_id = project.id,project_involvement = 'Funding')
+        funding = Project_Partner.objects.filter(project_id = project.id).filter(project_involvement = 'Funding' )
         adoption = Project_Partner.objects.filter(project_id = project.id ).filter(project_involvement = 'Adoption')
         execution = Project_Partner.objects.filter(project_id = project.id ).filter(project_involvement = 'Execution')
         promotion = Project_Partner.objects.filter(project_id = project.id ).filter(project_involvement = 'Promotion')

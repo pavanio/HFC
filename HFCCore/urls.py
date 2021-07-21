@@ -2,6 +2,7 @@ from django.urls import path
 from HFCCore import views
 from django.conf.urls import include
 from django.http import HttpResponse
+from django.contrib import admin
 #from .feeds import LatestBlogEntries
 handler404 = 'HFCCore.views.error_404'
 handler500 = 'HFCCore.views.error_500'
@@ -11,7 +12,8 @@ urlpatterns = [
     path('',views.Home.as_view(),name='home'),
     path('problem-statements/', views.ProblemStatementsView.as_view(), name='problem_statements'),
     path('problem-statements/<title_slug>', views.ProblemDiscriptionView.as_view(), name='problem_discription'),
-    path('problem-statements/issue-area/<issue_area_slug>', views.ProblemsWithIssueareaView.as_view(), name='problem_statements_with_issuearea'),
+    #path('problem-statements/issue-area/<issue_area_slug>', views.ProblemsWithIssueareaView.as_view(), name='problem_statements_with_issuearea'),
+    path('focus-areas/<issue_area_slug>/problem-statements/', views.ProblemsWithIssueareaView.as_view(), name='problem_statements_with_issuearea'),
     path('mentor/signup/', views.MentorSignup.as_view(), name='mentor_signup'),
     path('center/<hfc_center_slug>/signup/', views.CenterContributorSignup.as_view(), name='center_signup'),
     path('community/signup/', views.CommunityMemberSignup.as_view(), name='community_member_signup'),
@@ -35,7 +37,8 @@ urlpatterns = [
     path('focus-areas/<issue_area_slug>',views.IssueAreaView.as_view(),name = 'issue_area'),
     path('focus-areas/',views.IssueAreaListView.as_view(),name = 'issue_areas'),
     path('editor/', include('django_summernote.urls')),
-    path('project/<project_slug>',views.ProjectDetailView.as_view(),name = 'project_detail'),
+    path('projects/<project_slug>',views.ProjectDetailView.as_view(),name = 'project_detail'),
+    path('admin/', admin.site.urls),
 
     
 ]
