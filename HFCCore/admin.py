@@ -16,8 +16,8 @@ from django.contrib import messages
 from django_summernote.admin import SummernoteModelAdmin
 
 class Issue_Area_Admin(SummernoteModelAdmin):
-	list_display = ('issue_area','issue_brief','issue_overview','context','technology_intervention','related_information')
-	summernote_fields = ('issue_overview','context','technology_intervention',)
+	list_display = ('issue_area','issue_sub_header','issue_brief','issue_overview','context','technology_intervention','related_information')
+	summernote_fields = ('issue_brief','issue_overview','context','technology_intervention',)
 	class meta:
 		model = Issue_Area
 
@@ -31,13 +31,15 @@ class PartnerAdmin(admin.ModelAdmin):
 	class meta:
 		model = Partner
 
-class Problem_StatementAdmin(admin.ModelAdmin):
-	list_display = ('title', 'summary', 'background_info', 'related_link','partner_id', 'status','issuearea','title_slug')
+class Problem_StatementAdmin(SummernoteModelAdmin):
+	list_display = ('brief', 'overview', 'background_info', 'related_link','partner_id', 'status','issuearea','title_slug')
+	summernote_fields = ('brief', 'overview', 'background_info', 'related_link','proposed_solution')
 	class Meta:
 		model = Problem_Statement
 
-class ProjectAdmin(admin.ModelAdmin):
-	list_display = ('name', 'project_link', 'project_icon', 'project_desc', 'website_link', 'goal','project_slug')
+class ProjectAdmin(SummernoteModelAdmin):
+	list_display = ('name', 'project_link', 'project_icon', 'project_overview', 'website_link', 'goal','project_slug')
+	summernote_fields = ('project_overview','goal')
 	class Meta:
 		model = Project
 

@@ -32,7 +32,7 @@
                 {% for projects_list in projects_list  %}
                 <article class="post-blog">
                     <h4>{{projects_list.name}}</h4>
-                    <p>{{projects_list.project_desc}}</p>
+                    <p>{{projects_list.project_overview}}</p>
                     <a class="btn btn--border" href="{% url 'project_detail' projects_list.project_slug  %}">Learn More</a>
                 </article>
                 {% endfor %}

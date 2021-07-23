@@ -30,25 +30,11 @@
         <div class="main">
         	<section id="contents">
                 <div class="blog-single">
-                    <h3>{{problem.title}}</h3>
-                    <div class="single__author-sec" style="margin-bottom: 30px;">
-                        <div class="author__left">
-                            {% if partner.name %}
-                            <img width="87" src={{partner.logo.url}}  alt="Partner logo">
-                        </div>
-                        <div class="author__right">
-                            <div class="badge-sec"><strong>Submitted By: </strong><span class="badge badge--yellow">{{partner.name}}</span></div>
-                            <div class="badge-sec"><strong>Focus Area: </strong>
-                                {% for focus_area in focus_areas %}
-                            <span class="badge">{{focus_area}}</span>
-                                {% endfor %}    
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
+                    <h3>{{problem.brief}}</h3>
+                    
                     <div class="blog-single__content">
-                        <p class="large sbold">Summary</p>
-                        <p style="text-align:justify;">{{problem.summary}}</p>
+                        <p class="large sbold">Overview</p>
+                        <p style="text-align:justify;">{{problem.overview}}</p>
                         <p class="large sbold">Background Information</p>
                         <p style="text-align:justify;">{{problem.background_info}}</p>
                         <p class="large sbold">Related Links</p>
@@ -59,16 +45,31 @@
                         {% endif %}
                         <p class="large sbold">Proposed Solution</p>
                         <p style="text-align:justify;">{{problem.proposed_solution}}</p>
+                        
                     </div>
+                    <div class="single__author-sec" style="margin-bottom: 30px;">
+                            <div class="author__left">
+                                {% if partner.name %}
+                                <img width="87" src={{partner.logo.url}}  alt="Partner logo">
+                            </div>
+                            <div class="author__right">
+                                <div class="badge-sec"><strong>Submitted By: </strong><span class="badge badge--yellow">{{partner.name}}</span></div>
+                                <div class="badge-sec"><strong>Focus Area: </strong>
+                                    {% for focus_area in focus_areas %}
+                                <span class="badge">{{focus_area}}</span>
+                                    {% endfor %}    
+                                </div>
+                                {% endif %}
+                            </div>
                 </div>
             </section>
             
             <aside id="sidebar">
                 <div class="sidebar__list">
-                    <p>Explore problem statements across various issue areas</p>
+                    <p>Explore other issue areas</p>
                     <ul>
                         {% for issue_area in issue_areas %}
-                    <li><a href="{% url 'problem_statements_with_issuearea' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
+                    <li><a href="{% url 'issue_area' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

@@ -54,6 +54,18 @@ HFC Modelling
 ## Partner Information | partners (TFC Orgs are submodels or TFC Orgs)
 This is a subclass of TFC Organizations Ex: Factly / Foundation For Democratic Reforms
 
+## Issue Area | Focus Area
+Issue Name | String | name | required |
+Issue Brief | Text| issue_brief| required |
+Context | Text| issue_brief| required |
+Tehnology Intervention | Text | technology_intervention | required
+Related Information | URL | related_information | optional
+
+## Project_Partners | project_partners
+Partner Association | id | partner_id | required
+Project Association | id | project_id | required
+Project Involvement | String | project_involvement | required | Possible Values:"Funding","Execution","Adoption/Promotion"
+
 ------------------------------------------------------------------------------------------------------
 TFC Modelling
 ------------------------------------------------------------------------------------------------------

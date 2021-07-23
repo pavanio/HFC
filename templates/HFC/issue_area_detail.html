@@ -2,8 +2,8 @@
 {% block meta_tags %}
 
 <meta content="" name="keywords">
-<meta property="og:title" content="{{problem.title}}">
-<meta name="description" property="og:description" content="{{problem.summary|striptags|truncatewords:20}}">
+<meta property="og:title" content="{{issue.issue_area}}">
+<meta name="description" property="og:description" content="{{issue.issue_sub_header|striptags|truncatewords:20}}">
 <meta property="og:type" content="article" >    
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="https://hackforchange.co/problem-statements/{{problem.title_slug}}">
@@ -17,7 +17,7 @@
         <div class="content-width sm-content-width">
             <div class="banner__main">
                 <h1>{{issue.issue_area}}</h1>
-                <p class="large">{{issue.issue_brief}}</p>
+                <p class="large">{{issue.issue_sub_header}}</p>
                 <a class="btn btn--info" href="{% url 'problem_statements_submit' %}">Suggest a problem statement</a>
             </div>
         </div>
@@ -32,6 +32,8 @@
                 <div class="blog-single">
                     <h3>{{issue.issue_area}}</h3>
                     <div class="blog-single__content">
+                        <p class="large sbold">Issue Brief</p>
+                        <p style="text-align:justify;">{{issue.issue_brief |safe}}</p>
                         <p class="large sbold">Overview</p>
                         <p style="text-align:justify;">{{issue.issue_overview |safe}}</p>
                         <p class="large sbold">{{issue.issue_area}} in Indian Context</p>
@@ -46,6 +48,15 @@
                         <p style="text-align:justify;"></p>
                     </div>
                 </div>
+                        <h2>Open problem statements</h2><br>
+                        {% for problem_statement in problem_statement_list  %}
+                        <article class="post-blog">
+                            <h4>{{problem_statement.brief}}</h4>
+                            <p>{{problem_statement.overview}}</p>
+                            <a class="btn btn--border" href="{% url 'problem_discription' problem_statement.title_slug %}">Learn More</a>
+                        </article>
+                        {% endfor %}
+
             </section>
             
             <aside id="sidebar">

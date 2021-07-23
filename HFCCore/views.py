@@ -304,13 +304,15 @@ class ProjectDetailView(View):
         promotion = Project_Partner.objects.filter(project_id = project.id ).filter(project_involvement = 'Promotion')
         issue_areas = Issue_Area.objects.all()
         partners = {'funding':funding,'adoption':adoption,'execution':execution,'promotion':promotion}
-        return render(request, 'HFC/project_detail.html', {'project':project,'issue_areas': issue_areas,'partners':partners})
+        contributors = Community_Member.objects.filter(type='Contributor').order_by('-commit')[:6]
+        return render(request, 'HFC/project_detail.html', {'project':project,'issue_areas': issue_areas,'partners':partners,'contributors':contributors})
 
 class IssueAreaView(View):
     def get(self, request, issue_area_slug):
         issue = Issue_Area.objects.get(issue_area_slug = issue_area_slug)
         issue_areas = Issue_Area.objects.all()
-        return render(request, 'HFC/issue_area_detail.html', {'issue':issue,'issue_areas': issue_areas})
+        problem_statement_list = Problem_Statement.objects.filter(issue_area = issue)
+        return render(request, 'HFC/issue_area_detail.html', {'issue':issue,'issue_areas': issue_areas,'problem_statement_list':problem_statement_list})
 
 class IssueAreaListView(View):
     def get(self, request):

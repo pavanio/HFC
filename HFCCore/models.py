@@ -38,8 +38,9 @@ PROJECT_INVOLVEMENT = [
 
 class Issue_Area(models.Model):
     issue_area = models.CharField(max_length = 100)
+    issue_sub_header = models.TextField(blank = True, help_text ='This text is used for SEO purpose')
     issue_area_slug = AutoSlugField(populate_from = 'issue_area')
-    issue_brief = models.TextField(blank = True, help_text ='This text is used for SEO purpose')
+    issue_brief = models.TextField(blank = True)
     issue_overview = models.TextField(blank = True)
     context = models.TextField(blank = True)
     technology_intervention = models.TextField(blank = True)
@@ -56,14 +57,14 @@ class Partner(Organization):
         verbose_name_plural = "Partners"
 
 class Problem_Statement(models.Model):
-    title = models.CharField(max_length = 500)
-    summary = models.TextField()
+    brief = models.CharField(max_length = 500)
+    overview = models.TextField()
     background_info = models.TextField()
     related_link = models.TextField(blank = True)
     proposed_solution = models.TextField(blank = True)
     partner_id = models.ForeignKey(Partner, on_delete = models.CASCADE,blank = True,null = True)
     status = models.CharField(max_length = 100, choices = STATUS_CHOICES)
-    title_slug = AutoSlugField(populate_from ='title')
+    title_slug = AutoSlugField(populate_from ='brief')
     issue_area = models.ManyToManyField('Issue_Area')
     def __str__(self):
         return self.title
@@ -77,7 +78,7 @@ class Project(models.Model):
     name = models.CharField(max_length = 500)
     project_link = models.URLField()
     project_icon = models.ImageField(blank = True,null = True)
-    project_desc = models.TextField()
+    project_overview = models.TextField()
     website_link = models.URLField(blank = True,null = True)
     goal = models.TextField(blank = True,null = True)
     project_slug = AutoSlugField(populate_from = 'name',blank = True,null = True)
