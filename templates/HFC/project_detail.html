@@ -36,7 +36,7 @@
                         <p style="text-align:justify;">{{project.project_overview}}</p>
                         <p class="large sbold">Goal</p>
                         <p style="text-align:justify;">{{project.goal}}</p>
-                        <p class="large sbold">Github link</p>
+                        <p class="large sbold">Github Link</p>
                         <p> <a href={{project.project_link}} >{{project.project_link}}</a></p>
                         {% if project.website_link %}
                         <p class="large sbold">Website Link</p>
@@ -47,27 +47,27 @@
                         <div class="row">
                             {% for partner in item.partner.all%}
                             <div class="column" style = "float: left;padding: 5px;">
-                                <img src={{partner.logo.url}} alt="{{partner.name}}" style="width:140px;height:140px;">
+                                <img src={{partner.logo.url}} alt="{{partner.name}}" style="width:100px;height:100px;">
                             </div>
                             {% endfor %}  
                         </div>
                         {% endfor %}
-                        
-                        <br>
-                        <p class="large sbold">Community Partners</p>
+                        <p class="large sbold" style = "margin-top: 140px;">Community Partners</p>
                         {% for item in community_partners %}
                         <div class="row">
                             {% for partner in item.partner.all%}
-                            <div class="column" style = "float: left;padding: 5px;">
-                            <a href="{{partner.website}}"><img src={{partner.logo.url}} alt="{{partner.name}}" style="width:140px;height:140px;"></a>
+                            <div class="column" style = "float: left;padding: 10px;">
+                            <a href="{{partner.website}}"><img src={{partner.logo.url}} alt="{{partner.name}}" style="width:100px;height:100px;"></a>
                             </div> 
                             {% endfor %}
                         </div>
-                        {% endfor %}        
-                    </div>
-                </div>
+                        {% endfor %} 
+                        
+                             
+                    </div>   
+                </div>  
             </section>
-            
+           
             <aside id="sidebar">
                 <div class="sidebar__member-sec">
                     <p class="sbold">Our Top Contributors</p>
