@@ -43,14 +43,27 @@
                         <p><a href={{project.website_link}} >{{project.website_link}}</a></p>
                         {% endif %}
                         <p class="large sbold">Funded by</p>
-                            {% for item in partners.funding%}   
-                        <p style="text-align:justify;">{{item.get_partner}}</p>
+                        {% for item in funding %}
+                        <div class="row">
+                            {% for partner in item.partner.all%}
+                            <div class="column" style = "float: left;padding: 5px;">
+                                <img src={{partner.logo.url}} alt="{{partner.name}}" style="width:140px;height:140px;">
+                            </div>
+                            {% endfor %}  
+                        </div>
                         {% endfor %}
-                        <p></p>
+                        
+                        <br>
                         <p class="large sbold">Community Partners</p>
-                            
-                        <p style="text-align:justify;"></p>
-                             
+                        {% for item in community_partners %}
+                        <div class="row">
+                            {% for partner in item.partner.all%}
+                            <div class="column" style = "float: left;padding: 5px;">
+                            <a href="{{partner.website}}"><img src={{partner.logo.url}} alt="{{partner.name}}" style="width:140px;height:140px;"></a>
+                            </div> 
+                            {% endfor %}
+                        </div>
+                        {% endfor %}        
                     </div>
                 </div>
             </section>
