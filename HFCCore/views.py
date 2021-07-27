@@ -316,7 +316,7 @@ class ProjectDetailView(View):
         
         issue_areas = Issue_Area.objects.all()
         #partners = {'funding':funding,'community_partners':community_partners,}
-        contributors = Community_Member.objects.filter(type='Contributor').order_by('-commit')[:6]
+        contributors = Community_Member.objects.filter(type='Contributor')
         return render(request, 'HFC/project_detail.html', {'project':project,'issue_areas': issue_areas,'funding':funding,'community_partners':community_partners,'contributors':contributors})
 
 class IssueAreaView(View):
