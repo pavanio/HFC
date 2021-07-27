@@ -36,6 +36,10 @@ PROJECT_INVOLVEMENT = [
     ('Promotion','Promotion')
 ]
 
+PUBLIC = [
+    ('True','True'),
+    ('False','False'),
+]
 class Issue_Area(models.Model):
     issue_area = models.CharField(max_length = 100)
     issue_sub_header = models.TextField(blank = True, help_text ='This text is used for SEO purpose')
@@ -100,6 +104,7 @@ class Community_Organization(models.Model):
     organization_name_slug = AutoSlugField(populate_from = 'organization_name',blank = True,null = True)
     project = models.ManyToManyField('Project',blank = True,null = True)
     city = models.CharField(max_length = 50,blank = True,null = True)
+    is_public = models.CharField(choices = PUBLIC, max_length = 10,blank = True,null = True, default ="False" )
     def __str__(self):
         return self.organization_name
     def get_project(self):

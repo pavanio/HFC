@@ -105,7 +105,7 @@ class Problem_Statement_form(forms.ModelForm):
 class Community_member_form(forms.ModelForm):
     field_order = ['name','email','contact_number','highest_education','city','linkedin_profile',
         'years_of_experience','profession','area_of_expertise']
-    city = forms.ModelChoiceField(queryset = Community_Organization.objects.filter(type = 'Chapter').values_list('city',flat = True))
+    city = forms.ModelChoiceField(queryset = Community_Organization.objects.filter(type = 'Chapter',is_public = 'True').values_list('city',flat = True))
     class Meta:
     	model  = Community_Member
     	exclude = ('level_of_expertise','type','organization_id')

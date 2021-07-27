@@ -48,7 +48,7 @@ class Community_MemberInline(admin.TabularInline):
 	extra = 0
 
 class Community_OrganizationAdmin(admin.ModelAdmin):
-	list_display = ('organization_name', 'type', 'website', 'logo', 'coordinator_name', 'coordinator_email', 'coordinator_mobile','organization_name_slug','get_project','city')
+	list_display = ('organization_name', 'type', 'website', 'logo', 'coordinator_name', 'coordinator_email', 'coordinator_mobile','organization_name_slug','get_project','city','is_public')
 	inlines = [Community_MemberInline]
 	class Meta:
 		model = Community_Organization

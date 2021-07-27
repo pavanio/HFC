@@ -175,8 +175,8 @@ class ProjectsView(generic.ListView):
 
 class CommunityView(View):
     def get(self, request):
-        hfc_centers = Community_Organization.objects.filter(type = 'Center')
-        hfc_chapters = Community_Organization.objects.filter(type = 'Chapter')
+        hfc_centers = Community_Organization.objects.filter(type = 'Center',is_public = 'True')
+        hfc_chapters = Community_Organization.objects.filter(type = 'Chapter',is_public = 'True')
         centre_count = {}
         chapter_count = []
         for centre in hfc_centers:
