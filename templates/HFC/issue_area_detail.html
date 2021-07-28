@@ -51,8 +51,8 @@
                         <h2>Open problem statements</h2><br>
                         {% for problem_statement in problem_statement_list  %}
                         <article class="post-blog">
-                            <h4>{{problem_statement.brief}}</h4>
-                            <p>{{problem_statement.overview}}</p>
+                            <h4>{{problem_statement.problem_statement|safe}}</h4>
+                            <p>{{problem_statement.overview|safe}}</p>
                             <a class="btn btn--border" href="{% url 'problem_discription' problem_statement.title_slug %}">Learn More</a>
                         </article>
                         {% endfor %}

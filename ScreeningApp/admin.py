@@ -45,7 +45,8 @@ class ExpertiseAdmin(admin.ModelAdmin):
 		model = Expertise
 
 class QuestionAdmin(admin.ModelAdmin):
-	list_display = ('category_of_expertise','expertise','level','topic','qtype','question','option_1','option_2','option_3','option_4','answer')
+	list_display = ('question_id','question','option_1','option_2','option_3','option_4','answer','expertise','level','topic','qtype','category_of_expertise')
+	
 	formfield_overrides = {
         models.TextField: {'widget': Textarea(attrs = {'rows':4, 'cols':60})},
         }

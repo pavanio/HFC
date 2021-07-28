@@ -14,6 +14,7 @@ from django.shortcuts import render
 from .views import screeninglink_mail
 from django.contrib import messages
 from django_summernote.admin import SummernoteModelAdmin
+from django.utils.safestring import mark_safe
 
 class Issue_Area_Admin(SummernoteModelAdmin):
 	list_display = ('issue_area','issue_sub_header','issue_brief','issue_overview','context','technology_intervention','related_information')
@@ -32,10 +33,11 @@ class PartnerAdmin(admin.ModelAdmin):
 		model = Partner
 
 class Problem_StatementAdmin(SummernoteModelAdmin):
-	list_display = ('brief', 'overview', 'background_info', 'related_link','partner_id', 'status','issuearea','title_slug')
-	summernote_fields = ('brief', 'overview', 'background_info', 'related_link','proposed_solution')
+	list_display = ('problem_statement', 'overview', 'background_info', 'related_link','partner_id', 'status','issuearea','title_slug')
+	summernote_fields = ('overview', 'background_info', 'related_link','proposed_solution',)
 	class Meta:
 		model = Problem_Statement
+	
 
 class ProjectAdmin(SummernoteModelAdmin):
 	list_display = ('name', 'project_link', 'project_icon', 'project_overview', 'website_link', 'goal','project_slug')

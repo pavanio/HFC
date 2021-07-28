@@ -30,13 +30,13 @@
         <div class="main">
         	<section id="contents">
                 <div class="blog-single">
-                    <h3>{{problem.brief}}</h3>
+                    <h3>{{problem.problem_statement|safe}}</h3>
                     
                     <div class="blog-single__content">
                         <p class="large sbold">Overview</p>
-                        <p style="text-align:justify;">{{problem.overview}}</p>
+                        <p style="text-align:justify;">{{problem.overview|safe}}</p>
                         <p class="large sbold">Background Information</p>
-                        <p style="text-align:justify;">{{problem.background_info}}</p>
+                        <p style="text-align:justify;">{{problem.background_info|safe}}</p>
                         <p class="large sbold">Related Links</p>
                         {% if problem.related_link %}
                         <p><a href={{problem.related_link}} >{{problem.related_link}}</a></p>
@@ -44,7 +44,7 @@
                         <p>_</p>
                         {% endif %}
                         <p class="large sbold">Proposed Solution</p>
-                        <p style="text-align:justify;">{{problem.proposed_solution}}</p>
+                        <p style="text-align:justify;">{{problem.proposed_solution|safe}}</p>
                         
                     </div>
                     <div class="single__author-sec" style="margin-bottom: 30px;">

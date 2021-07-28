@@ -61,17 +61,17 @@ class Partner(Organization):
         verbose_name_plural = "Partners"
 
 class Problem_Statement(models.Model):
-    brief = models.CharField(max_length = 500)
+    problem_statement = models.CharField(max_length = 500)
     overview = models.TextField()
     background_info = models.TextField()
     related_link = models.TextField(blank = True)
     proposed_solution = models.TextField(blank = True)
     partner_id = models.ForeignKey(Partner, on_delete = models.CASCADE,blank = True,null = True)
     status = models.CharField(max_length = 100, choices = STATUS_CHOICES)
-    title_slug = AutoSlugField(populate_from ='brief')
+    title_slug = AutoSlugField(populate_from ='problem_statement')
     issue_area = models.ManyToManyField('Issue_Area')
     def __str__(self):
-        return self.title
+        return self.problem_statement
     def issuearea(self):
         return " , ".join([issue_area.issue_area for issue_area  in self.issue_area.all()])
     class Meta:
