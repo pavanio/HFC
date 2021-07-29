@@ -31,11 +31,11 @@
                 {% for prob_list in problems_list %}
                 <article class="post-blog">
                     <h4><a href="{% url 'problem_discription' prob_list.title_slug %}">{{prob_list.problem_statement|safe}}</a></h4>
+                    <p>{{prob_list.overview|safe}}</p>
+                    <div class="badge-sec badge-sec__alt"><strong>Status: </strong><span class="badge">{{prob_list.status}}</span></div>
                     <div class="badge-sec"><strong>Submitted By: </strong><span class="badge badge--yellow">{% if prob_list.partner_id %}{{prob_list.partner_id}}{%endif%}</span>
                         <strong>Issue Areas: </strong><span style="text-transform: capitalize;"> {{prob_list.issuearea}}</span>
                     </div>
-                    <p>{{prob_list.overview|safe}}</p>
-                    <div class="badge-sec badge-sec__alt"><strong>Status: </strong><span class="badge">{{prob_list.status}}</span></div>
                     <a class="btn btn--border" href="{% url 'problem_discription' prob_list.title_slug %}">View
                         Details</a>
                 </article>
@@ -44,7 +44,7 @@
             <!--contents -->
             <aside id="sidebar">
                 <div class="sidebar__list">
-                    <p>Explore other issue areas</p>
+                    <p>Explore technology interventions across various issue areas</p>
                     <ul>
                         {% for issue_area in issue_areas %}
                     <li><a href="{% url 'issue_area' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>

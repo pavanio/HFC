@@ -171,7 +171,8 @@ class ProjectsView(generic.ListView):
     def get(self, request):
         projects_list = Project.objects.all()
         issue_areas = Issue_Area.objects.all()
-        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list,'issue_areas': issue_areas})
+        partners = Partner.objects.all()
+        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list,'issue_areas': issue_areas,'partners':partners})
 
 class CommunityView(View):
     def get(self, request):
@@ -307,12 +308,9 @@ class ProjectDetailView(View):
         #partner_fund = funding.partner.all()
         #print(partner_fund)
         community_partners = Project_Partner.objects.filter(project_id = project.id ).exclude(project_involvement = 'Funding')
-        print(community_partners)
+        """print(community_partners)
         for item in community_partners:
-            partner = item.partner.all()
-            for itm in partner:
-                print(itm.email)
-                print(itm)
+            partner = item.partner.all()"""
         
         issue_areas = Issue_Area.objects.all()
         #partners = {'funding':funding,'community_partners':community_partners,}
@@ -324,7 +322,15 @@ class IssueAreaView(View):
         issue = Issue_Area.objects.get(issue_area_slug = issue_area_slug)
         issue_areas = Issue_Area.objects.all()
         problem_statement_list = Problem_Statement.objects.filter(issue_area = issue)
-        return render(request, 'HFC/issue_area_detail.html', {'issue':issue,'issue_areas': issue_areas,'problem_statement_list':problem_statement_list})
+        partners = set()
+        for problem in problem_statement_list:
+            try:
+                partner = Partner.objects.get(name = problem.partner_id)
+                partners.add(partner)
+                print(partner.logo)
+            except:
+                continue
+        return render(request, 'HFC/issue_area_detail.html', {'issue':issue,'issue_areas': issue_areas,'problem_statement_list':problem_statement_list,'partners':partners})
 
 class IssueAreaListView(View):
     def get(self, request):

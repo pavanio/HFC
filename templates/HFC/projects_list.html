@@ -39,12 +39,14 @@
             </section>
             <!--contents -->
             <aside id="sidebar">
-                <div class="sidebar__list">
-                    <p>Explore Problem Statement across various issue areas</p>
-                    <ul>
-                        {% for issue_area in issue_areas %}
-                    <li><a href="{% url 'problem_statements_with_issuearea' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
-                        {% endfor %}
+                <div class="sidebar__member-sec">
+                    <p class="sbold">Our brothers in arms</p>
+                    <ul class="sidebar__member">
+                        {% for partner in partners%}
+                        {% if partner.logo %}
+                        <li><a  title="{{partner.name}}" href="{{partner.website}}" target="_blank"><img src={{partner.logo.url}} alt="{{partner.name}}" style ="height:70px;width:100px;" ></a></li>
+                        {% endif %}
+                        {%endfor%}
                     </ul>
                 </div>
                 <div class="newsletter">

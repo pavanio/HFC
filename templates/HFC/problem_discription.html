@@ -32,7 +32,7 @@
                 <div class="blog-single">
                     <h3>{{problem.problem_statement|safe}}</h3>
                     
-                    <div class="blog-single__content">
+                    <div class="blog-single__content" style ="border-bottom: 1px solid rgba(112, 112, 112, 0.27);">
                         <p class="large sbold">Overview</p>
                         <p style="text-align:justify;">{{problem.overview|safe}}</p>
                         <p class="large sbold">Background Information</p>
@@ -47,7 +47,7 @@
                         <p style="text-align:justify;">{{problem.proposed_solution|safe}}</p>
                         
                     </div>
-                    <div class="single__author-sec" style="margin-bottom: 30px;">
+                    <div class="single__author-sec" style="margin-bottom: 30px; margin-top:20px;">
                             <div class="author__left">
                                 {% if partner.name %}
                                 <img width="87" src={{partner.logo.url}}  alt="Partner logo">
@@ -66,7 +66,7 @@
             
             <aside id="sidebar">
                 <div class="sidebar__list">
-                    <p>Explore other issue areas</p>
+                    <p>Explore technology interventions across various issue areas</p>
                     <ul>
                         {% for issue_area in issue_areas %}
                     <li><a href="{% url 'issue_area' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>

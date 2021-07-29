@@ -64,10 +64,10 @@
             </section>
             <aside id="sidebar">
                 <div class="sidebar__list">
-                    <p>Explore problem statements across various issue areas</p>
+                    <p>Explore technology interventions across various issue areas</p>
                     <ul>
                         {% for issue_area in issue_areas %}
-                    <li><a href="{% url 'problem_statements_with_issuearea' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
+                    <li><a href="{% url 'issue_area' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

@@ -16,7 +16,7 @@
     <div class="content-width sm-content-width">
         <div class="banner__main">
             <h1>Focus Areas</h1>
-            <p class="large">Explore various issue areas on which we are focusing.
+            <p class="large">Our primary focus areas leveraging technology as a catalyst.
             </p>
             <a class="btn btn--info" href="{% url 'problem_statements_submit' %}">Suggest a problem statement</a>
         </div>
@@ -42,7 +42,7 @@
             <!--contents -->
             <aside id="sidebar">
                 <div class="sidebar__list">
-                    <p>Explore various issue across focus areas</p>
+                    <p>Explore technology interventions across various issue areas</p>
                     <ul>
                         {% for issue_area in issue_areas %}
                     <li><a href="{% url 'issue_area' issue_area.issue_area_slug %}">{{issue_area.issue_area}}</a></li>
