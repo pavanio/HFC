@@ -134,4 +134,30 @@ class SendEmailForm(forms.Form):
     users = forms.ModelMultipleChoiceField(label = "To",
                                            queryset = Community_Member.objects.all(),
                                            widget = forms.SelectMultiple())
+                    
+class Job_Application_form(forms.ModelForm):
+    field_order = ['name','email','contact_number','highest_education','city','linkedin_profile',
+        'years_of_experience','profession','area_of_expertise']
+    city = forms.ModelChoiceField(queryset = Community_Organization.objects.filter(type = 'Chapter',is_public = 'True').values_list('city',flat = True))
+    class Meta:
+    	model  = Community_Member
+    	exclude = ('level_of_expertise','type','organization_id')
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        #self.fields['gender'] = forms.ChoiceField(choices=GENDER)
+        self.fields['highest_education'] = forms.ChoiceField(choices = EDUCATION)
+        self.fields['years_of_experience'] = forms.ChoiceField(choices = EXPERIENCE)
+        self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
+        self.fields['area_of_expertise'].queryset = Expertise.objects.none()
+        #self.fields['city'].queryset = Community_Organization.objects.filter('chapter').values_list('city',flat=True)
+        self.fields['city'].empty_label = None
+        self.fields['profession'].empty_label = None
+        if 'profession'in self.data:
+            try:
+                expertise_area_id = int(self.data.get('profession'))
+                self.fields['area_of_expertise'].queryset = Expertise.objects.filter(category_of_expertise = expertise_area_id)
+            except (ValueError, TypeError):
+                pass
+        elif self.instance.pk:
+            self.fields['area_of_expertise'].queryset = self.instance.expertise_area.expertise_set
     

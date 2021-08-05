@@ -336,3 +336,38 @@ class IssueAreaListView(View):
     def get(self, request):
         issue_areas = Issue_Area.objects.all()
         return render(request, 'HFC/issue_area.html', {'issue_areas':issue_areas})
+
+class JobView(View):
+    def get(self, request):
+        form = Job_Application_form()
+        contributors = Community_Member.objects.filter(type  = 'Contributor')
+        return render(request,'HFC/job_application.html',{'form':form,'contributors':contributors})
+    def post(self,request,*args, **kwargs):
+        form = Chapter_contributor_form(request.POST)
+        #community_org = Community_Organization.objects.get(organization_name_slug = hfc_chapter_slug)
+        print(form.is_valid())
+        #print(request.POST)
+        #chapter_name = community_org.organization_name
+        if form.is_valid():
+            area_of_expertise = request.POST.getlist('area_of_expertise')
+            city = request.POST.get('city')
+            applicant = form.save(commit = False)
+            applicant.type = "Contributor"
+            #contributor.organization_id = community_org
+            applicant.save()
+            form.save_m2m()
+            email = applicant.email
+            name = applicant.name
+            SendSubscribeMail(email)
+            try:
+                screeninglink_mail(email)
+                message = "{name} is applied for job".format(name = name)
+                to_list=['team@hackforchange.co.in',]
+                send_mail('New Job Applicant ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
+            except:
+                print('Error in sending email screening link to Contributor')
+            return render(request, 'HFC/job_application_thanks.html')
+    
+
+
+

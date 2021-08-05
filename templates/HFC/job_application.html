@@ -1,0 +1,161 @@
+{% extends 'HFC/layout.html' %}
+{% load static %}
+{% block meta_tags %}
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
+<meta property="og:url" content="">
+{% endblock %}
+{% block title %} Job Application | Hack For Change {% endblock %}
+
+{% block main %}
+<!--Banner start -->
+<div class="banner-wrap">
+    <div class="content-width sm-content-width">
+        <div class="banner__main">
+            <h1>Join Our Core Team</h1>
+            <p class="large">
+                Inviting young talented persons from various cities to join our core team.
+            </p>
+        </div>
+    </div>
+</div>
+<!--Banner end -->
+<!--main start -->
+<div id="main-wrap" class="main__large-pd">
+    <div class="content-width">
+        <div class="main">
+            <section id="contents">
+                <div class="uni-chapter">
+                    <h2></h2>
+                </div>
+                <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
+                    {%csrf_token%}
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">Full Name</label>
+                            {{form.name}}
+                        </div>
+                        <div class="form-field">
+                            <label for="">Email</label>
+                            {{form.email}}
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">Contact Number</label>
+                            {{form.contact_number}}
+                        </div>
+                        <div class="form-field">
+                            <label for="">City</label>
+                            <div class="form-field__select">
+                                {{form.city}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">LinkedIn Profile</label>
+                            {{form.linkedin_profile}}
+                        </div>
+                        <div class="form-field">
+                            <label for="">Highest Education</label>
+                            <div class="form-field__select">
+                                {{form.highest_education}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="form-field">
+                            <label for="">Profession</label>
+                            <div class="form-field__select">
+                                {{form.profession}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="">Years of Experience</label>
+                            <div class="form-field__select">
+                                {{form.years_of_experience}}
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="form-field"style="margin-bottom: 5px;">
+                            <label for="">Areas of Expertise</label>
+                        </div>
+                    </div>
+                        <div style="position:relative;padding-top:0px;width:700px;font-family:'Nunito Sans';"  >
+                            {{form.area_of_expertise }}  
+                        </div>
+                    <div class="btn-outer">
+                        <input class="btn btn--info btn--full" type="submit" value="Join">
+                    </div>
+                </form>
+            </section>
+            <!--contents -->
+            <aside id="sidebar">
+                <div class="sidebar__member-sec">
+                    <p class="sbold">Top Contributors</p>
+                    <ul class="sidebar__member">
+                        {% for contributor in contributors%}
+                        {% if contributor.image %}
+                        <li><a  title="{{contributor.name}}" href="{{contributor.linkedin_profile}}" target="_blank"><img src={{contributor.image.url}} alt="{{contributor.name}}" ></a></li>
+                        {% endif %}
+                        {%endfor%}
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form
+                        action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
+                        method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                        novalidate>
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none;font-size: 8px;"></div>
+                        </div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
+        </div>
+        </form>
+    </div>
+    </aside>
+    <!--sidebar -->
+</div>
+</div>
+</div>
+{%endblock%}
+
+{% block js %}
+<script>
+    $(function () {
+    $("#id_profession").change();
+    });
+    $("#id_profession").change(function () {
+        var url = $("#volform").attr("sub-change-url");
+        console.log(url)
+        var expertise_area_id = $(this).val();
+        $.ajax({
+            url: url,
+            data: {
+                'profession': expertise_area_id
+            },
+            success: function (data) {
+                $("#id_area_of_expertise").html(data);
+                console.log(data)
+            }
+        });
+    });
+</script>
+{% endblock %}

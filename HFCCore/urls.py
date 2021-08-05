@@ -39,6 +39,7 @@ urlpatterns = [
     path('editor/', include('django_summernote.urls')),
     path('projects/<project_slug>',views.ProjectDetailView.as_view(),name = 'project_detail'),
     path('admin/', admin.site.urls),
+    path('core-team/join/',views.JobView.as_view(),name = 'job'),
 
     
 ]
