@@ -16,7 +16,7 @@ from .models import Problem_Statement, Partner, Project, Community_Organization,
 from django.apps import apps
 import requests
 import operator
-from .utils import SendSubscribeMail,mentor_signup_mail,community_member_signup_mail
+from .utils import SendSubscribeMail,mentor_signup_mail,community_member_signup_mail,job_screeninglink_mail
 from django.views.generic.edit import FormView 
 from django.urls import reverse_lazy
 from blog.models import Post
@@ -350,22 +350,25 @@ class JobView(View):
         #chapter_name = community_org.organization_name
         if form.is_valid():
             area_of_expertise = request.POST.getlist('area_of_expertise')
-            city = request.POST.get('city')
+            #city = request.POST.get('city')
             applicant = form.save(commit = False)
             applicant.type = "Contributor"
             #contributor.organization_id = community_org
             applicant.save()
             form.save_m2m()
             email = applicant.email
-            name = applicant.name
             SendSubscribeMail(email)
             try:
-                screeninglink_mail(email)
-                message = "{name} is applied for job".format(name = name)
+                job_screeninglink_mail(email)
+                html_content = render_to_string('HFC/applicant_detail_internal_email.html', {'applicant':applicant})
                 to_list=['team@hackforchange.co.in',]
-                send_mail('New Job Applicant ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
+                msg = EmailMessage('New Job Applicant', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
+                msg.content_subtype = "html"
+                msg.send(fail_silently = True)
+                print("Applicant details email sended successfully")
+                #send_mail('New Job Applicant ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
-                print('Error in sending email screening link to Contributor')
+                print('Error in sending email screening link to job applicant')
             return render(request, 'HFC/job_application_thanks.html')
     
 

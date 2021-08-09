@@ -136,7 +136,7 @@ class SendEmailForm(forms.Form):
                                            widget = forms.SelectMultiple())
                     
 class Job_Application_form(forms.ModelForm):
-    field_order = ['name','email','contact_number','highest_education','city','linkedin_profile',
+    field_order = ['name','email','contact_number','highest_education','coder_profile','linkedin_profile',
         'years_of_experience','profession','area_of_expertise']
     city = forms.ModelChoiceField(queryset = Community_Organization.objects.filter(type = 'Chapter',is_public = 'True').values_list('city',flat = True))
     class Meta:
@@ -152,6 +152,7 @@ class Job_Application_form(forms.ModelForm):
         #self.fields['city'].queryset = Community_Organization.objects.filter('chapter').values_list('city',flat=True)
         self.fields['city'].empty_label = None
         self.fields['profession'].empty_label = None
+        self.fields['coder_profile'] = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Github / Behance / other portfolio link'}))
         if 'profession'in self.data:
             try:
                 expertise_area_id = int(self.data.get('profession'))

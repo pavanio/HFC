@@ -1,0 +1,31 @@
+{% extends 'HFC/email_layout.html' %}
+{% block main %}
+<!-- START CENTERED WHITE CONTAINER -->
+<span class="preheader"></span>
+<table role="presentation" class="main">
+  <!-- START MAIN CONTENT AREA -->
+  <tr>
+    <td class="wrapper">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>
+            <p>A new applicant applied for job.</p>
+            <p>Name :{{applicant.name}}</p>
+            <p>Mobile :{{applicant.contact_number}}</p>
+            <p>Worksample :{{applicant.coder_profile}}</p>
+            <p>linkedin :{{applicant.linkedin_profile}}</p>
+            <p>Education :{{applicant.highest_education}}</p>
+            <p>Profession :{{applicant.profession}}</p>
+            <p>Years of experience :{{applicant.years_of_experience}}</p>
+            <p>Skills:{{applicant.areaofexpertise}}</p>
+              
+          </td>
+        </tr>
+      <!-- END MAIN CONTENT AREA -->
+      </table>
+    </td>
+</tr>
+</table>
+      
+{% endblock %}
+
