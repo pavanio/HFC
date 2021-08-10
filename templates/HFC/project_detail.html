@@ -33,14 +33,28 @@
                     <h3>{{project.name}}</h3>
                     <div class="blog-single__content">
                         <p class="large sbold">Overview</p>
+                        {% if project.project_overview %}
                         <p style="text-align:justify;">{{project.project_overview}}</p>
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
                         <p class="large sbold">Goal</p>
+                        {% if project.goal %}
                         <p style="text-align:justify;">{{project.goal}}</p>
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
                         <p class="large sbold">Github Link</p>
+                        {% if project.project_link %}
                         <p> <a href={{project.project_link}} >{{project.project_link}}</a></p>
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
                         {% if project.website_link %}
                         <p class="large sbold">Website Link</p>
                         <p><a href={{project.website_link}} >{{project.website_link}}</a></p>
+                        {% else %}
+                        <p>_</p>
                         {% endif %}
                         <p class="large sbold">Funded by</p>
                         {% for item in funding %}

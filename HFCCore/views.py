@@ -340,8 +340,8 @@ class IssueAreaListView(View):
 class JobView(View):
     def get(self, request):
         form = Job_Application_form()
-        contributors = Community_Member.objects.filter(type  = 'Contributor')
-        return render(request,'HFC/job_application.html',{'form':form,'contributors':contributors})
+        partners = Partner.objects.all()
+        return render(request,'HFC/job_application.html',{'form':form,'partners': partners})
     def post(self,request,*args, **kwargs):
         form = Chapter_contributor_form(request.POST)
         #community_org = Community_Organization.objects.get(organization_name_slug = hfc_chapter_slug)

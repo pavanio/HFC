@@ -33,16 +33,34 @@
                     <h3>{{issue.issue_area}}</h3>
                     <div class="blog-single__content">
                         <p class="large sbold">Issue Brief</p>
+                        {% if issue.issue_brief %}
                         <p style="text-align:justify;">{{issue.issue_brief |safe}}</p>
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
                         <p class="large sbold">Overview</p>
+                        {% if issue.issue_overview %}
                         <p style="text-align:justify;">{{issue.issue_overview |safe}}</p>
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
                         <p class="large sbold">{{issue.issue_area}} in Indian Context</p>
+                        {% if issue.context %}
                         <p style="text-align:justify;">{{issue.context |safe}}</p>
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
                         <p class="large sbold">Technology and {{issue.issue_area}}</p>
+                        {% if issue.technology_intervention %}
                         <p style="text-align:justify;">{{issue.technology_intervention |safe}}</p>
+                        {% else %}
+                        <p>_</p>
+                        {% endif %}
                         <p class="large sbold">Related links</p>
                         {% if issue.related_information %}
                         <p><a href={{issue.related_information}} >{{issue.related_information |safe}}</a></p>
+                        {% else %}
+                        <p>_</p>
                         {% endif %}
                         <p class="large sbold"></p>
                         <p style="text-align:justify;"></p>

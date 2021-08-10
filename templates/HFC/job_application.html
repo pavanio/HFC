@@ -98,11 +98,11 @@
             <!--contents -->
             <aside id="sidebar">
                 <div class="sidebar__member-sec">
-                    <p class="sbold">Top Contributors</p>
+                    <p class="sbold">Our sponsors</p>
                     <ul class="sidebar__member">
-                        {% for contributor in contributors%}
-                        {% if contributor.image %}
-                        <li><a  title="{{contributor.name}}" href="{{contributor.linkedin_profile}}" target="_blank"><img src={{contributor.image.url}} alt="{{contributor.name}}" ></a></li>
+                        {% for partner in partners%}
+                        {% if partner.logo %}
+                        <li><a  title="{{partner.name}}" href="{{partner.website}}" target="_blank"><img src={{partner.logo.url}} alt="{{partner.name}}" style ="height:70px;width:100px;" ></a></li>
                         {% endif %}
                         {%endfor%}
                     </ul>
