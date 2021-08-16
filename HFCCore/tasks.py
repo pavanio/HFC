@@ -48,7 +48,7 @@ def first_reminder_mail(candidate_id,screeninguuid):
     candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
     name = candidate_obj.name
     to_list = [candidate_obj.email,]
-    subject = " Fisrt reminder"
+    subject = "Pending online evaluation"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
     html_content = render_to_string('HFC/first_reminder_email.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})
@@ -62,7 +62,7 @@ def second_reminder_mail(candidate_id,screeninguuid):
     candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
     name = candidate_obj.name
     to_list = [candidate_obj.email,]
-    subject = " Fisrt reminder"
+    subject = "Gentle reminder to proceed with the online evaluation"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
     html_content = render_to_string('HFC/second_reminder_email.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})
@@ -76,7 +76,7 @@ def third_reminder_mail(candidate_id,screeninguuid):
     candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
     name = candidate_obj.name
     to_list = [candidate_obj.email,]
-    subject = " Fisrt reminder"
+    subject = "Seems like you are having difficulties"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
     html_content = render_to_string('HFC/third_reminder_email.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})

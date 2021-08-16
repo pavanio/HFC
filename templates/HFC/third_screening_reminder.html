@@ -1,0 +1,41 @@
+{% extends 'HFC/email_layout.html' %}
+{% block main %}
+<!-- START CENTERED WHITE CONTAINER -->
+<span class="preheader"></span>
+<table role="presentation" class="main">
+  <!-- START MAIN CONTENT AREA -->
+  <tr>
+    <td class="wrapper">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>
+            <p>Dear {{name}},</p>
+            <p>Seems like you are having difficulties proceeding with the screening. Please feel free to contact us directly at +91 99633 62872.</p>
+            <p>We would love to get you involved in any manner we can.</p>
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+              <tbody>
+                  <tr>
+                       <td align="left">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                           <tbody>
+                              <tr>
+                              <td> <a href="{{base_url}}{{screeninguuid}}" target="_blank">Proceed To Screening</a> </td>      
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Best,<br>
+                    Suman Tyaagi<br>
+                    </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      <!-- END MAIN CONTENT AREA -->
+      </table>
+{% endblock %}
+                                    
