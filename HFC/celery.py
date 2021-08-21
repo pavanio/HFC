@@ -21,17 +21,17 @@ from celery.schedules import crontab
 app.conf.beat_schedule = {
     'send-first-reminder-contrab': {
         'task': 'first_screening_reminder',
-        'schedule': timedelta(seconds=50),
+        'schedule': crontab(hour=0, minute=0,),
         
     },
     'send-second-reminder-contrab': {
         'task': 'second_screening_reminder',
-        'schedule': timedelta(seconds=50),
+        'schedule': crontab(hour=0, minute=0,),
         
     },
     'send-third-reminder-contrab': {
         'task': 'third_screening_reminder',
-        'schedule': timedelta(seconds=50),
+        'schedule': crontab(hour=0, minute=0,),
         
     },
     
