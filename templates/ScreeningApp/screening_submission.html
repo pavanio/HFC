@@ -28,25 +28,25 @@
   <div class="content-width">
       <div class="main">
           <section id="contents">
-            <h2> Answer all the questions</h2><br>
+            <h2> Preview all the questions</h2><br>
             <form class="site-form" method="post">
                 {%csrf_token%}
                 {% for question in questions %}
                 {%for i in question.question.all%}
                 <div class="form-field" style="margin-bottom: 5px;">
-                  <label for="" >{{forloop.parentloop.counter}}. {{i.question}}</label>
+                  <label for="" >{{forloop.parentloop.counter}}. {{i.question|safe|linebreaksbr}}</label>
                   {% if i.question_img %}
                     <img src="{{i.question_img}}" alt="image">
                   {% endif%}
               </div>
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_1" {% if question.candidate_ans == "option_1" %} checked{% endif %}  />
-              <label for="option_1">{{i.option_1}}</label><br>
+              <label for="option_1">{{i.option_1|linebreaksbr}}</label><br>
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_2" {% if question.candidate_ans == "option_2" %} checked{% endif %}/>
-              <label for="option_2">{{i.option_2}}</label><br>
+              <label for="option_2">{{i.option_2|linebreaksbr}}</label><br>
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_3" {% if question.candidate_ans == "option_3" %} checked{% endif %} />
-              <label for="option_3">{{i.option_3}}</label><br>
+              <label for="option_3">{{i.option_3|linebreaksbr}}</label><br>
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_4" {% if question.candidate_ans == "option_4" %} checked{% endif %} />
-              <label for="option_4">{{i.option_4}}</label><br>
+              <label for="option_4">{{i.option_4|linebreaksbr}}</label><br><br>
               <input type='hidden' name={{question.id}} value=" " />
               {%endfor%}
               {%endfor%}

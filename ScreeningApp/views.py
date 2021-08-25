@@ -106,7 +106,7 @@ class Result(View):
 		if screen_obj.status == 'Passed':
 			message = "{name} passed the screening with  {percentage} percentage".format(name = candidate_name, percentage = percentage)
 			to_list = ['team@hackforchange.co.in',]
-			send_mail('New Job Applicant ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
+			send_mail('Screening Result', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
 			return render(request, 'ScreeningApp/screening_result_pass.html')
 		if screen_obj.status == 'Failed':
 			return render(request, 'ScreeningApp/screening_result_fail.html')

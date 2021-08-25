@@ -34,7 +34,7 @@
                     {% for question in questions %}
                     {%for i in question.question.all%}
                     <div class="form-field" style="margin-bottom: 5px;">
-                        <label for="">{{forloop.parentloop.counter}}. {{i.question}}</label>
+                        <label for="">{{forloop.parentloop.counter}}. {{i.question |safe|linebreaksbr}}</label>
                         {% if i.question_img %}
                         <img src="{{i.question_img}}" alt="image">
                         {% endif%}
