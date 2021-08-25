@@ -259,9 +259,12 @@ class CommunityMemberSignup(View):
             SendSubscribeMail(email)
             try:
                 community_member_signup_mail(email)
-                message = "A new community member signed up to {0} chapter".format(community_org.organization_name)
+                html_content = render_to_string('HFC/community_member_detail_internal_email.html', {'contributor':contributor})
                 to_list=['team@hackforchange.co.in',]
-                send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
+                msg = EmailMessage('New community member signup', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
+                msg.content_subtype = "html"
+                msg.send(fail_silently = True)
+                print("Community member details email sended successfully")
             except:
                 print('Error in sending welcome email to community member')
             return render(request, 'HFC/community_signup_thanks.html')
