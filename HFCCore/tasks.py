@@ -45,9 +45,10 @@ def third_screening_reminder():
 
 def first_reminder_mail(candidate_id,screeninguuid):
     base_url = settings.BASE_URL
-    candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
-    name = candidate_obj.name
-    to_list = [candidate_obj.email,]
+    #candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
+    name = candidate_id.name
+    print(name)
+    to_list = [candidate_id.email,]
     subject = "Pending online evaluation"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
