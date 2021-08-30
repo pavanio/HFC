@@ -18,7 +18,7 @@ def first_screening_reminder():
         if screening.first_reminder_date == today:
             candidate_id = screening.candidate_id
             screeninguuid = screening.screening_uuid
-            #first_reminder_mail(candidate_id,screeninguuid)
+            first_reminder_mail(candidate_id,screeninguuid)
             print(candidate_id ," first reminder mail send")
         
 @shared_task(name = 'second_screening_reminder')
@@ -29,7 +29,7 @@ def second_screening_reminder():
         if screening.second_reminder_date == today:
             candidate_id = screening.candidate_id
             screeninguuid = screening.screening_uuid
-            #second_reminder_mail(candidate_id,screeninguuid)
+            second_reminder_mail(candidate_id,screeninguuid)
             print(candidate_id ," second reminder mail send")
 
 @shared_task(name = 'third_screening_reminder')
@@ -40,7 +40,7 @@ def third_screening_reminder():
         if screening.third_reminder_date == today:
             candidate_id = screening.candidate_id
             screeninguuid = screening.screening_uuid
-            #third_reminder_mail(candidate_id,screeninguuid)
+            third_reminder_mail(candidate_id,screeninguuid)
             print(candidate_id ," third reminder mail send")
 
 def first_reminder_mail(candidate_id,screeninguuid):
@@ -51,7 +51,7 @@ def first_reminder_mail(candidate_id,screeninguuid):
     subject = "Pending online evaluation"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
-    html_content = render_to_string('HFC/first_reminder_email.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})
+    html_content = render_to_string('HFC/first_screening_reminder.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})
     msg = EmailMessage(subject, html_content, from_email ,to_list,headers = headers)
     msg.content_subtype = "html"
     msg.send(fail_silently = True)
@@ -65,7 +65,7 @@ def second_reminder_mail(candidate_id,screeninguuid):
     subject = "Gentle reminder to proceed with the online evaluation"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
-    html_content = render_to_string('HFC/second_reminder_email.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})
+    html_content = render_to_string('HFC/second_screening_reminder.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})
     msg = EmailMessage(subject, html_content, from_email ,to_list,headers = headers)
     msg.content_subtype = "html"
     msg.send(fail_silently = True)
@@ -79,7 +79,7 @@ def third_reminder_mail(candidate_id,screeninguuid):
     subject = "Seems like you are having difficulties"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
-    html_content = render_to_string('HFC/third_reminder_email.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})
+    html_content = render_to_string('HFC/third_screening_reminder.html', {'name':name,'base_url':base_url,'screeninguuid':screeninguuid})
     msg = EmailMessage(subject, html_content, from_email ,to_list,headers = headers)
     msg.content_subtype = "html"
     msg.send(fail_silently = True)
