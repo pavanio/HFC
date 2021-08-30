@@ -60,9 +60,9 @@ def first_reminder_mail(candidate_id,screeninguuid):
 
 def second_reminder_mail(candidate_id,screeninguuid):
     base_url = settings.BASE_URL
-    candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
-    name = candidate_obj.name
-    to_list = [candidate_obj.email,]
+    #candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
+    name = candidate_id.name
+    to_list = [candidate_id.email,]
     subject = "Gentle reminder to proceed with the online evaluation"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
@@ -74,9 +74,9 @@ def second_reminder_mail(candidate_id,screeninguuid):
 
 def third_reminder_mail(candidate_id,screeninguuid):
     base_url = settings.BASE_URL
-    candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
-    name = candidate_obj.name
-    to_list = [candidate_obj.email,]
+    #candidate_obj = Candidate.objects.get(candidate_id = candidate_id)
+    name = candidate_id.name
+    to_list = [candidate_id.email,]
     subject = "Seems like you are having difficulties"
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
