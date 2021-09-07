@@ -32,7 +32,7 @@ class Screening(View):
 		mentors = Community_Member.objects.filter(type = 'Mentor')[:6]
 		screen = Screenings.objects.get(screening_uuid = screening_uuid)
 		if screen.status == 'Passed' or screen.status == 'Failed':
-			return render(request, 'ScreeningApp/screening_completed.html')
+			return redirect('feedback',screening_uuid)
 		if screen.status == "Closed":
 			return render(request, 'ScreeningApp/screening_error.html')
 		screening_id = screen.screening_id
@@ -41,7 +41,7 @@ class Screening(View):
 	def post(self,request,screening_uuid):
 		data = request.POST.dict()
 		if 'csrfmiddlewaretoken' in data:
-			del data['csrfmiddlewaretoken']
+    			del data['csrfmiddlewaretoken']
 		for qid,ans in data.items():
 			obj = Screenings_Questions.objects.get(pk = qid)
 			obj.candidate_ans = ans
@@ -100,8 +100,8 @@ class Screening_Preview(View):
 class Result(View):
 	def get(self,request,screening_uuid):
 		screen_obj = Screenings.objects.get(screening_uuid = screening_uuid)
-		candidate_name =  screen_obj.candidate_id 
-
+		candidate_name =  screen_obj.candidate_id
+		
 		percentage = screen_obj.screening_result
 		if screen_obj.status == 'Passed':
 			message = "{name} passed the screening with  {percentage} percentage".format(name = candidate_name, percentage = percentage)
@@ -110,3 +110,11 @@ class Result(View):
 			return render(request, 'ScreeningApp/screening_result_pass.html')
 		if screen_obj.status == 'Failed':
 			return render(request, 'ScreeningApp/screening_result_fail.html')
+
+class Feedback(View):
+	def get(self,request,screening_uuid):
+		screen = Screenings.objects.get(screening_uuid = screening_uuid)
+		mentors = Community_Member.objects.filter(type = 'Mentor')[:6]
+		screening_id = screen.screening_id
+		questions = Screenings_Questions.objects.filter(screening_id=screening_id)
+		return render(request, 'ScreeningApp/screening_feedback.html', {'questions': questions, 'Screeninguuid':screening_uuid,'screen':screen,'mentors':mentors})

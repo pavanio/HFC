@@ -1,0 +1,109 @@
+{% extends 'HFC/layout.html' %}
+{% load static %}
+{% block meta_tags %}
+
+<meta content="" name="keywords">
+<meta property="og:title" content="">
+<meta name="description" property="og:description" content="">
+<meta property="og:type" content="article" >    
+<meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
+<meta property="og:url" content="">
+{% endblock %}
+{% block title %} Feedback | Hack For Change {% endblock %}
+{% block main %}
+<div class="banner-wrap">
+    <div class="content-width sm-content-width">
+        <div class="banner__main">
+            <h2>Looks like you have taken the screening.</h2>
+            <p class="large">
+            <h4>Screening Status : {{screen.status}} </h4></p>
+        </div>
+    </div>
+</div>
+<div id="main-wrap" class="main__large-pd">
+    <div class="content-width">
+        <div class="main">
+            <section id="contents">
+            {% for question in questions %}
+            {%for i in question.question.all%}
+              <div class="form-field" style="margin-bottom: 5px;">
+                  <label for="" >{{forloop.parentloop.counter}}. {{i.question|safe|linebreaksbr}}</label>
+                  
+                  
+                  {% if i.question_img %}
+                    <img src="{{i.question_img}}" alt="image">
+                  {% endif%}
+
+                  
+              </div>
+              <div {% if question.candidate_ans == "option_1" and  question.candidate_ans == question.correct_ans  %} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5)); Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_1"%} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5));Border-radius:10px; padding:2.5px"{% endif %}{% if  question.candidate_ans == "option_1" and  question.candidate_ans != question.correct_ans %} style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5)); Border-radius:10px; padding:2.5px" {% endif %} >
+              
+              <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_1" {% if question.candidate_ans == "option_1" %} checked{% endif %} />
+              <label for="option_1"  >{{i.option_1|linebreaksbr}} </label><br> 
+              </div><br>
+              <div {% if question.candidate_ans == "option_2" and  question.candidate_ans == question.correct_ans  %} style="background-image: linear-gradient(to right,rgba(0,255,0,0), rgba(0,255,0,0.5)); Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_2"%} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5));Border-radius:10px; padding:2.5px" {% endif %} {% if  question.candidate_ans == "option_2" and  question.candidate_ans != question.correct_ans %} style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5)); Border-radius:10px; padding:2.5px" {% endif %}>
+              
+              <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_2" {% if question.candidate_ans == "option_2" %} checked{% endif %}/>
+              <label for="option_2">{{i.option_2|linebreaksbr}}</label><br>
+              
+              </div><br>
+              
+              <div {% if question.candidate_ans == "option_3" and  question.candidate_ans == question.correct_ans  %} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5)); Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_3"%} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5));Border-radius:10px; padding:2.5px" {% endif %} {% if  question.candidate_ans == "option_3" and  question.candidate_ans != question.correct_ans %} style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5)); Border-radius:10px; padding:2.5px" {% endif %}>
+              
+              <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_3" {% if question.candidate_ans == "option_3" %} checked{% endif %} />
+              <label for="option_3">{{i.option_3|linebreaksbr}}</label><br>
+              
+              </div><br>
+              
+              <div {% if question.candidate_ans == "option_4" and  question.candidate_ans == question.correct_ans  %} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5)); Border-radius:10px; padding:2.5px " {% elif question.correct_ans == "option_4"%} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5));Border-radius:10px; padding:2.5px"{% endif %}{% if  question.candidate_ans == "option_4" and  question.candidate_ans != question.correct_ans %} style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5)); Border-radius:10px; padding:2.2.5px" {% endif %} >
+              
+              <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_4" {% if question.candidate_ans == "option_4" %} checked{% endif %} />
+              <label for="option_4">{{i.option_4|linebreaksbr}}</label><br>
+              
+              </div>
+              <br>
+              <input type='hidden' name={{question.id}} value=" " />
+              {%endfor%}
+              {%endfor%}
+            </section>
+            <!--contents -->
+            <aside id="sidebar">
+                <div class="sidebar__member-sec">
+                    <p class="sbold">Our Top Mentors</p>
+                    <ul class="sidebar__member">
+                        {% for mentor in mentors%}
+                        {% if mentor.image %}
+                        <li><img src={{mentor.image.url}} alt="Pic"></li>
+                        {% endif %}
+                        {%endfor%}
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter__fig"><img src="{% static 'images/news-update.png' %}" alt="Image"></div>
+                    <form
+                        action="https://hackforchange.us7.list-manage.com/subscribe/post?u=d108098b91660a39ebfc4dd46&amp;id=878602ff9c"
+                        method="post" target="_blank" id="mc-embedded-subscribe-form" class="newsletter__form"
+                        novalidate>
+                        <p class="large bold">Get Latest Updates!</p>
+                        <input type="email" placeholder="Enter your email" name="EMAIL" id="mce-EMAIL">
+                        <input class="btn btn--info" type="submit" value="Subscribe">
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_d108098b91660a39ebfc4dd46_878602ff9c" tabindex="-1" value=""></div>
+        </div>
+        </form>
+    </div>
+    </aside>
+    <!--sidebar -->
+</div>
+</div>
+</div>
+  
+<br>
+{%endblock%}
+
