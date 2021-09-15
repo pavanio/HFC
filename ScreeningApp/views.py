@@ -32,7 +32,7 @@ class Screening(View):
 		mentors = Community_Member.objects.filter(type = 'Mentor')[:6]
 		screen = Screenings.objects.get(screening_uuid = screening_uuid)
 		if screen.status == 'Passed' or screen.status == 'Failed':
-			return redirect('feedback',screening_uuid)
+			return redirect('screening-status',screening_uuid)
 		if screen.status == "Closed":
 			return render(request, 'ScreeningApp/screening_error.html')
 		screening_id = screen.screening_id
@@ -114,6 +114,8 @@ class Result(View):
 class Feedback(View):
 	def get(self,request,screening_uuid):
 		screen = Screenings.objects.get(screening_uuid = screening_uuid)
+		if screen.status == 'Open':
+    			return redirect('screening',screening_uuid)
 		mentors = Community_Member.objects.filter(type = 'Mentor')[:6]
 		screening_id = screen.screening_id
 		questions = Screenings_Questions.objects.filter(screening_id=screening_id)

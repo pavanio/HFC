@@ -128,19 +128,38 @@ class Screenings(models.Model):
     first_reminder_date = models.DateField(blank = True,null = True)
     second_reminder_date = models.DateField(blank = True,null = True)
     third_reminder_date = models.DateField(blank = True,null = True)
+
     @classmethod
     def create(cls,candidate_id):
         category_of_expertise = candidate_id.profession
-        print(category_of_expertise)
+        #print(category_of_expertise)
         level = candidate_id.level_of_expertise
-        print(level)
+        #print(level)
+        expertise_level = ['Entry Level','Intermediate','Advanced','Expert']
         Expertises = candidate_id.area_of_expertise.all()
-        print(Expertises)
-        questions_list = Question.objects.filter(category_of_expertise = category_of_expertise).filter(level =
-        level).filter(expertise__in = Expertises).values_list('question_id', flat = True)
-        random_question_id_list = random.sample(list(questions_list), min(len(questions_list), 10))
-        questions = Question.objects.filter(question_id__in = random_question_id_list)   
-        #print('candidate screening questions', questions)
+        #print(expertise_level)
+
+        for i in range(0,4):
+            if expertise_level[i] == level and i!=3:
+                level1 = expertise_level[i]
+                level2 = expertise_level[i+1]
+                highest_level_flag = 0
+                break
+            elif i == 3:
+                highest_level_flag = 1
+        if highest_level_flag == 0:
+            questions_list_1 = Question.objects.filter(category_of_expertise = category_of_expertise).filter(level = level1).filter(expertise__in = Expertises).values_list('question_id', flat = True) 
+            random_question_id_list = random.sample(list(questions_list_1), min(len(questions_list_1), 7))
+            questions_list_2 = Question.objects.filter(category_of_expertise = category_of_expertise).filter(level = level2).filter(expertise__in = Expertises).values_list('question_id', flat = True) 
+            random_question_id_list.extend(random.sample(list(questions_list_2), min(len(questions_list_2), 3)))
+        elif highest_level_flag == 1:
+            questions_list_1 = Question.objects.filter(category_of_expertise = category_of_expertise).filter(level = level).filter(expertise__in = Expertises).values_list('question_id', flat = True) 
+            random_question_id_list = random.sample(list(questions_list_1), min(len(questions_list_1), 10))
+
+        
+        questions = Question.objects.filter(question_id__in = random_question_id_list).order_by('?')
+        print('candidate screening questions', questions)
+        
         screen = Screenings.objects.last()
         #print(screen)
         for question in questions:

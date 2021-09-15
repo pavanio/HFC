@@ -14,9 +14,12 @@
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
         <div class="banner__main">
-            <h2>Looks like you have taken the screening.</h2>
-            <p class="large">
-            <h4>Screening Status : {{screen.status}} </h4></p>
+            <h2>Screening has been closed.</h2>
+            <p>
+            <br>
+             Screening Status : {% if screen.status == "Passed"   %}<span style="color:#008000;">{{screen.status}} </span> {% endif%}
+                                {% if screen.status == "Failed" %} <span style="color:red;">{{screen.status}} </span> {% endif%}
+                                {% if screen.screening_result   %} , {{ screen.screening_result }}% {% endif%}</p>
         </div>
     </div>
 </div>
@@ -36,31 +39,56 @@
 
                   
               </div>
-              <div {% if question.candidate_ans == "option_1" and  question.candidate_ans == question.correct_ans  %} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5)); Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_1"%} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5));Border-radius:10px; padding:2.5px"{% endif %}{% if  question.candidate_ans == "option_1" and  question.candidate_ans != question.correct_ans %} style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5)); Border-radius:10px; padding:2.5px" {% endif %} >
+{% comment %}             <div {% if question.candidate_ans == "option_1" and  question.candidate_ans == question.correct_ans  %} style="color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_1"%} style="color: #0f5132; background-color: #d1e7dd; border-color: #badbcc;Border-radius:10px; padding:2.5px"{% endif %}{% if  question.candidate_ans == "option_1" and  question.candidate_ans != question.correct_ans %} style="color: #842029; background-color: #f8d7da; border-color: #f5c2c7; Border-radius:10px; padding:2.5px" {% endif %} >
               
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_1" {% if question.candidate_ans == "option_1" %} checked{% endif %} />
               <label for="option_1"  >{{i.option_1|linebreaksbr}} </label><br> 
               </div><br>
-              <div {% if question.candidate_ans == "option_2" and  question.candidate_ans == question.correct_ans  %} style="background-image: linear-gradient(to right,rgba(0,255,0,0), rgba(0,255,0,0.5)); Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_2"%} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5));Border-radius:10px; padding:2.5px" {% endif %} {% if  question.candidate_ans == "option_2" and  question.candidate_ans != question.correct_ans %} style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5)); Border-radius:10px; padding:2.5px" {% endif %}>
+              <div {% if question.candidate_ans == "option_2" and  question.candidate_ans == question.correct_ans  %} style="color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_2"%} style="color: #0f5132; background-color: #d1e7dd; border-color: #badbcc;Border-radius:10px; padding:2.5px" {% endif %} {% if  question.candidate_ans == "option_2" and  question.candidate_ans != question.correct_ans %} style="color: #842029; background-color: #f8d7da; border-color: #f5c2c7; Border-radius:10px; padding:2.5px" {% endif %}>
               
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_2" {% if question.candidate_ans == "option_2" %} checked{% endif %}/>
               <label for="option_2">{{i.option_2|linebreaksbr}}</label><br>
               
               </div><br>
               
-              <div {% if question.candidate_ans == "option_3" and  question.candidate_ans == question.correct_ans  %} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5)); Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_3"%} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5));Border-radius:10px; padding:2.5px" {% endif %} {% if  question.candidate_ans == "option_3" and  question.candidate_ans != question.correct_ans %} style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5)); Border-radius:10px; padding:2.5px" {% endif %}>
+              <div {% if question.candidate_ans == "option_3" and  question.candidate_ans == question.correct_ans  %} style="color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; Border-radius:10px; padding:2.5px "{% elif question.correct_ans == "option_3"%} style="color: #0f5132; background-color: #d1e7dd; border-color: #badbcc;Border-radius:10px; padding:2.5px" {% endif %} {% if  question.candidate_ans == "option_3" and  question.candidate_ans != question.correct_ans %} style="color: #842029; background-color: #f8d7da; border-color: #f5c2c7; Border-radius:10px; padding:2.5px" {% endif %}>
               
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_3" {% if question.candidate_ans == "option_3" %} checked{% endif %} />
               <label for="option_3">{{i.option_3|linebreaksbr}}</label><br>
               
               </div><br>
               
-              <div {% if question.candidate_ans == "option_4" and  question.candidate_ans == question.correct_ans  %} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5)); Border-radius:10px; padding:2.5px " {% elif question.correct_ans == "option_4"%} style="background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,0.5));Border-radius:10px; padding:2.5px"{% endif %}{% if  question.candidate_ans == "option_4" and  question.candidate_ans != question.correct_ans %} style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5)); Border-radius:10px; padding:2.2.5px" {% endif %} >
+              <div {% if question.candidate_ans == "option_4" and  question.candidate_ans == question.correct_ans  %} style="color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; Border-radius:10px; padding:2.5px " {% elif question.correct_ans == "option_4"%} style="color: #0f5132; background-color: #d1e7dd; border-color: #badbcc;Border-radius:10px; padding:2.5px"{% endif %}{% if  question.candidate_ans == "option_4" and  question.candidate_ans != question.correct_ans %} style="color: #842029; background-color: #f8d7da; border-color: #f5c2c7; Border-radius:10px; padding:2.5px" {% endif %} >
               
               <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_4" {% if question.candidate_ans == "option_4" %} checked{% endif %} />
               <label for="option_4">{{i.option_4|linebreaksbr}}</label><br>
               
-              </div>
+              </div> {% endcomment %}
+             <div {% if question.candidate_ans == "option_1" and  question.candidate_ans == question.correct_ans  %} style="color : #008000 "{% elif question.correct_ans == "option_1"%} style="color : #008000 "{% endif %}{% if  question.candidate_ans == "option_1" and  question.candidate_ans != question.correct_ans %} style="color : red" {% endif %} >
+              
+              <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_1" {% if question.candidate_ans == "option_1" %} checked{% endif %} />
+              <label for="option_1"  >{{i.option_1|linebreaksbr}} </label><br> 
+              </div><br>
+              <div {% if question.candidate_ans == "option_2" and  question.candidate_ans == question.correct_ans  %} style="color : #008000"{% elif question.correct_ans == "option_2"%} style="color : #008000" {% endif %} {% if  question.candidate_ans == "option_2" and  question.candidate_ans != question.correct_ans %} style="color : red" {% endif %}>
+              
+              <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_2" {% if question.candidate_ans == "option_2" %} checked{% endif %}/>
+              <label for="option_2">{{i.option_2|linebreaksbr}}</label><br>
+              
+              </div><br>
+              
+              <div {% if question.candidate_ans == "option_3" and  question.candidate_ans == question.correct_ans  %} style="color : #008000"{% elif question.correct_ans == "option_3"%} style="color : #008000" {% endif %} {% if  question.candidate_ans == "option_3" and  question.candidate_ans != question.correct_ans %} style="color : red" {% endif %}>
+              
+              <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_3" {% if question.candidate_ans == "option_3" %} checked{% endif %} />
+              <label for="option_3">{{i.option_3|linebreaksbr}}</label><br>
+              
+              </div><br>
+              
+              <div {% if question.candidate_ans == "option_4" and  question.candidate_ans == question.correct_ans  %} style="color : #008000" {% elif question.correct_ans == "option_4"%} style="color : #008000 "{% endif %}{% if  question.candidate_ans == "option_4" and  question.candidate_ans != question.correct_ans %} style="color : red" {% endif %} >
+              
+              <input type="radio" id={{question.id}} name={{question.id}} disabled='disabled' value="option_4" {% if question.candidate_ans == "option_4" %} checked{% endif %} />
+              <label for="option_4">{{i.option_4|linebreaksbr}}</label><br>
+              
+              </div> 
               <br>
               <input type='hidden' name={{question.id}} value=" " />
               {%endfor%}

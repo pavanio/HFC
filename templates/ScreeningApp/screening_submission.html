@@ -7,6 +7,7 @@
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="">
+<style></style>
 {% endblock %}
 {% block title %} Screening | Hack For Change {% endblock %}
 
@@ -16,8 +17,7 @@
   <div class="content-width sm-content-width">
       <div class="banner__main">
           <h1>Lets get to know you better</h1>
-          <p class="large"> Please take a minute to answer the following questions, so that we can understand your level of
-            expertise.
+          <p class="large"> Please take a minute to review the answers before proceeding further.
           </p>
       </div>
   </div>
@@ -29,7 +29,7 @@
       <div class="main">
           <section id="contents">
             <h2> Preview all the questions</h2><br>
-            <form class="site-form" method="post">
+            <form class="site-form" id="myForm" method="post">
                 {%csrf_token%}
                 {% for question in questions %}
                 {%for i in question.question.all%}
@@ -50,9 +50,11 @@
               <input type='hidden' name={{question.id}} value=" " />
               {%endfor%}
               {%endfor%}
-              <input type=button class="btn btn-primary" value="Edit" onClick="javascript:history.go(-1);">
 
-              <input type="submit" class="btn btn-success btn-lg" value="Submit">
+              <!--<button type=button class="btn btn-primary btn-lg" value="Edit" onClick="javascript:history.go(-1);">Go Back & Edit</button>-->
+              <a href="#" color="#0068ff" onClick="javascript:history.go(-1);">Go Back & Edit</a>&nbsp&nbsp&nbsp
+
+              <button type="submit" id="btn_submit" style="font-size: 17.5px;" class="btn btn-succes btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">Submit & Close</button>
             </form>
       </section>
       <!--contents -->
@@ -94,3 +96,22 @@
 </div>
 {%endblock%}
 
+{% block js%}
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $("#btn_submit").click(function() {
+      // load data via AJAX
+      // disable button
+      $(this).prop("disabled", true);
+      // add spinner to button
+      $(this).html(
+        `<span class="fa fa-circle-o-notch fa-spin" role="status" aria-hidden="true"></span> Evaluating answers...`
+      );
+          setTimeout(function(){ document.getElementById("myForm").submit(); }, 5000);
+
+    });
+});
+
+</script>
+{%endblock%}
