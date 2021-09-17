@@ -41,8 +41,10 @@
                 <div class="main main--community">
                     {% for center in hfc_centers %}
                     <div class="main__community-outer">
+                    {% if center.logo %}
                         <div class="main__community-fig squre-radius"><img width="85" src={{center.logo.url}}
                                 alt="Logo"></div>
+                    {% endif %}
                         <div class="main__community-sec">
                             <p class="large sbold">{{center.organization_name}}</p>
                             <p>{{center.project.count}} Projects, {{center.community_member_set.count}} Members</p>
@@ -66,8 +68,10 @@
                 <div class="main main--community">
                     {% for chapter in hfc_chapters %}
                     <div class="main__community-outer">
+                    {% if chapter.logo %}
                         <div class="main__community-fig squre-radius"><img width="85" src={{chapter.logo.url}}
                                 alt="Logo"></div>
+                    {% endif %}
                         <div class="main__community-sec">
                             <p class="large sbold">{{chapter.organization_name}}</p>
                             <p>{{chapter.project.count}} Projects, {{chapter.community_member_set.count}} Members</p>
