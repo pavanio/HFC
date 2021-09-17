@@ -90,11 +90,12 @@
                             <label for="">Areas of Expertise</label>
                         </div>
                     </div>
+                        <div id="number"><span id="error"></span></div>
                         <div style="position:relative;padding-top:0px;width:700px;font-family:'Nunito Sans';margin-right:20px;">
                             {{form.area_of_expertise}}
                         </div>
                     <div class="btn-outer">
-                        <input class="btn btn--info btn--full" type="submit" value="Register">
+                        <input class="btn btn--info btn--full" type="submit" onClick="valthisform()" value="Register">
                     </div>
                 </form>
             </section>
@@ -157,5 +158,34 @@
             }
         });
     });
+
+    function valthisform(){
+    var checkboxs=document.querySelectorAll('input[type="checkbox"]');
+    var okay=false;
+    for(var i=0,l=checkboxs.length;i<l;i++)
+    {
+        if(checkboxs[i].checked)
+        {
+            okay=true;
+            break;
+        }
+    }
+    if(okay){$(this).trigger('click');}
+    else {//alert("Please check atleast one Area of Expertise!");
+        var error = document.getElementById("error")
+        if (isNaN(document.getElementById("number").value)) 
+        {
+              
+            // Changing content and color of content
+            error.textContent = "Please select at least one expertise !"
+            error.style.color = "red"
+        } else {
+            error.textContent = ""
+        }
+        setTimeout(function() {error.textContent = ""}, 1500);
+        event.preventDefault();
+        return false;
+    
+    } }
 </script>
 {% endblock %}

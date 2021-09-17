@@ -54,11 +54,12 @@
                     <div class="form-field" style="margin-bottom: 5px;">
                         <label for="">Issue Areas</label>
                     </div>
+                    <div id="number"><span id="error"></span></div>
                     <div>
                         {{form.issue_area}}
                     </div>
                     <div class="btn-outer">
-                        <input class="btn btn--info btn--full" type="submit" value="Submit">
+                        <input class="btn btn--info btn--full" type="submit" onClick="valthisform()" value="Submit">
                     </div>
                 </form>
             </section>
@@ -100,4 +101,36 @@
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 <script
     type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+<script>
+function valthisform(){
+    var checkboxs=document.querySelectorAll('input[type="checkbox"]');
+    var okay=false;
+    for(var i=0,l=checkboxs.length;i<l;i++)
+    {
+        if(checkboxs[i].checked)
+        {
+            okay=true;
+            break;
+        }
+    }
+    if(okay){$(this).trigger('click');}
+    else {//alert("Please check atleast one Area of Expertise!");
+        var error = document.getElementById("error")
+        if (isNaN(document.getElementById("number").value)) 
+        {
+              
+            // Changing content and color of content
+            error.textContent = "Please select at least one issue !"
+            error.style.color = "red"
+        } else {
+            error.textContent = ""
+        }
+        setTimeout(function() {error.textContent = ""}, 1500);
+        event.preventDefault();
+        return false;
+    
+    } }
+
+
+</script>
 {%endblock%}
