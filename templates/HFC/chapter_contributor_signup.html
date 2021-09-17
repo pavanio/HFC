@@ -27,10 +27,12 @@
     <div class="content-width">
         <div class="main">
             <section id="contents">
+            {% if chapter.logo %}
                 <div class="uni-chapter"><img width="84px" src={{chapter.logo.url}}
                         srcset="images/dit_university_logo@2x.jpg 2x, images/dit_university_logo@3x.jpg 3x">
                     <h2>{{chapter.organization_name}}</h2>
                 </div>
+            {% endif %}
                 <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
                     {%csrf_token%}
                     <div class="form-control">
