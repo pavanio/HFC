@@ -19,6 +19,9 @@ HFC Modelling
     Co-ordinator Name | String | coordinator_name | required  
     Co-ordinator Email | String | coordinator_email | required  
     Co-ordinator Mobile | String | coordinator_mobile | required  
+    Project | Many to many | project | not required  
+    City | String | city | not required   
+    is public | Boolean | is_public | not required   
 
 ## HFC Community Organization Member | community_members** (*This is a subclass of candidate in ScreeningApp)
     Name | String | name | required  
@@ -29,42 +32,49 @@ HFC Modelling
     LinkedIn Profile String | linkedin_profile | required  
     HFC Organization | integer | organization_id |required |  Ex: 2   
     *Assigned Project | integer | project_id| Ex: 1 | optional  
-    *Screening Status | integer | screening_score 
+    *Screening Status | integer | screening_score  
+    Years of Experience | String | years_of_experience | required  
+    Image | String | image | not required  
+    Commit | String | commit | not required  
+    Avatar Url | String | avatar_url | not required  
+    Project | Many to many | project | not required  
 
 ## Project | projects
     Name | String | name | required   
     Project Link | String | project_link| required | Ex: Github link  
-    Project Icon | String | project_icon  
-    Project Description | Text | project_desc | required  
-    Website Link | String | website_link | required  
-    Goal | Text | goal | required  
-    *Funded By | String | funded_by | Ex: "Facebook, Github, Microsoft"  
+    Project Icon | String | project_icon | not required    
+    Project Overview | Text | project_overview | required  
+    Website Link | String | website_link | not required  
+    Goal | Text | goal | not required  
+    Project Slug | String | project_slug | not required   
 
 ## Problem Statement | problem_statements
-    Title | String | title | required  
-    Summary | Text | summary | required  
+    Problem Statement | String | problem_statement | required  
+    Overview | Text | overview | required  
     Background Information |Text | background_info | required  
-    Related Links |String |related_link | required  
-    Proposed Solution | Text | proposed_solution | required  
-    Submitted By Which Partner | id | partner_id | required  
-    Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"
-    Partner Association | id | partner_id | required |  
+    Related Links |String |related_link | not required  
+    Proposed Solution | Text | proposed_solution | not required  
+    Submitted By Which Partner | id | partner_id | not required  
+    Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"  
     Issue Areas | String |issue_area | required | EX:"open gov","democracy"  
 
 ## Partner Information | partners (TFC Orgs are submodels or TFC Orgs)
-This is a subclass of TFC Organizations Ex: Factly / Foundation For Democratic Reforms
+    This is a subclass of TFC Organizations Ex: Factly / Foundation For Democratic Reforms
 
 ## Issue Area | Focus Area
-Issue Name | String | name | required |
-Issue Brief | Text| issue_brief| required |
-Context | Text| issue_brief| required |
-Tehnology Intervention | Text | technology_intervention | required
-Related Information | URL | related_information | optional
+    Issue Area | String | issue_area | required 
+    Issue Sub Header | String | issue_sub_header | not required   
+    Issue Brief | Text| issue_brief| not required  
+    issue_overview | Text | issue_overview | not required  
+    Context | Text| issue_brief| not required  
+    Tehnology Intervention | Text | technology_intervention | not required
+    Related Information | URL | related_information | not required  
+    Issue Area Slug | Text | issue_area_slug | not required  
 
 ## Project_Partners | project_partners
-Partner Association | id | partner_id | required
-Project Association | id | project_id | required
-Project Involvement | String | project_involvement | required | Possible Values:"Funding","Execution","Adoption/Promotion"
+    Partner Association | id | partner_id | required
+    Project Association | id | project_id | required
+    Project Involvement | String | project_involvement | required | Possible Values:"Funding","Execution","Adoption/Promotion"
 
 ------------------------------------------------------------------------------------------------------
 TFC Modelling
@@ -72,8 +82,7 @@ TFC Modelling
 
 ## Organization | organizations (Governmental/ Non-Governmental organization)
     Name | String | name | required | Ex:factly
-    Website |String  | website | required |  Ex: http://www.factly.in/
-
+    Website |String  | website | required |  Ex: http://www.factly.in/  
     Organization Brief | Text| organization_brief| required |  Ex: Factly is a Hyderabad based fact checking organization focused on fake news detection and educaition
     Contact Phone Number | String | phone_number | required 
     Contact Email | String | email | required
@@ -96,14 +105,10 @@ TFC Modelling
     *role | String | role | Possible: "Primary Contact(Admin) / Member"
 
 ## Volunteer Information | volunteers (This is a subclass of the candidate model)
-    This can be any kind of profession (other than tech, desing, project mangament) 
-
+    *This can be any kind of profession (other than tech, desing, project mangament) 
     Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
-
     Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week  Based on this we are populating the level of expertise.  
-    
     Years Of Experience | String | years_of_experience | required | "No Experience, 1+ years, 2+ years, 3+ years, 5+ years, 10+years, 15+years, 20+ years"
-
     Organization Mapping | integer | organization_id | This essentially means a volunteer is tied to a particular organization as an applicant
 
 ## Donation Intents | donation_intents
@@ -132,11 +137,11 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     Name | String | name | required
     Email | String | email | required  
     Contact Number | String | contact_number | required  
-    Gender | String | gender | required  
-    D.0.B | Datefield | required 
+    Gender | String | gender | not required  
+    D.0.B | Datefield | dob |  not required 
     Highest Education | String | highest_education | Possible Values: "Intermediate, Bachelors, Masters" |required  
     Profession | String | profession | Ex: Design, Engineering, Management, Operations, HR,  etc. (This should be populated form area of category from category table)  
-    Expertise (Skills) | String | expertise | Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management| required  
+    Area of Expertise (Skills) | String | area_of_expertise | Ex: For Contributer "Python, CSS, HTML, Databases", For Mentor "Project Management| required  
     Level of Expertise | String | level_of _expertise | Possible Values: "Entry Level, Intermediate, Advanced, Expert" | required  
     
 ## Expertise Areas | expertise_areas
@@ -147,31 +152,40 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     Expertise Id | Integer | expertise_id
     Expertise Name | String | expertise | required | Ex: Python, Ruby, HTML, CSS, Java,
     Expertise Area Mapping | integer | expertise_area_id  
+    is published | Boolean | is_published 
     
 ## Question Bank | questions
     Question | Text | question | required 
-    type | String | type | Possible Values: "Multiple Choice, Yes/No"
+    type | String | qtype | Possible Values: "Multiple Choice, Yes/No"
     Option 1 | Text | option_1 | required when type is multiple choice
     Option 2 | Text | option_2 | required when type is multiple choice
     Option 3 | Text | option_3 | required when type is multiple choice
     Option 4 | Text | option_4 | required when type is multiple choice
     yes / no | String | yes_no | Possiblie Valaues: "YES, NO"
-    Answer | String | answer | required
+    Answer | String | answer | required  
+    Question Image | Image | question_image | not required  
     Area Of Expertise Mapping | integer | expertise_area_id | required  (Is mapped with candidate/volunteers profession)  
-    Expertise Mapping | integer | expertise_id | required (Is mapped with candidate/volunteers area of expertise)   
+    Expertise Mapping | integer | expertise_id | required (Is mapped with candidate/volunteers area of expertise) 
     Question Level Mapping | integer | level | entry, intermediate, advanced, expert | required (Is mapped with candidate/volunteers level_of_expertise)   
-    * Topic | String | topic | required | Ex: ORM, DOM Model, CSS Animations etc.  
+    Topic | String | topic | required | Ex: ORM, DOM Model, CSS Animations etc.  
 
 ## Screening with lots of questions | screenings_questions
-    Screening Association | integer | screening_id
-    Question Association | integer | question_id
-    Candidates Answer | String | candidates_answer
+    Screening Association | integer | screening_id | required  
+    Question Association | integer | question_id | required  
+    Candidates Answer | String | candidates_answer 
+    Correct Answer | String | correct_ans | required  
     Answers Correctness | Boolean | answer_correctness | Ex: True, False
 
 ## Many to Many Screening | screenings
-    Screeing id
+    
     Screening UUID | String | screening_uuid | Ex: SCRNGSMTY01, SCRNGSMTY02 so on which is auto generated whenever you create the record
     Candidate association | integer | candidate_id
     Screening association | id | screening_id
-    *Status | String | Possible Values: "New, Closed, Passed, Failed" 
-    Screening Result | String | screening_result | Possible Values:60%,50%, 
+    Status | String | Possible Values: "New, Closed, Passed, Failed" 
+    Screening Result | String | screening_result | Possible Values:60%,50%,  
+    Created On | Date | created_on | not required 
+    First Reminder Date | Date | first_reminder_date | not required 
+    Second Reminder Date | Date | second_reminder_date | not required 
+    Third Reminder Date | Date | third_reminder_date | not required  
+
+
