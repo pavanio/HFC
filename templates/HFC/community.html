@@ -30,8 +30,8 @@
                         Centres</span></a>
             </li>
             <li><a href="#hfcChapters"><img width="48" src="{% static 'images/hfc-icon2.svg' %}" alt="ICON"><img
-                        width="48" src="{% static 'images/hfc-icon2-alt.svg' %}" alt="ICON"><span>HFC Chapters
-                        </span></a></li>
+                        width="48" src="{% static 'images/hfc-icon2-alt.svg' %}" alt="ICON"><span>HFC
+                        Chapters</span></a></li>
             <li><a href="#hfcLeaderboard"><img width="23" src="{% static 'images/hfc-icon3.svg' %}" alt="ICON"><img
                         width="23" src="{% static 'images/hfc-icon3-alt.svg' %}" alt="ICON"><span>Leaderboard</span></a>
             </li>
@@ -41,12 +41,14 @@
                 <div class="main main--community">
                     {% for center in hfc_centers %}
                     <div class="main__community-outer">
+                    {% if center.logo %}
                         <div class="main__community-fig squre-radius"><img width="85" src={{center.logo.url}}
                                 alt="Logo"></div>
+                    {% endif %}
                         <div class="main__community-sec">
                             <p class="large sbold">{{center.organization_name}}</p>
                             <p>{{center.project.count}} Projects, {{center.community_member_set.count}} Members</p>
-                            <a href="center/{{center.organization_name_slug}}/signup/" class="btn btn--hfc"
+                            <a href="center/{{center.organization_name_slug}}/signup/" class="btn btn--border"
                                 id="center_contrib">Join as a member</a>
                         </div>
                     </div>
@@ -54,6 +56,7 @@
                 </div>
                 <div class="hfc-card">
                     <div class="hfc-card__fig"><img width="111" src="{% static 'images/hfc-img.jpg' %}" alt="Pic"></div>
+
                     <div class="hfc-card__info">
                         <h3>Don't see a centre in your city?</h3>
                         <p class="small">Lets create one, and get your city involved. As always, you can always join the
@@ -66,12 +69,14 @@
                 <div class="main main--community">
                     {% for chapter in hfc_chapters %}
                     <div class="main__community-outer">
+                    {% if chapter.logo %}
                         <div class="main__community-fig squre-radius"><img width="85" src={{chapter.logo.url}}
                                 alt="Logo"></div>
+                    {% endif %}
                         <div class="main__community-sec">
                             <p class="large sbold">{{chapter.organization_name}}</p>
                             <p>{{chapter.project.count}} Projects, {{chapter.community_member_set.count}} Members</p>
-                            <a href="{{chapter.organization_name_slug}}/signup/" class="btn btn--border">Join as a
+                            <a href="{{chapter.organization_name_slug}}/signup/" class="btn btn--hfc">Join as a
                                 member</a>
                         </div>
                     </div>
@@ -81,7 +86,8 @@
                     <div class="hfc-card__fig"><img width="111" src="{% static 'images/hfc-img.jpg' %}" alt="Pic"></div>
                     <div class="hfc-card__info">
                         <h3>Want to set up chapter in your college?</h3>
-                        <p class="small">Reach out to us directly to open a new chapter at your own college premises.</p>
+                        <p class="small">Reach out to us directly to open a new
+                            chapter at your own college premises.</p>
                         <a href="{% url 'contact' %}" class="btn btn--info">Contact Us</a>
                     </div>
                 </div>
