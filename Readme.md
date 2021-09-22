@@ -6,7 +6,7 @@ HFC Platform is intended to engage the community, promote collaboration and also
 
 If you are a developer or designer please refer to the documentation outlined below.
 
-1. Product Overview
+1. [Product Overview](https://github.com/HackForChangeIN/HFC/blob/master/docs/Platform%20Overview.md)
 2. Project Roadmap
 3. Project Execution Plan
 4. Contributor Guidelines
