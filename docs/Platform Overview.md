@@ -13,13 +13,13 @@ A platform where we can curate and highlight problem statements shared by other 
         - Highlight Problem Statement(s)
 	- Engage Developer, Designer and Mentor Community
 		- Encouraging continuous contribution
-		- Engage institutions as a way contribute, in a more fixed and centralized manner (HFC Centers)
-		- Engage city level, loosely interested people to come together and contribute even if its for a couple of hours on an irregular basis (HFC Chapters)
+		- Engage institutions as a way contribute, in a more fixed and centralized manner (HFC Chapters)
+		- Engage city level, loosely interested people to come together and contribute even if its for a couple of hours on an irregular basis (HFC Centres)
 
 # Domain Overview
 
 	- Partner Organization
-		Partner is typically an organization who has been active in the social change (posittive change) space for more than 10+ years. Or, a govermental organization / department which is keen to engage the developer community through their problem statements.
+		Partner is typically an organization who has been active in the social change (positive change) space for more than 10+ years. Or, a govermental organization / department which is keen to engage the developer community through their problem statements.
 
 		Ex: Non-Governmental Organization (Factly, Foundation For Democratic Reform, Center For Policy Research, Center For Developing Societies),
 
@@ -57,16 +57,25 @@ A platform where we can curate and highlight problem statements shared by other 
 	## Dynamic Pages
 		- Problem Statement List
 			/problem-statements
-		- Probelm Statements by issue area
-		    /problem-statements/:issue_area
-		-Problem Statement Detail
+		- Problem Statement Detail
 			/problem-statements/:problem-statement-title
+		- Focus Area List  
+			/focus-areas  
+		- Focus Area Detail  
+			/focus-areas/:focus-area-title  
 		- Project List  
-			/projects
+			/projects  
+		- Project Detail  
+			/projects/:project-name  
 		- Community Page  
-			https://www.Hack.forchange.in/community
-		- 
-		- Leaderboard (Individual Contribution Leaderboard)
+			/community 
+		- Leaderboard (Individual Contribution Leaderboard)  
+		- HFC Centre/Chapter Details  
+			/:organization-name 
+		- Blog List  
+			/blog  
+		- Blog Detail  
+			/blog/:title-name
 
 	## Registration / Submission Forms(s)
 		- Contributor 
