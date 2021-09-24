@@ -100,6 +100,11 @@ class Problem_Statement_form(forms.ModelForm):
           'background_info':Textarea(attrs = {'rows':5,'cols':15}),
           'proposed_solution':Textarea(attrs = {'rows':5,'cols':15}),
           'related_link':Textarea(attrs = {'rows':5,'cols':15}),
+          'name':Textarea(attrs = {'rows':1,'cols':15}),
+          'email':Textarea(attrs = {'rows':1,'cols':15}),
+          'phone_number':Textarea(attrs = {'rows':1,'cols':15}),
+          'about_yourself':Textarea(attrs = {'rows':5,'cols':15}),
+          
         }
 
 class Community_member_form(forms.ModelForm):
