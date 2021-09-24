@@ -57,7 +57,7 @@ class Home(View):
 
 class ProblemStatementsView(generic.ListView):
     def get(self, request):
-        problems_list = Problem_Statement.objects.all()
+        problems_list = Problem_Statement.objects.all().exclude(status ='Draft')
         issue_areas = Issue_Area.objects.all()
         return render(request, 'HFC/problem_statements.html', {'problems_list': problems_list,'issue_areas':issue_areas})
 
@@ -198,11 +198,21 @@ class ProblemStatementsSubmitView(View):
     def post(self,request):
         form = Problem_Statement_form(request.POST)
         print(request.POST)
-        text="Thanks for submitting the problem statement"
+        text="Thanks for submitting the problem statement."
         if form.is_valid():
             problem = form.save(commit = False)
             problem.status = "Draft"
+            issue_areas = Issue_Area.objects.all()
             form.save()
+            try:
+                html_content = render_to_string('HFC/problem_statement_detail_internal_email.html', {'problem':problem,'issue_area': issue_areas})
+                to_list=['team@hackforchange.co.in',]
+                msg = EmailMessage('New Problem Statement Submission', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
+                msg.content_subtype = "html"
+                msg.send(fail_silently = True)
+                print("Problem Submission email sent successfully")
+            except:
+                print('Error in sending notification email to HFC Team')
             return render(request, 'HFC/thanks.html',{'text':text})
 
 class AboutView(View):

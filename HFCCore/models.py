@@ -64,7 +64,12 @@ class Problem_Statement(models.Model):
     problem_statement = models.CharField(max_length = 500)
     overview = models.TextField()
     background_info = models.TextField()
-    related_link = models.TextField(blank = True)
+    related_link = models.TextField()
+    name = models.TextField()
+    email = models.TextField()
+    phone_number = models.TextField()
+    about_yourself = models.TextField()
+
     proposed_solution = models.TextField(blank = True)
     partner_id = models.ForeignKey(Partner, on_delete = models.CASCADE,blank = True,null = True)
     status = models.CharField(max_length = 100, choices = STATUS_CHOICES)
