@@ -26,12 +26,12 @@ A platform where we can curate and highlight problem statements shared by other 
 		Ex: Governmental Organization (GHMC, Meity, Nasscom Foundation)
 
 	- HFC Centre
-		Centre a physically fixed group of contributors who are actively contributing full-time on behalf of their institution
-		Ex: JNTU HFC Center, GRIET HFC Center
+		Centre a physically fixed  loosely coupled group of contributors who are actively contributing and  involved only part-time. 
+		Ex:Hyderabad Centre , Bhubaneswar Centre  
 
 	- HFC Chapter
-		The chapter is a loosely coupled group of contributors who are involved only part-time
-		Ex: City Chapters (Hyderabad Chapter)
+		The chapter is a  group of contributors who are actively contributing and full-time on behalf of their institution
+		Ex: JNTU HFC Chapter , DRIEMS HFC Chapter  
 
 	- Member
 		Members can signup to either join a particular chapter or a centre to contribute their coding time or even mentor a whole team of contributors.
@@ -48,6 +48,7 @@ A platform where we can curate and highlight problem statements shared by other 
 	- Show all problem statements and their detail
 	- List Of HFC Centres, HFC Chapters, Individual contributor leaderboard
 	- Highlight the solutions that the community has built under this collaboration (projects)  
+	- A blog to show the latest updates from the platform.  
 
 # Application Overview
 	## Static Pages
@@ -79,17 +80,17 @@ A platform where we can curate and highlight problem statements shared by other 
 
 	## Registration / Submission Forms(s)
 		- Contributor 
-			https://www.Hack.forchange.in/chapters/{hfc_chapter}/contributor/signup
-			https://www.Hack.forchange.in/centres/{hfc_center}/contributor/signup
-		
-			
+			/chapters/{hfc_chapter}/contributor/signup
+			/centres/{hfc_center}/contributor/signup
 		- Mentor  
-			https://www.Hack.forchange.in/mentor/signup
+			/mentor/signup  
+		- Community Member 
+			/community/signup/  
 		- Suggest A Problem Statement  
-			https://www.Hack.forchange.in/problem_statement_submission
+			problem-statement/suggest/  
 
 	## Admin Panel  
-			https://www.Hack.forchange.in/admin
+			/admin
 		- Partner Management
 			- Partner Team Members (Members)
 		- Problem Statement Management
@@ -212,7 +213,7 @@ Screening App
 ------------------------------------------------------------------------------------------------------
 
 # Summary
-	A rootless screening app that can be used be anybody for screening people
+	 A rootless screening app that can be used be anybody for screening people  
 
 # Goal(s)
 	Goal is to abstract out the screening functionality that can be used by any body in the future, to screen their candidates.
@@ -221,13 +222,21 @@ Screening App
 	# Candidate
 	Candidate is any individual who can be evaluated based on his own interests and skillset.
 
-	# Category
+	# Expertise Areas 
+		These are the categories to which a candidate belongs.   
+		Ex:Design,Engineering,Management,Marketing  
 
-	# Sub-Category
+	# Expertise  
+		These are the sub categories for particular categories.  
+		Ex:Python,Django comes under the Engineering  
+		Digital marketing comes under Marketing  
+		Project management comes under Management  
 
-	# Questions
+	# Questions  
+		All the questions are multiple choice having 4 options from which only one is correct answer.  
 
 	# Question Type	
+		Question type are multiple choice.    
 
 # Feature Overview
 	- Candidate screening workflow
@@ -236,9 +245,10 @@ Screening App
 		- On succeful submittee, say say thankyou
 
 	- Screening should change based on level of expertise a person has
-		- Entry level is for college students
-		- Intermediate is for 2+ of experience people
-		- Advanded / Expert is for more than 5+ years of experience
+		- Entry level is for 0 to 2+ years of experience  
+		- Intermediate is for 3+ to 5+ years of experience people
+		- Advanded  is for 10+ to 15+ years of experience  
+		- Experty is for 20+ years of exp.
 
 	- Randomized so that not everyone is seeing the same test
 	- every screening can be given a passing criteria
@@ -251,7 +261,8 @@ Screening App
 	- All the questions from different topics under the area of expertise  
 	- Qualifying criteria of  screening is 70%   
 	- Once screening completes the status of the candidate automatically change from "New" to "Passed" or "Failed" on organization dashboard.  
-	- After completion of screening its result will be mailed to the organization admin. 
+	- Until the candidate has not attempted the screening the status of screening is "Open".
+	- After completion of screening its result will display in the screening result pages. 
 
 # Application Overview
 	## Screening 		
