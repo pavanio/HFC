@@ -69,6 +69,7 @@ class Problem_Statement(models.Model):
     email = models.TextField()
     phone_number = models.TextField()
     about_yourself = models.TextField()
+    organisation = models.TextField(blank = True)
 
     proposed_solution = models.TextField(blank = True)
     partner_id = models.ForeignKey(Partner, on_delete = models.CASCADE,blank = True,null = True)

@@ -27,7 +27,10 @@
     <div class="content-width">    
         <div class="main">   
             <section id="contents">
-                <h2 style="padding-bottom: 20px;">Suggest a problem statement</h2>    
+                            <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
+                    <h2>Suggest a problem statement</h2>
+                </div>
+                <h2 style="padding-bottom: 20px;"></h2>    
                 <form class="site-form" action="" method="post">
                     {%csrf_token%}
                     <div class="form-field">
@@ -60,8 +63,8 @@
                     </div>
                     <br>
 
-                    <h2 style="padding-bottom: 20px;">Tell us about yourself</h2>    
-
+                    <h2 style="padding-bottom: 20px;">Tell us a little about yourself</h2>    
+                    <div class="form-control">
                     <div class="form-field">
                         <label for="">Name</label>
                         {{form.name}}
@@ -70,12 +73,19 @@
                         <label for="">Email</label>
                         {{form.email}}
                     </div>
+                    </div>
+                    <div class="form-control">
                     <div class="form-field">
                         <label for="">Phone Number</label>
                         {{form.phone_number}}
                     </div>
                     <div class="form-field">
-                        <label for="">About Yourself</label>
+                        <label for="">Organisation Name</label>
+                        {{form.organisation}}
+                    </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="">Any other comments</label>
                         {{form.about_yourself}}
                     </div>                   
                     <div class="btn-outer">
