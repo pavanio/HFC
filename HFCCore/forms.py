@@ -96,6 +96,7 @@ class Problem_Statement_form(forms.ModelForm):
         fields = '__all__'
         exclude = ('status','partner_id')
         widgets = {
+          'problem_statement': Textarea(attrs = {'rows':5,'cols':15}),
           'overview': Textarea(attrs = {'rows':5,'cols':15}),
           'background_info':Textarea(attrs = {'rows':5,'cols':15}),
           'proposed_solution':Textarea(attrs = {'rows':5,'cols':5}),
