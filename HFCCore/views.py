@@ -208,7 +208,7 @@ class ProblemStatementsSubmitView(View):
             form.save()
             try:
                 html_content = render_to_string('HFC/problem_statement_detail_internal_email.html', {'problem':problem,'issue_area': issue_areas})
-                to_list=['yumangr@gmail.com',]
+                to_list=['team@hackforchange.co.in',]
                 msg = EmailMessage('New Problem Statement Submission', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
                 msg.content_subtype = "html"
                 msg.send(fail_silently = True)
