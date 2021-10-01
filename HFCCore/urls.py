@@ -16,6 +16,11 @@ urlpatterns = [
     path('focus-areas/<issue_area_slug>/problem-statements/', views.ProblemsWithIssueareaView.as_view(), name='problem_statements_with_issuearea'),
     path('mentor/signup/', views.MentorSignup.as_view(), name='mentor_signup'),
     path('center/<hfc_center_slug>/signup/', views.CenterContributorSignup.as_view(), name='center_signup'),
+
+    path('community/<hfc_center_slug>', views.Center.as_view(), name='center'),
+    path('community/<hfc_chapter_slug>', views.Chapter.as_view(), name='chapter'),
+
+
     path('community/signup/', views.CommunityMemberSignup.as_view(), name='community_member_signup'),
     path('<hfc_chapter_slug>/signup/', views.ChapterContributorSignup.as_view(), name='chapter_signup'),
     path('ajax/load-expertise',views.load_area_of_expertise,name='load_area_of_expertise'),

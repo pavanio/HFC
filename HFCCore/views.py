@@ -167,6 +167,20 @@ class ChapterContributorSignup(View):
                 print('Error in sending email screening link to Contributor')
             return render(request, 'HFC/chapter_signup_thanks.html',{'chapter_name':chapter_name})
 
+class Center(View):
+    def get(self,request,hfc_center_slug):
+        center = Community_Organization.objects.filter(organization_name_slug = hfc_center_slug).first()
+        contributors = Community_Member.objects.filter(type  = 'Contributor')
+        contributors_list = Community_Member.objects.filter(type='Contributor').order_by('-commit') 
+        return render(request, 'HFC/community_center.html',{'center': center,'contributors':contributors,'contributors_list':contributors_list})
+
+class Chapter(View):
+    def get(self,request,hfc_chapter_slug):
+        chapter = Community_Organization.objects.filter(organization_name_slug = hfc_chapter_slug).first()
+        contributors = Community_Member.objects.filter(type  = 'Contributor')
+        contributors_list = Community_Member.objects.filter(type='Contributor').order_by('-commit') 
+        return render(request, 'HFC/community_chapter.html',{'chapter': chapter,'contributors':contributors,'contributors_list':contributors_list})    
+
 class ProjectsView(generic.ListView):
     def get(self, request):
         projects_list = Project.objects.all()
@@ -188,7 +202,7 @@ class CommunityView(View):
             print(chapter.community_member_set.count())
         mentors_list = Community_Member.objects.filter(type = 'Mentor')
         contributors_list = Community_Member.objects.filter(type='Contributor').order_by('-commit')
-        return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list,})
+        return render(request, 'HFC/community.html', {'hfc_centers': hfc_centers, 'hfc_chapters': hfc_chapters, 'centre_count': centre_count, 'mentors_list': mentors_list, 'contributors_list':contributors_list})
 
 class ProblemStatementsSubmitView(View):
     def get(self,request):
