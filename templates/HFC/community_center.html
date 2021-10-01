@@ -52,7 +52,8 @@
                         </thead>
                         <tbody>
                             {% for contributor in contributors_list %}
-                            {% if contributor.commit%}
+                            {% if contributor.commit and center.organization_name == contributor.organization_id|stringformat:"s"  %}
+                          
                             <tr>
                                 <td>
                                     <div class="table-sec">
