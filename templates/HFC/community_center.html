@@ -17,7 +17,12 @@
         <div class="banner__main">
             <h1>{{center.organization_name}}</h1>
             <p class="large">
-                     <a>Inviting working professionals from various cities to join our community<a><br><br>
+                    {% if center.type == 'center'%}
+                     <a>Inviting working professionals from various cities to join our community<a>
+                     {% else %}
+                     <a> Inviting students from the institute to join our community<a>
+                     {% endif %}
+                     <br><br>
                     <!--<a href="center/{{center.organization_name_slug}}/signup/" class="btn btn--hfc">Join as a member</a>-->
             </p>
         </div>
@@ -34,7 +39,7 @@
                 {% else %}
                 <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
                 {% endif %}
-                    <h2>Leaderboard</h2>
+                    <h2>{{center.type}} Leaderboard</h2>
                 </div>
                 <section id="hfcLeaderboard">
                 <div class="unborder-table__outer">
