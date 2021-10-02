@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('ScreeningApp.urls')),
     path('', include('TFC.urls')),
     path('', include('HFCCore.urls')),
+    path('', include("EventsEngine.urls")),
     #re_path('.*',include('TFC.urls')),
     #path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

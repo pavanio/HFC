@@ -1,0 +1,30 @@
+{% extends 'HFC/email_layout.html' %}
+{% block main %}
+<!-- START CENTERED WHITE CONTAINER -->
+<span class="preheader"></span>
+<table role="presentation" class="main">
+  <!-- START MAIN CONTENT AREA -->
+  <tr>
+    <td class="wrapper">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>
+            <p>A new community member signed up to {{contributor.organization_id}}.</p>
+            <p>Name :{{contributor.name}}</p>
+            <p>Mobile :{{contributor.contact_number}}</p>
+            <p>linkedin :{{contributor.linkedin_profile}}</p>
+            <p>Education :{{contributor.highest_education}}</p>
+            <p>Profession :{{contributor.profession}}</p>
+            <p>Years of experience :{{contributor.years_of_experience}}</p>
+            <p>Skills:{{contributor.areaofexpertise}}</p>
+              
+          </td>
+        </tr>
+      <!-- END MAIN CONTENT AREA -->
+      </table>
+    </td>
+</tr>
+</table>
+      
+{% endblock %}
+
