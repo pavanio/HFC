@@ -37,10 +37,8 @@
                 {% if center.logo %}
                     <div class="uni-chapter"><img width="84px" src={{center.logo.url}}></div>
                 {% else %}
-                    <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
+                    <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}"><h2>{{center.type}} Leaderboard</h2></div>
                 {% endif %}
-                    <h2>{{center.type}} Leaderboard</h2>
-                </div>
                 <section id="hfcLeaderboard">
                 <div class="unborder-table__outer">
                     <table class="unborder-table">
