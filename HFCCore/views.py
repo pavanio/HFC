@@ -170,11 +170,8 @@ class ChapterContributorSignup(View):
 class Center(View):
     def get(self,request,hfc_center_slug):
         center = Community_Organization.objects.filter(organization_name_slug = hfc_center_slug).first()
-        print(center.organization_name)
         contributors = Community_Member.objects.filter(type  = 'Contributor')
         contributors_list = Community_Member.objects.filter(type='Contributor').order_by('-commit')
-        for i in contributors_list:
-            print(i.organization_id)
         return render(request, 'HFC/community_center.html',{'center': center,'contributors':contributors,'contributors_list':contributors_list})
 
 class Chapter(View):
