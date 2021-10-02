@@ -20,6 +20,7 @@ from .utils import SendSubscribeMail,mentor_signup_mail,community_member_signup_
 from django.views.generic.edit import FormView 
 from django.urls import reverse_lazy
 from blog.models import Post
+from EventsEngine.models import Events
 headers = {
     'Accept': 'application/vnd.github.v3+json',
 }

@@ -34,6 +34,7 @@ urlpatterns = [
     path('contact/',views.ContactView.as_view(),name = 'contact'),
     path('donate/',views.DonateView.as_view(),name = 'donate'),
     path('blog/',include('blog.urls')),
+    path('',include('EventsEngine.urls')),
     path('robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow:", content_type="text/plain"), name="robots_file"),
     path('', include('ScreeningApp.urls')),
     path('email-users/',views.SendUserEmails.as_view(),name='email'),

@@ -23,7 +23,7 @@
                      <a> Inviting students from the institute to join our community<a>
                      {% endif %}
                      <br><br>
-                    <!--<a href="center/{{center.organization_name_slug}}/signup/" class="btn btn--hfc">Join as a member</a>-->
+                    <a href="{% url 'center_signup' center.organization_name_slug %}" class="btn btn--hfc">Join as a member</a>
             </p>
         </div>
     </div>

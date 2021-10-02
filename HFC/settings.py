@@ -71,7 +71,7 @@ INSTALLED_APPS = [
     'django_celery_results',
     'blog',
     'django_summernote',
-    #'EventsEngine'
+    'EventsEngine',
     
 ]
 

@@ -9,16 +9,15 @@
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
-{% block title %} Projects | Hack For Change {% endblock %}
+{% block title %} Events | Hack For Change {% endblock %}
 
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
         <div class="banner__main">
-            <h1>Projects</h1>
-            <p class="large">Ongoing solutions designed and developed to empower citizens</p>
-            <a class="btn btn--info" href="{% url 'mentor_signup' %}">Signup as a Mentor</a>
+            <h1>Events</h1>
+            <p class="large">Ongoing events and workshops to empower community</p>
         </div>
     </div>
 </div>
@@ -29,11 +28,11 @@
     <div class="content-width">
         <div class="main">
             <section id="contents">
-                {% for projects_list in projects_list  %}
+                {% for events_list in event_list  %}
                 <article class="post-blog">
-                    <h4>{{projects_list.name}}</h4>
-                    <p>{{projects_list.project_overview}}</p>
-                    <a class="btn btn--border" href="{% url 'project_detail' projects_list.project_slug  %}">Learn More</a>
+                    <h4>{{events_list.title}}</h4>
+                    <p>{{events_list.description}}</p>
+                    <a class="btn btn--border" href="{% url 'event_detail' events_list.title_slug  %}">Learn More</a>
                 </article>
                 {% endfor %}
             </section>

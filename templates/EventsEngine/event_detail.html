@@ -8,16 +8,16 @@
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
-{% block title %} Community Member Signup | Hack For Change {% endblock %}
+{% block title %} Event Detail | Hack For Change {% endblock %}
 
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
         <div class="banner__main">
-            <h1>Signup as a member</h1>
+            <h1>{{event.title}}</h1>
             <p class="large">
-                Inviting working professionals from various cities to join our community
+                Join us for the event
             </p>
         </div>
     </div>
@@ -28,6 +28,37 @@
     <div class="content-width">
         <div class="main">
             <section id="contents">
+                <div class="blog-single">
+
+                    <div class="blog-single__content">
+                 
+                        {% if event.start_date %}
+                        <p class="large sbold">Start Date</p>
+                        <p style="text-align:justify;">{{event.start_date}}</p>
+                        {% endif %}
+                        
+                        {% if event.end_date %}
+                            <p class="large sbold">End Date</p>
+                            <p style="text-align:justify;">{{event.end_date}}</p>
+                        {% endif %}
+                        
+                        {% if event.description %}
+                          <p class="large sbold">Description</p>
+                          <p style="text-align:justify;">{{event.description}}</p>
+                        {% endif %}
+                        {% if event.agenda %}
+                          <p class="large sbold">Agenda</p>
+                          <p style="text-align:justify;">{{event.agenda}}</p>
+                        {% endif %}
+                        {% if event.event_type %}
+                          <p class="large sbold">Event Type</p>
+                          <p style="text-align:justify;">{{event.event_type}}</p>
+                        {% endif %}
+                          
+                    </div>  
+
+                </div>  
+                <br>
                 <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
                     <h2>Join our community</h2>
                 </div>
