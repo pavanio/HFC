@@ -3,6 +3,7 @@ from .models import *
 from HFCCore.forms import Community_member_form,Chapter_contributor_form
 from HFCCore.models import Partner, Community_Member, Community_Organization, Expertise
 from HFCCore.utils import SendSubscribeMail,community_member_signup_mail
+from EventsEngine.utils import event_signup_mail
 from django.contrib.syndication.views import Feed
 from django.views import View,generic
 from django.template.loader import render_to_string
@@ -26,6 +27,7 @@ class EventDetailView(View):
     
     def post(self,request,title_slug):
         form = Chapter_contributor_form(request.POST)
+        event = Events.objects.get(title_slug = title_slug)
         #community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(form.is_valid())
         if form.is_valid():
@@ -42,15 +44,18 @@ class EventDetailView(View):
             email = contributor.email
             SendSubscribeMail(email)
             try:
-                community_member_signup_mail(email)
+                event_signup_mail(email,event.email_content)
+            except:
+                print('Error in sending email for event signup')
+            try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal.html', {'contributor':contributor})
                 to_list=['team@hackforchange.co.in',]
                 print("working")
-                msg = EmailMessage('New community member signup', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
+                msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
                 msg.content_subtype = "html"
                 msg.send(fail_silently = True)
-                print("Community member details email sended successfully")
+                print("Event Signup details internal email sended successfully")
             except:
-                print('Error in sending welcome email to community member')
+                print('Error in sending internal email for event signup')
             return render(request, 'EventsEngine/event_signup_thanks.html')
 

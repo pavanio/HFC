@@ -19,11 +19,11 @@ class Events(models.Model):
     title_slug = AutoSlugField(populate_from = 'title')
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
-    description = models.TextField()
-    agenda = models.TextField()
+    description = models.TextField(blank = True,null = True)
+    agenda = models.TextField(blank = True,null = True)
     status = models.CharField(choices = STATUS, max_length = 10,default = 'Draft')
     event_type = models.ForeignKey(EventType, null=True, on_delete=models.SET_NULL)
-    email_content = models.TextField()
+    email_content = models.TextField(blank = True,null = True)
     def __str__(self):
         return self.title
     class Meta:
