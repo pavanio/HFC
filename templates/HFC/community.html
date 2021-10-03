@@ -46,7 +46,7 @@
                                 alt="Logo"></div>
                     {% endif %}
                         <div class="main__community-sec">
-                            <p class="large sbold"><a href="community/{{center.organization_name_slug}}">{{center.organization_name}}</a></p>
+                            <p class="large sbold"><a href="{% comment %} community/{{center.organization_name_slug}} {% endcomment %}">{{center.organization_name}}</a></p>
                             <p>{{center.project.count}} Projects, {{center.community_member_set.count}} Members</p>
                             <a href="center/{{center.organization_name_slug}}/signup/" class="btn btn--border" id="center_contrib">Join as a member</a>
                         </div>
@@ -73,7 +73,7 @@
                                 alt="Logo"></div>
                     {% endif %}
                         <div class="main__community-sec">
-                            <p class="large sbold"><a href="community/{{chapter.organization_name_slug}}">{{chapter.organization_name}}</a></p>
+                            <p class="large sbold"><a href="{% comment %} community/{{chapter.organization_name_slug}} {% endcomment %}">{{chapter.organization_name}}</a></p>
                             <p>{{chapter.project.count}} Projects, {{chapter.community_member_set.count}} Members</p>
                             <a href="{{chapter.organization_name_slug}}/signup/" class="btn btn--hfc">Join as a
                                 member</a>
