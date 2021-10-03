@@ -44,7 +44,7 @@ class EventDetailView(View):
             try:
                 community_member_signup_mail(email)
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal.html', {'contributor':contributor})
-                #to_list=['team@hackforchange.co.in',]
+                to_list=['team@hackforchange.co.in',]
                 print("working")
                 msg = EmailMessage('New community member signup', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
                 msg.content_subtype = "html"
