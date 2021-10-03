@@ -15,7 +15,7 @@
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
         <div class="banner__main">
-            <h1>{{event.title}}</h1>
+            <h1>{{event.event_type}}</h1>
             <p class="large">
                 Join us for the event
             </p>
@@ -31,17 +31,18 @@
                 <div class="blog-single">
 
                     <div class="blog-single__content">
-                 
+                        {% if event.title %}
+                        <p ><h2>{{event.title}}</h2></p>
+                        {% endif %}
+
                         {% if event.start_date %}
-                        <p class="large sbold">Start Date</p>
-                        <p style="text-align:justify;">{{event.start_date}}</p>
+                        <div class="badge-sec badge-sec__alt"><strong>Start: </strong><span class="badge">{{event.start_date}}</span></div>
                         {% endif %}
                         
                         {% if event.end_date %}
-                            <p class="large sbold">End Date</p>
-                            <p style="text-align:justify;">{{event.end_date}}</p>
+                            <div class="badge-sec badge-sec__alt"><strong>End:  &nbsp;</strong><span class="badge">{{event.end_date}}</span></div>
                         {% endif %}
-                        
+                        <br>
                         {% if event.description %}
                           <p class="large sbold">Description</p>
                           <p style="text-align:justify;">{{event.description}}</p>
@@ -58,79 +59,9 @@
                     </div>  
 
                 </div>  
-                <br>
-                <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
-                    <h2>Join our community</h2>
-                </div>
-                <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
-                    {%csrf_token%}
-                    <div class="form-control">
-                        <div class="form-field">
-                            <label for="">Full Name</label>
-                            {{form.name}}
-                        </div>
-                        <div class="form-field">
-                            <label for="">Email</label>
-                            {{form.email}}
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <div class="form-field">
-                            <label for="">Contact Number</label>
-                            {{form.contact_number}}
-                        </div>
-                        <div class="form-field">
-                            <label for="">City</label>
-                            <div class="form-field__select">
-                                {{form.city}}
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="form-control">
-                        <div class="form-field">
-                            <label for="">LinkedIn Profile</label>
-                            {{form.linkedin_profile}}
-                        </div>
-                        <div class="form-field">
-                            <label for="">Highest Education</label>
-                            <div class="form-field__select">
-                                {{form.highest_education}}
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <div class="form-field">
-                            <label for="">Profession</label>
-                            <div class="form-field__select">
-                                {{form.profession}}
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                        <div class="form-field">
-                            <label for="">Years of Experience</label>
-                            <div class="form-field__select">
-                                {{form.years_of_experience}}
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </div>
 
-                    
-                    <div class="form-control">
-                        <div class="form-field"style="margin-bottom: 5px;">
-                            <label for="">Areas of Expertise</label>
-                        </div>
-                    </div>
-                        <div id="number"><span id="error"></span></div>
-                        <div style="position:relative;padding-top:0px;width:700px;font-family:'Nunito Sans';"  >
-                            {{form.area_of_expertise }}  
-                        </div>
-                    <div class="btn-outer">
-                        <input class="btn btn--info btn--full" type="submit" onClick="valthisform()" value="Register">
-                    </div>
-                </form>
+                <a class="btn btn--border" href="{% url 'event_sign_up' event.title_slug  %}">Sign Up for Event</a>
+
             </section>
             <!--contents -->
             <aside id="sidebar">
@@ -173,55 +104,7 @@
 
 {% block js %}
 <script>
-    $(function () {
-    $("#id_profession").change();
-    });
-    $("#id_profession").change(function () {
-        var url = $("#volform").attr("sub-change-url");
-        console.log(url)
-        var expertise_area_id = $(this).val();
-        $.ajax({
-            url: url,
-            data: {
-                'profession': expertise_area_id
-            },
-            success: function (data) {
-                $("#id_area_of_expertise").html(data);
-                console.log(data)
-            }
-        });
-    });
-
-
-
-    function valthisform(){
-    var checkboxs=document.querySelectorAll('input[type="checkbox"]');
-    var okay=false;
-    for(var i=0,l=checkboxs.length;i<l;i++)
-    {
-        if(checkboxs[i].checked)
-        {
-            okay=true;
-            break;
-        }
-    }
-    if(okay){$(this).trigger('click');}
-    else {//alert("Please check atleast one Area of Expertise!");
-        var error = document.getElementById("error")
-        if (isNaN(document.getElementById("number").value)) 
-        {
-              
-            // Changing content and color of content
-            error.textContent = "Please select at least one expertise !"
-            error.style.color = "red"
-        } else {
-            error.textContent = ""
-        }
-        setTimeout(function() {error.textContent = ""}, 1500);
-        event.preventDefault();
-        return false;
-    
-    } }
+   
 
 </script>
 {% endblock %}

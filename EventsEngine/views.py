@@ -8,22 +8,31 @@ from django.contrib.syndication.views import Feed
 from django.views import View,generic
 from django.template.loader import render_to_string
 from django.core.mail import send_mail,EmailMessage
+from datetime import date
 
 
 class EventList(generic.ListView):
     def get(self, request):
         event_list = Events.objects.all().exclude(status ='Draft')
         partners = Partner.objects.all()
+        for i in event_list:
+            print(i.registration())
         return render(request, 'EventsEngine/event_list.html', {'event_list': event_list,'partners':partners})
 
 class EventDetailView(View):
+    def get(self, request, title_slug):
+        event = Events.objects.get(title_slug = title_slug)
+        contributors = Community_Member.objects.filter(type='Contributor') 
+        return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors})
+
+class EventSignUpView(View):
     def get(self, request, title_slug):
         event = Events.objects.get(title_slug = title_slug)
         contributors = Community_Member.objects.filter(type='Contributor')
         expertise_area_id = request.GET.get('profession')
         expertises = Expertise.objects.filter(category_of_expertise = expertise_area_id,is_published = 'True')
         form = Community_member_form()
-        return render(request, 'EventsEngine/event_detail.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises})
+        return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises})
     
     def post(self,request,title_slug):
         form = Chapter_contributor_form(request.POST)
@@ -49,7 +58,7 @@ class EventDetailView(View):
                 print('Error in sending email for event signup')
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal.html', {'contributor':contributor})
-                to_list=['team@hackforchange.co.in',]
+                #to_list=['team@hackforchange.co.in',]
                 print("working")
                 msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
                 msg.content_subtype = "html"
@@ -58,4 +67,3 @@ class EventDetailView(View):
             except:
                 print('Error in sending internal email for event signup')
             return render(request, 'EventsEngine/event_signup_thanks.html')
-

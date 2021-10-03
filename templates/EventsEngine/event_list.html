@@ -30,10 +30,36 @@
             <section id="contents">
                 {% for events_list in event_list  %}
                 <article class="post-blog">
-                    <h4>{{events_list.title}}</h4>
+                    <h4 ><a href="{% url 'event_detail' events_list.title_slug  %}">{{events_list.title}}</a></h4>
+                        <div class="badge-sec badge-sec__alt"><strong>Registration Status: </strong><span class="badge">{{events_list.registration_status}}</span></div>
                     <p>{{events_list.description}}</p>
-                    <a class="btn btn--border" href="{% url 'event_detail' events_list.title_slug  %}">Learn More</a>
+                    <div>
+
+                    </div>
+                    <div class="badge-sec badge-sec__alt">
+                        <table class="table table-borderless">
+
+                        <tbody>
+                            <tr>
+                            <th scope="row"></th>
+                            <td><strong>&nbsp;&nbsp;Start </strong></td>
+                            <td><strong>&nbsp;&nbsp;End </strong></td>
+                            <td><strong>&nbsp;Type </strong></td>
+                           
+                            </tr>
+                            <tr>
+                            <th scope="row"></th>
+                            <td><span class="badge badge--yellow">{{events_list.start_date}}&nbsp;</span></td>
+                            <td><span class="badge badge--yellow">{{events_list.end_date}}&nbsp;</span></td>
+                            <td><span class="badge badge--yellow">{{events_list.event_type}}</span></td>
+                
+                            </tr>
+                        </tbody>
+                        </table>
+                        </div>
+                    <a class="btn btn--border" href="{% url 'event_detail' events_list.title_slug  %}">Explore</a>
                 </article>
+                
                 {% endfor %}
             </section>
             <!--contents -->
