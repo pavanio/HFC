@@ -33,7 +33,7 @@
                 <div class="blog-single">
                         <div class="row">
                             <div class="col-8 col-m-8 col-s-12">
-                            <h4 >{{event.title}}</h4></div>
+                            <h4 >{{event.title |safe}}</h4></div>
                             {% if event.registration == "Registration Open" %}
                                 <div class="col-4 col-m-8 col-s-12">  <div style="font-size: .80em;" class="badge bg-success">{{event.registration}}</div></div>
                             {% else %}
