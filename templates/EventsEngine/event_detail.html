@@ -29,12 +29,10 @@
         <div class="main">
             <section id="contents">
                 <div class="blog-single">
-
+                    {% if event.title %}
+                    <h3>{{event.title}}</h3>
+                    {% endif %}
                     <div class="blog-single__content">
-                        {% if event.title %}
-                        <p ><h2>{{event.title}}</h2></p>
-                        {% endif %}
-
                         {% if event.start_date %}
                         <div class="badge-sec badge-sec__alt"><strong>Start: </strong><span class="badge">{{event.start_date}}</span></div>
                         {% endif %}
