@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from autoslug import AutoSlugField
 from datetime import date
+import datetime
 
 
 STATUS = (
@@ -24,21 +25,20 @@ class Events(models.Model):
     agenda = models.TextField(blank = True,null = True)
     status = models.CharField(choices = STATUS, max_length = 10,default = 'Draft')
     event_type = models.ForeignKey(EventType, null=True, on_delete=models.SET_NULL)
-    email_content = models.TextField(blank = True,null = True)
-    registration_status = models.CharField(max_length = 200,blank=True)
-    def __str__(self):
-        return self.title
+    email_confirmation = models.TextField(blank = True,null = True)
+    registration = models.CharField(max_length = 200,blank=True)
+
     class Meta:
         verbose_name = "Event"
         verbose_name_plural = "Events"
         ordering = ['-end_date']
-
-    def registration(self):
-        if date.today() in (self.start_date, self.end_date):
-            self.registration_status = " Open"
+    def update_registration(self):
+        if self.start_date.date() <= date.today() <= self.end_date.date():
+            self.registration = "Registration Open"
         else:
-            self.registration_status = " Closed"
-        self.save()
+            self.registration = "Registration Closed"
+    def __str__(self):
+        return self.title
 
 
 

@@ -6,6 +6,8 @@
 <meta name="description" property="og:description" content="">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
 <meta property="og:url" content="">
 {% endblock %}
 {% block title %} Event Detail | Hack For Change {% endblock %}
@@ -29,16 +31,23 @@
         <div class="main">
             <section id="contents">
                 <div class="blog-single">
-                    {% if event.title %}
-                    <h3>{{event.title}}</h3>
-                    {% endif %}
+                        <div class="row">
+                            <div class="col-8 col-m-8 col-s-12">
+                            <h4 >{{event.title}}</h4></div>
+                            {% if event.registration == "Registration Open" %}
+                                <div class="col-4 col-m-8 col-s-12">  <div style="font-size: .80em;" class="badge bg-success">{{event.registration}}</div></div>
+                            {% else %}
+                                <div class="col-4 col-m-8 col-s-12">  <div style="font-size: .80em;" class="badge bg-danger">{{event.registration}}</div></div>
+                            {% endif %}
+                        </div>
+                        <br>
                     <div class="blog-single__content">
                         {% if event.start_date %}
-                        <div class="badge-sec badge-sec__alt"><strong>Start: </strong><span class="badge">{{event.start_date}}</span></div>
+                        <div><strong>Start: </strong><span>{{event.start_date|date:"jS M o"}}</span></div><br>
                         {% endif %}
                         
                         {% if event.end_date %}
-                            <div class="badge-sec badge-sec__alt"><strong>End:  &nbsp;</strong><span class="badge">{{event.end_date}}</span></div>
+                            <div><strong>End: &nbsp;&nbsp;</strong><span>{{event.end_date|date:"jS M o"}}</span></div>
                         {% endif %}
                         <br>
                         {% if event.description %}
@@ -57,9 +66,10 @@
                     </div>  
 
                 </div>  
-
-                <a class="btn btn--border" href="{% url 'event_sign_up' event.title_slug  %}">Sign Up for Event</a>
-
+                {% if "Registration Open" == event.registration|stringformat:"s" %}
+                <a class="btn btn--info" href="{% url 'event_sign_up' event.title_slug  %}">SignUp for Event</a>
+                {% endif %}
+            <br><br>
             </section>
             <!--contents -->
             <aside id="sidebar">
@@ -101,6 +111,8 @@
 {%endblock%}
 
 {% block js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
 <script>
    
 

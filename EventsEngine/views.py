@@ -16,12 +16,13 @@ class EventList(generic.ListView):
         event_list = Events.objects.all().exclude(status ='Draft')
         partners = Partner.objects.all()
         for i in event_list:
-            print(i.registration())
+            i.update_registration()
         return render(request, 'EventsEngine/event_list.html', {'event_list': event_list,'partners':partners})
 
 class EventDetailView(View):
     def get(self, request, title_slug):
         event = Events.objects.get(title_slug = title_slug)
+        event.update_registration()
         contributors = Community_Member.objects.filter(type='Contributor') 
         return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors})
 
