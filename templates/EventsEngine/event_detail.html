@@ -52,11 +52,11 @@
                         <br>
                         {% if event.description %}
                           <p class="large sbold">Description</p>
-                          <p style="text-align:justify;">{{event.description}}</p>
+                          <p style="text-align:justify;">{{event.description|safe}}</p>
                         {% endif %}
                         {% if event.agenda %}
                           <p class="large sbold">Agenda</p>
-                          <p style="text-align:justify;">{{event.agenda}}</p>
+                          <p style="text-align:justify;">{{event.agenda|safe}}</p>
                         {% endif %}
                         {% if event.event_type %}
                           <p class="large sbold">Event Type</p>
