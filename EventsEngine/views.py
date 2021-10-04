@@ -54,7 +54,7 @@ class EventSignUpView(View):
             email = contributor.email
             SendSubscribeMail(email)
             try:
-                event_signup_mail(email,event.email_content)
+                event_signup_mail(email,event.email_confirmation)
             except:
                 print('Error in sending email for event signup')
             try:
