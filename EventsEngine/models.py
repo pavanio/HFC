@@ -34,9 +34,9 @@ class Events(models.Model):
         ordering = ['-end_date']
     def update_registration(self):
         if self.start_date.date() <= date.today() <= self.end_date.date():
-            self.registration = "Registration Open"
+            self.registration = "Registrations Open"
         else:
-            self.registration = "Registration Closed"
+            self.registration = "Registrations Closed"
     def __str__(self):
         return self.title
 

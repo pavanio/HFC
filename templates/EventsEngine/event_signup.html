@@ -17,7 +17,7 @@
         <div class="banner__main">
             <h1>{{event.event_type}}</h1>
             <p class="large">
-                <h4>{{event.title}}</h4>
+                {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
             </p>
         </div>
     </div>
@@ -97,7 +97,7 @@
                             {{form.area_of_expertise }}  
                         </div>
                     <div class="btn-outer">
-                        <input class="btn btn--info btn--full" type="submit" onClick="valthisform()" value="Register">
+                        <input class="btn btn--info btn--full" type="submit" onClick="valthisform()" value="Signup">
                     </div>
                 </form>
             </section>

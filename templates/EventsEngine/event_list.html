@@ -35,7 +35,7 @@
                 <article class="post-blog">
                         <div class="row">
                             <div class="col-8 col-m-8 col-s-12"><h4 ><a href="{% url 'event_detail' events_list.title_slug  %}">{{events_list.title}}</a></h4></div>
-                            {% if events_list.registration == "Registration Open" %}
+                            {% if events_list.registration == "Registrations Open" %}
                                 <div class="col-4 col-m-8 col-s-12">  <div style="font-size: .80em;" class="badge bg-success">{{events_list.registration}}</div></div>
                             {% else %}
                                 <div class="col-4 col-m-8 col-s-12">  <div style="font-size: .80em;" class="badge bg-danger">{{events_list.registration}}</div></div>

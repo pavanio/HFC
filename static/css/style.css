@@ -21,6 +21,8 @@ article, aside, details, figcaption, figure, footer, header, nav, section { disp
 	box-sizing: border-box;
 }
 
+
+
 /* Default Font Styles
 ______________________*/
 body, input, select, textarea{
@@ -440,7 +442,19 @@ ______________________*/
 }
 .badge--yellow{
 	background: rgba(255, 219, 0, 0.25);
+
 }
+
+.badge--red{
+	background: rgba(255, 0, 0, 0.605);
+
+}
+
+.badge--green{
+	background: rgba(0, 255, 0, 0.591);
+
+}
+
 .badge--pink{
 	background: rgba(250, 121, 33, 0.25);
 }
