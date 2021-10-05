@@ -49,7 +49,7 @@ class EventSignUpView(View):
             contributor.type = "Contributor"
             contributor.organization_id = community_org
             contributor.save()
-            print(contributor)
+            print(contributor.name)
             form.save_m2m()
             email = contributor.email
             SendSubscribeMail(email)
@@ -58,8 +58,8 @@ class EventSignUpView(View):
             except:
                 print('Error in sending email for event signup')
             try:
-                html_content = render_to_string('EventsEngine/event_participant_detail_internal.html', {'contributor':contributor})
-                #to_list=['team@hackforchange.co.in',]
+                html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
+                to_list=['team@hackforchange.co.in',]
                 print("working")
                 msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
                 msg.content_subtype = "html"
@@ -67,4 +67,4 @@ class EventSignUpView(View):
                 print("Event Signup details internal email sended successfully")
             except:
                 print('Error in sending internal email for event signup')
-            return render(request, 'EventsEngine/event_signup_thanks.html')
+            return render(request, 'EventsEngine/event_signup_thanks.html', {'event':event})
