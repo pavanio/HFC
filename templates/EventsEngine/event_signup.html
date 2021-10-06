@@ -15,7 +15,7 @@
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
         <div class="banner__main">
-            <h1>{{event.event_type}}</h1>
+            <h1>{{event.title}}</h1>
             <p class="large">
                 {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
             </p>
@@ -29,7 +29,7 @@
         <div class="main"> 
             <section id="contents">
                 <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
-                    <h2>Join us for the event</h2>
+                    <h2>Signup for the event</h2>
                 </div>
                 <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">
                     {%csrf_token%}

@@ -6,26 +6,31 @@
 <meta name="description" property="og:description" content="">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/event.css' %}" />
+
 <style>
 .flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .flex-item-l-event-detail {
+    flex: 60%;
+  }
+  
+  .flex-item-r-event-detail {
+    flex: 40%;
+  }
 
-.flex-item-left {
-  flex: 75%;
-}
 
-.flex-item-right {
-  flex: 25%;
-}
 
-/* Responsive layout - makes a one column layout instead of a two-column layout */
+  /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
-  .flex-item-right, .flex-item-left {
+  .flex-item-r-event-detail, .flex-item-l-event-detail{
     flex: 100%;
   }
 }
+
 </style>
 <meta property="og:url" content="">
 {% endblock %}
@@ -36,9 +41,9 @@
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
         <div class="banner__main">
-            <h1>{{event.event_type}}</h1>
+            <h1>{{event.title}}</h1>
             <p class="large">
-                Join us for the event
+                {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
             </p>
         </div>
     </div>
@@ -54,22 +59,21 @@
 
                 <div class="blog-single__content">      
                     <div class="flex-container">
-                        <div class="flex-item-left">
+                        <div class="flex-item-l-event-detail">
                             <div class=""><h4 >{{event.title |safe}}</h4></div><br>
                         </div>
-                        <div class="flex-item-right">
+                        <div class="flex-item-r-event-detail">
 
                             {% if event.registration == "Registrations Open" %}
 
-                                <div class="badge-sec" ><div  class="badge badge--yellow" style="background: rgba(0, 255, 0, 0.25);">{{event.registration}}</div>
+                                <div class="badge-sec" ><div  class="badge">{{event.event_type}}</div>&nbsp;<div  class="badge badge--yellow" style="background: rgba(0, 255, 0, 0.25);">{{event.registration}}</div>
 
                             {% else %}
 
-                                <div class="badge-sec" ><div  class="badge badge--yellow" style="background: rgba(255, 0, 0, 0.25);">{{event.registration}}</div>
+                                <div class="badge-sec" ><div  class="badge">{{event.event_type}}</div><div  class="badge badge--yellow" style="background: rgba(255, 0, 0, 0.25);">{{event.registration}}</div>
 
                             {% endif %}
-                                <br><br>
-                                                        <div class="badge-sec" ><div  class="badge">{{event.event_type}}</div>
+
                         
                             
                         </div>
@@ -83,13 +87,7 @@
 
                 <div class="blog-single__content">
 
-                    
-             
-                        <div>Start:&nbsp;<span>{{event.start_date|date:"F j, o"}}</span></div><br>
-               
-                        <div>End: &nbsp;&nbsp;<span>{{event.end_date|date:"F j, o"}}</span></div>
-               
-                         <br>
+                
                         {% if event.description %}
                           <p class="large sbold">Description</p>
                           <p style="text-align:justify;">{{event.description|safe}}</p>
