@@ -11,7 +11,7 @@
 <style>
 .flex-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 }
 
 .flex-item-top-left {
@@ -24,18 +24,22 @@
 
 .flex-item-bottom-left {
   flex: 25%;
+  margin-bottom:-25px;
 }
 
 .flex-item-bottom-middle-left {
   flex: 25%;
+  margin-bottom:-25px;
 }
 
 .flex-item-bottom-middle-right {
   flex: 19%;
+  margin-bottom:-25px;
 }
 
 .flex-item-bottom-right {
   flex: 31%;
+  margin-bottom:-25px;
 }
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
@@ -70,9 +74,7 @@
 <div id="main-wrap" class="main__large-pd">
     <div class="content-width">
         <div class="main">
-
             <section id="contents">
-               
                 {% for events_list in event_list  %}
                 <article class="post-blog">
                      <div class="flex-container">
@@ -80,22 +82,15 @@
                             <div ><h4 ><a href="{% url 'event_detail' events_list.title_slug  %}">{{events_list.title |safe}}</a></h4></div>
                         </div>
                         <div class="flex-item-top-right">
-
                             {% if events_list.registration == "Registrations Open" %}
-
                                 <div class="badge-sec" ><div  class="badge badge--yellow" style="background: rgba(0, 255, 0, 0.25);">{{events_list.registration}}</div>
-
                             {% else %}
-
                                 <div class="badge-sec" ><div  class="badge badge--yellow" style="background: rgba(255, 0, 0, 0.25);">{{events_list.registration}}</div>
-
                             {% endif %} 
                         </div>
-                    </div></div>
-                      
+                    </div>
+                </div> 
                     <p>{{events_list.description|safe}}</p>
-                  
-
                     <div class="flex-container">
                         <div class="flex-item-bottom-left">
                             <div ><strong>Start </strong></div>
@@ -111,12 +106,9 @@
                             <div ><strong>Event Type</strong> </div>
                             <div >{{events_list.event_type}}</span> </div>
                             <br>
-
                         </div>
-
                             <div class="flex-item-bottom-middle-right" >
                             <div ><span></span><a class="btn btn--border" href="{% url 'event_detail' events_list.title_slug  %}">View More</a></div>
-
                         </div>
                
                 </article>
