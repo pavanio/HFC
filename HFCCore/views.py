@@ -53,7 +53,7 @@ def thanks(request):
 
 class Home(View):
     def get(self, request):
-        blogs = Post.objects.all()[:3]
+        blogs = Post.objects.filter(status = 'Published')[:3]
         return render(request,'HFC/hfc_home.html',{'blogs':blogs})
 
 class ProblemStatementsView(generic.ListView):
