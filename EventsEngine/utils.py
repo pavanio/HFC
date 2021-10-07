@@ -15,14 +15,14 @@ from django.conf import settings
 from ScreeningApp.models import Candidate
 
 
-def event_signup_mail(email,content):
+def event_signup_mail(email,content,title):
     base_url = settings.BASE_URL
     candidate = Candidate.objects.get(email = email)
     name = candidate.name
     email = candidate.email
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
     to_list = [email,]
-    subject = "Welcome to HackForChange"
+    subject = "Congratulations, You are signed up for "  + title
     headers = {'Reply-To': 'suman@hackforchange.co.in'}
     html_content = render_to_string('EventsEngine/event_participant_welcome_email.html', {'name':name,'base_url':base_url, 'content': content})
     msg = EmailMessage(subject, html_content, from_email ,to_list,headers = headers)
