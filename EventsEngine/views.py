@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from ScreeningApp.models import Candidate
 from .models import *
 from HFCCore.forms import Community_member_form,Chapter_contributor_form
 from HFCCore.models import Partner, Community_Member, Community_Organization, Expertise
@@ -48,11 +50,17 @@ class EventSignUpView(View):
             contributor = form.save(commit = False)
             contributor.type = "Contributor"
             contributor.organization_id = community_org
-            contributor.save()
-            print(contributor.name)
-            form.save_m2m()
+
             email = contributor.email
-            SendSubscribeMail(email)
+            #print(Candidate.objects.filter(email=email).exists())
+            if Candidate.objects.filter(email=email).exists() != True:
+                contributor.save()                
+                SendSubscribeMail(email)
+
+                form.save_m2m()
+
+            else :
+                contributor = Candidate.objects.filter(email=email)
             try:
                 event_signup_mail(email,event.email_confirmation,event.title)
             except:

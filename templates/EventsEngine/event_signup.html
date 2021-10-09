@@ -8,7 +8,7 @@
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="">
 {% endblock %}
-{% block title %} Event SignUp | Hack For Change {% endblock %}
+{% block title %} Event Signup | Hack For Change {% endblock %}
 
 {% block main %}
 <!--Banner start -->
@@ -28,7 +28,11 @@
     <div class="content-width">
         <div class="main"> 
             <section id="contents">
-                <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
+                {% if event.logo %}
+                    <div class="uni-chapter"><img width="84px" src="{{event.logo.url}}">
+                {% else %}
+                    <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}">
+                {% endif %}
                     <h2>Signup for the event</h2>
                 </div>
                 <form class="site-form" method="post" id="volform" sub-change-url="{% url 'load_area_of_expertise' %}">

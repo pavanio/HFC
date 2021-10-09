@@ -10,6 +10,11 @@ STATUS = (
     ('Draft','Draft'),
     ('Published','Published'),
 )
+
+THEME = (
+    ('Light','Light'),
+    ('Dark','Dark'),
+)
 class EventType(models.Model):
     category = models.CharField(max_length=50)
 
@@ -27,6 +32,9 @@ class Events(models.Model):
     event_type = models.ForeignKey(EventType, null=True, on_delete=models.SET_NULL)
     email_confirmation = models.TextField(blank = True,null = True)
     registration = models.CharField(max_length = 200,blank=True)
+    logo = models.ImageField(blank= True, null = True)
+    banner = models.ImageField(blank= True, null = True)
+    banner_color = models.CharField(choices = THEME, max_length = 10,default = 'Light')
 
     class Meta:
         verbose_name = "Event"

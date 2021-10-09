@@ -7,7 +7,7 @@
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 
-<style>
+{% comment %} <style>
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -30,26 +30,38 @@
   }
 }
 
-</style>
+</style> {% endcomment %}
 <meta property="og:url" content="">
 {% endblock %}
-{% block title %} Event Detail | Hack For Change {% endblock %}
+{% block title %} {{event.title}} | Hack For Change {% endblock %}
 
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
+        {% if event.banner %}
+        {% if event.banner_color == "Light" %}
         <div class="banner__main">
             <h1>{{event.title}}</h1>
-            <p class="large">
-                {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
-            </p>
+            <p class="large">{{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}</p>
         </div>
+        {% else %}
+        <div class="banner__main" style ="color: white;">
+            <h1>{{event.title}}</h1>
+            <p class="large">{{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}</p>
+        </div>
+        {% endif %}  
+        {% else %}
+        <div class="banner__main" >
+            <h1>{{event.title}}</h1>
+            <p class="large">{{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}</p>
+        </div>
+        {% endif %}
     </div>
 </div>
 <!--Banner end -->
 <!--main start -->
-<div id="main-wrap" class="main__large-pd">
+<div id="main-wrap" class="main__large-pd" style="padding-top: 44px;">
     <div class="content-width">
         <div class="main">
             <section id="contents">

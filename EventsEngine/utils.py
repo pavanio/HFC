@@ -17,7 +17,7 @@ from ScreeningApp.models import Candidate
 
 def event_signup_mail(email,content,title):
     base_url = settings.BASE_URL
-    candidate = Candidate.objects.get(email = email)
+    candidate = Candidate.objects.filter(email = email).first()
     name = candidate.name
     email = candidate.email
     from_email = 'HackForChange Team<noreply@hackforchange.co.in>'
