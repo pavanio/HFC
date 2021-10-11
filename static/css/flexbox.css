@@ -67,3 +67,28 @@
     }
   }
 
+
+  .flex-item-problem-bottom-left {
+    flex: 32%;
+
+    
+  }
+  
+  .flex-item-problem-bottom-middle {
+    flex: 47%;
+    margin-bottom: 10px;
+    
+  }
+  
+  .flex-item-problem-bottom-right {
+    flex: 21%;
+
+    
+  }
+  
+  @media (max-width: 800px) {
+    .flex-item-probelm-bottom-right, .flex-item-problem-bottom-left, .flex-item-problem-bottom-middle  {
+      flex: 100%;
+    }
+  }
+
