@@ -34,18 +34,18 @@
                     <div class="flex-item-top-left">
                     <h4><a href="{% url 'problem_discription' prob_list.title_slug %}">{{prob_list.problem_statement|safe}}</a></h4>
                     </div>
-                    <div class="flex-item-top-right">
-                    <div class="badge-sec"><strong>Status: </strong><span class="badge">{{prob_list.status}}</span></div>
+                    <div class="flex-item-top-right" >
+                    <div class="badge-sec"><strong></strong><span class="badge">{{prob_list.status}}</span></div>
                     </div>
                     </div>
                     <p>{{prob_list.overview|safe}}</p>
                     <div class="flex-container">
                         <div class="flex-item-problem-bottom-left">
-                            <div class="badge-sec"><strong>Submitted By: </strong><span class="badge badge--yellow">{% if prob_list.partner_id %}{{prob_list.partner_id}}{%endif%}</span></div>
+                            <div class="badge-sec"><strong>Submitted By: </strong><br><span class="badge badge--yellow">{% if prob_list.partner_id %}{{prob_list.partner_id}}{%endif%}</span></div>
                             
                         </div>
                         <div class="flex-item-problem-bottom-middle">
-                            <strong>Issue Areas: </strong><span style="text-transform: capitalize;"> {{prob_list.issuearea}}</span> <br>
+                            <strong>Issue Areas: <br></strong><span> {{prob_list.issuearea}}</span> <br>
                                    
                         </div>
                  

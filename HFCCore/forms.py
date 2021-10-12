@@ -121,6 +121,7 @@ class Community_member_form(forms.ModelForm):
         #self.fields['gender'] = forms.ChoiceField(choices=GENDER)
         self.fields['highest_education'] = forms.ChoiceField(choices = EDUCATION)
         self.fields['years_of_experience'] = forms.ChoiceField(choices = EXPERIENCE)
+        self.fields['linkedin_profile'].required = True
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset = Expertise.objects.none()
         #self.fields['city'].queryset = Community_Organization.objects.filter('chapter').values_list('city',flat=True)

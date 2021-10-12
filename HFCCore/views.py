@@ -60,7 +60,17 @@ class ProblemStatementsView(generic.ListView):
     def get(self, request):
         problems_list = Problem_Statement.objects.all().exclude(status ='Draft')
         issue_areas = Issue_Area.objects.all()
-        return render(request, 'HFC/problem_statements.html', {'problems_list': problems_list,'issue_areas':issue_areas})
+        partners = set()
+        for problem in problems_list:
+            try:
+                partner = Partner.objects.get(name = problem.partner_id)
+                partners.add(partner)
+                print(partners)
+                print(partner.logo)
+            except:
+                continue
+        new=zip(problems_list,partners)
+        return render(request, 'HFC/problem_statements.html', {'problems_list': problems_list,'issue_areas':issue_areas,})
 
 class ProblemsWithIssueareaView(generic.ListView):
     def get(self, request, issue_area_slug):

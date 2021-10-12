@@ -53,6 +53,14 @@
     flex: 31%;
     margin-bottom:-20px;
   }
+
+    
+  /* Responsive layout - makes a one column layout instead of a two-column layout */
+  @media (max-width: 800px) {
+    .flex-item-top-right, .flex-item-top-left {
+      flex: 100%;
+    }
+  }
   
   /* Responsive layout - makes a one column layout instead of a two-column layout */
   @media (max-width: 800px) {
@@ -69,7 +77,7 @@
 
 
   .flex-item-problem-bottom-left {
-    flex: 32%;
+    flex: 29%;
 
     
   }
@@ -81,7 +89,7 @@
   }
   
   .flex-item-problem-bottom-right {
-    flex: 21%;
+    flex: 24%;
 
     
   }
@@ -92,3 +100,18 @@
     }
   }
 
+  .flex-item-problem-left {
+    flex: 75%;
+  }
+  
+  .flex-item-problem-right {
+    flex: 25%;
+  }
+
+    /* Responsive layout - makes a one column layout instead of a two-column layout */
+    @media (max-width: 800px) {
+      .flex-item-problem-right, .flex-item-problem-left {
+        flex: 100%;
+      }
+    }
+    
