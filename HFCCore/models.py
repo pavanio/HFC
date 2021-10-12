@@ -19,6 +19,12 @@ STATUS_CHOICES = [
     ("Work In Progress", "Work In Progress"),
     ("Resolved", "Resolved")
 ]
+STATUS_CHOICES_PROJECTS = [
+    ("Draft", "Draft"),
+    ("Ideation", "Ideation"),
+    ("Work In Progress", "Work In Progress"),
+    ("Live", "Live")
+]
 TYPE_CHOICES = [
     ("Center", "Center"),
     ("Chapter", "Chapter")
@@ -92,6 +98,7 @@ class Project(models.Model):
     website_link = models.URLField(blank = True,null = True)
     goal = models.TextField(blank = True,null = True)
     project_slug = AutoSlugField(populate_from = 'name',blank = True,null = True)
+    status = models.CharField(max_length = 100, choices = STATUS_CHOICES_PROJECTS,default ="Draft")
 
     def __str__(self):
         return self.name
