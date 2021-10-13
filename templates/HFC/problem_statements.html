@@ -41,14 +41,11 @@
                     <p>{{prob_list.overview|safe}}</p>
                     <div class="flex-container">
                         <div class="flex-item-problem-bottom-left">
-                        
-                            <strong>Submitted By </strong><br><span {{prob_list.partner.all}}</span>
+                            <strong>Submitted By </strong><br><img width="50" src={{prob_list.partner_id.logo.url}} alt="Logo">
                         </div>
                         <div class="flex-item-problem-bottom-middle">
-                            <strong>Issue Areas <br></strong><span> {{prob_list.issuearea}}</span> <br>
-                                   
+                            <strong>Issue Areas <br></strong><span> {{prob_list.issuearea}}</span> <br>        
                         </div>
-                 
                         <div class="flex-item-problem-bottom-right" >
                             <div><a class="btn btn--border" href="{% url 'problem_discription' prob_list.title_slug %}">View Details</a></div>
                         </div>
