@@ -41,11 +41,11 @@
                     <p>{{prob_list.overview|safe}}</p>
                     <div class="flex-container">
                         <div class="flex-item-problem-bottom-left">
-                            <div class="badge-sec"><strong>Submitted By: </strong><br><span class="badge badge--yellow">{% if prob_list.partner_id %}{{prob_list.partner_id}}{%endif%}</span></div>
-                            
+                        
+                            <strong>Submitted By </strong><br><span {{prob_list.partner.all}}</span>
                         </div>
                         <div class="flex-item-problem-bottom-middle">
-                            <strong>Issue Areas: <br></strong><span> {{prob_list.issuearea}}</span> <br>
+                            <strong>Issue Areas <br></strong><span> {{prob_list.issuearea}}</span> <br>
                                    
                         </div>
                  
