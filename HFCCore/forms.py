@@ -27,6 +27,7 @@ class Mentor_form(forms.ModelForm):
         #self.fields['gender']=forms.ChoiceField(choices=GENDER)
         self.fields['highest_education'] = forms.ChoiceField(choices = EDUCATION)
         self.fields['years_of_experience'] = forms.ChoiceField(choices = EXPERIENCE[4:])
+        self.fields['linkedin_profile'].required = True
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset = Expertise.objects.none()
         #self.fields['dob'] = forms.DateField(widget = DateInput)
@@ -51,6 +52,7 @@ class Center_contributor_form(forms.ModelForm):
         #self.fields['gender'] = forms.ChoiceField(choices=GENDER)
         self.fields['highest_education'] = forms.ChoiceField(choices = EDUCATION)
         self.fields['years_of_experience'] = forms.ChoiceField(choices = EXPERIENCE)
+        self.fields['linkedin_profile'].required = True
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset = Expertise.objects.none()
         #self.fields['dob'] = forms.DateField(widget = DateInput)
@@ -75,6 +77,7 @@ class Chapter_contributor_form(forms.ModelForm):
         #self.fields['gender'] = forms.ChoiceField(choices=GENDER)
         self.fields['highest_education'] = forms.ChoiceField(choices = EDUCATION)
         self.fields['years_of_experience'] = forms.ChoiceField(choices = EXPERIENCE)
+        self.fields['linkedin_profile'].required = True
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset = Expertise.objects.none()
         #self.fields['dob'] = forms.DateField(widget = DateInput)
@@ -155,6 +158,7 @@ class Job_Application_form(forms.ModelForm):
         #self.fields['gender'] = forms.ChoiceField(choices=GENDER)
         self.fields['highest_education'] = forms.ChoiceField(choices = EDUCATION)
         self.fields['years_of_experience'] = forms.ChoiceField(choices = EXPERIENCE)
+        self.fields['linkedin_profile'].required = True
         self.fields['area_of_expertise'].widget = forms.CheckboxSelectMultiple()
         self.fields['area_of_expertise'].queryset = Expertise.objects.none()
         #self.fields['city'].queryset = Community_Organization.objects.filter('chapter').values_list('city',flat=True)
