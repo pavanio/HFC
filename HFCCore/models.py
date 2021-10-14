@@ -106,6 +106,13 @@ class Project(models.Model):
         verbose_name = "Project"
         verbose_name_plural = "Projects"
 
+class Project_Partner(models.Model):
+    project_id = models.ForeignKey(Project, on_delete = models.CASCADE,verbose_name ="Project")
+    partner = models.ManyToManyField('Partner',blank = True)
+    project_involvement = models.CharField(max_length = 50, choices = PROJECT_INVOLVEMENT)
+    def get_partner(self):
+        return ",".join([ partner.name for  partner  in self. partner.all()])
+
 class Community_Organization(models.Model):
     organization_name = models.CharField(max_length = 500)
     type = models.CharField(max_length = 100, choices = TYPE_CHOICES)
@@ -155,9 +162,4 @@ class Community_Member(Candidate):
             self.level_of_expertise = "Expert"
         super(Community_Member,self).save(*args, **kwargs) 
 
-class Project_Partner(models.Model):
-    project_id = models.ForeignKey(Project, on_delete = models.CASCADE,verbose_name ="Project")
-    partner = models.ManyToManyField('Partner',blank = True)
-    project_involvement = models.CharField(max_length = 50, choices = PROJECT_INVOLVEMENT)
-    def get_partner(self):
-        return ",".join([ partner.name for  partner  in self. partner.all()])
+

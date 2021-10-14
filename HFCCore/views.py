@@ -187,7 +187,31 @@ class ProjectsView(generic.ListView):
         projects_list = Project.objects.all()
         issue_areas = Issue_Area.objects.all()
         partners = Partner.objects.all()
-        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list,'issue_areas': issue_areas,'partners':partners})
+        project_partner = Project_Partner.objects.all()
+        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list,'issue_areas': issue_areas,'partners':partners, 'project_partner':project_partner})
+
+class ProjectDetailView(View):
+    def get(self, request, project_slug):
+        project = Project.objects.get(project_slug = project_slug)
+        print(project.id)
+        funding = Project_Partner.objects.filter(project_id = project.id,project_involvement = 'Funding')
+        for item in funding:
+            partner = item.partner.all()
+        for itm in partner:
+            #partner_detail = Partner.objects.get(org_id = itm)
+            print(itm.email)
+        #partner_fund = funding.partner.all()
+        #print(partner_fund)
+        community_partners = Project_Partner.objects.filter(project_id = project.id ).exclude(project_involvement = 'Funding')
+        """print(community_partners)
+        for item in community_partners:
+            partner = item.partner.all()"""
+        
+        issue_areas = Issue_Area.objects.all()
+        #partners = {'funding':funding,'community_partners':community_partners,}
+        contributors = Community_Member.objects.filter(type='Contributor')
+        return render(request, 'HFC/project_detail.html', {'project':project,'issue_areas': issue_areas,'funding':funding,'community_partners':community_partners,'contributors':contributors})
+
 
 class CommunityView(View):
     def get(self, request):
@@ -325,27 +349,6 @@ def error_500(request,*args, **argv):
         data = {}
         return render(request,'HFC/500.html', data)
 
-class ProjectDetailView(View):
-    def get(self, request, project_slug):
-        project = Project.objects.get(project_slug = project_slug)
-        print(project.id)
-        funding = Project_Partner.objects.filter(project_id = project.id,project_involvement = 'Funding')
-        for item in funding:
-            partner = item.partner.all()
-        for itm in partner:
-            #partner_detail = Partner.objects.get(org_id = itm)
-            print(itm.email)
-        #partner_fund = funding.partner.all()
-        #print(partner_fund)
-        community_partners = Project_Partner.objects.filter(project_id = project.id ).exclude(project_involvement = 'Funding')
-        """print(community_partners)
-        for item in community_partners:
-            partner = item.partner.all()"""
-        
-        issue_areas = Issue_Area.objects.all()
-        #partners = {'funding':funding,'community_partners':community_partners,}
-        contributors = Community_Member.objects.filter(type='Contributor')
-        return render(request, 'HFC/project_detail.html', {'project':project,'issue_areas': issue_areas,'funding':funding,'community_partners':community_partners,'contributors':contributors})
 
 class IssueAreaView(View):
     def get(self, request, issue_area_slug):

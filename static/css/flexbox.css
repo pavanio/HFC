@@ -115,3 +115,43 @@
       }
     }
     
+
+    /* Projects List Page */
+    .flex-item-project-top-left {
+      flex: 75%;
+    }
+    
+    .flex-item-project-top-right {
+      flex: 25%;
+    }
+    
+
+      
+  /* Responsive layout - makes a one column layout instead of a two-column layout */
+  @media (max-width: 800px) {
+    .flex-item-project-top-right, .flex-item-project-top-left {
+      flex: 100%;
+    }
+  }
+
+    .flex-item-project-bottom-left {
+      flex: 25%;
+   
+    }
+    
+    .flex-item-project-bottom-middle-left {
+      flex: 30%;
+    }
+    
+    .flex-item-project-bottom-middle-right {
+      flex: 21%;
+    }
+    
+    .flex-item-project-bottom-right {
+      flex: 24%;
+    }
+    @media (max-width: 800px) {
+      .flex-item-project-bottom-right, .flex-item-project-bottom-left, .flex-item-project-bottom-middle-left, .flex-item-project-bottom-middle-right {
+        flex: 100%;
+      }
+    }

@@ -14,31 +14,44 @@
 <meta property="og:url" content="">
 {% endblock %}
 {% block title %} {{event.title}} | Hack For Change {% endblock %}
-
 {% block main %}
 <!--Banner start -->
-<div class="banner-wrap">
-    <div class="content-width sm-content-width">
-        {% if event.banner %}
+    {% if event.banner %}
         {% if event.banner_color == "Light" %}
-        <div class="banner__main">
-            <h1>{{event.title}}</h1>
-            <p class="large">{{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}</p>
+        <div class="banner-wrap" style="background-image: url('{{event.banner.url}}')";>
+            <div class="content-width sm-content-width">
+                <div class="banner__main">
+                    <h1>{{event.title}}</h1>
+                    <p class="large">
+                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                    </p>
+                </div>
+            </div>
         </div>
         {% else %}
-        <div class="banner__main" style ="color: white;">
-            <h1>{{event.title}}</h1>
-            <p class="large">{{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}</p>
+        <div class="banner-wrap" style="color: white; background-image: url('{{event.banner.url}}')";>
+            <div class="content-width sm-content-width">
+                <div class="banner__main">
+                    <h1>{{event.title}}</h1>
+                    <p class="large">
+                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                    </p>
+                </div>
+            </div>
         </div>
         {% endif %}  
         {% else %}
-        <div class="banner__main" >
-            <h1>{{event.title}}</h1>
-            <p class="large">{{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}</p>
+        <div class="banner-wrap">
+            <div class="content-width sm-content-width">
+                <div class="banner__main">
+                    <h1>{{event.title}}</h1>
+                    <p class="large">
+                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                    </p>
+                </div>
+            </div>
         </div>
-        {% endif %}
-    </div>
-</div>
+    {% endif %}
 <!--Banner end -->
 <!--main start -->
 <div id="main-wrap" class="main__large-pd" style="padding-top: 44px;">

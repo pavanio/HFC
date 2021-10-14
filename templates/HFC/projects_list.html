@@ -32,15 +32,34 @@
                 {% for projects_list in projects_list  %}
                 <article class="post-blog">
                     <div class="flex-container">
-                    <div class="flex-item-top-left">
+                    <div class="flex-item-project-top-left">
                     <h4><a href="{% url 'project_detail' projects_list.project_slug  %}">{{projects_list.name|safe}}</a></h4>
                     </div>
-                    <div class="flex-item-top-right" >
+                    <div class="flex-item-project-top-right" >
                     <div class="badge-sec"><strong></strong><span class="badge">{{projects_list.status}}</span></div>
                     </div>
                     </div>
                     <p>{{projects_list.project_overview}}</p>
-                    <a class="btn btn--border" href="{% url 'project_detail' projects_list.project_slug  %}">Learn More</a>
+                    <div class="flex-container">
+                        <div class="flex-item-project-bottom-left">
+                        {% for project_obj in project_partner %}
+                            <strong>Sponsored By </strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img width="50" src={{project_obj.get_partner}} alt="{{project_obj.get_partner}}">
+                        {% endfor %}
+                        </div>
+                        <div class="flex-item-project-bottom-middle-left">
+                            <strong>Community Partner <br></strong><span> </span> <br>        
+                        </div>
+                        <div class="flex-item-project-bottom-middle-right">
+                            {% if projects_list.website_link %}
+                            <strong><a href="{{projects_list.website_link}}">View Live<a/> <br></strong><span></span> <br>  
+                            {% endif %}      
+                        </div>
+                        <div class="flex-item-project-bottom-right" >
+                            <div><a class="btn btn--border" href="{% url 'project_detail' projects_list.project_slug  %}">Learn More</a></div>
+                        </div>
+                    </div
+
+                    
                 </article>
                 {% endfor %}
             </section>
