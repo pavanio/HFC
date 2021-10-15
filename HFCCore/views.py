@@ -21,6 +21,7 @@ from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from blog.models import Post
 from EventsEngine.models import Events
+from collections import defaultdict
 headers = {
     'Accept': 'application/vnd.github.v3+json',
 }
@@ -188,18 +189,31 @@ class ProjectsView(generic.ListView):
         issue_areas = Issue_Area.objects.all()
         partners = Partner.objects.all()
         project_partner = Project_Partner.objects.all()
-        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list,'issue_areas': issue_areas,'partners':partners, 'project_partner':project_partner})
+        funding_partner ={}
+        community_partner = defaultdict(list)
+        for proj in projects_list:
+            fund_partner = Project_Partner.objects.filter(project_id = proj.id,project_involvement = 'Funding')
+            social_partner = Project_Partner.objects.filter(project_id = proj.id ).exclude(project_involvement = 'Funding')
+            for item in fund_partner:
+                for obj in item.partner.all():
+                    funding_partner[proj] = obj
+            for item in social_partner:
+                for obj in item.partner.all():
+                    community_partner[proj].append(obj)
+        print(funding_partner.items())
+        print(community_partner.items())
+        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list,'issue_areas': issue_areas,'partners':partners,'funding_partner':funding_partner,'community_partner':community_partner })
 
 class ProjectDetailView(View):
     def get(self, request, project_slug):
         project = Project.objects.get(project_slug = project_slug)
         print(project.id)
         funding = Project_Partner.objects.filter(project_id = project.id,project_involvement = 'Funding')
-        for item in funding:
+        """for item in funding:
             partner = item.partner.all()
         for itm in partner:
             #partner_detail = Partner.objects.get(org_id = itm)
-            print(itm.email)
+            print(itm.email)"""
         #partner_fund = funding.partner.all()
         #print(partner_fund)
         community_partners = Project_Partner.objects.filter(project_id = project.id ).exclude(project_involvement = 'Funding')

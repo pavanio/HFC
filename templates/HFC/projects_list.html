@@ -30,6 +30,7 @@
         <div class="main">
             <section id="contents">
                 {% for projects_list in projects_list  %}
+                
                 <article class="post-blog">
                     <div class="flex-container">
                     <div class="flex-item-project-top-left">
@@ -40,11 +41,15 @@
                     </div>
                     </div>
                     <p>{{projects_list.project_overview}}</p>
+                
                     <div class="flex-container">
                         <div class="flex-item-project-bottom-left">
-                        {% for project_obj in project_partner %}
-                            <strong>Sponsored By </strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img width="50" src={{project_obj.get_partner}} alt="{{project_obj.get_partner}}">
-                        {% endfor %}
+                        {% for key,value in funding_partner.items%}
+                        
+                            <strong>Sponsored By </strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>{{value}}</p>
+                            
+                        {%endfor%}
+                    
                         </div>
                         <div class="flex-item-project-bottom-middle-left">
                             <strong>Community Partner <br></strong><span> </span> <br>        
@@ -57,7 +62,7 @@
                         <div class="flex-item-project-bottom-right" >
                             <div><a class="btn btn--border" href="{% url 'project_detail' projects_list.project_slug  %}">Learn More</a></div>
                         </div>
-                    </div
+                    </div>
 
                     
                 </article>
