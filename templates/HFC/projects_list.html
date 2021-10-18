@@ -44,15 +44,18 @@
                 
                     <div class="flex-container">
                         <div class="flex-item-project-bottom-left">
-                        {% for key,value in funding_partner.items%}
+                       
                         
-                            <strong>Sponsored By </strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>{{value}}</p>
+                            <strong>Sponsored By </strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>{{funding_partner|get_item:projects_list}}</p>
                             
-                        {%endfor%}
+                            
                     
                         </div>
                         <div class="flex-item-project-bottom-middle-left">
-                            <strong>Community Partner <br></strong><span> </span> <br>        
+                            
+                            <strong>Community Partner <br>{% for i in community_partner|get_item:projects_list %}
+                            </strong><span>{{i}}</span> <br>  
+                            {%endfor%}
                         </div>
                         <div class="flex-item-project-bottom-middle-right">
                             {% if projects_list.website_link %}

@@ -200,9 +200,10 @@ class ProjectsView(generic.ListView):
             for item in social_partner:
                 for obj in item.partner.all():
                     community_partner[proj].append(obj)
-        print(funding_partner.items())
-        print(community_partner.items())
-        return render(request, 'HFC/projects_list.html', {'projects_list':projects_list,'issue_areas': issue_areas,'partners':partners,'funding_partner':funding_partner,'community_partner':community_partner })
+        print(funding_partner)
+        print(community_partner)
+        #project_zip = zip(projects_list,funding_partner,community_partner)
+        return render(request, 'HFC/projects_list.html', {'issue_areas': issue_areas,'partners':partners,'projects_list':projects_list,'funding_partner':funding_partner,'community_partner':community_partner })
 
 class ProjectDetailView(View):
     def get(self, request, project_slug):

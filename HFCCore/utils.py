@@ -12,6 +12,10 @@ from .models import Problem_Statement, Partner, Project, Community_Organization,
 from django.apps import apps
 import requests
 from django.conf import settings
+from django.template.defaulttags import register
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
 
 def SendSubscribeMail(email):
     API_KEY = settings.MAILCHIMP_API_KEY
