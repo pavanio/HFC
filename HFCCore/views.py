@@ -260,8 +260,9 @@ class ProblemStatementsSubmitView(View):
             form.save()
             try:
                 html_content = render_to_string('HFC/problem_statement_detail_internal_email.html', {'problem':problem,'issue_area': issue_areas})
+                headers = {'Reply-To': email}
                 to_list=['team@hackforchange.co.in',]
-                msg = EmailMessage('New Problem Statement Submission', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
+                msg = EmailMessage('New Problem Statement Submission', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list, headers=headers)
                 msg.content_subtype = "html"
                 msg.send(fail_silently = True)
                 print("Problem Submission email sent successfully")
@@ -325,7 +326,8 @@ class CommunityMemberSignup(View):
                 community_member_signup_mail(email)
                 html_content = render_to_string('HFC/community_member_detail_internal_email.html', {'contributor':contributor})
                 to_list=['team@hackforchange.co.in',]
-                msg = EmailMessage('New community member signup', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
+                headers = {'Reply-To': email}
+                msg = EmailMessage('New community member signup', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list, headers=headers)
                 msg.content_subtype = "html"
                 msg.send(fail_silently = True)
                 print("Community member details email sended successfully")
@@ -408,7 +410,8 @@ class JobView(View):
                 job_screeninglink_mail(email)
                 html_content = render_to_string('HFC/applicant_detail_internal_email.html', {'applicant':applicant})
                 to_list=['team@hackforchange.co.in',]
-                msg = EmailMessage('New Job Applicant', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
+                headers = {'Reply-To': email}
+                msg = EmailMessage('New Job Applicant', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list, headers=headers)
                 msg.content_subtype = "html"
                 msg.send(fail_silently = True)
                 print("Applicant details email sended successfully")

@@ -68,8 +68,9 @@ class EventSignUpView(View):
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
                 to_list=['team@hackforchange.co.in',]
+                headers = {'Reply-To': email}
                 print("working")
-                msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,)
+                msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,headers=headers)
                 msg.content_subtype = "html"
                 msg.send(fail_silently = True)
                 print("Event Signup details internal email sended successfully")

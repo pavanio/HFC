@@ -31,7 +31,7 @@
                 {% for prob_list in problems_list %}
                 <article class="post-blog">
                 <div class="flex-container">
-                    <div class="flex-item-top-left">
+                    <div class="flex-item-top-left" style="align-items: flex-end;">
                     <h4><a href="{% url 'problem_discription' prob_list.title_slug %}">{{prob_list.problem_statement|safe}}</a></h4>
                     </div>
                     <div class="flex-item-top-right" >
