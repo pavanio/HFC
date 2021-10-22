@@ -51,10 +51,10 @@
 
                                 {% endif %}
                             {% endfor %} {% endcomment %}
-                            <strong>Sponsored By </strong><br><span>{{funding_partner|get_item:projects_list}}</span>
+                            <strong>Sponsored By </strong><br><span>{% for i in funding_partner|get_item:projects_list %}<a href="{{i.website}}" target="_blank">{{i}}</a>{%endfor%}</span>
                         </div>
                         <div class="flex-item-project-bottom-middle-left">
-                            <strong>Community Partner <br></strong>{% for i in community_partner|get_item:projects_list %}<span>{{i}}{% if not forloop.last %}, {% endif %}</span>{%endfor%} <br>  
+                            <strong>Community Partner <br></strong>{% for i in community_partner|get_item:projects_list %}<span><a href="{{i.website}}" target="_blank">{{i}}</a>{% if not forloop.last %}, {% endif %}</span>{%endfor%} <br>  
                         </div>
                         <div class="flex-item-project-bottom-middle-right">
                             {% if projects_list.website_link %}

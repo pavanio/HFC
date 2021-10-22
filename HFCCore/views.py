@@ -189,14 +189,14 @@ class ProjectsView(generic.ListView):
         issue_areas = Issue_Area.objects.all()
         partners = Partner.objects.all()
         project_partner = Project_Partner.objects.all()
-        funding_partner ={}
+        funding_partner =defaultdict(list)
         community_partner = defaultdict(list)
         for proj in projects_list:
             fund_partner = Project_Partner.objects.filter(project_id = proj.id,project_involvement = 'Funding')
             social_partner = Project_Partner.objects.filter(project_id = proj.id ).exclude(project_involvement = 'Funding')
             for item in fund_partner:
                 for obj in item.partner.all():
-                    funding_partner[proj] = obj
+                    funding_partner[proj].append(obj)
             for item in social_partner:
                 for obj in item.partner.all():
                     community_partner[proj].append(obj)
