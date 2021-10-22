@@ -44,6 +44,13 @@
                 
                     <div class="flex-container">
                         <div class="flex-item-project-bottom-left">
+{% comment %}                             <strong>Sponsored By </strong><br><span><a href="" target="_blank">{{funding_partner|get_item:projects_list}}</a></span>
+                            {% for partner in partners%}
+                                {% if partner.name|stringformat:"i" == funding_partner|get_item:projects_list|stringformat:"i" %}
+                                {{partner.website}}
+
+                                {% endif %}
+                            {% endfor %} {% endcomment %}
                             <strong>Sponsored By </strong><br><span>{{funding_partner|get_item:projects_list}}</span>
                         </div>
                         <div class="flex-item-project-bottom-middle-left">
@@ -52,7 +59,7 @@
                         <div class="flex-item-project-bottom-middle-right">
                             {% if projects_list.website_link %}
                             <strong>Source Code </strong><span></span> <br>
-                            <strong><a href="{{projects_list.website_link}}">Github<a/> <br></strong><span></span>  
+                            <a href="{{projects_list.project_link}}" target="_blank">Github<a/> <br>
                             {% endif %}      
                         </div>
                         <div class="flex-item-project-bottom-right" >
