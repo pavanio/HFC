@@ -60,7 +60,9 @@ class EventSignUpView(View):
                 form.save_m2m()
 
             else :
-                contributor = Candidate.objects.filter(email=email)
+                contributor.save()
+                form.save_m2m()
+                
             try:
                 event_signup_mail(email,event.email_confirmation,event.title)
             except:
