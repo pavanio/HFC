@@ -35,8 +35,7 @@
         <div class="main">
             <section id="contents">
                 {% if center.logo %}
-                    <div class="uni-chapter"><img width="84px" src={{center.logo.url}}></div>
-                    <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}"><h2>{{center.organization_name}} Leaderboard</h2></div>
+                    <div class="uni-chapter"><img width="84px" src={{center.logo.url}}><h2>{{center.organization_name}} Leaderboard</h2></div>
                 {% else %}
                     <div class="uni-chapter"><img width="84px" src="{% static 'images/hfc-small.png' %}"><h2>{{center.organization_name}} Leaderboard</h2></div>
                 {% endif %}
