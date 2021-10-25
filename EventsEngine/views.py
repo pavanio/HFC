@@ -60,16 +60,15 @@ class EventSignUpView(View):
                 form.save_m2m()
 
             else :
-                contributor.save()
-                form.save_m2m()
-                
+                contributor = Community_Member.objects.filter(email=email).first()
+                print(contributor)
             try:
                 event_signup_mail(email,event.email_confirmation,event.title)
             except:
                 print('Error in sending email for event signup')
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
-                to_list=['team@hackforchange.co.in',]
+                to_list=['yumangr@gmail.com',]
                 headers = {'Reply-To': email}
                 print("working")
                 msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,headers=headers)
