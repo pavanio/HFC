@@ -68,7 +68,7 @@ class EventSignUpView(View):
                 print('Error in sending email for event signup')
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
-                to_list=['yumangr@gmail.com',]
+                to_list=['team@hackforchange.co.in',]
                 headers = {'Reply-To': email}
                 print("working")
                 msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,headers=headers)
