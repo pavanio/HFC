@@ -25,19 +25,19 @@
 <div id="main-wrap" class="main-wrap--pdb">
     <div class="content-width">
         <ul class="tab-sec">
-            <li class="active"><a href="#hfcCentres"><img width="27" src="{% static 'images/hfc-icon1.svg' %}"
+            <li class="active"><a href="#Centres"><img width="27" src="{% static 'images/hfc-icon1.svg' %}"
                         alt="ICON"><img width="27" src="{% static 'images/hfc-icon1-alt.svg' %}" alt="ICON"><span>HFC
                         Centres</span></a>
             </li>
-            <li><a href="#hfcChapters"><img width="48" src="{% static 'images/hfc-icon2.svg' %}" alt="ICON"><img
+            <li><a href="#Chapters"><img width="48" src="{% static 'images/hfc-icon2.svg' %}" alt="ICON"><img
                         width="48" src="{% static 'images/hfc-icon2-alt.svg' %}" alt="ICON"><span>HFC
                         Chapters</span></a></li>
-            <li><a href="#hfcLeaderboard"><img width="23" src="{% static 'images/hfc-icon3.svg' %}" alt="ICON"><img
+            <li><a href="#Leaderboard"><img width="23" src="{% static 'images/hfc-icon3.svg' %}" alt="ICON"><img
                         width="23" src="{% static 'images/hfc-icon3-alt.svg' %}" alt="ICON"><span>Leaderboard</span></a>
             </li>
         </ul>
         <div class="hfc-outer">
-            <section class="active" id="hfcCentres">
+            <section class="active" id="Centres">
                 <div class="main main--community">
                     {% for center in hfc_centers %}
                     <div class="main__community-outer">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             </section>
-            <section id="hfcChapters">
+            <section id="Chapters">
                 <div class="main main--community">
                     {% for chapter in hfc_chapters %}
                     <div class="main__community-outer">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
             </section>
-            <section id="hfcLeaderboard">
+            <section id="Leaderboard">
                 <div class="unborder-table__outer">
                     <table class="unborder-table">
                         <thead>
