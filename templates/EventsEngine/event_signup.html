@@ -19,7 +19,11 @@
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
                     <p class="large">
-                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% if event.event_type|stringformat:"s" == "Webinar" %}
+                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
+                            {% else %}
+                            {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% endif %}
                     </p>
                 </div>
             </div>
@@ -30,7 +34,11 @@
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
                     <p class="large">
-                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% if event.event_type|stringformat:"s" == "Webinar" %}
+                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
+                            {% else %}
+                            {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% endif %}
                     </p>
                 </div>
             </div>
@@ -42,7 +50,11 @@
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
                     <p class="large">
-                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% if event.event_type|stringformat:"i" == Webinar|stringformat:"i" %}
+                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
+                            {% else %}
+                            {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% endif %}
                     </p>
                 </div>
             </div>

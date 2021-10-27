@@ -5,8 +5,11 @@
 <meta property="og:title" content="{{event.title}}">
 <meta name="description" property="og:description" content="{{event.description|striptags|truncatewords:20 }}">
 <meta property="og:type" content="article">
+{% if event.banner %}
+<meta property="og:image" content="{{event.banner.url}}">
+{% else %}
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
-
+{% endif %}
 <style>
 
 
@@ -23,7 +26,11 @@
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
                     <p class="large">
-                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% if event.event_type|stringformat:"s" == "Webinar" %}
+                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
+                            {% else %}
+                            {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
+                            {% endif %}
                     </p>
                 </div>
             </div>
@@ -34,7 +41,11 @@
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
                     <p class="large">
-                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% if event.event_type|stringformat:"s" == "Webinar" %}
+                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
+                            {% else %}
+                            {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
+                            {% endif %}
                     </p>
                 </div>
             </div>
@@ -46,7 +57,11 @@
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
                     <p class="large">
-                        {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {% if event.event_type|stringformat:"s" == "Webinar" %}
+                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
+                            {% else %}
+                            {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
+                            {% endif %}
                     </p>
                 </div>
             </div>
