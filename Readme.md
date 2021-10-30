@@ -7,12 +7,10 @@ HFC Platform is intended to engage the community, promote collaboration and also
 If you are a developer or designer please refer to the documentation outlined below.
 
 1. [Product Overview](https://github.com/HackForChangeIN/HFC/blob/master/docs/Platform%20Overview.md)
-2. Project Roadmap
-3. Project Execution Plan
-4. [Contributor Guidelines](https://github.com/HackForChangeIN/HFC/blob/master/docs/Contributor%20Guidelines.md)
-5. Maintainer Guidelines
-6. [Data Modelling](https://github.com/HackForChangeIN/HFC/blob/master/docs/Data%20Modelling.md)
-7. [Platform Overview](https://github.com/HackForChangeIN/HFC/blob/master/docs/Platform%20Overview.md)
+2. [Project Backlog](https://github.com/HackForChangeIN/HFC/projects)  
+3. [Contributor Guidelines](https://github.com/HackForChangeIN/HFC/blob/master/docs/Contributor%20Guidelines.md)
+4. [Data Modelling](https://github.com/HackForChangeIN/HFC/blob/master/docs/Data%20Modelling.md)
+5. [Platform Overview](https://github.com/HackForChangeIN/HFC/blob/master/docs/Platform%20Overview.md)
 
 Supported & Maintained by   
 Hack For Change  
