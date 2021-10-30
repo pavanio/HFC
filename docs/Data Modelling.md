@@ -76,10 +76,6 @@ HFC Modelling
     Project Association | id | project_id | required
     Project Involvement | String | project_involvement | required | Possible Values:"Funding","Execution","Adoption/Promotion"
 
-------------------------------------------------------------------------------------------------------
-TFC Modelling
-------------------------------------------------------------------------------------------------------
-
 ## Organization | organizations (Governmental/ Non-Governmental organization)
     Name | String | name | required | Ex:factly
     Website |String  | website | required |  Ex: http://www.factly.in/  
@@ -95,21 +91,6 @@ TFC Modelling
     subdomain | String | subdomain | Automatically generated based on organization abbreviation, which can changed by the admin later.
     thankyou_template | String | thankyou_template | Automatically generated the first time, the organization will have option to edit it later.
     UPI Identifier | String | upi_id | Ex: factly@okhdfcbank
-    
-## Member (Team Members) | members
-    Name | String | member_name | required | Ex: Rakesh Dubbudu
-    Email | String | member_email | required
-    Phone Number | String | member_phone_number| required |Ex: +91 8888, We should be able to accept international numbers as well
-    Password | String | password | required
-    Invitation Auth Token | String | auth token | Created and sent in the email link, On password setup, auth token is cleared, if the auth token is nil, the email link will expire.
-    *role | String | role | Possible: "Primary Contact(Admin) / Member"
-
-## Volunteer Information | volunteers (This is a subclass of the candidate model)
-    *This can be any kind of profession (other than tech, desing, project mangament) 
-    Current Occupation | String | current_occupation | required | Ex: Student, Working Professional, Govenment Official
-    Availability | String | availability | required | Ex: 0 - 10hours, 10 - 20hours, 20 - 30hours, 30 - 40hours per week  Based on this we are populating the level of expertise.  
-    Years Of Experience | String | years_of_experience | required | "No Experience, 1+ years, 2+ years, 3+ years, 5+ years, 10+years, 15+years, 20+ years"
-    Organization Mapping | integer | organization_id | This essentially means a volunteer is tied to a particular organization as an applicant
 
 ## Donation Intents | donation_intents
     Organization Association | integer| organization_id | 
@@ -188,4 +169,34 @@ Screening App Models (Should be usable by volunteers/non-volunteers as well)
     Second Reminder Date | Date | second_reminder_date | not required 
     Third Reminder Date | Date | third_reminder_date | not required  
 
+------------------------------------------------------------------------------------
+Blog Models
+-------------------------------------------------------------------------------------
+## Post  
+    Title | String | title | required  
+    Body | Text | body | required  
+    Author | String | author | not required  
+    Image | Image | image | not required  
+    Created on | Date | created_on | not required  
+    Status | String | status | Possible values :"Draft,Published" | required
+    Keywords | Text | keywords | required  
+
+--------------------------------------------------------------------------------------------
+Event Models  
+------------------------------------------------------------------------------------------------
+## Event Type  
+    Category | String | category | required  
+## Event  
+    Title | String | title | required  
+    Start Date | Date | start_date | not required 
+    End Date | Date | end_date | not required  
+    Description | Text | description | not required   
+    Agenda | Text | agenda | not required  
+    Status | String | status | Possible Values: "Draft,Published" | required  
+    Event Type | Id | event_type_id | required  
+    Email confirmation | Text | email_confirmation | not required  
+    Registartion | String | registration | not required  
+    logo | Image | logo | not required  
+    Banner | Image | banner | not required  
+    Banner Color | String | banner_color | Possible Values:"Dark,Light" | not required  
 
