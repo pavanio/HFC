@@ -43,12 +43,17 @@ A platform where we can curate and highlight problem statements shared by other 
 
 	- Project
 		This is a project planned as a solution for one or more of the problem statements on the platform.
+	- Blog  
+		This is a blog post to show all the lastest updates about HackForChange.  
+	- Event  
+		This is to show all the ongoing and upcoming events related to HackForChange lie hackathons,webinar,bootcamp etc.
 
 # Feature Overview
 	- Show all problem statements and their detail
 	- List Of HFC Centres, HFC Chapters, Individual contributor leaderboard
 	- Highlight the solutions that the community has built under this collaboration (projects)  
 	- A blog to show the latest updates from the platform.  
+	- An Event engine to show all the ongoing or upcoming HacForChange events lie hackathon,webinar and so on.
 
 # Application Overview
 	## Static Pages
@@ -77,6 +82,10 @@ A platform where we can curate and highlight problem statements shared by other 
 			/blog  
 		- Blog Detail  
 			/blog/:title-name
+		- Event List
+			/events  
+		- Event Detail  
+			/events/:event-name
 
 	## Registration / Submission Forms(s)
 		- Contributor 
@@ -87,7 +96,10 @@ A platform where we can curate and highlight problem statements shared by other 
 		- Community Member 
 			/community/signup/  
 		- Suggest A Problem Statement  
-			problem-statement/suggest/  
+			/problem-statement/suggest/  
+		- Event Signup 
+			/events/:event-name/signup 
+
 
 	## Admin Panel  
 			/admin
@@ -98,115 +110,7 @@ A platform where we can curate and highlight problem statements shared by other 
 			- Community Members Management (Candidates)
 		- Manage Projects
 
-------------------------------------------------------------------------------------------------------
-Tools For Change (TFC)
-------------------------------------------------------------------------------------------------------
 
-# Summary
-TFC in a generic application, which can be used by any organization (for-profit or non-profit) to engage the community and also raise money for their cause. This becomes a placeholder for adding any common tools that can be used by organizations like CTSC.
-
-# Goal(s)
-	- A way for orgnizations to seek volunteers and screen them
-	- Raise donation requests on organizations behalf
-
-# Domain Overview
-	# Organization
-	Organization is any governmental or non-governmental organization that can signup for an account on our platform and use our tools for change for their cause.
-
-	# Volunteer
-	Volunteer is any individual who is willing to contribute their time and skills towards their cause of choice by working closely with any organization
-
-	# Donation
-	Donation is money contribution towards any particular organizations cause or for core operations.
-
-# Feature Overview
-	- Organizations should be able to signup and login
-	- Organizations should be able to manage their own volunteer requrirements and volunteer registrations
-	- Organizations should be able to accept donations and review the same across their own specific needs
-	- That means organiztion(s) should be able to specify their needs, and people can select a need and select a comfortable amount that they can donate	
-	- We end our process by taking them to a page, where we are sending a request to the user for the donatoin amount on their upi app.
-
-# Application Overview
-	## Global Static Pages
-		- Home Page 
-			https://www.forchange.in/
-
-	## Gloabal Dynamic Pages
-		- Org List
-			https://www.forchange.in/orginizations
-			
-			- By cause etc. (Somethign like a Filter or a tag or a label) 
-				https://www.forchange.in/orginizations/{label}
-		
-		- Organization Registration
-			https://www.forchange.in/organizations/signup (Admin Member Details as well here)
-
-	# Organization Pages (Subdomain level)
-		- Org Home Page
-			https://factly.forchange.in
-
-		- Org Donation Request Page
-			https://factly.forchange.in/donate
-            https://factly.forchange.in/donate/thankyou
-
-		- Organization Login
-			https://factly.forchange.in/login
-
-		- Organization Volunteer Signup
-			https://factly.forchange.in/volunteer
-
-		- Volunteer Screning
-			https://factly.forchange.in/volunteer/screening/:screning_id
-
-	## Organization Dashboard (Private, Only when somebody is logged in)
-		- Org Dashboard
-			https://factly.forchangein/dashboard
-
-		- Org profile management
-			- Basic Profile
-			- UPI Details
-
-		- Team Management
-			- Member List page
-				https://factly.forchange.in/members
-			
-			- Organization Member Magement
-				https://factly.forchange.in/members/new
-				https://factly.forchange.in/members/:member_id/edit
-				
-				- Activate a member
-				https://factly.forchange.in/members/activate/:invitation_token
-					After activation we clear the invitation_token
-				
-				- Set password first time after activation, secon	
-				https://factly.forchange.in/members/:member_id/set_password
-
-		- Volunteer Management (Applications)
-			- List / Detail
-		
-		- Donation Intent Management (Donations)
-			- List / Detail / Metrics etc
-
-		- Donation Requests Raised
-		    - Mark it as full filled
-		    - Request to raise again
-
-	## Admin Panel
-		https://www.forchange.in/admin
-
-		- Organization Management
-			- Create an organization manually
-			- Metrics
-
-		- Member Management at orginzation level
-			List members
-				Members, activation status
-		
-		- Volunteer Management
-			- Metrics
-
-		- Donation Management
-			- Metrics
 
 ------------------------------------------------------------------------------------------------------
 Screening App

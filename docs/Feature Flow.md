@@ -33,40 +33,7 @@ Ex: www.hackforchange.in/mentor/signup
         1. Admin Panel Login
         2. Trigger/Create Screening From Admin Panel
 
-------------------------------------------------------------------------------------------------------
-TFC Flows
-------------------------------------------------------------------------------------------------------
 
-## Organization Signup Flow
-    -Organization Registration Form
-
-## Organization Login Flow
-
-    - Login Screen
-    - Dashboard
-
-## Organization Settings Flow
-    - Dasboard to Manage their profile
-    - Organization Should be able to setup their UPI ID
-
-## Member Creation / Invitation (This one is only on member invitation)
-
-## Member Invitation Flow
-    - 
-
-    Ex: Link
-    https://factly.hackforchange.in/member/activate/{auth_token}
-
-## Member Signup Flow (Through Invitation Link)
-    - Forms to register Member
-
-## Volunteer Requirement Management  
-    -Dashboard to manage volunteer requirement 
-
-## Volunteer Signup (This is a public signup)
-   Note: Send a thankyou note based on the template in the organization.
-
-## Donation Flow
 
 ------------------------------------------------------------------------------------------------------
 Screening Flows

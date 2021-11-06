@@ -58,8 +58,8 @@ HFC Modelling
     Status | String | status|  required | Possible Values: "Draft", "New / Open", "Work In Progress", "Resolved"  
     Issue Areas | String |issue_area | required | EX:"open gov","democracy"  
 
-## Partner Information | partners (TFC Orgs are submodels or TFC Orgs)
-    This is a subclass of TFC Organizations Ex: Factly / Foundation For Democratic Reforms
+## Partner Information | partners 
+    This is a subclass of  Organizations Ex: Factly / Foundation For Democratic Reforms
 
 ## Issue Area | Focus Area
     Issue Area | String | issue_area | required 
