@@ -41,7 +41,7 @@ class Events(models.Model):
         verbose_name_plural = "Events"
         ordering = ['-end_date']
     def update_registration(self):
-        if self.start_date.date() <= date.today() <= self.end_date.date():
+        if date.today() <= self.end_date.date():
             self.registration = "Registrations Open"
         else:
             self.registration = "Registrations Closed"
