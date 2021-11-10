@@ -75,7 +75,7 @@ INSTALLED_APPS = [
     
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 MIDDLEWARE = [
     'HFC.virtualhostmiddleware.VirtualHostMiddleware',
