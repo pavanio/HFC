@@ -384,7 +384,7 @@ ______________________*/
 	position: relative;
 }
 .main__large-pd{
-	padding: 110px 0 100px;
+	padding: 40px 0 100px;
 }
 .main{
 	display: -webkit-flex;
@@ -1817,7 +1817,7 @@ ______________________*/
 	}
 	
 	.main__large-pd{
-		padding: 80px 0 70px;
+		padding: 40px 0 70px;
 	}
 	#sidebar{
 		max-width: 250px;
@@ -2083,7 +2083,7 @@ ______________________*/
 	}
 	
 	.main__large-pd{
-		padding: 60px 0 70px;
+		padding: 40px 0 70px;
 	}
 	.main{
 		display: block;
