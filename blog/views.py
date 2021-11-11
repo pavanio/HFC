@@ -23,7 +23,7 @@ class BlogFeed(Feed):
     description = "Updates on the HFC Blog"
 
     def items(self):
-        return Post.objects.order_by('-created_on')[:5]
+        return Post.objects.filter(status = 'Published').order_by('-created_on')[:5]
 
     def item_title(self, item):
         return item.title
