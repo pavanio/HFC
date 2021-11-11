@@ -33,7 +33,7 @@ class Events(models.Model):
     email_confirmation = models.TextField(blank = True,null = True)
     registration = models.CharField(max_length = 200,blank=True)
     logo = models.ImageField(blank= True, null = True)
-    banner = models.ImageField(blank= True, null = True)
+    banner = models.ImageField(blank= True, null = True, help_text="Resolution 800 * 300")
     banner_color = models.CharField(choices = THEME, max_length = 10,default = 'Light')
 
     class Meta:
