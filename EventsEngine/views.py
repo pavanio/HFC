@@ -28,6 +28,21 @@ class EventDetailView(View):
         contributors = Community_Member.objects.filter(type='Contributor') 
         return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors})
 
+class EventFeed(Feed):
+    title = "HackForChange Event News"
+    link = "/events/latest/feed/"
+    description = "Updates on the HFC Events"
+
+    def items(self):
+        return Events.objects.filter(status = 'Published').order_by('-end_date')[:5]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.description
+
+
 class EventSignUpView(View):
     def get(self, request, title_slug):
         event = Events.objects.get(title_slug = title_slug)

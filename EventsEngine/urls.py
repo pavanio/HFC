@@ -1,5 +1,5 @@
 from django.urls import path
-#from .views import *
+from .views import *
 from EventsEngine import views
 from django.conf.urls import include
 from django.http import HttpResponse
@@ -12,6 +12,7 @@ handler500 = 'HFCCore.views.error_500'
 urlpatterns = [
     path('events/',views.EventList.as_view(),name='events'),
     path('events/<title_slug>',views.EventDetailView.as_view(),name = 'event_detail'),
+    path('events/latest/feed/',EventFeed(), name='event-feed'),
     path('events/<title_slug>/signup',views.EventSignUpView.as_view(),name = 'event_sign_up'),
 
 

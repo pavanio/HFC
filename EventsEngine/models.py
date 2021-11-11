@@ -47,6 +47,8 @@ class Events(models.Model):
             self.registration = "Registrations Closed"
     def __str__(self):
         return self.title
+    def get_absolute_url(self):
+        return reverse('event_detail', args=[self.title_slug])
 
 
 
