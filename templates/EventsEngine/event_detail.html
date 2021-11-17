@@ -25,6 +25,7 @@
             <div class="content-width sm-content-width">
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
+                    <p class="large">{{event.event_type}}</p>
                     <p class="large">
                             {% if event.event_type|stringformat:"s" == "Webinar" %}
                             {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
@@ -40,6 +41,7 @@
             <div class="content-width sm-content-width">
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
+                    <p class="large">{{event.event_type}}</p>
                     <p class="large">
                             {% if event.event_type|stringformat:"s" == "Webinar" %}
                             {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
@@ -56,6 +58,7 @@
             <div class="content-width sm-content-width">
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
+                    <p class="large">{{event.event_type}}</p>
                     <p class="large">
                             {% if event.event_type|stringformat:"s" == "Webinar" %}
                             {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"f A"}}
