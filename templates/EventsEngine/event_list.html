@@ -58,7 +58,7 @@
                             <div class="flex-item-bottom-middle-left">
                              <div ><strong>End </strong></div>
                             {% if events_list.event_type|stringformat:"s" == "Webinar" %}
-                            <div ><span >{{events_list.end_date|date:"f A"}}</span></div>
+                            <div ><span >{{events_list.end_date|date:"M jS, f A"}}</span></div>
                             {% else %}
                             <div ><span>{{events_list.end_date|date:"F jS, o"}}</span></div>
                             {% endif %}
