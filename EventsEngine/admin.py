@@ -8,7 +8,6 @@ from django_summernote.admin import SummernoteModelAdmin
 class Events_Admin(SummernoteModelAdmin):
 	list_display = ( 'title','title_slug', 'start_date', 'end_date', 'description', 'agenda','status','email_confirmation' , )
 	summernote_fields = ('description', 'agenda','email_confirmation')
-	readonly_fields = ('registration',)
     
 	class meta:
 		model = Events

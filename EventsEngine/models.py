@@ -32,7 +32,7 @@ class Events(models.Model):
     event_type = models.ForeignKey(EventType, null=True, on_delete=models.SET_NULL)
     email_confirmation = models.TextField(blank = True,null = True)
     registration = models.CharField(max_length = 200,blank=True)
-    logo = models.ImageField(blank= True, null = True)
+    icon = models.ImageField(blank= True, null = True, help_text="Resolution 84 * 84")
     banner = models.ImageField(blank= True, null = True, help_text="Resolution 1500 * 300")
     banner_color = models.CharField(choices = THEME, max_length = 10,default = 'Light')
 
