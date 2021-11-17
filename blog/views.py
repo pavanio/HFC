@@ -18,7 +18,7 @@ class PostDetail(generic.DetailView):
     slug_url_kwarg = 'title_slug'
 
 class BlogFeed(Feed):
-    title = "HackForChange Blog News"
+    title = "HackForChange News"
     link = "/blog/latest/feed/"
     description = "Updates on the HFC Blog"
 

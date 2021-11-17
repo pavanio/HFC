@@ -29,7 +29,7 @@ class EventDetailView(View):
         return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors})
 
 class EventFeed(Feed):
-    title = "HackForChange Event News"
+    title = "HackForChange Events"
     link = "/events/latest/feed/"
     description = "Updates on the HFC Events"
 
