@@ -27,6 +27,7 @@ class Events(models.Model):
     start_date = models.DateTimeField(blank = True,null = True)
     end_date = models.DateTimeField(blank = True,null = True)
     description = models.TextField(blank = True,null = True)
+    truncated_descripton = models.BooleanField(default=False)
     agenda = models.TextField(blank = True,null = True)
     status = models.CharField(choices = STATUS, max_length = 10,default = 'Draft')
     event_type = models.ForeignKey(EventType, null=True, on_delete=models.SET_NULL)
@@ -35,6 +36,7 @@ class Events(models.Model):
     icon = models.ImageField(blank= True, null = True, help_text="Resolution 84 * 84")
     banner = models.ImageField(blank= True, null = True, help_text="Resolution 1500 * 300")
     banner_color = models.CharField(choices = THEME, max_length = 10,default = 'Light')
+    keywords = models.TextField(default = 'Event')
 
     class Meta:
         verbose_name = "Event"

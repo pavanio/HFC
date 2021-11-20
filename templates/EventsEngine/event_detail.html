@@ -1,7 +1,7 @@
 {% extends 'HFC/layout.html' %}
 {% load static %}
 {% block meta_tags %}
-<meta content="" name="keywords">
+<meta  name="keywords" content="{{event.keywords}}">
 <meta property="og:title" content="{{event.title}}">
 <meta name="description" property="og:description" content="{{event.description|striptags|truncatewords:20 }}">
 <meta property="og:type" content="article">

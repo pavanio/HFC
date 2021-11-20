@@ -12,6 +12,7 @@
 {% block title %} Ongoing Events | Hack For Change {% endblock %}
 
 {% block main %}
+{% load paragraph_filter %}
 <!--Banner start -->
 <div class="banner-wrap">
     <div class="content-width sm-content-width">
@@ -43,8 +44,12 @@
                             {% endif %} 
                         </div>
                     </div>
-                </div> 
+                </div>
+                    {% if events_list.truncated_descripton|stringformat:"s" == "False" %}
                     <p>{{events_list.description|safe}}</p>
+                    {% else %}
+                    <p>{{events_list.description|low|safe}}</p>
+                    {% endif %} 
                     <div class="flex-container">
                         <div class="flex-item-bottom-left">
                             <div ><strong>Start </strong></div>
