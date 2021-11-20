@@ -27,7 +27,7 @@ class Events(models.Model):
     start_date = models.DateTimeField(blank = True,null = True)
     end_date = models.DateTimeField(blank = True,null = True)
     description = models.TextField(blank = True,null = True)
-    truncated_descripton = models.BooleanField(default=False)
+    truncated_description = models.BooleanField(default=False)
     agenda = models.TextField(blank = True,null = True)
     status = models.CharField(choices = STATUS, max_length = 10,default = 'Draft')
     event_type = models.ForeignKey(EventType, null=True, on_delete=models.SET_NULL)

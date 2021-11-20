@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-                    {% if events_list.truncated_descripton|stringformat:"s" == "False" %}
+                    {% if events_list.truncated_description|stringformat:"s" == "False" %}
                     <p>{{events_list.description|safe}}</p>
                     {% else %}
                     <p>{{events_list.description|low|safe}}</p>
