@@ -12,6 +12,12 @@ from django.apps import apps
 import requests
 from django.conf import settings
 
+import datetime
+from datetime import timedelta
+import pytz
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+
 from ScreeningApp.models import Candidate
 
 
@@ -29,3 +35,43 @@ def event_signup_mail(email,content,title):
     msg.content_subtype = "html"
     msg.send(fail_silently = True)
     print("Participant Welcome Mail sended successfully")
+
+def create_event(title,start_date,end_date,description):
+    service_account_email = "hfc-884@hfc-test-332904.iam.gserviceaccount.com"
+    SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
+
+    credentials = service_account.Credentials.from_service_account_file('google_calendar_credential.json')
+    scoped_credentials = credentials.with_scopes(SCOPES)
+
+
+    def build_service():
+        service = build("calendar", "v3", credentials=scoped_credentials)
+        return service
+
+
+    
+    service = build_service()
+
+    event = {
+    'summary': title,
+    'description': description,
+    'start': {
+        'dateTime': start_date.isoformat(),
+        'timeZone': 'Asia/Kolkata',
+    },
+    'end': {
+        'dateTime': end_date.isoformat(),
+        'timeZone': 'Asia/Kolkata',
+    },
+    'reminders': {
+        'useDefault': False,
+        'overrides': [
+        {'method': 'email', 'minutes': 24 * 60},
+        {'method': 'popup', 'minutes': 10},
+        ],
+    },
+    }
+
+    event = service.events().insert(calendarId='classroom111755921539691473656@group.calendar.google.com', body=event).execute()
+    print(event)
+    
