@@ -34,6 +34,7 @@ class Events(models.Model):
     status = models.CharField(choices = STATUS, max_length = 10,default = 'Draft')
     event_type = models.ForeignKey(EventType, null=True, on_delete=models.SET_NULL)
     email_confirmation = models.TextField(blank = True,null = True)
+    created_on = models.DateField(blank = True,null = True,default = datetime.date.today)
     registration = models.CharField(max_length = 200,blank=True)
     icon = models.ImageField(blank= True, null = True, help_text="Resolution 84 * 84")
     banner = models.ImageField(blank= True, null = True, help_text="Resolution 1500 * 300")

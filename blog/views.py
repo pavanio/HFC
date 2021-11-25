@@ -30,3 +30,5 @@ class BlogFeed(Feed):
 
     def item_description(self, item):
         return item.body
+    def item_pubdate(self, item):
+        return datetime.datetime.combine(item.created_on, datetime.time(10, 23))

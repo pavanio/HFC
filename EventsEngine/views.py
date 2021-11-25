@@ -41,6 +41,8 @@ class EventFeed(Feed):
 
     def item_description(self, item):
         return item.description
+    def item_pubdate(self, item):
+        return datetime.datetime.combine(item.created_on, datetime.time(10, 23))
 
 
 class EventSignUpView(View):
