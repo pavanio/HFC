@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from ScreeningApp.models import Candidate
 from .models import *
@@ -44,6 +44,12 @@ class EventFeed(Feed):
     def item_pubdate(self, item):
         return datetime.datetime.combine(item.created_on, datetime.time(10, 23))
 
+class EventSignUpExpiredView(View):
+    def get(self, request, title_slug):
+        event = Events.objects.get(title_slug = title_slug)
+        contributors = Community_Member.objects.filter(type='Contributor')
+
+        return render(request, 'EventsEngine/event_signup_expire.html', {'event':event,'contributors':contributors})
 
 class EventSignUpView(View):
     def get(self, request, title_slug):
@@ -52,7 +58,11 @@ class EventSignUpView(View):
         expertise_area_id = request.GET.get('profession')
         expertises = Expertise.objects.filter(category_of_expertise = expertise_area_id,is_published = 'True')
         form = Community_member_form()
-        return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises})
+        event.update_registration()
+        if event.registration == "Registrations Closed":
+            return redirect('event_expired',title_slug)
+        else:
+            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises})
     
     def post(self,request,title_slug):
         form = Chapter_contributor_form(request.POST)
