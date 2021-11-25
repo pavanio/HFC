@@ -12,6 +12,8 @@ from django.apps import apps
 import requests
 from django.conf import settings
 
+import os
+
 import datetime
 from datetime import timedelta
 import pytz
@@ -37,7 +39,7 @@ def event_signup_mail(email,content,title):
     print("Participant Welcome Mail sended successfully")
 
 def create_event(title,start_date,end_date,description):
-    service_account_email = "hfc-884@hfc-test-332904.iam.gserviceaccount.com"
+    service_account_email = os.environ.get('service_account_email')
     SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
 
     credentials = service_account.Credentials.from_service_account_file('google_calendar_credential.json')
@@ -72,6 +74,6 @@ def create_event(title,start_date,end_date,description):
     },
     }
 
-    event = service.events().insert(calendarId='classroom111755921539691473656@group.calendar.google.com', body=event).execute()
+    event = service.events().insert(calendarId=os.environ.get('calendarId'), body=event).execute()
     print(event)
     
