@@ -33,7 +33,7 @@ class PartnerAdmin(admin.ModelAdmin):
 		model = Partner
 
 class Problem_StatementAdmin(SummernoteModelAdmin):
-	list_display = ('problem_statement', 'overview', 'background_info', 'related_link','partner_id', 'status','issuearea','title_slug')
+	list_display = ('problem_statement', 'overview', 'background_info','proposed_solution', 'related_link','partner_id', 'status','issuearea','title_slug')
 	summernote_fields = ('overview', 'background_info', 'related_link','proposed_solution',)
 	class Meta:
 		model = Problem_Statement

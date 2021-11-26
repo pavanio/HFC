@@ -67,17 +67,16 @@ class Partner(Organization):
         verbose_name_plural = "Partners"
 
 class Problem_Statement(models.Model):
-    problem_statement = models.CharField(max_length = 500)
+    problem_statement = models.TextField()
     overview = models.TextField()
     background_info = models.TextField()
-    related_link = models.TextField()
-    name = models.TextField()
-    email = models.TextField()
-    phone_number = models.TextField()
-    about_yourself = models.TextField()
-    organisation = models.TextField(blank = True)
-
     proposed_solution = models.TextField(blank = True)
+    related_link = models.TextField()
+    name = models.CharField(max_length = 200,blank = True,verbose_name = 'Suggester Name')
+    email = models.EmailField(blank = True,verbose_name = 'Suggester Email')
+    phone_number = models.CharField(max_length = 200,blank = True,verbose_name = 'Suggester Phone Number')
+    about_yourself = models.TextField(blank = True,verbose_name = 'Comments From Suggestor')
+    organisation = models.CharField(max_length = 500,blank = True,verbose_name = 'Suggester Organisation')
     partner_id = models.ForeignKey(Partner, on_delete = models.CASCADE,blank = True,null = True)
     status = models.CharField(max_length = 100, choices = STATUS_CHOICES)
     title_slug = AutoSlugField(populate_from ='problem_statement')
