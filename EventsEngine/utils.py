@@ -74,6 +74,6 @@ def create_event(title,start_date,end_date,description):
     },
     }
 
-    #event = service.events().insert(calendarId=os.environ.get('calendarId'), body=event).execute()
+    event = service.events().insert(calendarId=os.environ.get('calendarId'), body=event).execute()
     print(event)
     
