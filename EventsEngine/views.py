@@ -47,9 +47,11 @@ class EventFeed(Feed):
 class EventSignUpExpiredView(View):
     def get(self, request, title_slug):
         event = Events.objects.get(title_slug = title_slug)
-        contributors = Community_Member.objects.filter(type='Contributor')
-
-        return render(request, 'EventsEngine/event_signup_expire.html', {'event':event,'contributors':contributors})
+        event.update_registration()
+        if event.registration == "Registrations Open":
+            return redirect('event_sign_up',title_slug)
+        else:
+            return render(request, 'EventsEngine/event_signup_expire.html', {'event':event})
 
 class EventSignUpView(View):
     def get(self, request, title_slug):
