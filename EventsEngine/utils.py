@@ -42,7 +42,7 @@ def create_event(title,start_date,end_date,description):
     service_account_email = os.environ.get('service_account_email')
     SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
 
-    credentials = service_account.Credentials.from_service_account_file('google_calendar_credential.json')
+    credentials = service_account.Credentials.from_service_account_file('google-credentials.json')
     scoped_credentials = credentials.with_scopes(SCOPES)
 
 
