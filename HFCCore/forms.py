@@ -111,7 +111,13 @@ class Problem_Statement_form(forms.ModelForm):
           'about_yourself':Textarea(attrs = {'rows':5,'cols':15}),
           
         }
-
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].required = True
+        self.fields['email'].required = True
+        self.fields['phone_number'].required = True
+        self.fields['about_yourself'].required = True
+        
 class Community_member_form(forms.ModelForm):
     field_order = ['name','email','contact_number','highest_education','city','linkedin_profile',
         'years_of_experience','profession','area_of_expertise']
