@@ -88,6 +88,7 @@ local_settings.py
 .env
 db.sqlite3
 .staticfiles/*
+google_calendar_credential.json
 ###Idea files ### 
 .idea/*
 
