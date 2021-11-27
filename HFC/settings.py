@@ -72,7 +72,7 @@ INSTALLED_APPS = [
     'blog',
     'django_summernote',
     'EventsEngine',
-    
+    'django.contrib.sitemaps'
 ]
 
 SITE_ID = 2
