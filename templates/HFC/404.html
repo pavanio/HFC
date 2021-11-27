@@ -11,17 +11,6 @@
 {% endblock %}
 {% block title %} Error | Hack For Change {% endblock %}
 {% block main %}
-<!--Banner start -->
-<div class="banner-wrap">
-    <div class="content-width sm-content-width">
-        <div class="banner__main banner__main--upper banner__main--community">
-            <h1></h1>
-            <p class="large"></p>
-        </div>
-    </div>
-</div>
-</div>
-<!--Banner end -->
 <!-- Main starts -->
 <div class="content-width">
         <div class="thanku-main">
@@ -29,8 +18,9 @@
                 <img src="{% static 'images/error.jpg' %}"> 
             </div>
             <div class="thanku-heading">
-               <h3>
-                The requested page is not found!!!</h3>
+               <h3 style="font-weight:500">
+                OOPS!! We couldnit find the requested page.</h3>
+                <h3 style="font-weight:500">Try searching or go to<a href="{% url 'home' %}" target="_blank">home page</a></h3>
            </div>
         </div>
     </div>
