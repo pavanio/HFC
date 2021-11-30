@@ -34,13 +34,13 @@
                     <div class="blog-single__content">
                         <p class="large sbold">Overview</p>
                         {% if project.project_overview %}
-                        <p style="text-align:justify;">{{project.project_overview}}</p>
+                        <p style="text-align:justify;">{{project.project_overview|safe}}</p>
                         {% else %}
                         <p>_</p>
                         {% endif %}
                         <p class="large sbold">Goal</p>
                         {% if project.goal %}
-                        <p style="text-align:justify;">{{project.goal}}</p>
+                        <p style="text-align:justify;">{{project.goal|safe}}</p>
                         {% else %}
                         <p>_</p>
                         {% endif %}
