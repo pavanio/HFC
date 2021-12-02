@@ -93,40 +93,24 @@
     <div class="content-width">
         <div class="main">
             <section id="contents">
-
             <div class="blog-single">
-
                 <div class="blog-single__content">      
                     <div class="flex-container">
                         <div class="flex-item-l-event-detail">
                             <div class=""><h4 >{{event.title |safe}}</h4></div><br>
                         </div>
                         <div class="flex-item-r-event-detail">
-
                             {% if event.registration == "Registrations Open" %}
-
                                 <div class="badge-sec" ><div  class="badge">{{event.event_type}}</div>&nbsp;<div  class="badge badge--yellow" style="background: rgba(0, 255, 0, 0.25);">{{event.registration}}</div>
-
                             {% else %}
-
                                 <div class="badge-sec" ><div  class="badge">{{event.event_type}}</div><div  class="badge badge--yellow" style="background: rgba(255, 0, 0, 0.25);">{{event.registration}}</div>
-
                             {% endif %}
-
-                        
-                            
                         </div>
                     </div>
-
                 </div>  
-
             </div>  
-            
             <div class="blog-single">
-
                 <div class="blog-single__content">
-
-                
                         {% if event.description %}
                           <p class="large sbold">Description</p>
                           <p style="text-align:justify;">{{event.description|safe}}</p>
@@ -134,10 +118,8 @@
                         {% if event.agenda %}
                           <p class="large sbold">Agenda</p>
                           <p style="text-align:justify;">{{event.agenda|safe}}</p>
-                        {% endif %}
-                          
+                        {% endif %}  
                     </div>  
-
                 </div>  
                 {% if "Registrations Open" == event.registration|stringformat:"s" %}
                 <a class="btn btn--info" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a>
