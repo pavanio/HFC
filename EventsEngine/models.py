@@ -40,9 +40,9 @@ class Events(models.Model):
     banner = models.ImageField(blank= True, null = True, help_text="Resolution 1500 * 300")
     banner_color = models.CharField(choices = THEME, max_length = 10,default = 'Light')
     keywords = models.TextField(default = 'Event')
-    def save(self, *args, **kwargs):
+    """def save(self, *args, **kwargs):
         create_event(self.title, self.start_date, self.end_date,self.description)
-        super(Events, self).save(*args, **kwargs)
+        super(Events, self).save(*args, **kwargs)"""
 
     class Meta:
         verbose_name = "Event"
