@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.contrib import admin
 from .sitemap import  *
 from django.contrib.sitemaps.views import sitemap
+from EventsEngine.views import *
 #from .feeds import LatestBlogEntries
 handler404 = 'HFCCore.views.error_404'
 handler500 = 'HFCCore.views.error_500'
@@ -56,6 +57,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('core-team/join/',views.JobView.as_view(),name = 'job'),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name='sitemap'),
+    path('accounts/', include('allauth.urls')),
+    path('ouath/',views.google_response,name ='google-response'),
+    path('google-signup/',views.google_login,name ='google_login'),
+    path('google-callback/',views.google_authenticate,name ='google_callback')
+
+    
 
     
 ]

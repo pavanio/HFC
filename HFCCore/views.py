@@ -22,6 +22,9 @@ from django.urls import reverse_lazy
 from blog.models import Post
 from EventsEngine.models import Events
 from collections import defaultdict
+import urllib
+import json
+import httplib2
 headers = {
     'Accept': 'application/vnd.github.v3+json',
 }
@@ -420,6 +423,46 @@ class JobView(View):
                 print('Error in sending email screening link to job applicant')
             return render(request, 'HFC/job_application_thanks.html')
     
+def google_response(request):
+    print("Authorized")
+    return redirect('home')
 
+def google_login(request):
+    token_request_uri = "https://accounts.google.com/o/oauth2/auth/oauthchooseaccount"
+    response_type = "code"
+    client_id = '610456543041-gt54kqps5gth85q2ksk3cusa14t9lnq9.apps.googleusercontent.com'
+    redirect_uri = 'http://dev.hackforchange.co.in:8000/google-callback/'
+    #redirect_uri = "{% url 'event-thank-you' %}"
+    scope = "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
+    url = "{token_request_uri}?response_type={response_type}&client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}".format(
+        token_request_uri = token_request_uri,
+        response_type = response_type,
+        client_id = client_id,
+        redirect_uri = redirect_uri,
+        scope = scope)
+    return redirect(url)
 
+def google_authenticate(request):
+    parser = httplib2.Http()
+    login_failed_url = '/'
+    if 'error' in request.GET or 'code' not in request.GET:
+        return redirect('{loginfailed}'.format(loginfailed = login_failed_url))
 
+    access_token_uri = 'https://accounts.google.com/o/oauth2/token'
+    redirect_uri = 'http://dev.hackforchange.co.in:8000/google-callback/'
+    params = urllib.parse.urlencode({
+        'code':request.GET['code'],
+        'redirect_uri':redirect_uri,
+        'client_id':'610456543041-gt54kqps5gth85q2ksk3cusa14t9lnq9.apps.googleusercontent.com',
+        'client_secret':'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',
+        'grant_type':'authorization_code'
+    })
+    headers={'content-type':'application/x-www-form-urlencoded'}
+    resp, content = parser.request(access_token_uri, method = 'POST', body = params, headers = headers)
+    token_data = json.loads(content)
+    resp, content = parser.request("https://www.googleapis.com/oauth2/v1/userinfo?access_token={accessToken}".format(accessToken=token_data['access_token']))
+    google_profile = json.loads(content)
+    print(google_profile['name'])
+    print(google_profile['email'])
+    return redirect('sitemap')
+    

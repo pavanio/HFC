@@ -189,7 +189,7 @@
     });
     $("#id_profession").change(function () {
         var url = $("#volform").attr("sub-change-url");
-        console.log(url)
+        //console.log(url)
         var expertise_area_id = $(this).val();
         $.ajax({
             url: url,
@@ -198,7 +198,7 @@
             },
             success: function (data) {
                 $("#id_area_of_expertise").html(data);
-                console.log(data)
+                //console.log(data)
             }
         });
     });
@@ -234,5 +234,12 @@
     
     } }
 
+
+    var name = localStorage.getItem("name");
+    var email = localStorage.getItem("email");
+    console.log(name);
+    console.log(email);
+    document.getElementById("id_name").value = name;
+    document.getElementById("id_email").value = email;
 </script>
 {% endblock %}

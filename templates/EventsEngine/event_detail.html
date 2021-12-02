@@ -1,6 +1,7 @@
 {% extends 'HFC/layout.html' %}
 {% load static %}
 {% block meta_tags %}
+{% load socialaccount %}
 <meta  name="keywords" content="{{event.keywords}}">
 <meta property="og:title" content="{{event.title}}">
 <meta name="description" property="og:description" content="{{event.description|striptags|truncatewords:20 }}">
@@ -10,6 +11,7 @@
 {% else %}
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 {% endif %}
+<meta name="google-signin-client_id" content="610456543041-gt54kqps5gth85q2ksk3cusa14t9lnq9.apps.googleusercontent.com">
 <style>
 
 
@@ -123,9 +125,12 @@
 
                 </div>  
                 {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                <a class="btn btn--info" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a>
+                
+                <a class="btn btn--info " id ="eventsignup" href="{% url 'google_login' %}" data-onsuccess="Google_signIn" sub-change-url="{% url 'event_sign_up' event.title_slug  %}" check-url ="{% url 'member_exist' %}">Signup for event</a>
+                
+                <!----  <div class="g-signin2" data-onsuccess="Google_signIn" data-color="red"></div>-->
                 {% else %}
-                <a class="btn btn--info disabled" href="{% url 'event_sign_up' event.title_slug  %}" style="pointer-events: none; background: #8c8d8f";>Signup for event</a>
+                <a class="btn btn--info disabled" href="{% url 'event_sign_up' event.title_slug  %}" style="pointer-events: none; background: #8c8d8f"; >Signup for event</a>
                 {% endif %}
             <br><br>
             </section>
@@ -170,8 +175,60 @@
 
 {% block js %}
 
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 <script>
-   
 
+
+
+  
+function Google_signIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('Name: ' + profile.getName());
+        console.log('Email: ' + profile.getEmail());
+        var url = $("#eventsignup").attr("sub-change-url");
+        var url2 = $("#eventsignup").attr("check-url");
+        var url3 = "{% url 'event-thank-you' %}";
+
+        /*sessionStorage.setItem("email", profile.getEmail().toString());*/
+        localStorage.setItem("email", profile.getEmail().toString());
+        localStorage.setItem("name", profile.getName().toString());
+        /*sessionStorage.setItem("loggedUser_name", profile.getName().toString());*/
+        //document.location.href = url;
+       
+        
+        $.ajax({
+            url: url2,
+            data: {
+                'email': profile.getEmail()
+            },
+            success: function (data) {
+                console.log(data);
+                if (data == 'True'){
+                    document.location.href = url3;
+
+                }
+                else{
+                    document.location.href = url;
+                }
+                
+            }
+        });
+
+    }
+function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure,
+        'text':'register'
+      });
+    }
 </script>
+  
+
+
 {% endblock %}

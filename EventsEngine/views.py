@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.http import HttpResponse
 from ScreeningApp.models import Candidate
 from .models import *
 from HFCCore.forms import Community_member_form,Chapter_contributor_form
@@ -64,6 +64,7 @@ class EventSignUpView(View):
         if event.registration == "Registrations Closed":
             return redirect('event_expired',title_slug)
         else:
+            print(form)
             return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises})
     
     def post(self,request,title_slug):
@@ -107,3 +108,25 @@ class EventSignUpView(View):
             except:
                 print('Error in sending internal email for event signup')
             return render(request, 'EventsEngine/event_signup_thanks.html', {'event':event})
+
+def member_exist(request):
+    email = request.GET.get('email')
+    try:
+        user = Community_Member.objects.filter(email = email).exists()
+        user_exist = True
+        print( user_exist)
+
+    except:
+        user_exist = False
+        print( user_exist)
+    return HttpResponse(user_exist)
+
+def event_signup_thanks(request):
+    return render(request, 'EventsEngine/event_signup_thanks.html')
+
+
+
+
+
+
+
