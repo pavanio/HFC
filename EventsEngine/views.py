@@ -56,10 +56,6 @@ class EventSignUpExpiredView(View):
 
 class EventSignUpView(View):
     def get(self, request, title_slug):
-        if 'name' and 'email' in request.session:
-            name = request.session['name']
-            email = request.session['email']
-            print('name:',name)
         event = Events.objects.get(title_slug = title_slug)
         contributors = Community_Member.objects.filter(type='Contributor')
         expertise_area_id = request.GET.get('profession')

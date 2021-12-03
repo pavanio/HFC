@@ -475,6 +475,6 @@ def google_authenticate(request):
     else:
         request.session['name'] = google_profile['name']
         request.session['email'] = google_profile['email']
-        return redirect('event_sign_up',title_slug = event)
+        return redirect('event_google_sign_up',title_slug = event)
         
     
