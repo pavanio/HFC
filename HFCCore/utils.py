@@ -79,3 +79,7 @@ def job_screeninglink_mail(email):
     msg.content_subtype = "html"
     msg.send(fail_silently = True)
     print("job screening email sended successfully")
+
+def check_member_exists(email):
+    user = Community_Member.objects.filter(email = email).exists()
+    print(user)

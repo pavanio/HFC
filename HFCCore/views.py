@@ -16,7 +16,7 @@ from .models import Problem_Statement, Partner, Project, Community_Organization,
 from django.apps import apps
 import requests
 import operator
-from .utils import SendSubscribeMail,mentor_signup_mail,community_member_signup_mail,job_screeninglink_mail
+from .utils import SendSubscribeMail,mentor_signup_mail,community_member_signup_mail,job_screeninglink_mail,check_member_exists
 from django.views.generic.edit import FormView 
 from django.urls import reverse_lazy
 from blog.models import Post
@@ -427,7 +427,8 @@ def google_response(request):
     print("Authorized")
     return redirect('home')
 
-def google_login(request):
+def google_login(request,title_slug):
+    request.session['event'] = title_slug
     token_request_uri = "https://accounts.google.com/o/oauth2/auth/oauthchooseaccount"
     response_type = "code"
     client_id = '610456543041-gt54kqps5gth85q2ksk3cusa14t9lnq9.apps.googleusercontent.com'
@@ -439,15 +440,18 @@ def google_login(request):
         response_type = response_type,
         client_id = client_id,
         redirect_uri = redirect_uri,
-        scope = scope)
+        scope = scope,
+       )
     return redirect(url)
 
 def google_authenticate(request):
+    if 'event' in request.session:
+        event = request.session['event']
+        #print(event)
     parser = httplib2.Http()
     login_failed_url = '/'
     if 'error' in request.GET or 'code' not in request.GET:
         return redirect('{loginfailed}'.format(loginfailed = login_failed_url))
-
     access_token_uri = 'https://accounts.google.com/o/oauth2/token'
     redirect_uri = 'http://dev.hackforchange.co.in:8000/google-callback/'
     params = urllib.parse.urlencode({
@@ -464,5 +468,13 @@ def google_authenticate(request):
     google_profile = json.loads(content)
     print(google_profile['name'])
     print(google_profile['email'])
-    return redirect('sitemap')
+    user = Community_Member.objects.filter(email = google_profile['email']).exists()
+    print(user)
+    if user == True:
+        return redirect('event-thank-you')  
+    else:
+        request.session['name'] = google_profile['name']
+        request.session['email'] = google_profile['email']
+        return redirect('event_sign_up',title_slug = event)
+        
     

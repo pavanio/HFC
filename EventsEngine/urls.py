@@ -16,7 +16,8 @@ urlpatterns = [
     path('events/latest/feed/',EventFeed(), name='event-feed'),
     path('events/<title_slug>/signup',views.EventSignUpView.as_view(),name = 'event_sign_up'),
     path('events/verify-user/',views.member_exist,name='member_exist'),
-    path('events/thank-you/',views.event_signup_thanks,name='event-thank-you')
+    path('events/thank-you/',views.event_signup_thanks,name='event-thank-you'),
+    #path('events/<title_slug>/google-signup',views.EventSignUpView.as_view(),name = 'event_sign_up'),
 
 
 ]

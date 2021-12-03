@@ -11,16 +11,14 @@ from django.core.mail import send_mail,EmailMessage
 from django.apps import apps
 import requests
 from django.conf import settings
-
 import os
-
 import datetime
 from datetime import timedelta
 import pytz
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-
 from ScreeningApp.models import Candidate
+from HFCCore.models import Community_Member
 
 
 def event_signup_mail(email,content,title):
@@ -77,3 +75,16 @@ def create_event(title,start_date,end_date,description):
     event = service.events().insert(calendarId=os.environ.get('calendarId'), body=event).execute()
     print(event)
     
+def event_email_internal(email):
+    try:
+        contributor = Community_Member.objects.get(email = email)
+        html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
+        to_list=['team@hackforchange.co.in',]
+        headers = {'Reply-To': email}
+        print("working")
+        msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,headers=headers)
+        msg.content_subtype = "html"
+        msg.send(fail_silently = True)
+        print("Event Signup details internal email sended successfully")
+    except:
+        print('Error in sending internal email for event signup')
