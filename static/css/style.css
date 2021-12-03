@@ -108,6 +108,17 @@ a:hover{}
 	color: #fff;
 	background: #FFBE55;
 }
+.btn.btn--event{
+	border: 1px solid #FFBE55;
+	background:#FFBE55;
+	color:  #fff;
+	line-height: 38px;
+	box-shadow: none;
+}
+.btn.btn--event:hover{
+	color: #fff;
+	background: #FFBE30;
+}
 
 
 
