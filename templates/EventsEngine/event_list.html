@@ -53,7 +53,7 @@
                     <div class="flex-container">
                         <div class="flex-item-bottom-left">
                             <div ><strong>Start </strong></div>
-                            {% if events_list.event_type|stringformat:"s" == "Webinar" %}
+                            {% if events_list.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
                             <div ><span >{{events_list.start_date|date:"M jS, f A"}}  </span></div>
                             {% else %}
                             <div ><span >{{events_list.start_date|date:"F jS, o"}}</span></div>
@@ -62,7 +62,7 @@
                         </div>
                             <div class="flex-item-bottom-middle-left">
                              <div ><strong>End </strong></div>
-                            {% if events_list.event_type|stringformat:"s" == "Webinar" %}
+                            {% if events_list.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
                             <div ><span >{{events_list.end_date|date:"M jS, f A"}}</span></div>
                             {% else %}
                             <div ><span>{{events_list.end_date|date:"F jS, o"}}</span></div>

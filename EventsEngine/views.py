@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-
 from ScreeningApp.models import Candidate
 from .models import *
 from HFCCore.forms import Community_member_form,Chapter_contributor_form

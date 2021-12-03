@@ -27,16 +27,14 @@
                     <h1>{{event.title}}</h1>
                     <p class="large">{{event.event_type}}</p>
                     <p class="large">
-                            {% if event.event_type|stringformat:"s" == "Webinar" %}
+                            {% if event.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
                             {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"F jS, f A"}}
                             {% else %}
                             {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                     <a class="btn btn--hfc" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a>
-                    {% else %}
-                    <a class="btn btn--hfc disabled" href="{% url 'event_sign_up' event.title_slug  %}" style="pointer-events: none; background: #8c8d8f";>Signup for event</a>
+                     <a class="btn btn--event" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a>
                     {% endif %}
                 
                 </div>
@@ -49,18 +47,15 @@
                     <h1>{{event.title}}</h1>
                     <p class="large">{{event.event_type}}</p>
                     <p class="large">
-                            {% if event.event_type|stringformat:"s" == "Webinar" %}
-                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"F jS, f A"}}
+                            {% if event.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
+                            {{event.start_date|date:"F jS, f:i A"}} - {{event.end_date|date:" f:i A"}}
                             {% else %}
                             {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                     <a class="btn btn--hfc" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a>
-                    {% else %}
-                    <a class="btn btn--hfc disabled" href="{% url 'event_sign_up' event.title_slug  %}" style="pointer-events: none; background: #8c8d8f";>Signup for event</a>
-                    {% endif %}
-               
+                     <a class="btn btn--event" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a>
+                     {% endif %}
                 </div>
             </div>
         </div>
@@ -72,16 +67,14 @@
                     <h1>{{event.title}}</h1>
                     <p class="large">{{event.event_type}}</p>
                     <p class="large">
-                            {% if event.event_type|stringformat:"s" == "Webinar" %}
+                            {% if event.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
                             {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"F jS, f A"}}
                             {% else %}
                             {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                     <p><a class="btn btn--hfc" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a></p>
-                    {% else %}
-                    <a class="btn btn--hfc disabled" href="{% url 'event_sign_up' event.title_slug  %}" style="pointer-events: none; background: #8c8d8f";>Signup for event</a>
+                     <p><a class="btn btn--event" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a></p>
                     {% endif %}
                 </div>
             </div>
