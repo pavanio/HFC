@@ -15,12 +15,11 @@
 <div class="content-width">
         <div class="thanku-main">
             <div class="thanku-main-img">
-                <img src="{% static 'images/fail.jpg' %}"> 
+                <img src="{% static 'images/error_image.svg' %}"> 
             </div>
             <div class="thanku-heading">
-               <h3 style="font-weight:500">
-                OOPS!! We couldn't find the requested page.</h3>
-                <h3 style="font-weight:500">Try searching or go to <a href="{% url 'home' %}" >home page</a></h3>
+                <br>
+                <a class="btn btn--info" href="{% url 'home' %}">Home Page</a>
            </div>
         </div>
     </div>

@@ -39,7 +39,7 @@
                         <p style="text-align:justify;">{{problem.background_info|safe}}</p>
                         <p class="large sbold">Related Links</p>
                         {% if problem.related_link %}
-                        <p><a href={{problem.related_link}} >{{problem.related_link}}</a></p>
+                        <p><a href={{problem.related_link}} >{{problem.related_link|safe}}</a></p>
                         {% else %}
                         <p>_</p>
                         {% endif %}
