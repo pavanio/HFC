@@ -470,11 +470,11 @@ def google_authenticate(request):
     print(google_profile['email'])
     user = Community_Member.objects.filter(email = google_profile['email']).exists()
     print(user)
+    request.session['name'] = google_profile['name']
+    request.session['email'] = google_profile['email']
     if user == True:
         return redirect('event-thank-you')  
     else:
-        request.session['name'] = google_profile['name']
-        request.session['email'] = google_profile['email']
         return redirect('event_google_sign_up',title_slug = event)
         
     

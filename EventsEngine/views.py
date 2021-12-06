@@ -66,7 +66,7 @@ class EventSignUpView(View):
             return redirect('event_expired',title_slug)
         else:
             #print(form)
-            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises,'name':name,'email':email})
+            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises})
             
         
     
@@ -112,35 +112,23 @@ class EventSignUpView(View):
                 print('Error in sending internal email for event signup')
             return render(request, 'EventsEngine/event_signup_thanks.html', {'event':event})
 
-def member_exist(request):
-    email = request.GET.get('email')
-    try:
-        user = Community_Member.objects.filter(email = email).exists()
-        user_exist = True
-        print( user_exist)
-
-    except:
-        user_exist = False
-        print( user_exist)
-    return HttpResponse(user_exist)
-
 def event_signup_thanks(request):
     if 'event' in request.session:
         event_title = request.session['event']
         #del request.session['event']
         print(event_title)
-        event = Events.objects.get(title_slug = event_title)
+        event_obj = Events.objects.get(title_slug = event_title)
     if 'email' in request.session:
         email = request.session['email']
         try:
-            event_email_internal(email)
+            event_email_internal(email,event_obj)
         except:
             print("Error in sending Event recurring signup internal email")
         try:
-            event_signup_mail(email,event.email_confirmation,event.title)
+            event_signup_mail(email,event_obj.email_confirmation,event_obj.title)
         except:
             print("error in sending email to recurring event participants")
-    return render(request, 'EventsEngine/event_signup_thanks.html',{'event':event})
+    return render(request, 'EventsEngine/event_signup_thanks.html',{'event':event_obj})
 
 class EventSignupWithGoogle(View):
     def get(self,request,title_slug):
@@ -156,11 +144,8 @@ class EventSignupWithGoogle(View):
         if event.registration == "Registrations Closed":
             return redirect('event_expired',title_slug)
         else:
-            #print(form)
-            if name and email:
-                return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises,'name':name,'email':email})
-            else:
-                return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises})
+            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises,'name':name,'email':email})
+           
            
     def post(self,request,title_slug):
         form = Chapter_contributor_form(request.POST)

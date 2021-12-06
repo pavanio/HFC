@@ -87,31 +87,17 @@
                             <div class=""><h4 >{{event.title |safe}}</h4></div><br>
                         </div>
                         <div class="flex-item-r-event-detail">
-
                             {% if event.registration == "Registrations Open" %}
-
                                 <div class="badge-sec" ><div  class="badge">{{event.event_type}}</div>&nbsp;<div  class="badge badge--yellow" style="background: rgba(0, 255, 0, 0.25);">{{event.registration}}</div>
-
                             {% else %}
-
                                 <div class="badge-sec" ><div  class="badge">{{event.event_type}}</div><div  class="badge badge--yellow" style="background: rgba(255, 0, 0, 0.25);">{{event.registration}}</div>
-
-                            {% endif %}
-
-                        
-                            
+                            {% endif %}    
                         </div>
                     </div>
-
                 </div>  
-
             </div>  
-            
             <div class="blog-single">
-
                 <div class="blog-single__content">
-
-                
                         {% if event.description %}
                           <p class="large sbold">Description</p>
                           <p style="text-align:justify;">{{event.description|safe}}</p>
@@ -119,17 +105,12 @@
                         {% if event.agenda %}
                           <p class="large sbold">Agenda</p>
                           <p style="text-align:justify;">{{event.agenda|safe}}</p>
-                        {% endif %}
-                          
-                    </div>  
-
+                        {% endif %}    
+                    </div>
                 </div>  
                 {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                
-                <a class="btn btn--info " id ="eventsignup" href="{% url 'event_sign_up' event.title_slug %}" data-onsuccess="Google_signIn" sub-change-url="{% url 'event_sign_up' event.title_slug  %}" check-url ="{% url 'member_exist' %}">Signup for event</a>
+                <a class="btn btn--info " id ="eventsignup" href="{% url 'event_sign_up' event.title_slug %}" >Signup for event</a>
                 <a class="btn btn--info " id ="eventsignup" href="{% url 'google_login' event.title_slug %}" >Signup with Google</a>
-                
-                <!----  <div class="g-signin2" data-onsuccess="Google_signIn" data-color="red"></div>-->
                 {% else %}
                 <a class="btn btn--info disabled" href="{% url 'event_sign_up' event.title_slug  %}" style="pointer-events: none; background: #8c8d8f"; >Signup for event</a>
                 {% endif %}
@@ -176,58 +157,9 @@
 
 {% block js %}
 
-<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 <script>
 
-
-
-  
-function Google_signIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log('Name: ' + profile.getName());
-        console.log('Email: ' + profile.getEmail());
-        var url = $("#eventsignup").attr("sub-change-url");
-        var url2 = $("#eventsignup").attr("check-url");
-        var url3 = "{% url 'event-thank-you' %}";
-
-        /*sessionStorage.setItem("email", profile.getEmail().toString());*/
-        localStorage.setItem("email", profile.getEmail().toString());
-        localStorage.setItem("name", profile.getName().toString());
-        /*sessionStorage.setItem("loggedUser_name", profile.getName().toString());*/
-        //document.location.href = url;
-       
-        
-        $.ajax({
-            url: url2,
-            data: {
-                'email': profile.getEmail()
-            },
-            success: function (data) {
-                console.log(data);
-                if (data == 'True'){
-                    document.location.href = url3;
-
-                }
-                else{
-                    document.location.href = url;
-                }
-                
-            }
-        });
-
-    }
-function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure,
-        'text':'register'
-      });
-    }
 </script>
   
 

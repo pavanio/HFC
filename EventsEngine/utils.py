@@ -75,7 +75,7 @@ def create_event(title,start_date,end_date,description):
     event = service.events().insert(calendarId=os.environ.get('calendarId'), body=event).execute()
     print(event)
     
-def event_email_internal(email):
+def event_email_internal(email,event):
     try:
         contributor = Community_Member.objects.get(email = email)
         html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
