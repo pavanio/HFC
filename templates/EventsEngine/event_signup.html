@@ -25,6 +25,9 @@
                             {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
                             {% endif %}
                     </p>
+                    {% if "Registrations Open" == event.registration|stringformat:"s" %}
+                    <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                   {% endif %}
                 </div>
             </div>
         </div>
@@ -40,6 +43,9 @@
                             {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
                             {% endif %}
                     </p>
+                    {% if "Registrations Open" == event.registration|stringformat:"s" %}
+                    <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                   {% endif %}
                 </div>
             </div>
         </div>
@@ -56,6 +62,9 @@
                             {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
                             {% endif %}
                     </p>
+                    {% if "Registrations Open" == event.registration|stringformat:"s" %}
+                    <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                   {% endif %}
                 </div>
             </div>
         </div>
@@ -79,7 +88,7 @@
                         <div class="form-field">
                             <label for="">Full Name</label>
                             {% if name %}
-                            <input type="text" name="name" maxlength="500" value = "{{name}}" required id="id_name" readonly>
+                            <input type="text" name="name" maxlength="500" value = "{{name}}" required id="id_name" readonly style ="background-color:#d1d1d1;">
                             {% else %}
                             {{form.name}}
                             {% endif %}
@@ -87,7 +96,7 @@
                         <div class="form-field">
                             <label for="">Email</label>
                             {% if email %}
-                            <input type="email" name="email" maxlength="254" value = {{email}} required id="id_email" readonly>
+                            <input type="email" name="email" maxlength="254" value = {{email}} required id="id_email" readonly style ="background-color:#d1d1d1;">
                             {%else%}
                             {{form.email}}
                             {% endif %}

@@ -114,10 +114,10 @@
                     </div>  
                 </div>  
                 {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                <a class="btn btn--info " id ="eventsignup" href="{% url 'event_sign_up' event.title_slug %}" >Signup for event</a>
+                <a class="btn btn--info " id ="eventsignup" href="{% url 'event_sign_up' event.title_slug %}" >Signup with Email</a>
                 <a class="btn btn--info " id ="eventsignup" href="{% url 'google_login' event.title_slug %}" >Signup with Google</a>
                 {% else %}
-                <a class="btn btn--disabled" href="{% url 'event_sign_up' event.title_slug  %}" >Signup for event</a>
+                <a class="btn btn--disabled" href="{% url 'event_sign_up' event.title_slug  %}" >Signup with Email</a>
                 <a class="btn btn--disabled " id ="eventsignup" href="{% url 'google_login' event.title_slug %}" >Signup with Google</a>
                 {% endif %}
             <br><br>

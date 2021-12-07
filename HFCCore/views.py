@@ -25,6 +25,7 @@ from collections import defaultdict
 import urllib
 import json
 import httplib2
+import os
 headers = {
     'Accept': 'application/vnd.github.v3+json',
 }
@@ -431,8 +432,8 @@ def google_login(request,title_slug):
     request.session['event'] = title_slug
     token_request_uri = "https://accounts.google.com/o/oauth2/auth/oauthchooseaccount"
     response_type = "code"
-    client_id = '610456543041-gt54kqps5gth85q2ksk3cusa14t9lnq9.apps.googleusercontent.com'
-    redirect_uri = 'http://dev.hackforchange.co.in:8000/google-callback/'
+    client_id = settings.CLIENT_ID
+    redirect_uri = settings.REDIRECT_URI
     #redirect_uri = "{% url 'event-thank-you' %}"
     scope = "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
     url = "{token_request_uri}?response_type={response_type}&client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}".format(
@@ -453,12 +454,12 @@ def google_authenticate(request):
     if 'error' in request.GET or 'code' not in request.GET:
         return redirect('{loginfailed}'.format(loginfailed = login_failed_url))
     access_token_uri = 'https://accounts.google.com/o/oauth2/token'
-    redirect_uri = 'http://dev.hackforchange.co.in:8000/google-callback/'
+    redirect_uri = settings.REDIRECT_URI
     params = urllib.parse.urlencode({
         'code':request.GET['code'],
         'redirect_uri':redirect_uri,
-        'client_id':'610456543041-gt54kqps5gth85q2ksk3cusa14t9lnq9.apps.googleusercontent.com',
-        'client_secret':'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',
+        'client_id':settings.CLIENT_ID,
+        'client_secret':settings.CLIENT_SECRET,
         'grant_type':'authorization_code'
     })
     headers={'content-type':'application/x-www-form-urlencoded'}
