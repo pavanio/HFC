@@ -27,9 +27,9 @@
                     <h1>{{event.title}}</h1>
                     <p class="large">
                             {% if event.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
-                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"F jS, f A"}}
+                            {{event.start_date|date:"F jS, f:i A"}} - {{event.end_date|date:"f:i A"}}
                             {% else %}
-                            {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
+                            {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
@@ -46,9 +46,9 @@
                     <h1>{{event.title}}</h1>
                     <p class="large">
                             {% if event.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
-                            {{event.start_date|date:"F jS, f:i A"}} - {{event.end_date|date:" f:i A"}}
+                            {{event.start_date|date:"F jS, f:i A"}} - {{event.end_date|date:"f:i A"}}
                             {% else %}
-                            {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
+                            {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
@@ -65,9 +65,9 @@
                     <h1>{{event.title}}</h1>
                     <p class="large">
                             {% if event.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
-                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"F jS, f A"}}
+                            {{event.start_date|date:"F jS, f:i A"}} - {{event.end_date|date:"f:i A"}}
                             {% else %}
-                            {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
+                            {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
