@@ -19,10 +19,10 @@
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
                     <p class="large">
-                            {% if event.event_type|stringformat:"s" == "Webinar" %}
-                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"F jS, f A"}}
+                            {% if event.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
+                            {{event.start_date|date:"F jS, f:i A"}} - {{event.end_date|date:"f:i A"}}
                             {% else %}
-                            {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
+                            {{event.start_date|date:"F jS, o"}} - {{event.end_date|date:"F jS, o"}}
                             {% endif %}
                     </p>
                 </div>
@@ -34,8 +34,8 @@
                 <div class="banner__main">
                     <h1>{{event.title}}</h1>
                     <p class="large">
-                            {% if event.event_type|stringformat:"s" == "Webinar" %}
-                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"F jS, f A"}}
+                            {% if event.event_type|stringformat:"s" == "Webinar" or "Workshop" %}
+                            {{event.start_date|date:"F jS, f:i A"}} - {{event.end_date|date:"f:i A"}}
                             {% else %}
                             {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
                             {% endif %}
@@ -51,7 +51,7 @@
                     <h1>{{event.title}}</h1>
                     <p class="large">
                             {% if event.event_type|stringformat:"i" == Webinar|stringformat:"i" %}
-                            {{event.start_date|date:"F jS, f A"}} - {{event.end_date|date:"F jS, f A"}}
+                            {{event.start_date|date:"F jS, f:i A"}} - {{event.end_date|date:"f:i A"}}
                             {% else %}
                             {{event.start_date|date:"F j, o"}} - {{event.end_date|date:"F j, o"}}
                             {% endif %}
