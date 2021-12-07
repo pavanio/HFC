@@ -193,6 +193,7 @@ CELERY_IMPORTS = (
     
 )
 ADMIN_LINK = os.environ.get('ADMIN_LINK')
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
