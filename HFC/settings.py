@@ -194,6 +194,14 @@ CELERY_IMPORTS = (
 )
 ADMIN_LINK = os.environ.get('ADMIN_LINK')
 
+#Google credential
+#client_id 
+CLIENT_ID = os.environ.get('CLIENT_ID')
+#redirect_uri
+REDIRECT_URI = os.environ.get('REDIRECT_URI')
+#client_secret
+CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 

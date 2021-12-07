@@ -35,7 +35,7 @@
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                     <a class="btn btn--event" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a>
+                     <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
                     {% endif %}
                 
                 </div>
@@ -54,7 +54,8 @@
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                     <a class="btn btn--event" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a>
+                     <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                     
                      {% endif %}
                 </div>
             </div>
@@ -73,7 +74,8 @@
                             {% endif %}
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
-                     <p><a class="btn btn--event" href="{% url 'event_sign_up' event.title_slug  %}">Signup for event</a></p>
+                     <p><a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a></p>
+                     
                     {% endif %}
                 </div>
             </div>
