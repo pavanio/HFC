@@ -84,11 +84,11 @@ class EventSignUpView(View):
             contributor = form.save(commit = False)
             contributor.type = "Contributor"
             contributor.name = name
-            contributor.level_of_expertise = ''
             email = contributor.email
             #print(Candidate.objects.filter(email=email).exists())
             if Candidate.objects.filter(email=email).exists() != True:
-                contributor.save()                
+                contributor.save()
+                contributor.event.add(event)            
                 SendSubscribeMail(email)
                 form.save_m2m()
             else :
