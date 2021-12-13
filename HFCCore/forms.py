@@ -180,3 +180,9 @@ class Job_Application_form(forms.ModelForm):
         elif self.instance.pk:
             self.fields['area_of_expertise'].queryset = self.instance.expertise_area.expertise_set
     
+class Event_signup_form(forms.ModelForm):
+    field_order = ['name','email','contact_number']
+    class Meta:
+        model = Community_Member
+        exclude = ('highest_education','coder_profile','linkedin_profile',
+        'years_of_experience','profession','area_of_expertise','level_of_expertise','type','organization_id','event')

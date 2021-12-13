@@ -89,10 +89,10 @@ class Candidate(models.Model):
     contact_number = models.CharField(max_length = 20)
     gender = models.CharField(choices = GENDER,max_length = 50,blank = True,null = True) 
     dob = models.DateField(blank = True,null = True) 
-    highest_education = models.CharField(choices = EDUCATION,max_length = 50) 
-    level_of_expertise = models.CharField(choices = LEVEL_OF_EXPERTISE, max_length = 100)
-    profession = models.ForeignKey(Expertise_Area, on_delete = models.CASCADE)
-    area_of_expertise = models.ManyToManyField('Expertise')
+    highest_education = models.CharField(choices = EDUCATION,max_length = 50,blank = True,null = True) 
+    level_of_expertise = models.CharField(choices = LEVEL_OF_EXPERTISE, max_length = 100,blank = True,null = True)
+    profession = models.ForeignKey(Expertise_Area, on_delete = models.CASCADE,blank = True,null = True)
+    area_of_expertise = models.ManyToManyField('Expertise',blank = True,null = True)
     class Meta:
         verbose_name = "Candidate"
         verbose_name_plural = "Candidates"

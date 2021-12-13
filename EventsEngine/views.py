@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from ScreeningApp.models import Candidate
 from .models import *
-from HFCCore.forms import Community_member_form,Chapter_contributor_form
+from HFCCore.forms import Community_member_form,Chapter_contributor_form,Event_signup_form
 from HFCCore.models import Partner, Community_Member, Community_Organization, Expertise
 from HFCCore.utils import SendSubscribeMail,community_member_signup_mail
 from EventsEngine.utils import event_signup_mail
@@ -59,7 +59,8 @@ class EventSignUpView(View):
         contributors = Community_Member.objects.filter(type='Contributor')
         expertise_area_id = request.GET.get('profession')
         expertises = Expertise.objects.filter(category_of_expertise = expertise_area_id,is_published = 'True')
-        form = Community_member_form()
+        #form = Community_member_form()
+        form = Event_signup_form()
         event.update_registration()
         if event.registration == "Registrations Closed":
             return redirect('event_expired',title_slug)
@@ -70,27 +71,26 @@ class EventSignUpView(View):
         
     
     def post(self,request,title_slug):
-        form = Chapter_contributor_form(request.POST)
+        form = Event_signup_form(request.POST)
         event = Events.objects.get(title_slug = title_slug)
         #community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(form.is_valid())
+        print(request.POST)
         if form.is_valid():
-            area_of_expertise = request.POST.getlist('area_of_expertise')
-            city = request.POST.get('city')
-            community_org = Community_Organization.objects.filter(city = city).first()
-            print(community_org)
+            data = request.POST.getlist('name')
+            print(data)
+            name = " ".join(data)
+            print(name)
             contributor = form.save(commit = False)
             contributor.type = "Contributor"
-            contributor.organization_id = community_org
-
+            contributor.name = name
+            contributor.level_of_expertise = ''
             email = contributor.email
             #print(Candidate.objects.filter(email=email).exists())
             if Candidate.objects.filter(email=email).exists() != True:
                 contributor.save()                
                 SendSubscribeMail(email)
-
                 form.save_m2m()
-
             else :
                 contributor = Community_Member.objects.filter(email=email).first()
                 print(contributor)
@@ -100,7 +100,7 @@ class EventSignUpView(View):
                 print('Error in sending email for event signup')
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
-                to_list=['team@hackforchange.co.in',]
+                to_list=['sambit@ctsc-india.org',]
                 headers = {'Reply-To': email}
                 print("working")
                 msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,headers=headers)
@@ -110,6 +110,9 @@ class EventSignUpView(View):
             except:
                 print('Error in sending internal email for event signup')
             return render(request, 'EventsEngine/event_signup_thanks.html', {'event':event})
+        else:
+            form = Event_signup_form()
+            return render(request, 'EventsEngine/event_signup.html', {'form':form})
 
 def event_signup_thanks(request):
     if 'event' in request.session:
@@ -152,13 +155,16 @@ class EventSignupWithGoogle(View):
         #community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(form.is_valid())
         if form.is_valid():
-            area_of_expertise = request.POST.getlist('area_of_expertise')
+            first_name = request.POST['first_name']
+            last_name = request.POST['last_name']
+            print(first_name,last_name)
+            """area_of_expertise = request.POST.getlist('area_of_expertise')
             city = request.POST.get('city')
             community_org = Community_Organization.objects.filter(city = city).first()
-            print(community_org)
+            print(community_org)"""
             contributor = form.save(commit = False)
             contributor.type = "Contributor"
-            contributor.organization_id = community_org
+            #contributor.organization_id = community_org
             email = contributor.email
             #print(Candidate.objects.filter(email=email).exists())
             if Candidate.objects.filter(email=email).exists() != True:

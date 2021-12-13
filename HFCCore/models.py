@@ -135,7 +135,7 @@ class Community_Organization(models.Model):
 
 class Community_Member(Candidate):
     type = models.CharField(max_length = 50, choices = MEMBER_TYPE_CHOICE, default = "Contributor")
-    years_of_experience = models.CharField(choices = EXPERIENCE,max_length = 200)
+    years_of_experience = models.CharField(choices = EXPERIENCE,max_length = 200,blank = True,null = True)
     coder_profile = models.URLField(blank = True,null = True)
     linkedin_profile = models.URLField(blank = True,null = True)
     organization_id = models.ForeignKey(Community_Organization, on_delete = models.CASCADE,blank = True,null = True)
@@ -161,7 +161,7 @@ class Community_Member(Candidate):
             self.level_of_expertise = "Intermediate"
         elif yoexp == "10+ years" or yoexp == "15+ years":
             self.level_of_expertise = "Advanced"
-        else:
+        elif yoexp == "20+ years":
             self.level_of_expertise = "Expert"
         super(Community_Member,self).save(*args, **kwargs) 
 
