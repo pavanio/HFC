@@ -21,7 +21,7 @@ class Mentor_form(forms.ModelForm):
         'years_of_experience','profession','area_of_expertise']
     class Meta:
     	model  = Community_Member
-    	exclude = ('level_of_expertise','organization_id','type')
+    	exclude = ('level_of_expertise','organization_id','type','event')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         #self.fields['gender']=forms.ChoiceField(choices=GENDER)
@@ -46,7 +46,7 @@ class Center_contributor_form(forms.ModelForm):
         'years_of_experience','organization_id','profession','area_of_expertise']
     class Meta:
     	model  = Community_Member
-    	exclude = ('level_of_expertise','type')
+    	exclude = ('level_of_expertise','type','event')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         #self.fields['gender'] = forms.ChoiceField(choices=GENDER)
@@ -71,7 +71,7 @@ class Chapter_contributor_form(forms.ModelForm):
         'years_of_experience','profession','area_of_expertise']
     class Meta:
     	model  = Community_Member
-    	exclude = ('level_of_expertise','type','organization_id')
+    	exclude = ('level_of_expertise','type','organization_id','event')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         #self.fields['gender'] = forms.ChoiceField(choices=GENDER)
@@ -124,7 +124,7 @@ class Community_member_form(forms.ModelForm):
     city = forms.ModelChoiceField(queryset = Community_Organization.objects.filter(type = 'Center',is_public = 'True').values_list('city',flat = True))
     class Meta:
     	model  = Community_Member
-    	exclude = ('level_of_expertise','type','organization_id')
+    	exclude = ('level_of_expertise','type','organization_id','event')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         #self.fields['gender'] = forms.ChoiceField(choices=GENDER)
@@ -158,7 +158,7 @@ class Job_Application_form(forms.ModelForm):
     city = forms.ModelChoiceField(queryset = Community_Organization.objects.filter(type = 'Chapter',is_public = 'True').values_list('city',flat = True))
     class Meta:
     	model  = Community_Member
-    	exclude = ('level_of_expertise','type','organization_id')
+    	exclude = ('level_of_expertise','type','organization_id','event')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         #self.fields['gender'] = forms.ChoiceField(choices=GENDER)

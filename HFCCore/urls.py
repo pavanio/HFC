@@ -57,7 +57,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('core-team/join/',views.JobView.as_view(),name = 'job'),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name='sitemap'),
-    path('accounts/', include('allauth.urls')),
     #path('ouath/',views.google_response,name ='google-response'),
     path('google-signup/<title_slug>',views.google_login,name ='google_login'),
     path('google-callback/',views.google_authenticate,name ='google_callback')

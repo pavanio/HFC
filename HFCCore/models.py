@@ -2,6 +2,7 @@ from django.db import models
 from TFC.models import Organization
 from ScreeningApp.models import *
 from autoslug import AutoSlugField
+from EventsEngine.models import Events
 
 EXPERIENCE=(
     ('No Experience', 'No Experience'),
@@ -142,10 +143,13 @@ class Community_Member(Candidate):
     commit = models.IntegerField(blank = True,null = True)
     avatar_url= models.URLField(blank = True,null = True)
     project = models.ManyToManyField('Project',blank = True,null = True)
+    event = models.ManyToManyField('EventsEngine.Events',blank = True,null = True)
     def __str__(self):
         return self.name
     def get_project(self):
         return ",".join([project.name for project  in self.project.all()])
+    def get_event(self):
+        return ",".join([event.title for event  in self.event.all()])
     class Meta:
         verbose_name = "Community_Member"
         verbose_name_plural = "Community_Members"

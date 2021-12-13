@@ -18,7 +18,8 @@ import pytz
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from ScreeningApp.models import Candidate
-from HFCCore.models import Community_Member
+#from HFCCore.models import Community_Member
+
 
 
 def event_signup_mail(email,content,title):
@@ -77,7 +78,7 @@ def create_event(title,start_date,end_date,description):
     
 def event_email_internal(email,event):
     try:
-        contributor = Community_Member.objects.get(email = email)
+        contributor = Candidate.objects.get(email = email)
         html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
         to_list=['team@hackforchange.co.in',]
         headers = {'Reply-To': email}
