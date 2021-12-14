@@ -201,6 +201,8 @@ CLIENT_ID = os.environ.get('CLIENT_ID')
 REDIRECT_URI = os.environ.get('REDIRECT_URI')
 #client_secret
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
+#MAILING LIST
+EVENT_MAILING_LIST = os.environ.get('EVENT_MAILING_LIST')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

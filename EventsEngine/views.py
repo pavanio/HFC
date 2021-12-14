@@ -4,14 +4,14 @@ from .models import *
 from HFCCore.forms import Community_member_form,Chapter_contributor_form,Event_signup_form
 from HFCCore.models import Partner, Community_Member, Community_Organization, Expertise
 from HFCCore.utils import SendSubscribeMail,community_member_signup_mail
-from EventsEngine.utils import event_signup_mail
+from EventsEngine.utils import event_signup_mail,name_spliter
 from django.contrib.syndication.views import Feed
 from django.views import View,generic
 from django.template.loader import render_to_string
 from django.core.mail import send_mail,EmailMessage
 from datetime import date
 from .utils import event_email_internal
-
+from django.conf import settings
 
 class EventList(generic.ListView):
     def get(self, request):
@@ -100,7 +100,8 @@ class EventSignUpView(View):
                 print('Error in sending email for event signup')
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
-                to_list=['sambit@ctsc-india.org',]
+                event_mailing_list = settings.EVENT_MAILING_LIST
+                to_list=[event_mailing_list,]
                 headers = {'Reply-To': email}
                 print("working")
                 msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,headers=headers)
@@ -122,6 +123,8 @@ def event_signup_thanks(request):
         event_obj = Events.objects.get(title_slug = event_title)
     if 'email' in request.session:
         email = request.session['email']
+        contributor = Community_Member.objects.filter(email=email).first()
+        contributor.event.add(event_obj)
         try:
             event_email_internal(email,event_obj)
         except:
@@ -137,38 +140,38 @@ class EventSignupWithGoogle(View):
         if 'name' and 'email' in request.session:
             name = request.session['name']
             email = request.session['email']
+        first_name,last_name = name_spliter(name)
         event = Events.objects.get(title_slug = title_slug)
         contributors = Community_Member.objects.filter(type='Contributor')
         expertise_area_id = request.GET.get('profession')
         expertises = Expertise.objects.filter(category_of_expertise = expertise_area_id,is_published = 'True')
-        form = Community_member_form()
+        form = Event_signup_form()
         event.update_registration()
         if event.registration == "Registrations Closed":
             return redirect('event_expired',title_slug)
         else:
-            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises,'name':name,'email':email})
+            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises,'first_name':first_name,'email':email,'last_name':last_name})
            
            
     def post(self,request,title_slug):
-        form = Chapter_contributor_form(request.POST)
+        form = Event_signup_form(request.POST)
         event = Events.objects.get(title_slug = title_slug)
         #community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(form.is_valid())
         if form.is_valid():
-            first_name = request.POST['first_name']
-            last_name = request.POST['last_name']
-            print(first_name,last_name)
-            """area_of_expertise = request.POST.getlist('area_of_expertise')
-            city = request.POST.get('city')
-            community_org = Community_Organization.objects.filter(city = city).first()
-            print(community_org)"""
+            data = request.POST.getlist('name')
+            print(data)
+            name = " ".join(data)
+            print(name)
             contributor = form.save(commit = False)
             contributor.type = "Contributor"
+            contributor.name = name
             #contributor.organization_id = community_org
             email = contributor.email
             #print(Candidate.objects.filter(email=email).exists())
             if Candidate.objects.filter(email=email).exists() != True:
-                contributor.save()                
+                contributor.save()
+                contributor.event.add(event)               
                 SendSubscribeMail(email)
                 form.save_m2m()
             else :
@@ -180,7 +183,8 @@ class EventSignupWithGoogle(View):
                 print('Error in sending email for event signup')
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
-                to_list=['team@hackforchange.co.in',]
+                event_mailing_list = settings.EVENT_MAILING_LIST
+                to_list=[event_mailing_list,]
                 headers = {'Reply-To': email}
                 print("working")
                 msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,headers=headers)

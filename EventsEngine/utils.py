@@ -80,7 +80,8 @@ def event_email_internal(email,event):
     try:
         contributor = Candidate.objects.get(email = email)
         html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
-        to_list=['team@hackforchange.co.in',]
+        event_mailing_list = settings.EVENT_MAILING_LIST
+        to_list=[event_mailing_list,]
         headers = {'Reply-To': email}
         print("working")
         msg = EmailMessage('New member signup for event', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list,headers=headers)
@@ -89,3 +90,13 @@ def event_email_internal(email,event):
         print("Event Signup details internal email sended successfully")
     except:
         print('Error in sending internal email for event signup')
+
+def name_spliter(name):
+    name =name.split()
+    if len(name) ==2 :
+        first_name = name[0]
+        last_name = name[1]
+    else:
+        last_name = name.pop(-1)
+        first_name = " ".join(name)
+    return first_name,last_name
