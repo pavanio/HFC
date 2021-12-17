@@ -203,6 +203,8 @@ REDIRECT_URI = os.environ.get('REDIRECT_URI')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 #MAILING LIST
 EVENT_MAILING_LIST = os.environ.get('EVENT_MAILING_LIST')
+PROGRAM_MAILING_LIST = os.environ.get('PROGRAM_MAILING_LIST')
+MEMBER_SIGNUP_MAILING_LIST = os.environ.get('MEMBER_SIGNUP_MAILING_LIST')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

@@ -109,7 +109,8 @@ class MentorSignup(View):
             try:
                 mentor_signup_mail(email)
                 message = "A new Mentor signed up"
-                to_list = ['',]
+                member_signup_mailing_list = settings.MEMBER_SIGNUP_MAILING_LIST
+                to_list = [member_signup_mailing_list,]
                 send_mail('New signup ', message,'noreply@hackforchange.co.in',to_list)
             except:
                 print('Error in sending  welcome email to Mentor')
@@ -138,7 +139,8 @@ class CenterContributorSignup(View):
             try:
                 screeninglink_mail(email)
                 message = "A new contributor signed up to {0} center".format(community_org.organization_name)
-                to_list = ['team@hackforchange.co.in',]
+                member_signup_mailing_list = settings.MEMBER_SIGNUP_MAILING_LIST
+                to_list = [member_signup_mailing_list,]
                 send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
@@ -167,7 +169,8 @@ class ChapterContributorSignup(View):
             try:
                 screeninglink_mail(email)
                 message = "A new contributor signed up to {0} chapter".format(community_org.organization_name)
-                to_list=['',]
+                member_signup_mailing_list = settings.MEMBER_SIGNUP_MAILING_LIST
+                to_list=[member_signup_mailing_list,]
                 send_mail('New signup ', message,'HackForChange Team<noreply@hackforchange.co.in>',to_list)
             except:
                 print('Error in sending email screening link to Contributor')
@@ -265,7 +268,8 @@ class ProblemStatementsSubmitView(View):
             try:
                 html_content = render_to_string('HFC/problem_statement_detail_internal_email.html', {'problem':problem,'issue_area': issue_areas})
                 headers = {'Reply-To': email}
-                to_list=['team@hackforchange.co.in',]
+                member_signup_mailing_list = settings.MEMBER_SIGNUP_MAILING_LIST
+                to_list=[member_signup_mailing_list,]
                 msg = EmailMessage('New Problem Statement Submission', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list, headers=headers)
                 msg.content_subtype = "html"
                 msg.send(fail_silently = True)
@@ -329,7 +333,8 @@ class CommunityMemberSignup(View):
             try:
                 community_member_signup_mail(email)
                 html_content = render_to_string('HFC/community_member_detail_internal_email.html', {'contributor':contributor})
-                to_list=['team@hackforchange.co.in',]
+                member_signup_mailing_list = settings.MEMBER_SIGNUP_MAILING_LIST
+                to_list=[member_signup_mailing_list,]
                 headers = {'Reply-To': email}
                 msg = EmailMessage('New community member signup', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list, headers=headers)
                 msg.content_subtype = "html"
@@ -413,7 +418,8 @@ class JobView(View):
             try:
                 job_screeninglink_mail(email)
                 html_content = render_to_string('HFC/applicant_detail_internal_email.html', {'applicant':applicant})
-                to_list=['team@hackforchange.co.in',]
+                program_mailing_list = settings.PROGRAM_MAILING_LIST
+                to_list=[program_mailing_list,]
                 headers = {'Reply-To': email}
                 msg = EmailMessage('New Job Applicant', html_content,'HackForChange Team<noreply@hackforchange.co.in>' ,to_list, headers=headers)
                 msg.content_subtype = "html"

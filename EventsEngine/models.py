@@ -4,7 +4,7 @@ from django.urls import reverse
 from autoslug import AutoSlugField
 from datetime import date
 import datetime
-
+from django.utils.text import slugify
 from .utils import create_event
 
 
@@ -25,7 +25,7 @@ class EventType(models.Model):
 
 class Events(models.Model):
     title = models.CharField(max_length = 200)
-    title_slug = AutoSlugField(populate_from = 'title')
+    title_slug = AutoSlugField(populate_from = 'title',unique = True,editable = True)
     start_date = models.DateTimeField(blank = True,null = True)
     end_date = models.DateTimeField(blank = True,null = True)
     description = models.TextField(blank = True,null = True)
@@ -40,9 +40,10 @@ class Events(models.Model):
     banner = models.ImageField(blank= True, null = True, help_text="Resolution 1500 * 300")
     banner_color = models.CharField(choices = THEME, max_length = 10,default = 'Light')
     keywords = models.TextField(default = 'Event')
-    """def save(self, *args, **kwargs):
-        create_event(self.title, self.start_date, self.end_date,self.description)
-        super(Events, self).save(*args, **kwargs)"""
+    def save(self, *args, **kwargs):
+        #self.title_slug = slugify(kwargs.pop('title', self.title))
+        #create_event(self.title, self.start_date, self.end_date,self.description)
+        super(Events, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Event"
