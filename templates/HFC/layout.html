@@ -56,8 +56,8 @@
                                 <a href="{% url 'projects' %}">Projects</a></li>
                             <li class="{% if url_name == 'community' %}active{% endif %}">
                                 <a href="{% url 'community' %}#Centres">Community</a></li>
-                            <li class="{% if url_name == 'andablog' %}active{% endif %}">
-                                <a href="{% url 'blog' %}">Blog</a></li>
+                            <li class="{% if url_name == 'events' %}active{% endif %}">
+                                <a href="{% url 'events' %}">Events</a></li>
                             <li class="menu__hasChild"><a href="{% url 'about' %}">About</a>
                                 <div class="sub-menu__outer">
                                     <ul class="sub-menu">
@@ -66,6 +66,7 @@
                                         <li><a href="{% url 'about' %}#howItWorks">How it Works</a></li>
                                         <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                         <li><a href="{% url 'donate' %}">Donate</a></li>
+                                        <li><a href="{% url 'blog' %}">Blog</a></li>
                                     </ul>
                                 </div>
                             </li>

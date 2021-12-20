@@ -40,6 +40,7 @@ class Events(models.Model):
     banner = models.ImageField(blank= True, null = True, help_text="Resolution 1500 * 300")
     banner_color = models.CharField(choices = THEME, max_length = 10,default = 'Light')
     keywords = models.TextField(default = 'Event')
+    open_graph_banner = models.ImageField(blank= True, null = True,)
     def save(self, *args, **kwargs):
         #self.title_slug = slugify(kwargs.pop('title', self.title))
         #create_event(self.title, self.start_date, self.end_date,self.description)
