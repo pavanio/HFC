@@ -8,6 +8,7 @@
 <meta property="og:type" content="article">
 {% if event.banner %}
 <meta property="og:image" content="{{event.open_graph_banner.url}}">
+<meta property="og:image:secure_url" content="{{event.open_graph_banner.url}}">
 {% else %}
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 {% endif %}
