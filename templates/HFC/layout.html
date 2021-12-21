@@ -1,12 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="fb:app_id" content="{{FB_APP_ID}}" />
-    <link rel="alternate" type="application/rss+xml" title="HackForChange Events" href="https://www.hackforchange.co.in/events/latest/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="HackForChange Blogs" href="https://www.hackforchange.co.in/blog/latest/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="HackForChange Events"
+        href="https://www.hackforchange.co.in/events/latest/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="HackForChange Blogs"
+        href="https://www.hackforchange.co.in/blog/latest/feed/" />
     {% block meta_tags %}
     {% endblock %}
     <title>{% block title %} {% endblock %}</title>
@@ -30,6 +33,7 @@
         gtag('config', 'G-6W54SJ12NV');
     </script>
 </head>
+
 <body>
     <div id="container-fluid">
         <!--header start -->
@@ -49,15 +53,20 @@
                         <ul class="main-menu">
                             {% with url_name=request.resolver_match.url_name %}
                             <li class="{% if url_name == 'home' %} active {% endif %}">
-                                <a href="{% url 'home' %}">Home</a></li>
+                                <a href="{% url 'home' %}">Home</a>
+                            </li>
                             <li class="{% if url_name == 'problem_statements' %}active{% endif %}">
-                                <a href="{% url 'problem_statements' %}">Problem Statements</a></li>
+                                <a href="{% url 'problem_statements' %}">Problem Statements</a>
+                            </li>
                             <li class="{% if url_name == 'projects' %}active{% endif %}">
-                                <a href="{% url 'projects' %}">Projects</a></li>
+                                <a href="{% url 'projects' %}">Projects</a>
+                            </li>
                             <li class="{% if url_name == 'community' %}active{% endif %}">
-                                <a href="{% url 'community' %}#Centres">Community</a></li>
+                                <a href="{% url 'community' %}">Community</a>
+                            </li>
                             <li class="{% if url_name == 'events' %}active{% endif %}">
-                                <a href="{% url 'events' %}">Events</a></li>
+                                <a href="{% url 'events' %}">Events</a>
+                            </li>
                             <li class="menu__hasChild"><a href="{% url 'about' %}">About</a>
                                 <div class="sub-menu__outer">
                                     <ul class="sub-menu">
@@ -70,7 +79,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li><a class="btn btn--info" href="{% url 'community_member_signup' %}">Signup as a Member</a></li>
+                            <li><a class="btn btn--info" href="{% url 'community_member_signup' %}">Signup as a
+                                    Member</a></li>
                         </ul>{% endwith %}
                     </div>
                 </header>
@@ -93,4 +103,5 @@
     {% block js %}
     {% endblock %}
 </body>
+
 </html>
