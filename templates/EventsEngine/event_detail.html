@@ -4,9 +4,9 @@
 
 <meta  name="keywords" content="{{event.keywords}}">
 <meta property="og:title" content="{{event.title}}">
-<meta name="description" property="og:description" content="{{event.description|striptags|truncatewords:20 }}">
+<meta name="description" property="og:description" content="{{event.description|striptags|truncatewords:50 }}">
 <meta property="og:type" content="article">
-{% if event.banner %}
+{% if event.open_graph_banner %}
 <meta property="og:image" content="{{event.open_graph_banner.url}}">
 <meta property="og:image:secure_url" content="{{event.open_graph_banner.url}}">
 {% else %}

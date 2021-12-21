@@ -119,19 +119,34 @@
 
 <div class="home-blog-wrap">
     <div class="contribute__top">
-        <h2 class="underline">Our Latest Updates</h2>
+        <h2 class="underline">Our Latest Events</h2>
     </div>
 
     <div class="content-width blog-list home-update">
-        {% for blog in blogs %}
+        {% for event in events %}
         <div class="post-block">
             <div class="post-img">
-                <a href="{{ blog.get_absolute_url }}"><img src="{{ blog.image.url }}" alt="Preview image for {{ blog.title }}"></a>
+                {% if event.open_graph_banner %}
+                <a href="{% url 'event_detail' event.title_slug  %}"><img src="{{event.open_graph_banner.url}}" alt="Preview image for {{event.title |safe}}"></a>
+                {% else %}
+                <a href="{% url 'event_detail' event.title_slug  %}"><img src="{% static 'images/hfc.png' %}" alt="Preview image for {{event.title |safe}}"></a>
+                {%endif%}
             </div>
             <div class="post-info">
-                <p>{{ blog.created_on|date:"DATE_FORMAT" }} </p>
-                <h4><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h4>
-                <a href="{{blog.get_absolute_url }}">Read More<img src="{% static 'images/angle-right.png' %}"></a>
+                <p>{{ event.start_date|date:"DATE_FORMAT" }} </p>
+                {% if event.registration == "Registrations Open" %}
+                <div class="badge-sec" >
+                <div class = "badge badge--event" >Registrations Open</div>
+            </div>
+                {%else%}
+                <div class="badge-sec" >
+                <div class = "badge badge--eventclose" >Registrations Closed</div>
+            </div>
+                {%endif%}
+                
+            
+                <h4><a href="{% url 'event_detail' event.title_slug  %}">{{ event.title | safe }}</a></h4>
+                <a href="{% url 'event_detail' event.title_slug  %}">Learn More<img src="{% static 'images/angle-right.png' %}"></a>
             </div>
         </div>
         {% endfor%}

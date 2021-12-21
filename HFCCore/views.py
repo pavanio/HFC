@@ -59,7 +59,10 @@ def thanks(request):
 class Home(View):
     def get(self, request):
         blogs = Post.objects.filter(status = 'Published')[:3]
-        return render(request,'HFC/hfc_home.html',{'blogs':blogs})
+        events = Events.objects.filter(status = 'Published')[:3]
+        for event in events:
+            event.update_registration()
+        return render(request,'HFC/hfc_home.html',{'blogs':blogs,'events':events})
 
 class ProblemStatementsView(generic.ListView):
     def get(self, request):

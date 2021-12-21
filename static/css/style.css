@@ -1539,6 +1539,18 @@ ______________________*/
 	margin-top: 47px;
 	margin-bottom: 95px;
 }
+.badge.badge--event{
+	background: rgba(0, 255, 0, 0.25);
+	margin-top:-22px;
+	float:right;
+
+}
+.badge.badge--eventclose{
+	background: rgba(255, 0, 0, 0.25);
+	margin-top:-22px;
+	float:right;
+}
+
 
 /* bloge
 ----------------------------*/
