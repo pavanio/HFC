@@ -1,4 +1,4 @@
-{% load static  %}
+{% load static %}
 <!--footer start -->
 <div class="subscription-wrap">
     <div class="content-width md-content-width">
@@ -30,20 +30,19 @@
                 <div class="footer__menu">
                     <p class="small bold">Company</p>
                     <ul>
-                        <li><a href="{% url 'about' %}">About</a></li>
-                        <li><a href="{% url 'problem_statements' %}">Problem Statements</a></li>
-                        <li><a href="{% url 'projects' %}">Projects</a></li>
-                        <li><a href="{% url 'community' %}">Community</a></li>
-                        <li><a href="{% url 'job' %}">Join Core Team</a></li>
-                        <li><a href="{% url 'events' %}">Ongoing Events</a></li>
-                        <li><a href="{% url 'blog' %}">Blog</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'about' %}">Our Mission</a></li>
+                        <li><a href="{% url 'about' %}">Contact Us</a></li>
+                        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'terms_conditions' %}">Terms & Conditions</a></li>
                     </ul>
                 </div>
                 <div class="footer__menu">
-                    <p class="small bold">Legal</p>
+                    <p class="small bold">Quick Links</p>
                     <ul>
-                        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
-                        <li><a href="{% url 'terms_conditions' %}">Terms & Conditions</a></li>
+                        <li><a href="{% url 'job' %}">Join Our Team</a></li>
+                        <li><a href="{% url 'events' %}">Ongoing Events</a></li>
+                        <li><a href="{% url 'blog' %}">Latest News</a></li>
                         <li><a href="{% url 'sitemap' %}">Sitemap</a></li>
                     </ul>
                 </div>
@@ -62,25 +61,21 @@
                 <ul>
                     <li><a href="https://www.facebook.com/HackForChange" target="blank"><img width="31"
                                 src="{% static 'images/facebook-icon.svg' %}" alt="Icon"></a></li>
-                    <li><a href="https://www.instagram.com/hackforchange/" target="blank"><img width="31"
-                                src="{% static 'images/insta-icon.svg' %}" alt="Icon"></a></li>
                     <li><a href="https://www.linkedin.com/company/hack-for-change/" target="blank"><img width="31"
                                 src="{% static 'images/linkedin-icon.svg' %}" alt="Icon"></a></li>
-                    
-                </ul>
-                <ul>
                     <li><a href="https://twitter.com/HackForChangeIN" target="blank"><img width="31"
-                            src="{% static 'images/twitter-img.png' %}" alt="Icon"></a></li>
-                    <li><a href="https://calendar.google.com/calendar/u/0/embed?src=c_paashnfdl87vsg7l011n15mvqs@group.calendar.google.com&ctz=Asia/Kolkata" target="blank"><img width="31"
-                            src="{% static 'images/calendar-img.png' %}" alt="Icon"></a></li>
-                    <li><a href="https://discord.gg/mnSrEBvXct" target="blank"><img width="31"
-                            src="{% static 'images/discord-img.png' %}" alt="Icon"></a></li>
+                                src="{% static 'images/twitter-img.png' %}" alt="Icon"></a></li>
 
                 </ul>
                 <ul>
-                    <li><a href="https://github.com/HackForChangeIN" target="blank"><img width="31"
-                            src="{% static 'images/github-img.png' %}" alt="Icon"></a></li>
+                    <li><a href="https://calendar.google.com/calendar/u/0/embed?src=c_paashnfdl87vsg7l011n15mvqs@group.calendar.google.com&ctz=Asia/Kolkata"
+                            target="blank"><img width="31" src="{% static 'images/calendar-img.png' %}" alt="Icon"></a>
+                    </li>
+                    <li><a href="https://discord.gg/mnSrEBvXct" target="blank"><img width="31"
+                                src="{% static 'images/discord-img.png' %}" alt="Icon"></a></li>
 
+                    <li><a href="https://github.com/HackForChangeIN" target="blank"><img width="31"
+                                src="{% static 'images/github-img.png' %}" alt="Icon"></a></li>
 
                 </ul>
                 <a href="{% url 'donate' %}" class="btn btn--border">Donate</a>
