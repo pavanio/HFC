@@ -136,15 +136,13 @@
                 <p>{{ event.start_date|date:"DATE_FORMAT" }} </p>
                 {% if event.registration == "Registrations Open" %}
                 <div class="badge-sec" >
-                <div class = "badge badge--event" >Registrations Open</div>
-            </div>
+                    <div class = "badge badge--event" >Registrations Open</div>
+                </div>
                 {%else%}
                 <div class="badge-sec" >
-                <div class = "badge badge--eventclose" >Registrations Closed</div>
-            </div>
+                    <div class = "badge badge--eventclose" >Registrations Closed</div>
+                </div>
                 {%endif%}
-                
-            
                 <h4><a href="{% url 'event_detail' event.title_slug  %}">{{ event.title | safe }}</a></h4>
                 <a href="{% url 'event_detail' event.title_slug  %}">Learn More<img src="{% static 'images/angle-right.png' %}"></a>
             </div>
