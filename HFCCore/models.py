@@ -109,7 +109,7 @@ class Project(models.Model):
 class Project_Partner(models.Model):
     project_id = models.ForeignKey(Project, on_delete = models.CASCADE,verbose_name ="Project")
     partner = models.ManyToManyField('Partner',blank = True)
-    project_involvement = models.CharField(max_length = 50, choices = PROJECT_INVOLVEMENT)
+    project_involvement = models.CharField(max_length = 50, choices = PROJECT_INVOLVEMENT,verbose_name = "Partnership")
     def get_partner(self):
         return ",".join([ partner.name for  partner  in self. partner.all()])
 
