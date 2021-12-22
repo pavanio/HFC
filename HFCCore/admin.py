@@ -38,10 +38,14 @@ class Problem_StatementAdmin(SummernoteModelAdmin):
 	class Meta:
 		model = Problem_Statement
 	
+class Project_PartnerInline(admin.TabularInline):
+	model = Project_Partner
+	extra = 0
 
 class ProjectAdmin(SummernoteModelAdmin):
 	list_display = ('name', 'project_link', 'project_icon', 'project_overview', 'website_link', 'goal','project_slug')
 	summernote_fields = ('project_overview','goal')
+	inlines = [Project_PartnerInline,]
 	class Meta:
 		model = Project
 
@@ -74,10 +78,8 @@ class Community_MemberAdmin(admin.ModelAdmin):
 		return render(request, 'HFC/admin_email_form.html', {'form': form})
 	send_email.short_description = "Send email"
 
-class Project_PartnerAdmin(admin.ModelAdmin):
-	list_display = ('project_id','get_partner','project_involvement')
-	class Meta:
-		model = Project_Partner
+
+	
 
 admin.site.register(Partner,PartnerAdmin)
 admin.site.register(Problem_Statement, Problem_StatementAdmin)
@@ -85,4 +87,4 @@ admin.site.register(Project, ProjectAdmin)
 admin.site.register(Community_Organization, Community_OrganizationAdmin)
 admin.site.register(Community_Member, Community_MemberAdmin)
 admin.site.register(Issue_Area,Issue_Area_Admin)
-admin.site.register(Project_Partner,Project_PartnerAdmin)
+#admin.site.register(Project_Partner,Project_PartnerAdmin)
