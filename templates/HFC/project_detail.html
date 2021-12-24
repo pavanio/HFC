@@ -1,9 +1,9 @@
 {% extends 'HFC/layout.html' %}
 {% block meta_tags %}
 
-<meta content="" name="keywords">
+<meta name="keywords" content="">
 <meta property="og:title" content="{{project.name}}">
-<meta name="description" property="og:description" content="{{project.project_desc|striptags|truncatewords:20}}">
+<meta name="description" property="og:description" content="{{project.project_overview|striptags|truncatewords:40}}">
 <meta property="og:type" content="article" >    
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
 <meta property="og:url" content="https://hackforchange.co/problem-statements/{{problem.title_slug}}">
