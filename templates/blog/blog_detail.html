@@ -3,7 +3,7 @@
 {% block meta_tags %}
 <meta  name="keywords" content="{{blog.keyword}}">
 <meta property="og:title" content="{{blog.title}}">
-<meta property="og:description" name="description"  content=" {{ blog.body|striptags|truncatewords:20 }}">
+<meta property="og:description" name="description"  content=" {{ blog.body|striptags|truncatewords:40 }}">
 <meta property="og:type" content="article">
 <meta property="og:image" content="{{ blog.image.url }}">
 <meta property="og:url" content="{{ blog.get_absolute_url }}">
