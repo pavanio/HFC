@@ -2,7 +2,7 @@
 {% block meta_tags %}
 
 <meta name="keywords" content="">
-<meta property="og:title" content="{{problem.title}}">
+<meta property="og:title" content="{{problem.problem_statement|safe}}">
 <meta name="description" property="og:description" content="{{problem.overview|striptags|truncatewords:40}}">
 <meta property="og:type" content="article" >    
 <meta property="og:image" content="https://www.hackforchange.co.in/static/images/hfc.png">
