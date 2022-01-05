@@ -9,7 +9,7 @@
 <meta property="og:url" content="https://hackforchange.co/problem-statements/{{problem.title_slug}}">
 {% endblock %}
 {% load static  %}
-{% block title %} {{problem.problem_statement|safe}} | Hack For Change {% endblock %}
+{% block title %} {{problem.problem_statement|safe|truncatechars:40}} | Hack For Change {% endblock %}
 
 {% block main %}
 <!--Banner start -->

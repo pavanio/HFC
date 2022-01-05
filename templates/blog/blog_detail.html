@@ -8,7 +8,7 @@
 <meta property="og:image" content="{{ blog.image.url }}">
 <meta property="og:url" content="{{ blog.get_absolute_url }}">
 {% endblock %}
-{% block title %}{{blog.title}}| Hack For Change{% endblock %}
+{% block title %}{{blog.title|safe|truncatechars:40}}| Hack For Change{% endblock %}
 {% block main %}
 <!--Banner start -->
 <div class="banner-wrap">
