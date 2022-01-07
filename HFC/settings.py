@@ -210,6 +210,15 @@ MEMBER_SIGNUP_MAILING_LIST = os.environ.get('MEMBER_SIGNUP_MAILING_LIST')
 django_heroku.settings(locals())
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'fontNames': ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','Nunito Sans', 'Sans-Serif','Times New Roman','Verdana','Roboto','Open Sans'],
+        'fontSizes' : ['10','12','14','16','18','20','22','24','26','28','30'],
+        'fontNamesIgnoreCheck' : ['Roboto','Nunito Sans','Open Sans','Sans-Serif'],
+        
+    },
+}
+
 # Overwrite settings
 try:
     from .local_settings import *

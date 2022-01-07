@@ -8,6 +8,7 @@ from django.utils.text import slugify
 from .utils import create_event
 
 
+
 STATUS = (
     ('Draft','Draft'),
     ('Published','Published'),
@@ -59,6 +60,17 @@ class Events(models.Model):
         return self.title
     def get_absolute_url(self):
         return reverse('event_detail', args=[self.title_slug])
+
+class Event_Speakers(models.Model):
+    event = models.ForeignKey(Events, on_delete = models.CASCADE,verbose_name ="Event")
+    speaker = models.ForeignKey('HFCCore.Community_Member',on_delete = models.CASCADE,verbose_name ="Event Speaker")
+    speaker_details = models.TextField(blank = True,null = True)
+   
+    class Meta:
+        verbose_name = "Event Speaker"
+        verbose_name_plural = "Event Speakers"
+
+    
 
 
 
