@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Events, EventType,Event_Speakers
 from django_summernote.admin import SummernoteModelAdmin
 
+
 class Event_SpeakerAdmin(admin.TabularInline):
 	list_display = ('speaker','speaker_details')
 	model = Event_Speakers
