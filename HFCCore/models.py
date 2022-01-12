@@ -80,7 +80,7 @@ class Problem_Statement(models.Model):
     organisation = models.CharField(max_length = 500,blank = True,verbose_name = 'Suggester Organisation')
     partner_id = models.ForeignKey(Partner, on_delete = models.CASCADE,blank = True,null = True)
     status = models.CharField(max_length = 100, choices = STATUS_CHOICES)
-    title_slug = AutoSlugField(populate_from ='problem_statement')
+    title_slug = AutoSlugField(populate_from ='problem_statement',unique = True,editable = True)
     issue_area = models.ManyToManyField('Issue_Area')
     def __str__(self):
         return self.problem_statement
