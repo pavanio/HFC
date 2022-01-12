@@ -25,8 +25,10 @@ class EventDetailView(View):
     def get(self, request, title_slug):
         event = Events.objects.get(title_slug = title_slug)
         event.update_registration()
-        contributors = Community_Member.objects.filter(type='Contributor') 
-        return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors})
+        contributors = Community_Member.objects.filter(type='Contributor')
+        event_speakers = Event_Speakers.objects.filter(event = event.id)
+        print(event_speakers)
+        return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors,'event_speakers': event_speakers})
 
 class EventFeed(Feed):
     title = "HackForChange Events"

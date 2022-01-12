@@ -14,8 +14,6 @@
 {% endif %}
 
 <style>
-
-
 </style> 
 <meta property="og:url" content="">
 {% endblock %}
@@ -109,6 +107,23 @@
                           <p class="large sbold">Description</p>
                           <p style="text-align:justify;">{{event.description|safe}}</p>
                         {% endif %}
+
+                        {% if event_speakers %}
+                          <p class="large sbold">Event Speakers</p>
+                          {% for event_speaker in event_speakers%}
+                            <div class="single__author-sec">
+                                {%if event_speaker.speaker.image%}
+                                <div class="author__left"  >
+                                    <img  style =" border-radius:45%;" src={{event_speaker.speaker.image.url}} title ="{{event_speaker.speaker}}" alt="{{event_speaker.speaker}}">
+                                </div>
+                                {% endif %}
+                                <div class="author__right">
+                                <p style="text-align:justify;"><span><b><i>{{event_speaker.speaker}}</i></b></span>, {{event_speaker.speaker_details}}</p>
+                                </div>
+                            </div>
+                           {% endfor %}
+                        {% endif %}
+                    
                         {% if event.agenda %}
                           <p class="large sbold">Agenda</p>
                           <p style="text-align:justify;">{{event.agenda|safe}}</p>
