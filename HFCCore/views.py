@@ -66,7 +66,7 @@ class Home(View):
 
 class ProblemStatementsView(generic.ListView):
     def get(self, request):
-        problems_list = Problem_Statement.objects.all().exclude(status ='Draft')
+        problems_list = Problem_Statement.objects.all().exclude(status ='Draft').order_by('-id')
         issue_areas = Issue_Area.objects.all()
         return render(request, 'HFC/problem_statements.html', {'problems_list': problems_list,'issue_areas':issue_areas})
 
@@ -195,7 +195,7 @@ class Chapter(View):
 
 class ProjectsView(generic.ListView):
     def get(self, request):
-        projects_list = Project.objects.all()
+        projects_list = Project.objects.all().order_by('-id')
         issue_areas = Issue_Area.objects.all()
         partners = Partner.objects.all()
         project_partner = Project_Partner.objects.all()
