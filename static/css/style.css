@@ -1446,12 +1446,13 @@ ______________________*/
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 23px;
+
 }
 .we-work__fig{
 	margin: 0 5px;
 }
 .we-work__main h2{
-	margin-bottom: 23px;
+	margin-bottom: 23px;	
 }
 .we-work__main p.large{
 	color: #212121;
@@ -1461,6 +1462,23 @@ ______________________*/
 	color: #0068ff;
 }
 .we-work__main p a:hover{
+	text-decoration: underline;
+}
+.we-work__main__community h2{
+	margin-bottom: 23px;
+	margin-top: -100px;	
+}
+.we-work__main__community{
+	text-align: center;
+}
+.we-work__main__community p.large{
+	color: #212121;
+	margin-bottom: 28px;
+}
+.we-work__main__community p a{
+	color: #0068ff;
+}
+.we-work__main__community p a:hover{
 	text-decoration: underline;
 }
 
