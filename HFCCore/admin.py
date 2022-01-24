@@ -63,6 +63,7 @@ class Community_MemberAdmin(admin.ModelAdmin):
 	list_display = ('name', 'email', 'level_of_expertise', 'areaofexpertise', 'type', 'coder_profile', 'linkedin_profile','image', 'organization_id','commit','get_project','get_event')
 	actions = ['send_email','send_screening_invitation',]
 	list_filter = ('type','event')
+	search_fields = ('name', )
 	class Meta:
 		model = Community_Member
 	def send_screening_invitation(self, request, queryset):
