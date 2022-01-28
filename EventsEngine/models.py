@@ -6,7 +6,7 @@ from datetime import date
 import datetime
 from django.utils.text import slugify
 from .utils import create_event
-
+from django.apps import apps
 
 
 STATUS = (
@@ -42,6 +42,7 @@ class Events(models.Model):
     banner_color = models.CharField(choices = THEME, max_length = 10,default = 'Light')
     keywords = models.TextField(default = 'Event')
     open_graph_banner = models.ImageField(blank= True, null = True,)
+    total_seat = models.CharField(max_length = 10,blank = True,null = True)
     def save(self, *args, **kwargs):
         #self.title_slug = slugify(kwargs.pop('title', self.title))
         #create_event(self.title, self.start_date, self.end_date,self.description)
@@ -51,8 +52,9 @@ class Events(models.Model):
         verbose_name = "Event"
         verbose_name_plural = "Events"
         ordering = ['-end_date']
-    def update_registration(self):
-        if date.today() < self.end_date.date():
+    def update_registration(self,registered_audience):
+        event = Events.objects.get(title = self.title)
+        if (date.today() < self.end_date.date()) and (int(registered_audience) < int(event.total_seat)):
             self.registration = "Registrations Open"
         else:
             self.registration = "Registrations Closed"

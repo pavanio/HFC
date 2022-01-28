@@ -8,7 +8,7 @@ class Event_SpeakerAdmin(admin.TabularInline):
 	model = Event_Speakers
 
 class Events_Admin(SummernoteModelAdmin):
-	list_display = ( 'title','title_slug', 'start_date', 'end_date', 'description', 'agenda','status','email_confirmation' , )
+	list_display = ( 'title','title_slug', 'start_date', 'end_date', 'description', 'agenda','status','total_seat','email_confirmation', )
 	summernote_fields = ('description', 'agenda','email_confirmation')
 	exclude = ['registration','created_on']
 	inlines = [Event_SpeakerAdmin]

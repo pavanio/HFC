@@ -18,16 +18,21 @@ class EventList(generic.ListView):
         event_list = Events.objects.all().exclude(status ='Draft')
         partners = Partner.objects.all()
         for i in event_list:
-            i.update_registration()
+            audience = Community_Member.objects.filter(event = i).count()
+            event_speakers = Event_Speakers.objects.filter(event = i).count()
+            registered_audience = audience + event_speakers
+            print(registered_audience)
+            i.update_registration(registered_audience)
         return render(request, 'EventsEngine/event_list.html', {'event_list': event_list,'partners':partners})
 
 class EventDetailView(View):
     def get(self, request, title_slug):
         event = Events.objects.get(title_slug = title_slug)
-        event.update_registration()
-        contributors = Community_Member.objects.filter(type='Contributor')
+        audience = Community_Member.objects.filter(event = event)
         event_speakers = Event_Speakers.objects.filter(event = event.id)
-        print(event_speakers)
+        registered_audience = audience.count() + event_speakers.count()
+        event.update_registration(registered_audience)
+        contributors = Community_Member.objects.filter(type='Contributor')
         return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors,'event_speakers': event_speakers})
 
 class EventFeed(Feed):
