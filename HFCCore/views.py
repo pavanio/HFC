@@ -198,7 +198,7 @@ class Chapter(View):
 
 class ProjectsView(generic.ListView):
     def get(self, request):
-        projects_list = Project.objects.all().order_by('-id')
+        projects_list = Project.objects.all().exclude(status ='Draft').order_by('-id')
         issue_areas = Issue_Area.objects.all()
         partners = Partner.objects.all()
         project_partner = Project_Partner.objects.all()
