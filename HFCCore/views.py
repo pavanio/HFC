@@ -20,7 +20,7 @@ from .utils import SendSubscribeMail,mentor_signup_mail,community_member_signup_
 from django.views.generic.edit import FormView 
 from django.urls import reverse_lazy
 from blog.models import Post
-from EventsEngine.models import Events
+from EventsEngine.models import Events,Event_Speakers
 from collections import defaultdict
 import urllib
 import json
@@ -61,7 +61,10 @@ class Home(View):
         blogs = Post.objects.filter(status = 'Published')[:3]
         events = Events.objects.filter(status = 'Published')[:3]
         for event in events:
-            event.update_registration()
+            audience = Community_Member.objects.filter(event = event).count()
+            event_speakers = Event_Speakers.objects.filter(event = event).count()
+            registered_audience = audience + event_speakers
+            event.update_registration(registered_audience)
         return render(request,'HFC/hfc_home.html',{'blogs':blogs,'events':events})
 
 class ProblemStatementsView(generic.ListView):
