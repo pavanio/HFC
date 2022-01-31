@@ -35,6 +35,7 @@
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
                      <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                     <p class ="large">{{seats_left}} seats left</p>
                     {% endif %}
                 
                 </div>
@@ -54,6 +55,7 @@
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
                      <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                     <p class ="large">{{seats_left}} seats left</p>
                      {% endif %}
                 </div>
             </div>
@@ -73,7 +75,7 @@
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
                      <p><a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a></p>
-                     
+                     <p class ="large">{{seats_left}} seats left</p>
                     {% endif %}
                 </div>
             </div>

@@ -30,7 +30,7 @@
     <div class="content-width">
         <div class="main">
             <section id="contents">
-                {% for events_list in event_list  %}
+                {% for events_list,i in data %}
                 <article class="post-blog">
                      <div class="flex-container">
                         <div class="flex-item-top-left">
@@ -40,7 +40,7 @@
                             {% if events_list.registration == "Registrations Open" %}
                                 <div class="badge-sec" ><div  class="badge badge--yellow" style="background: rgba(0, 255, 0, 0.25);">{{events_list.registration}}</div>
                             {% else %}
-                                <div class="badge-sec" ><div  class="badge badge--yellow" style="background: rgba(255, 0, 0, 0.25);">{{events_list.registration}}</div>
+                                <div class="badge-sec" ><div  class="badge badge--yellow" style="background: rgba(255, 0, 0, 0.25);">{{events_list.registration}}</div>  
                             {% endif %} 
                         </div>
                     </div>

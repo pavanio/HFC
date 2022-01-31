@@ -17,13 +17,17 @@ class EventList(generic.ListView):
     def get(self, request):
         event_list = Events.objects.all().exclude(status ='Draft')
         partners = Partner.objects.all()
+        seats_left =[]
         for i in event_list:
             audience = Community_Member.objects.filter(event = i).count()
             event_speakers = Event_Speakers.objects.filter(event = i).count()
             registered_audience = audience + event_speakers
-            print(registered_audience)
+            seat_left = int(i.total_seat) - int(registered_audience)
+            print(seat_left)
+            seats_left.append(seat_left)
             i.update_registration(registered_audience)
-        return render(request, 'EventsEngine/event_list.html', {'event_list': event_list,'partners':partners})
+        data = zip(event_list,seats_left)
+        return render(request, 'EventsEngine/event_list.html', {'event_list': event_list,'partners':partners,'seats_left':seats_left,'data':data})
 
 class EventDetailView(View):
     def get(self, request, title_slug):
@@ -31,9 +35,11 @@ class EventDetailView(View):
         audience = Community_Member.objects.filter(event = event)
         event_speakers = Event_Speakers.objects.filter(event = event.id)
         registered_audience = audience.count() + event_speakers.count()
+        seats_left = int(event.total_seat) - int(registered_audience)
+        print(seats_left)
         event.update_registration(registered_audience)
         contributors = Community_Member.objects.filter(type='Contributor')
-        return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors,'event_speakers': event_speakers})
+        return render(request, 'EventsEngine/event_detail.html', {'event':event,'contributors':contributors,'event_speakers': event_speakers,'seats_left':seats_left})
 
 class EventFeed(Feed):
     title = "HackForChange Events"
