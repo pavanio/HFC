@@ -60,7 +60,10 @@ class EventFeed(Feed):
 class EventSignUpExpiredView(View):
     def get(self, request, title_slug):
         event = Events.objects.get(title_slug = title_slug)
-        event.update_registration()
+        audience = Community_Member.objects.filter(event = event).count()
+        event_speakers = Event_Speakers.objects.filter(event = event).count()
+        registered_audience = audience + event_speakers
+        event.update_registration(registered_audience)
         if event.registration == "Registrations Open":
             return redirect('event_sign_up',title_slug)
         else:
@@ -73,8 +76,11 @@ class EventSignUpView(View):
         expertise_area_id = request.GET.get('profession')
         expertises = Expertise.objects.filter(category_of_expertise = expertise_area_id,is_published = 'True')
         #form = Community_member_form()
+        audience = Community_Member.objects.filter(event = event).count()
+        event_speakers = Event_Speakers.objects.filter(event = event).count()
+        registered_audience = audience + event_speakers
         form = Event_signup_form()
-        event.update_registration()
+        event.update_registration(registered_audience)
         if event.registration == "Registrations Closed":
             return redirect('event_expired',title_slug)
         else:
@@ -159,7 +165,10 @@ class EventSignupWithGoogle(View):
         expertise_area_id = request.GET.get('profession')
         expertises = Expertise.objects.filter(category_of_expertise = expertise_area_id,is_published = 'True')
         form = Event_signup_form()
-        event.update_registration()
+        audience = Community_Member.objects.filter(event = event).count()
+        event_speakers = Event_Speakers.objects.filter(event = event).count()
+        registered_audience = audience + event_speakers
+        event.update_registration(registered_audience)
         if event.registration == "Registrations Closed":
             return redirect('event_expired',title_slug)
         else:
