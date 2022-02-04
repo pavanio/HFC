@@ -22,3 +22,4 @@ django-celery-beat==2.2.0
 django-celery-results==2.0.1
 redis==3.5.3
 django-summernote==0.8.11.6
+interakt-track-python==1.0.7
