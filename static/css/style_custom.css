@@ -16,8 +16,12 @@ input[type="checkbox"]{
     
     
 }
-
-
+.iti--allow-dropdown {
+    width: 100%;
+  }
+#id_contact_number{
+    text-indent: 25px;
+}
 
   
   

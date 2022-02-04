@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import django_heroku
 import sentry_sdk
+import track
 from sentry_sdk.integrations.django import DjangoIntegration
 sentry_sdk.init(
     dsn=os.environ.get('SENTRY_KEY_ID'),
@@ -205,6 +206,9 @@ CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 EVENT_MAILING_LIST = os.environ.get('EVENT_MAILING_LIST')
 PROGRAM_MAILING_LIST = os.environ.get('PROGRAM_MAILING_LIST')
 MEMBER_SIGNUP_MAILING_LIST = os.environ.get('MEMBER_SIGNUP_MAILING_LIST')
+
+# Interakt Api key
+track.api_key = os.environ.get('INTERAKT_API_KEY')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

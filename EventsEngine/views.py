@@ -12,6 +12,7 @@ from django.core.mail import send_mail,EmailMessage
 from datetime import date
 from .utils import event_email_internal
 from django.conf import settings
+import track
 
 class EventList(generic.ListView):
     def get(self, request):
@@ -94,7 +95,7 @@ class EventSignUpView(View):
         event = Events.objects.get(title_slug = title_slug)
         #community_org=Community_Organization.objects.get(organization_name_slug=hfc_chapter_slug)
         print(form.is_valid())
-        print(request.POST)
+        #print(request.POST)
         if form.is_valid():
             data = request.POST.getlist('name')
             print(data)
@@ -117,6 +118,18 @@ class EventSignUpView(View):
                 event_signup_mail(email,event.email_confirmation,event.title)
             except:
                 print('Error in sending email for event signup')
+            try:
+                track.user(country_code="+91",phone_number=contributor.contact_number,
+                    traits={
+		                "name": contributor.name,
+		                "email": email,
+	                    }
+                    )
+                track.event(event="Event Signup",country_code="+91",phone_number = contributor.contact_number)
+
+            except:
+                print("Error in Whatsapp messaging")
+                
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
                 event_mailing_list = settings.EVENT_MAILING_LIST
@@ -203,6 +216,17 @@ class EventSignupWithGoogle(View):
                 event_signup_mail(email,event.email_confirmation,event.title)
             except:
                 print('Error in sending email for event signup')
+            try:
+                track.user(country_code="+91",phone_number=contributor.contact_number,
+                    traits={
+		                "name": contributor.name,
+		                "email": email,
+	                    }
+                    )
+                track.event(event='Event Signup',country_code="+91",phone_number = contributor.contact_number)
+
+            except:
+                print("Error in Whatsapp messaging")
             try:
                 html_content = render_to_string('EventsEngine/event_participant_detail_internal_email.html', {'contributor':contributor, 'event':event})
                 event_mailing_list = settings.EVENT_MAILING_LIST

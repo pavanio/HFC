@@ -115,7 +115,9 @@
                         </div>
                         <div class="form-field">
                             <label for="">Contact Number</label>
-                            {{form.contact_number}}
+                            <input type="hidden" id="phone2" name="phone"/>
+                            <input type="text" name="contact_number"  required id="id_contact_number"  placeholder=" ">
+                            
                         </div>
                     </div>
                     <div class="btn-outer">
@@ -214,12 +216,15 @@
     
     } }
 
-
-   /* var name = localStorage.getItem("name");
-    var email = localStorage.getItem("email");
-    console.log(name);
-    console.log(email);
-    document.getElementById("id_name").value = name;
-    document.getElementById("id_email").value = email;*/
+    var phoneInputField = document.querySelector("#id_contact_number");
+    var phoneInput = window.intlTelInput(phoneInputField, {
+        separateDialCode:true,
+        preferredCountries:["in"],
+      utilsScript:"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    console.log()
+    $("form").submit(function() {
+    $("#phone2").val($("#id_contact_number").intlTelInput("getNumber"));
+    });
 </script>
 {% endblock %}
