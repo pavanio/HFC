@@ -27,6 +27,7 @@
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
                     <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                    <p class ="large" style ="padding-top: 1em;">{{seats_left}} seats left</p>
                    {% endif %}
                 </div>
             </div>
@@ -45,6 +46,7 @@
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
                     <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                    <p class ="large" style ="padding-top: 1em;">{{seats_left}} seats left</p>
                    {% endif %}
                 </div>
             </div>
@@ -64,6 +66,7 @@
                     </p>
                     {% if "Registrations Open" == event.registration|stringformat:"s" %}
                     <a class="btn btn--event" href="{% url 'google_login' event.title_slug  %}">Signup with Google</a>
+                    <p class ="large" style ="padding-top: 1em;">{{seats_left}} seats left</p>
                    {% endif %}
                 </div>
             </div>
@@ -120,6 +123,13 @@
                             
                         </div>
                     </div>
+                        <div class="form-control">
+                            <div class="form-field">
+                                <label for=""style="font-weight:500;">Linkedin Profile</label>
+                                {{form.linkedin_profile}}
+                            </div>
+                        </div>
+                    
                     <div class="btn-outer">
                         <input class="btn btn--info btn--full" type="submit" onClick="valthisform()" value="Signup">
                     </div>
@@ -222,9 +232,11 @@
         preferredCountries:["in"],
       utilsScript:"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
-    console.log()
+    
+    
     $("form").submit(function() {
-    $("#phone2").val($("#id_contact_number").intlTelInput("getNumber"));
+    document.getElementById("phone2").value = document.getElementById("id_contact_number").value.intlTelInput('getSelectedCountryData').dialCode;
+    $("#phone2").val($("#id_contact_number").intlTelInput('getSelectedCountryData').dialCode);
     });
 </script>
 {% endblock %}

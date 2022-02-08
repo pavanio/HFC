@@ -21,8 +21,8 @@ class EventList(generic.ListView):
         seats_left =[]
         for i in event_list:
             audience = Community_Member.objects.filter(event = i).count()
-            event_speakers = Event_Speakers.objects.filter(event = i).count()
-            registered_audience = audience + event_speakers
+            #event_speakers = Event_Speakers.objects.filter(event = i).count()
+            registered_audience = audience 
             seat_left = int(i.total_seat) - int(registered_audience)
             print(seat_left)
             seats_left.append(seat_left)
@@ -35,7 +35,7 @@ class EventDetailView(View):
         event = Events.objects.get(title_slug = title_slug)
         audience = Community_Member.objects.filter(event = event)
         event_speakers = Event_Speakers.objects.filter(event = event.id)
-        registered_audience = audience.count() + event_speakers.count()
+        registered_audience = audience.count() 
         seats_left = int(event.total_seat) - int(registered_audience)
         print(seats_left)
         event.update_registration(registered_audience)
@@ -62,8 +62,8 @@ class EventSignUpExpiredView(View):
     def get(self, request, title_slug):
         event = Events.objects.get(title_slug = title_slug)
         audience = Community_Member.objects.filter(event = event).count()
-        event_speakers = Event_Speakers.objects.filter(event = event).count()
-        registered_audience = audience + event_speakers
+        #event_speakers = Event_Speakers.objects.filter(event = event).count()
+        registered_audience = audience 
         event.update_registration(registered_audience)
         if event.registration == "Registrations Open":
             return redirect('event_sign_up',title_slug)
@@ -78,15 +78,17 @@ class EventSignUpView(View):
         expertises = Expertise.objects.filter(category_of_expertise = expertise_area_id,is_published = 'True')
         #form = Community_member_form()
         audience = Community_Member.objects.filter(event = event).count()
-        event_speakers = Event_Speakers.objects.filter(event = event).count()
-        registered_audience = audience + event_speakers
+        #event_speakers = Event_Speakers.objects.filter(event = event).count()
+        registered_audience = audience 
+        seats_left = int(event.total_seat) - int(registered_audience)
         form = Event_signup_form()
+        #print(form)
         event.update_registration(registered_audience)
         if event.registration == "Registrations Closed":
             return redirect('event_expired',title_slug)
         else:
             #print(form)
-            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises})
+            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises,'seats_left':seats_left})
             
         
     
@@ -179,13 +181,14 @@ class EventSignupWithGoogle(View):
         expertises = Expertise.objects.filter(category_of_expertise = expertise_area_id,is_published = 'True')
         form = Event_signup_form()
         audience = Community_Member.objects.filter(event = event).count()
-        event_speakers = Event_Speakers.objects.filter(event = event).count()
-        registered_audience = audience + event_speakers
+        #event_speakers = Event_Speakers.objects.filter(event = event).count()
+        registered_audience = audience 
+        seats_left = int(event.total_seat) - int(registered_audience)
         event.update_registration(registered_audience)
         if event.registration == "Registrations Closed":
             return redirect('event_expired',title_slug)
         else:
-            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises,'first_name':first_name,'email':email,'last_name':last_name})
+            return render(request, 'EventsEngine/event_signup.html', {'form':form,'event':event,'contributors':contributors,'expertises':expertises,'first_name':first_name,'email':email,'last_name':last_name,'seats_left':seats_left})
            
            
     def post(self,request,title_slug):
