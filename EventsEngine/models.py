@@ -45,7 +45,7 @@ class Events(models.Model):
     total_seat = models.CharField(max_length = 10,blank = True,null = True,default = 100)
     def save(self, *args, **kwargs):
         #self.title_slug = slugify(kwargs.pop('title', self.title))
-        create_event(self.title, self.start_date, self.end_date,self.description)
+        #create_event(self.title, self.start_date, self.end_date,self.description)
         super(Events, self).save(*args, **kwargs)
 
     class Meta:
